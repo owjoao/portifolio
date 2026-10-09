@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-# Após publicar no GitHub Pages, adicione aqui a URL absoluta do sitemap.
