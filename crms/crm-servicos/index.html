@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus CRM Serviços - Gestão Desktop, Custos de Insumos & Margens</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-feature-settings: "tnum" 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.7); border-radius: 9999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.9); border-radius: 9999px; }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(6, 182, 212, 0.6); }
+
+    /* Fast-scan KPI Cards & Smooth Animations */
+    .kpi-card-transition {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .kpi-card-transition:hover {
+      transform: translateY(-2px);
+    }
+    .progress-bar-fill {
+      transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.01); }
+    }
+    .animate-pulse-alert {
+      animation: pulseAlert 2s infinite ease-in-out;
+    }
+  </style>
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Crm Servicos",
+    "description": "Atendimento profissional especializado em Crm Servicos com agendamento rápido via WhatsApp.",
+    "telephone": "+55-32-99929-2311",
+    "url": "https://nexusflow.digital/crm-servicos/",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col md:flex-row antialiased selection:bg-cyan-500 selection:text-black transition-colors duration-200">
+
+  <!-- ========================================================================= -->
+  <!-- LEFT SIDEBAR: DESKTOP NAVIGATION, BRANDING & CONTROLS                     -->
+  <!-- ========================================================================= -->
+  <aside class="w-full md:w-72 lg:w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between shrink-0 z-40 shadow-sm md:h-screen md:sticky md:top-0 transition-colors duration-200">
+    
+    <!-- Top Branding & Switcher -->
+    <div class="p-5 border-b border-slate-100 dark:border-slate-800/80">
+      
+      <!-- Logo + Business Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-emerald-400 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-cyan-500/25 shrink-0">
+          <i class="fa-solid fa-hand-holding-medical text-xl"></i>
+        </div>
+        <div class="overflow-hidden">
+          <div class="flex items-center gap-1.5">
+            <h1 id="sidebar-company-name" class="font-extrabold text-base text-slate-900 dark:text-white tracking-tight truncate cursor-pointer hover:text-cyan-500 dark:hover:text-cyan-400 transition" onclick="openConfigModal()" title="Clique para editar o nome">
+              Clínica & Serviços
+            </h1>
+            <button onclick="openConfigModal()" class="text-xs text-slate-400 hover:text-cyan-500 p-0.5" title="Editar nome">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </div>
+          <span class="inline-flex items-center gap-1 text-[11px] font-bold text-cyan-700 dark:text-cyan-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+            CRM de Serviços
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Switch to CRM Vendas -->
+      <div class="mt-4">
+        <a href="../crm-vendas/index.html" class="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-300 transition group">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-cart-shopping text-emerald-500"></i>
+            <span>Ir para <strong>CRM Vendas</strong></span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- CTA Principal: Novo Atendimento -->
+      <div class="mt-3">
+        <button onclick="openNovoAtendimentoModal()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 transition transform active:scale-95">
+          <i class="fa-solid fa-plus text-sm"></i>
+          <span>Novo Atendimento</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Middle: Vertical Navigation Tabs -->
+    <nav class="p-3.5 space-y-1.5 flex-1 overflow-y-auto custom-scrollbar font-medium text-xs">
+      
+      <button onclick="switchTab('funil')" id="tab-btn-funil" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold transition text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/70 border border-cyan-200 dark:border-cyan-800/60 shadow-sm">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-table-columns text-base w-5 text-center"></i>
+          <span>Funil & Atendimentos</span>
+        </span>
+        <span id="badge-total-atendimentos" class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-cyan-200 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200">0</span>
+      </button>
+
+      <button onclick="switchTab('historico')" id="tab-btn-historico" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-clock-rotate-left text-base w-5 text-center text-indigo-500"></i>
+          <span>Histórico de Movimentações</span>
+        </span>
+      </button>
+
+      <button onclick="switchTab('margens')" id="tab-btn-margens" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-chart-pie text-base w-5 text-center text-emerald-500"></i>
+          <span>Análise de Margens & Lucro</span>
+        </span>
+        <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800/60">Rank</span>
+      </button>
+
+      <button onclick="switchTab('servicos')" id="tab-btn-servicos" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-list-check text-base w-5 text-center text-cyan-500"></i>
+          <span>Catálogo de Serviços & Fichas</span>
+        </span>
+      </button>
+
+      <button onclick="switchTab('insumos')" id="tab-btn-insumos" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-boxes-stacked text-base w-5 text-center text-amber-500"></i>
+          <span>Insumos & Fração (g/kg/un)</span>
+        </span>
+      </button>
+
+      <button onclick="switchTab('clientes')" id="tab-btn-clientes" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-users text-base w-5 text-center text-purple-500"></i>
+          <span>Clientes & Pacientes</span>
+        </span>
+      </button>
+
+    </nav>
+
+    <!-- Bottom Sidebar: Theme Switcher & Actions -->
+    <div class="p-4 border-t border-slate-100 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/60 space-y-2">
+      
+      <!-- THEME TOGGLE (CLARO / ESCURO) -->
+      <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:border-cyan-500 transition shadow-sm">
+        <span class="flex items-center gap-2">
+          <i id="theme-icon" class="fa-solid fa-moon text-amber-500"></i>
+          <span id="theme-label">Tema Escuro</span>
+        </span>
+        <span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono">Alternar</span>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <!-- Settings Modal Trigger -->
+        <button onclick="openConfigModal()" class="flex-1 py-2 px-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-cyan-500 dark:hover:text-cyan-400 flex items-center justify-center gap-1.5 transition">
+          <i class="fa-solid fa-sliders text-xs"></i>
+          <span>Configurações</span>
+        </button>
+
+        <!-- Return to Home -->
+        <a href="../index.html" class="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition" title="Voltar ao Portfólio">
+          <i class="fa-solid fa-house text-sm"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN WORKSPACE: TOP BAR, KPIS, ADAPTABLE DATE FILTER & TAB VIEWS          -->
+  <!-- ========================================================================= -->
+  <div class="flex-1 flex flex-col min-w-0 overflow-y-auto custom-scrollbar md:h-screen">
+    
+    <!-- TOP APP BAR: DATE CONTROLS & HEADER -->
+    <header class="bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800/80 px-4 sm:px-6 lg:px-8 py-3.5 sticky top-0 z-30 backdrop-blur-md transition-colors">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
+        
+        <!-- Active View Title & Current Context -->
+        <div>
+          <h2 id="topbar-view-title" class="font-black text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+            <span>Funil & Atendimentos</span>
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Painel Operacional com Cálculo Automático de Insumos Proporcionais.
+          </p>
+        </div>
+
+        <!-- Adaptable Date Filters Bar -->
+        <div class="flex items-center gap-2 flex-wrap text-xs">
+          <span class="text-slate-400 font-semibold flex items-center gap-1">
+            <i class="fa-regular fa-calendar"></i> Período:
+          </span>
+          <div class="inline-flex rounded-xl p-1 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
+            <button onclick="setDateFilter('tudo')" id="df-tudo" class="df-btn px-2.5 py-1 rounded-lg bg-cyan-900 text-white font-bold transition">Tudo</button>
+            <button onclick="setDateFilter('hoje')" id="df-hoje" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">Hoje</button>
+            <button onclick="setDateFilter('7d')" id="df-7d" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">7 Dias</button>
+            <button onclick="setDateFilter('30d')" id="df-30d" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">30 Dias</button>
+            <button onclick="setDateFilter('mes')" id="df-mes" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">Este Mês</button>
+          </div>
+
+          <!-- Custom range -->
+          <div class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-950 px-2 py-1 rounded-xl border border-slate-200 dark:border-slate-800 text-[11px]">
+            <span class="text-slate-400">De:</span>
+            <input type="date" id="filter-date-start" onchange="applyCustomDateFilter()" class="bg-transparent text-slate-800 dark:text-slate-200 outline-none text-[11px]">
+            <span class="text-slate-400">Até:</span>
+            <input type="date" id="filter-date-end" onchange="applyCustomDateFilter()" class="bg-transparent text-slate-800 dark:text-slate-200 outline-none text-[11px]">
+            <button onclick="clearDateFilter()" class="text-slate-400 hover:text-rose-500 p-0.5" title="Limpar filtro"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- METRIC KPI CARDS (COLORFUL DESKTOP STRIP) -->
+    <section class="px-4 sm:px-6 lg:px-8 py-5">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-3.5">
+        
+        <!-- Faturamento (Cyan) -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-cyan-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Faturamento</span>
+            <div class="w-8 h-8 rounded-xl bg-cyan-100 dark:bg-cyan-950/80 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-money-bill-wave"></i>
+            </div>
+          </div>
+          <div id="kpi-faturamento" class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-mono tracking-tight">R$ 0,00</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Total cobrado no período</span>
+        </div>
+
+        <!-- Custo de Insumos (Amber) -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-amber-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Custo Insumos</span>
+            <div class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+          </div>
+          <div id="kpi-custos" class="text-xl sm:text-2xl font-black text-amber-600 dark:text-amber-400 font-mono tracking-tight">R$ 0,00</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Gastos fracionados (g/kg/un)</span>
+        </div>
+
+        <!-- Lucro Líquido / Prejuízo (Dinâmico) -->
+        <div id="kpi-card-lucro" class="kpi-card-transition bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-emerald-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span id="kpi-lucro-title" class="text-[11px] font-bold uppercase tracking-wider">Lucro Líquido Real</span>
+            <div id="kpi-lucro-icon-box" class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs">
+              <i id="kpi-lucro-icon" class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+          </div>
+          <div id="kpi-lucro" class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono tracking-tight">R$ 0,00</div>
+          <span id="kpi-lucro-desc" class="text-[11px] text-emerald-600 dark:text-emerald-400 mt-1 block font-semibold flex items-center gap-1">
+            <i class="fa-solid fa-circle-check text-[9px]"></i> Faturamento - Custos
+          </span>
+        </div>
+
+        <!-- Margem Média (Cyan/Blue) -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-cyan-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Margem Média</span>
+            <div class="w-8 h-8 rounded-xl bg-cyan-100 dark:bg-cyan-950/80 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+          </div>
+          <div id="kpi-margem" class="text-xl sm:text-2xl font-black text-cyan-600 dark:text-cyan-300 font-mono tracking-tight">0.0%</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Rentabilidade sobre o serviço</span>
+        </div>
+
+        <!-- Atendimentos Concluídos (Purple) -->
+        <div class="col-span-2 lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-purple-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Atendimentos</span>
+            <div class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-check-double"></i>
+            </div>
+          </div>
+          <div id="kpi-atendimentos" class="text-xl sm:text-2xl font-black text-purple-600 dark:text-purple-300 font-mono tracking-tight">0</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Ticket Médio: <strong id="kpi-ticket" class="text-slate-800 dark:text-slate-200">R$ 0,00</strong></span>
+        </div>
+      </div>
+
+      <!-- TERMÔMETRO VISUAL DE RENTABILIDADE (GRÁFICO ANIMADO PARA VISUALIZAÇÃO RÁPIDA) -->
+      <div class="mt-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-100 dark:border-slate-800/80">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-base font-bold shrink-0">
+              <i class="fa-solid fa-chart-column"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                  Termômetro de Rentabilidade em Tempo Real
+                </h3>
+                <span id="health-semaphore-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-normal uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Operação Altamente Lucrativa
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">Visão executiva imediata: proporção entre o dinheiro que fica no caixa (Lucro) vs custos operacionais</p>
+            </div>
+          </div>
+          
+          <!-- Quick Legend with dynamic values -->
+          <div class="flex items-center gap-4 text-xs font-mono shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-md bg-emerald-500 shrink-0"></span>
+              <span class="text-slate-500 dark:text-slate-400 font-sans text-[11px]">Lucro Líquido:</span>
+              <strong id="bar-legend-lucro" class="text-emerald-600 dark:text-emerald-400 font-bold">R$ 0,00 (0%)</strong>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-md bg-amber-500 shrink-0"></span>
+              <span class="text-slate-500 dark:text-slate-400 font-sans text-[11px]">Custo Insumos:</span>
+              <strong id="bar-legend-custo" class="text-amber-600 dark:text-amber-400 font-bold">R$ 0,00 (0%)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Proportion Bar -->
+        <div class="space-y-1.5">
+          <div class="w-full bg-slate-100 dark:bg-slate-950 h-5 sm:h-6 rounded-xl overflow-hidden p-0.5 border border-slate-200 dark:border-slate-800 flex gap-0.5">
+            <div id="chart-bar-lucro" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-lg transition-all duration-1000 ease-out flex items-center justify-center px-2 text-[10px] font-bold text-slate-950 font-mono shadow-sm" style="width: 0%;" title="Lucro Líquido"></div>
+            <div id="chart-bar-custo" class="h-full bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg transition-all duration-1000 ease-out flex items-center justify-center px-2 text-[10px] font-bold text-slate-950 font-mono shadow-sm" style="width: 0%;" title="Custos"></div>
+          </div>
+          <div class="flex justify-between items-center text-[10px] text-slate-400 font-mono px-1">
+            <span>0% (Custo Zero)</span>
+            <span id="chart-bar-hint" class="font-sans font-semibold text-slate-600 dark:text-slate-300">Retenção de caixa: 88.6%</span>
+            <span>100% (Faturamento Total)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT PANES -->
+    <main class="px-4 sm:px-6 lg:px-8 pb-16 flex-1 w-full">
+
+      <!-- ==================== TAB 1: FUNIL KANBAN ==================== -->
+      <div id="tab-content-funil" class="tab-pane">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <input type="text" id="search-funil" oninput="renderKanban()" placeholder="Buscar cliente ou serviço..." class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:border-cyan-500 outline-none w-56 sm:w-80 shadow-sm">
+          </div>
+          <button onclick="openNovoAtendimentoModal()" class="px-3.5 py-2 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-cyan-500/20">
+            <i class="fa-solid fa-plus"></i> <span>Novo Atendimento</span>
+          </button>
+        </div>
+
+        <!-- 5 KANBAN COLUMNS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto pb-4 custom-scrollbar">
+          
+          <!-- Col 1: Novo Contato -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[260px] shadow-sm">
+            <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                <span>1. Novo Contato</span>
+              </div>
+              <span id="col-count-novo" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="kanban-col-novo" class="flex-1 space-y-3 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 2: Agendado / Avaliação -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[260px] shadow-sm">
+            <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
+                <span>2. Agendado / Avaliação</span>
+              </div>
+              <span id="col-count-agendado" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="kanban-col-agendado" class="flex-1 space-y-3 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 3: Em Execução -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[260px] shadow-sm">
+            <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+                <span>3. Em Execução</span>
+              </div>
+              <span id="col-count-execucao" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="kanban-col-execucao" class="flex-1 space-y-3 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 4: Concluído & Faturado -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[260px] shadow-sm">
+            <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span>4. Concluído & Faturado</span>
+              </div>
+              <span id="col-count-concluido" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="kanban-col-concluido" class="flex-1 space-y-3 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 5: Cancelado -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[260px] shadow-sm">
+            <div class="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span>5. Cancelado</span>
+              </div>
+              <span id="col-count-cancelado" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="kanban-col-cancelado" class="flex-1 space-y-3 min-h-[350px]"></div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 2: HISTÓRICO DE MOVIMENTAÇÕES ==================== -->
+      <div id="tab-content-historico" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-clock-rotate-left text-cyan-500"></i>
+                <span>Histórico de Movimentações, Insumos & Custos</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Auditoria financeira detalhada de cada serviço executado e insumos consumidos.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="text" id="search-historico" oninput="renderHistorico()" placeholder="Filtrar histórico..." class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200 outline-none focus:border-cyan-500 w-48 shadow-sm">
+              <button onclick="exportarHistoricoCSV()" class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition flex items-center gap-1.5">
+                <i class="fa-solid fa-file-csv text-emerald-500 text-sm"></i>
+                <span>Exportar CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Table of movements -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 custom-scrollbar">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr>
+                  <th class="py-3.5 px-3.5">Data / Hora</th>
+                  <th class="py-3.5 px-3.5">Cliente</th>
+                  <th class="py-3.5 px-3.5">Serviço Realizado</th>
+                  <th class="py-3.5 px-3.5">Insumos Gastos na Operação</th>
+                  <th class="py-3.5 px-3.5 text-right">Valor Cobrado</th>
+                  <th class="py-3.5 px-3.5 text-right">Custo Insumos</th>
+                  <th class="py-3.5 px-3.5 text-right">Lucro Líquido</th>
+                  <th class="py-3.5 px-3.5 text-center">Margem (%)</th>
+                  <th class="py-3.5 px-3.5 text-center">Status</th>
+                  <th class="py-3.5 px-3.5 text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="historico-tbody" class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-200">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="historico-empty" class="hidden py-12 text-center text-slate-400 text-xs">
+            <i class="fa-solid fa-box-open text-3xl mb-2 text-slate-400 dark:text-slate-600 block"></i>
+            Nenhuma movimentação registrada no período selecionado.
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 3: ANÁLISE DE MARGENS & PERFORMANCE ==================== -->
+      <div id="tab-content-margens" class="tab-pane hidden">
+        <div class="space-y-6">
+          
+          <!-- Header summary for Margins -->
+          <div class="bg-gradient-to-r from-cyan-500/10 via-emerald-500/10 to-transparent bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-950 px-2.5 py-0.5 rounded-full border border-cyan-300 dark:border-cyan-800">
+                  Inteligência de Rentabilidade
+                </span>
+                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1.5">Ranking de Serviços por Margem de Lucro</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Descubra quais serviços geram o maior retorno percentual e maior lucro em reais no seu caixa.</p>
+              </div>
+              
+              <div class="flex items-center gap-2 text-xs">
+                <span class="text-slate-500 dark:text-slate-400 font-semibold">Ordenar por:</span>
+                <select id="sort-margens" onchange="renderMargens()" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-cyan-500 font-medium">
+                  <option value="melhor_margem">🏆 Melhor Margem (%)</option>
+                  <option value="maior_lucro">💰 Maior Lucro em R$</option>
+                  <option value="mais_realizados">🔥 Mais Realizados (Volume)</option>
+                  <option value="maior_faturamento">📈 Maior Faturamento</option>
+                  <option value="maior_custo">⚠️ Maior Custo de Insumos</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Margin Cards Grid & Visual Comparisons -->
+          <div id="margens-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Rendered via JS -->
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 4: CATÁLOGO DE SERVIÇOS & FICHAS TÉCNICAS ==================== -->
+      <div id="tab-content-servicos" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-cyan-500"></i>
+                <span>Catálogo de Procedimentos & Fichas de Custo</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Cadastre seus serviços e vincule os insumos padrão para cálculo automático de margem.</p>
+            </div>
+            <button onclick="openNovoServicoModal()" class="px-3.5 py-2 bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-cyan-500/20">
+              <i class="fa-solid fa-plus"></i> <span>Novo Serviço</span>
+            </button>
+          </div>
+
+          <div id="servicos-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 5: INSUMOS & ESTOQUE (PROPORCIONALIDADE) ==================== -->
+      <div id="tab-content-insumos" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-boxes-stacked text-amber-500"></i>
+                <span>Insumos, Materiais & Padronização de Custos (g/kg/mg/L/un)</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Cadastre o pacote de compra (ex: 1 kg por R$ 100,00). O sistema calcula automaticamente frações como 100g (R$ 10,00) nos atendimentos!
+              </p>
+            </div>
+            <button onclick="openNovoInsumoModal()" class="px-3.5 py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-cyan-500/20">
+              <i class="fa-solid fa-plus"></i> <span>Novo Insumo / Material</span>
+            </button>
+          </div>
+
+          <!-- Table of Insumos -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 custom-scrollbar">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr>
+                  <th class="py-3.5 px-3.5">Nome do Insumo / Material</th>
+                  <th class="py-3.5 px-3.5">Tipo de Medida</th>
+                  <th class="py-3.5 px-3.5">Embalagem Compra</th>
+                  <th class="py-3.5 px-3.5 text-right">Preço Pago</th>
+                  <th class="py-3.5 px-3.5 text-right">Custo Base Calculado</th>
+                  <th class="py-3.5 px-3.5 text-center">Exemplo de Fração</th>
+                  <th class="py-3.5 px-3.5 text-center">Estoque Atual</th>
+                  <th class="py-3.5 px-3.5 text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="insumos-tbody" class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-200">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 6: CLIENTES ==================== -->
+      <div id="tab-content-clientes" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-users text-purple-500"></i>
+                <span>Gestão de Clientes & Pacientes</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Histórico de atendimentos realizados, total investido e canal direto de WhatsApp.</p>
+            </div>
+            <button onclick="openNovoClienteModal()" class="px-3.5 py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-cyan-500/20">
+              <i class="fa-solid fa-plus"></i> <span>Novo Cliente</span>
+            </button>
+          </div>
+
+          <div id="clientes-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- MODAL: NOVO / EDITAR ATENDIMENTO -->
+  <div id="modal-atendimento" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-2xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-atendimento-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check text-cyan-500"></i>
+          <span>Registrar Atendimento</span>
+        </h3>
+        <button onclick="closeModal('modal-atendimento')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="atend-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Cliente *</label>
+            <div class="flex gap-2">
+              <select id="atend-cliente" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500"></select>
+              <button type="button" onclick="openNovoClienteModal(true)" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 border border-slate-300 dark:border-slate-700 rounded-xl" title="Cadastrar cliente rápido">
+                <i class="fa-solid fa-user-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Data e Hora *</label>
+            <input type="datetime-local" id="atend-data" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Serviço Principal *</label>
+            <select id="atend-servico" onchange="onServicoSelecionadoNoAtendimento()" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500"></select>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Status na Esteira</label>
+            <select id="atend-status" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+              <option value="novo">1. Novo Contato</option>
+              <option value="agendado">2. Agendado / Avaliação</option>
+              <option value="execucao">3. Em Execução</option>
+              <option value="concluido" selected>4. Concluído & Faturado</option>
+              <option value="cancelado">5. Cancelado</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Valores Financeiros -->
+        <div class="p-3.5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <i class="fa-solid fa-calculator text-cyan-500"></i> Composição Financeira da Operação
+            </span>
+            <span id="atend-resumo-margem" class="font-mono text-emerald-600 dark:text-emerald-400 font-bold">Margem: 0%</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block text-slate-500 dark:text-slate-400 mb-1">Valor Cobrado (R$)</label>
+              <input type="number" step="0.01" id="atend-valor" oninput="recalcularValoresAtendimento()" class="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-900 dark:text-white font-mono font-bold w-full outline-none focus:border-cyan-500">
+            </div>
+            <div>
+              <label class="block text-slate-500 dark:text-slate-400 mb-1">Custo Insumos (R$)</label>
+              <input type="number" step="0.01" id="atend-custo" readonly class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-800 rounded-xl p-2 text-amber-600 dark:text-amber-400 font-mono font-bold w-full cursor-not-allowed">
+            </div>
+            <div>
+              <label class="block text-slate-500 dark:text-slate-400 mb-1">Lucro Líquido (R$)</label>
+              <input type="number" step="0.01" id="atend-lucro" readonly class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-800 rounded-xl p-2 text-emerald-600 dark:text-emerald-400 font-mono font-bold w-full cursor-not-allowed">
+            </div>
+          </div>
+        </div>
+
+        <!-- Insumos específicos consumidos neste atendimento -->
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="font-semibold flex items-center gap-1">
+              <i class="fa-solid fa-vial text-cyan-500"></i> Insumos gastos especificamente neste cliente:
+            </label>
+            <button type="button" onclick="adicionarLinhaInsumoAtendimento()" class="text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-semibold">
+              + Adicionar Insumo Extra
+            </button>
+          </div>
+          <div id="atend-insumos-container" class="space-y-2 bg-slate-50 dark:bg-slate-950 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 max-h-48 overflow-y-auto custom-scrollbar">
+            <!-- Dynamic rows of consumables -->
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">Observações do Atendimento / Histórico Clínico ou Técnico</label>
+          <textarea id="atend-obs" rows="2" placeholder="Ex: Paciente com gengiva saudável, retorno semestral agendado..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500"></textarea>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-atendimento')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarAtendimento()" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition">Salvar Atendimento</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: NOVO / EDITAR SERVIÇO (FICHA TÉCNICA) -->
+  <div id="modal-servico" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-servico-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-list-check text-cyan-500"></i>
+          <span>Novo Serviço & Ficha Técnica</span>
+        </h3>
+        <button onclick="closeModal('modal-servico')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="serv-id">
+
+        <div>
+          <label class="block font-semibold mb-1">Nome do Serviço / Procedimento *</label>
+          <input type="text" id="serv-nome" placeholder="Ex: Limpeza Dental Completa, Troca de Óleo, Consulta Especialista..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-white w-full outline-none focus:border-cyan-500 font-bold text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Categoria</label>
+            <input type="text" id="serv-categoria" placeholder="Ex: Odontologia, Estética, Mecânica..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Preço Sugerido / Cobrado (R$) *</label>
+            <input type="number" step="0.01" id="serv-preco" oninput="recalcularFichaTecnicaModal()" placeholder="0,00" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-emerald-600 dark:text-emerald-400 font-mono font-bold w-full outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+        <!-- Ficha Técnica de Insumos Padrão -->
+        <div class="p-3.5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-flask text-cyan-500"></i> Ficha Técnica de Insumos Gastos por Operação
+              </span>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">Materiais consumidos nesta operação por padrão.</p>
+            </div>
+            <button type="button" onclick="adicionarInsumoFichaTecnica()" class="px-2.5 py-1 bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800 rounded-lg font-semibold text-[11px]">
+              + Adicionar Insumo
+            </button>
+          </div>
+
+          <div id="ficha-insumos-container" class="space-y-2 max-h-48 overflow-y-auto custom-scrollbar">
+            <!-- Dynamic rows of standard consumables -->
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800 font-mono text-xs">
+            <span class="text-slate-500 dark:text-slate-400">Custo Total: <strong id="ficha-custo-total" class="text-amber-600 dark:text-amber-400">R$ 0,00</strong></span>
+            <span class="text-slate-500 dark:text-slate-400">Lucro Estimado: <strong id="ficha-lucro-estimado" class="text-emerald-600 dark:text-emerald-400">R$ 0,00</strong> (<span id="ficha-margem-estimada">0%</span>)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-servico')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarServico()" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition">Salvar Serviço</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: NOVO / EDITAR INSUMO (PADRONIZAÇÃO g/kg/mg/L/ml/un) -->
+  <div id="modal-insumo" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-insumo-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-boxes-stacked text-amber-500"></i>
+          <span>Novo Insumo & Cálculo Proporcional</span>
+        </h3>
+        <button onclick="closeModal('modal-insumo')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="ins-id">
+
+        <div>
+          <label class="block font-semibold mb-1">Nome do Insumo / Material *</label>
+          <input type="text" id="ins-nome" placeholder="Ex: Bicarbonato de Sódio, Pasta Profilática, Resina..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-white w-full outline-none focus:border-cyan-500 font-bold text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Tipo de Medida *</label>
+            <select id="ins-tipo-unidade" onchange="onTipoUnidadeChange()" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+              <option value="peso">Peso (kg / g / mg)</option>
+              <option value="volume">Volume (L / ml)</option>
+              <option value="unidade">Unidade / Peça / Caixa (un / cx / tubo)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Unidade Comprada *</label>
+            <select id="ins-unidade-compra" onchange="recalcularCustoUnitarioInsumoModal()" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500"></select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Qtd no Pacote Comprado *</label>
+            <input type="number" step="any" id="ins-qtd-compra" oninput="recalcularCustoUnitarioInsumoModal()" value="1" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-900 dark:text-white font-mono font-bold w-full outline-none focus:border-cyan-500">
+            <span class="text-[10px] text-slate-400">Ex: 1 para 1kg, 500 para 500g</span>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Preço Pago na Embalagem (R$) *</label>
+            <input type="number" step="0.01" id="ins-preco-compra" oninput="recalcularCustoUnitarioInsumoModal()" placeholder="0,00" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-emerald-600 dark:text-emerald-400 font-mono font-bold w-full outline-none focus:border-cyan-500">
+            <span class="text-[10px] text-slate-400">Valor total na nota</span>
+          </div>
+        </div>
+
+        <!-- Proportional Cost Preview Box -->
+        <div class="p-3.5 bg-cyan-50 dark:bg-cyan-950/40 rounded-2xl border border-cyan-200 dark:border-cyan-800/60 space-y-1.5 font-mono">
+          <div class="flex items-center justify-between text-cyan-800 dark:text-cyan-300 font-bold">
+            <span>Custo Base por Fração:</span>
+            <span id="ins-preview-base" class="text-slate-900 dark:text-white font-black">R$ 0,00</span>
+          </div>
+          <div id="ins-preview-conversoes" class="text-[11px] text-slate-600 dark:text-slate-300 space-y-0.5">
+            <!-- Conversions shown dynamically -->
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Estoque Atual</label>
+            <input type="number" step="any" id="ins-estoque-atual" value="10" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Estoque Mínimo (Alerta)</label>
+            <input type="number" step="any" id="ins-estoque-minimo" value="2" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-insumo')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarInsumo()" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition">Salvar Insumo</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: NOVO / EDITAR CLIENTE -->
+  <div id="modal-cliente" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-md max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-cliente-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-user-plus text-purple-500"></i>
+          <span>Novo Cliente</span>
+        </h3>
+        <button onclick="closeModal('modal-cliente')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-3 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="cli-id">
+        <div>
+          <label class="block font-semibold mb-1">Nome Completo *</label>
+          <input type="text" id="cli-nome" placeholder="Ex: Roberto Silva" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-white w-full outline-none focus:border-cyan-500">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">WhatsApp / Telefone *</label>
+          <input type="text" id="cli-telefone" placeholder="(32) 99929-2311" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">E-mail</label>
+          <input type="email" id="cli-email" placeholder="cliente@exemplo.com" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">Cidade / Bairro</label>
+          <input type="text" id="cli-cidade" placeholder="Ex: Juiz de Fora - MG" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-cliente')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarCliente()" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition">Salvar Cliente</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: CONFIGURAÇÕES & BACKUP -->
+  <div id="modal-config" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-cyan-500"></i>
+          <span>Configurações & Backup dos Dados</span>
+        </h3>
+        <button onclick="closeModal('modal-config')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <div>
+          <label class="block font-semibold mb-1">Nome da Empresa / Profissional *</label>
+          <input type="text" id="cfg-nome-empresa" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white w-full outline-none focus:border-cyan-500 font-bold">
+          <span class="text-[10px] text-slate-400">Personalize o nome da sua clínica, escritório ou empresa.</span>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">WhatsApp Padrão para Contato dos Clientes</label>
+          <input type="text" id="cfg-whatsapp" value="32999292311" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-cyan-500">
+        </div>
+
+        <div class="p-3.5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
+          <span class="font-bold block">Backup & Migração dos Dados</span>
+          <p class="text-[11px] text-slate-400">Seus dados ficam 100% salvos no seu navegador. Exporte ou importe o arquivo JSON a qualquer momento.</p>
+          <div class="flex items-center gap-2 pt-1">
+            <button onclick="exportarBackupJSON()" class="px-3.5 py-2 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl font-semibold flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-download text-cyan-500"></i> Exportar Dados (JSON)
+            </button>
+            <label class="px-3.5 py-2 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl font-semibold flex items-center gap-1.5 cursor-pointer shadow-sm">
+              <i class="fa-solid fa-upload text-emerald-500"></i> Importar Dados (JSON)
+              <input type="file" id="cfg-import-file" onchange="importarBackupJSON(event)" accept=".json" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <div class="p-3.5 bg-rose-50 dark:bg-rose-950/30 rounded-2xl border border-rose-200 dark:border-rose-900/40 space-y-2">
+          <span class="font-bold text-rose-700 dark:text-rose-300 block">Área de Redefinição</span>
+          <div class="flex items-center gap-2">
+            <button onclick="resetarDadosExemplo()" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/60 hover:bg-amber-200 dark:hover:bg-amber-800 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700/60 rounded-xl font-semibold">
+              <i class="fa-solid fa-rotate-left"></i> Carregar Exemplo
+            </button>
+            <button onclick="limparTodosDados()" class="px-3 py-1.5 bg-rose-100 dark:bg-rose-900/60 hover:bg-rose-200 dark:hover:bg-rose-800 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700/60 rounded-xl font-semibold">
+              <i class="fa-solid fa-trash-can"></i> Limpar Tudo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-config')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarConfiguracoes()" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition">Salvar Configurações</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script src="crm_servicos.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('section').forEach(sec => {
+          gsap.from(sec, {
+            opacity: 0.9,
+            y: 15,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 88%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM CONVERSION DOCK (CULT UI 1-CLICK CONVERSION)                -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-stone-900/95 backdrop-blur-md border-t border-stone-800 p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="shimmer-btn flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+      <i class="fa-brands fa-whatsapp text-sm"></i>
+      <span>Falar no WhatsApp</span>
+    </a>
+    <a href="#contato" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center border border-white/15">
+      <i class="fa-solid fa-calendar-check text-xs"></i>
+    </a>
+  </div>
+
+</body>
+</html>

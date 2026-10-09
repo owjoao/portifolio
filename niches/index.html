@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shen Zen Acupuntura | Medicina Oriental Contemporânea & Bem-Estar</title>
+  <meta name="description" content="Terapias orientais integrativas para transformar tensão, dor crônica e estresse em equilíbrio profundo. Atendimento acolhedor com agulhas siliconadas ultrafinas e medicina tradicional chinesa em São Paulo." />
+
+  <!-- Canonical & OpenGraph -->
+  <meta property="og:title" content="Shen Zen Acupuntura | Medicina Oriental Contemporânea" />
+  <meta property="og:description" content="Seu corpo pede alívio. Sua mente também. Sessões de acupuntura personalizada, ventosaterapia e auriculoterapia com foco no bem-estar integral." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            zen: {
+              black: '#070D09',
+              dark: '#0B130E',
+              deep: '#112017',
+              card: '#15261C',
+              cardhover: '#1B3124',
+              border: '#223A2B',
+              borderlight: '#2E4C3A',
+              gold: '#C9A86A',
+              'gold-light': '#DFBD83',
+              'gold-dark': '#9A7B42',
+              sage: '#97B09F',
+              'sage-light': '#B2C5B8',
+              sand: '#ECE8DF',
+              'warm-white': '#F9F7F2',
+              muted: '#C5C0B6'
+            }
+          },
+          animation: {
+            'ticker': 'ticker 45s linear infinite',
+            'breathe': 'breathe 9s ease-in-out infinite',
+            'float': 'float 7s ease-in-out infinite',
+            'pulse-gentle': 'pulseGentle 6s ease-in-out infinite',
+          },
+          keyframes: {
+            ticker: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            breathe: {
+              '0%, 100%': { transform: 'scale(1) rotate(0deg)', opacity: '0.18' },
+              '50%': { transform: 'scale(1.06) rotate(2deg)', opacity: '0.32' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            pulseGentle: {
+              '0%, 100%': { opacity: '0.25', transform: 'scale(0.98)' },
+              '50%': { opacity: '0.55', transform: 'scale(1.02)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth rendering & typography adjustments */
+    body {
+      background-color: #070D09;
+      color: #F9F7F2;
+      overflow-x: hidden;
+    }
+
+    /* Refined nav item organic line microinteraction */
+    .zen-nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #C9A86A, transparent);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .zen-nav-item:hover::after {
+      width: 100%;
+    }
+
+    /* Subtle Qi flow background lines */
+    .qi-grid {
+      background-size: 80px 80px;
+      background-image: 
+        radial-gradient(circle at center, rgba(201, 168, 106, 0.08) 1px, transparent 1px);
+    }
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-ticker, .animate-breathe, .animate-float, .animate-pulse-gentle {
+        animation: none !important;
+      }
+      html {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Equilíbrio Oriental • Acupuntura & Medicina Tradicional Chinesa",
+  "description": "Tratamentos integrativos com acupuntura médica, ventosaterapia, moxabustão e alívio de estresse e dores crônicas.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/acupunturista/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+
+<body class="bg-zen-black text-zen-warm-white font-sans antialiased selection:bg-zen-gold selection:text-zen-black">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HEADER RECONSTRUÍDO (DESKTOP & MOBILE COM SCROLL DINÂMICO)             -->
+  <!-- ========================================================================= -->
+  <header id="zen-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out bg-gradient-to-b from-[#070D09]/95 via-[#070D09]/75 to-transparent">
+    <div id="header-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-500">
+      
+      <!-- Brand Logo: SHEN ZEN em destaque + subtítulo Acupuntura & Medicina Oriental -->
+      <a href="#hero" class="flex items-center gap-3.5 group focus:outline-none shrink-0" aria-label="Shen Zen Início">
+        <div class="w-11 h-11 rounded-full border border-zen-gold/40 bg-zen-deep text-zen-gold-light flex items-center justify-center text-lg shadow-[0_0_15px_rgba(201,168,106,0.15)] group-hover:border-zen-gold transition-colors duration-300">
+          <i class="fa-solid fa-yin-yang text-base"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-playfair text-xl sm:text-2xl text-zen-warm-white tracking-[0.16em] font-normal leading-tight group-hover:text-zen-gold-light transition-colors">
+            SHEN ZEN
+          </span>
+          <span class="text-[8.5px] font-sans tracking-[0.22em] uppercase text-zen-gold font-semibold mt-0.5">
+            Acupuntura & Medicina Oriental
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation: TRATAMENTOS, COMO FUNCIONA, TÉCNICAS, BENEFÍCIOS, FAQ -->
+      <nav class="hidden lg:flex items-center gap-8 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-zen-muted" aria-label="Navegação Principal">
+        <a href="#meridianos" class="zen-nav-item hover:text-zen-warm-white transition-colors py-2 relative">
+          Tratamentos
+        </a>
+        <a href="#como-funciona" class="zen-nav-item hover:text-zen-warm-white transition-colors py-2 relative">
+          Como Funciona
+        </a>
+        <a href="#tecnicas" class="zen-nav-item hover:text-zen-warm-white transition-colors py-2 relative">
+          Técnicas
+        </a>
+        <a href="#beneficios" class="zen-nav-item hover:text-zen-warm-white transition-colors py-2 relative">
+          Benefícios
+        </a>
+        <a href="#faq" class="zen-nav-item hover:text-zen-warm-white transition-colors py-2 relative">
+          FAQ
+        </a>
+      </nav>
+
+      <!-- Desktop CTA: Maior contraste do header, nobre e elegante -->
+      <div class="hidden sm:flex items-center gap-4 shrink-0">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20na%20Shen%20Zen%20Acupuntura." target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-zen-gold via-zen-gold-light to-zen-gold text-zen-black font-bold text-xs uppercase tracking-wider shadow-[0_4px_20px_rgba(201,168,106,0.25)] hover:shadow-[0_6px_25px_rgba(201,168,106,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+          <span>Agendar Sessão</span>
+          <i class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform duration-300"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="zen-mobile-toggle" aria-label="Abrir Menu" class="lg:hidden p-2.5 rounded-xl bg-zen-deep/80 border border-zen-border text-zen-gold-light hover:text-white transition-colors">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay (Acessível, fora do header para viewport 100%) -->
+  <div id="zen-mobile-drawer" class="fixed inset-0 z-[100] bg-[#070D09]/98 backdrop-blur-2xl transition-all duration-400 lg:hidden flex flex-col p-6 overflow-y-auto pointer-events-none opacity-0" aria-modal="true" role="dialog">
+    <div class="flex items-center justify-between pb-6 border-b border-zen-border">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full border border-zen-gold/40 bg-zen-deep text-zen-gold-light flex items-center justify-center text-base">
+          <i class="fa-solid fa-yin-yang"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-playfair text-xl text-zen-warm-white tracking-[0.16em]">SHEN ZEN</span>
+          <span class="text-[8px] font-sans tracking-[0.2em] uppercase text-zen-gold">Acupuntura</span>
+        </div>
+      </div>
+      <button id="zen-drawer-close" aria-label="Fechar Menu" class="p-2.5 rounded-xl bg-zen-deep border border-zen-border text-zen-gold-light hover:text-white">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Links -->
+    <div class="py-8 flex flex-col gap-6 text-lg font-playfair tracking-wide text-zen-warm-white">
+      <a href="#meridianos" class="mobile-zen-link flex items-center justify-between py-2 border-b border-zen-border/50 hover:text-zen-gold transition-colors">
+        <span>Tratamentos</span>
+        <span class="text-xs font-sans text-zen-gold font-bold">01</span>
+      </a>
+      <a href="#como-funciona" class="mobile-zen-link flex items-center justify-between py-2 border-b border-zen-border/50 hover:text-zen-gold transition-colors">
+        <span>Como Funciona</span>
+        <span class="text-xs font-sans text-zen-gold font-bold">02</span>
+      </a>
+      <a href="#tecnicas" class="mobile-zen-link flex items-center justify-between py-2 border-b border-zen-border/50 hover:text-zen-gold transition-colors">
+        <span>Técnicas</span>
+        <span class="text-xs font-sans text-zen-gold font-bold">03</span>
+      </a>
+      <a href="#beneficios" class="mobile-zen-link flex items-center justify-between py-2 border-b border-zen-border/50 hover:text-zen-gold transition-colors">
+        <span>Benefícios</span>
+        <span class="text-xs font-sans text-zen-gold font-bold">04</span>
+      </a>
+      <a href="#faq" class="mobile-zen-link flex items-center justify-between py-2 border-b border-zen-border/50 hover:text-zen-gold transition-colors">
+        <span>Perguntas Frequentes (FAQ)</span>
+        <span class="text-xs font-sans text-zen-gold font-bold">05</span>
+      </a>
+    </div>
+
+    <!-- Mobile Bottom CTA -->
+    <div class="mt-auto pt-6 border-t border-zen-border space-y-4 text-center">
+      <div class="text-xs text-zen-sage font-sans">
+        <i class="fa-brands fa-whatsapp text-emerald-400 mr-1.5"></i> Atendimento: (32) 99929-2311
+      </div>
+      <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20na%20Shen%20Zen%20Acupuntura." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-zen-gold to-zen-gold-light text-zen-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+        <span>Agendar Sessão</span>
+        <i class="fa-solid fa-arrow-right text-[11px]"></i>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO — PRIMEIRA DOBRA EDITORIAL PREMIUM DE MEDICINA ORIENTAL            -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative min-h-[92vh] flex items-center pt-28 sm:pt-32 pb-16 lg:pb-24 overflow-hidden border-b border-zen-border/60">
+    
+    <!-- Background Qi Aura & Ambient Lighting -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 right-0 w-[550px] sm:w-[700px] h-[550px] sm:h-[700px] bg-gradient-to-b from-zen-deep/50 via-zen-border/20 to-transparent rounded-full blur-3xl opacity-60 animate-pulse-gentle"></div>
+      <div class="absolute bottom-0 left-0 w-[450px] h-[450px] bg-gradient-to-t from-zen-deep/30 to-transparent rounded-full blur-2xl opacity-40"></div>
+      
+      <!-- SVG Qi Circulation Lines (Sutil circulação dos meridianos) -->
+      <svg class="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-20 animate-breathe hidden md:block" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="350" cy="350" r="140" stroke="#C9A86A" stroke-width="1" stroke-dasharray="4 8" />
+        <circle cx="350" cy="350" r="230" stroke="#DFBD83" stroke-width="0.75" />
+        <circle cx="350" cy="350" r="320" stroke="#8FA89B" stroke-width="0.75" stroke-dasharray="6 12" />
+        <path d="M 120,350 Q 350,150 580,350 Q 350,550 120,350" stroke="#C9A86A" stroke-width="0.5" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- ESQUERDA: Selo, Headline Emocional, Subtítulo, CTAs e Indicadores de Confiança -->
+        <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+          
+          <!-- Selo (Eyebrow) -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zen-deep/90 border border-zen-gold/30 text-zen-gold-light text-xs font-semibold tracking-wider uppercase shadow-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-zen-gold animate-pulse"></span>
+            <span>Medicina Oriental Contemporânea · São Paulo</span>
+          </div>
+
+          <!-- Headline (H1 Único, Hierarquia Emocional e Impacto Editorial) -->
+          <h1 class="font-playfair text-4xl sm:text-5xl lg:text-[3.85rem] font-normal leading-[1.12] tracking-tight text-zen-warm-white">
+            Seu corpo pede alívio.<br />
+            <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-zen-gold-light via-zen-gold to-amber-200">
+              Sua mente também.
+            </span>
+          </h1>
+
+          <!-- Complemento / Subtítulo Otimizado para Clareza & Intenção -->
+          <p class="text-zen-muted text-base sm:text-lg leading-relaxed max-w-xl font-light">
+            Terapias orientais integrativas para transformar tensão muscular, dor crônica e sobrecarga emocional em equilíbrio profundo. Atendimento acolhedor com agulhas siliconadas ultrafinas de calibre capilar — restaurando sua energia vital (Qi) com máxima suavidade e segurança.
+          </p>
+
+          <!-- Ações: CTA Principal + CTA Secundário + Microlinha de Confiança -->
+          <div class="space-y-4 pt-2">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <!-- CTA Principal -->
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20acupuntura%20na%20Shen%20Zen." target="_blank" rel="noopener noreferrer" class="group px-8 py-4 rounded-full bg-gradient-to-r from-zen-gold via-zen-gold-light to-zen-gold text-zen-black font-bold text-xs sm:text-sm uppercase tracking-wider text-center flex items-center justify-center gap-3 shadow-[0_6px_25px_rgba(201,168,106,0.3)] hover:shadow-[0_8px_32px_rgba(201,168,106,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+                <span>Agendar Minha Sessão</span>
+                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1.5 transition-transform duration-300"></i>
+              </a>
+
+              <!-- CTA Secundário -->
+              <a href="#como-funciona" class="px-7 py-4 rounded-full bg-zen-dark/80 hover:bg-zen-deep text-zen-warm-white hover:text-zen-gold-light font-semibold text-xs sm:text-sm uppercase tracking-wider text-center border border-zen-border hover:border-zen-gold/40 transition-all duration-300 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-circle-nodes text-zen-gold text-xs"></i>
+                <span>Como Funciona</span>
+              </a>
+            </div>
+
+            <!-- Microlinha de Confiança -->
+            <div class="flex items-center gap-2 text-xs text-zen-sage pt-1 font-medium">
+              <i class="fa-solid fa-shield-heart text-zen-gold text-[11px]"></i>
+              <span>Atendimento personalizado · Ambiente acolhedor · Horários flexíveis</span>
+            </div>
+          </div>
+
+          <!-- Indicadores de Confiança Estruturados (Sem promessas médicas absolutas) -->
+          <div class="pt-8 border-t border-zen-border/70 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+            
+            <div class="space-y-1">
+              <div class="font-playfair text-2xl sm:text-3xl font-bold text-zen-gold-light">
+                +4.200
+              </div>
+              <div class="text-[11px] font-sans font-semibold tracking-wider uppercase text-zen-muted">
+                Sessões Realizadas
+              </div>
+              <p class="text-[10px] text-zen-sage/80 leading-snug">
+                Experiência clínica consistente no alívio da dor e estresse.
+              </p>
+            </div>
+
+            <div class="space-y-1">
+              <div class="font-playfair text-lg sm:text-xl font-bold text-zen-warm-white flex items-center gap-1.5">
+                <i class="fa-solid fa-check text-zen-gold text-sm"></i>
+                <span>Agulhas Descartáveis</span>
+              </div>
+              <div class="text-[11px] font-sans font-semibold tracking-wider uppercase text-zen-muted">
+                Atendimento Seguro
+              </div>
+              <p class="text-[10px] text-zen-sage/80 leading-snug">
+                Calibre ultrafino de silício com descarte estéril individual.
+              </p>
+            </div>
+
+            <div class="space-y-1">
+              <div class="font-playfair text-lg sm:text-xl font-bold text-zen-warm-white flex items-center gap-1.5">
+                <i class="fa-solid fa-heart-pulse text-zen-gold text-sm"></i>
+                <span>Plano Individual</span>
+              </div>
+              <div class="text-[11px] font-sans font-semibold tracking-wider uppercase text-zen-muted">
+                Foco no Paciente
+              </div>
+              <p class="text-[10px] text-zen-sage/80 leading-snug">
+                Diagnóstico de pulso e língua para sua queixa específica.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- DIREITA: Composição Visual Editorial Premium (Fotografia Real + Máscara Orgânica + Qi) -->
+        <div class="lg:col-span-5 relative">
+          
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Moldura Escultural da Fotografia Real -->
+            <div class="relative rounded-[2.25rem] sm:rounded-[2.75rem] overflow-hidden border border-zen-gold/30 shadow-[0_25px_60px_rgba(0,0,0,0.7)] group bg-zen-deep">
+              <img 
+                src="assets/acupuntura-spa.jpg" 
+                alt="Ambiente spa terapêutico de acupuntura Shen Zen com paciente em repouso na maca, agulhas delicadas nos meridianos, difusor de aromaterapia e pedras quentes" 
+                class="w-full aspect-[4/5] object-cover object-center transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+                loading="eager"
+                decoding="async"
+              />
+
+              <!-- Overlay Gradiente Sutil para Integração com a Paleta -->
+              <div class="absolute inset-0 bg-gradient-to-t from-zen-black/90 via-transparent to-zen-black/20 pointer-events-none"></div>
+
+              <!-- Selo Flutuante Superior: Equilíbrio dos Meridianos -->
+              <div class="absolute top-5 left-5 bg-zen-dark/85 backdrop-blur-md px-4 py-2 rounded-2xl border border-zen-gold/30 text-xs font-semibold text-zen-gold-light flex items-center gap-2.5 shadow-lg">
+                <div class="w-2 h-2 rounded-full bg-zen-gold animate-ping"></div>
+                <span class="tracking-wide">Equilíbrio do Qi & Serenidade</span>
+              </div>
+
+              <!-- Card Editorial Flutuante Inferior: Especificações de Conforto -->
+              <div class="absolute bottom-5 left-5 right-5 bg-zen-dark/92 backdrop-blur-lg p-4 sm:p-5 rounded-2xl border border-zen-gold/25 shadow-xl text-left space-y-2">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-sans font-bold text-zen-gold uppercase tracking-wider text-[10px]">
+                    Conforto & Delicadeza
+                  </span>
+                  <span class="text-[10px] font-mono text-zen-sage px-2 py-0.5 rounded bg-zen-deep border border-zen-border">
+                    0.18 mm
+                  </span>
+                </div>
+                <h4 class="font-playfair text-base sm:text-lg font-bold text-zen-warm-white leading-snug">
+                  Agulhas de Silício Ultrafinas
+                </h4>
+                <p class="text-xs text-zen-muted leading-relaxed font-light">
+                  Espessura comparável a um fio de cabelo para uma estimulação precisa, restaurando o fluxo energético sem desconforto.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Ornamento Zen Circular (Atrás do card, pulso sutil) -->
+            <div class="absolute -bottom-6 -right-6 w-36 h-36 rounded-full border border-zen-gold/20 -z-10 animate-float hidden sm:block"></div>
+            <div class="absolute -top-6 -left-6 w-28 h-28 rounded-full border border-zen-border/40 -z-10 hidden sm:block"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. TICKER REFORMULADO (FAIXA INFERIOR CONTÍNUA & IDENTIDADE VISUAL)        -->
+  <!-- ========================================================================= -->
+  <div class="py-4 sm:py-5 bg-zen-dark/95 border-b border-zen-border/70 overflow-hidden relative" aria-label="Temas de Equilíbrio">
+    <div class="flex gap-10 whitespace-nowrap animate-ticker text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-zen-muted select-none">
+      
+      <!-- Loop Items (Set 1) -->
+      <span class="flex items-center gap-3">
+        <span>Dor e Tensão Muscular</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Estresse e Ansiedade</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Qualidade do Sono & Insônia</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Equilíbrio do Qi & Meridianos</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Enxaqueca & Cefaleia</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Serenidade & Bem-Estar Integral</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+
+      <!-- Loop Items (Set 2 - Clone for smooth infinite loop) -->
+      <span class="flex items-center gap-3">
+        <span>Dor e Tensão Muscular</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Estresse e Ansiedade</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Qualidade do Sono & Insônia</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Equilíbrio do Qi & Meridianos</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Enxaqueca & Cefaleia</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+      <span class="flex items-center gap-3">
+        <span>Serenidade & Bem-Estar Integral</span>
+        <span class="text-zen-gold">✦</span>
+      </span>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. COMO FUNCIONA (DESTINO DO LINK 'COMO FUNCIONA' NO HEADER)               -->
+  <!-- ========================================================================= -->
+  <section id="como-funciona" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-zen-border/60">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-zen-gold bg-zen-deep/90 px-4 py-1.5 rounded-full border border-zen-gold/25 inline-block">
+        Metodologia Oriental
+      </span>
+      <h2 class="font-playfair text-3xl sm:text-4xl lg:text-5xl font-normal text-zen-warm-white">
+        Como Funciona a Sua Sessão
+      </h2>
+      <p class="text-sm sm:text-base text-zen-muted leading-relaxed font-light">
+        Um ritual de cuidado focado no diagnóstico preciso da causa das suas queixas, proporcionando alívio perceptível logo na primeira visita.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Passo 1 -->
+      <div class="p-8 rounded-3xl bg-zen-dark/70 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-4 group">
+        <div class="w-12 h-12 rounded-2xl bg-zen-deep border border-zen-gold/30 text-zen-gold-light flex items-center justify-center font-playfair font-bold text-lg group-hover:bg-zen-gold group-hover:text-zen-black transition-colors">
+          01
+        </div>
+        <h3 class="font-playfair text-xl font-bold text-zen-warm-white">
+          Diagnóstico de Pulso e Língua
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light">
+          Identificamos o padrão de desarmonia dos cinco elementos e o fluxo do Qi nos meridianos correspondentes aos seus sintomas físicos e emocionais.
+        </p>
+      </div>
+
+      <!-- Passo 2 -->
+      <div class="p-8 rounded-3xl bg-zen-dark/70 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-4 group">
+        <div class="w-12 h-12 rounded-2xl bg-zen-deep border border-zen-gold/30 text-zen-gold-light flex items-center justify-center font-playfair font-bold text-lg group-hover:bg-zen-gold group-hover:text-zen-black transition-colors">
+          02
+        </div>
+        <h3 class="font-playfair text-xl font-bold text-zen-warm-white">
+          Aplicação Suave & Indolor
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light">
+          Inserção milimétrica de agulhas estéreis descartáveis de silício nos pontos-chave para estimular a liberação de endorfinas e desobstruir canais de tensão.
+        </p>
+      </div>
+
+      <!-- Passo 3 -->
+      <div class="p-8 rounded-3xl bg-zen-dark/70 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-4 group">
+        <div class="w-12 h-12 rounded-2xl bg-zen-deep border border-zen-gold/30 text-zen-gold-light flex items-center justify-center font-playfair font-bold text-lg group-hover:bg-zen-gold group-hover:text-zen-black transition-colors">
+          03
+        </div>
+        <h3 class="font-playfair text-xl font-bold text-zen-warm-white">
+          Repouso Restaurador com Aromaterapia
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light">
+          Momento de descanso profundo na maca com difusão de óleos essenciais terapêuticos e frequência sonora relaxante, permitindo a ancoragem da energia.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. TRATAMENTOS POR MERIDIANO (INTERATIVO)                                  -->
+  <!-- ========================================================================= -->
+  <section id="meridianos" class="py-20 sm:py-28 max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="p-6 sm:p-12 rounded-3xl bg-zen-card border border-zen-border shadow-2xl relative overflow-hidden">
+      
+      <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-zen-gold">
+          Seletor Interativo de Queixas
+        </span>
+        <h2 class="font-playfair text-2xl sm:text-3xl font-bold text-zen-warm-white">
+          Qual sintoma você deseja harmonizar hoje?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- Botões de Queixa -->
+        <div class="md:col-span-5 space-y-3">
+          <button onclick="selectZen('ansiedade')" id="btn-zen-ansiedade" class="w-full p-4 rounded-2xl bg-zen-dark border-2 border-zen-gold text-left flex items-center justify-between transition-all">
+            <span class="font-bold text-xs sm:text-sm text-zen-warm-white">Ansiedade, Burnout & Insônia</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-zen-gold"></span>
+          </button>
+          
+          <button onclick="selectZen('dores')" id="btn-zen-dores" class="w-full p-4 rounded-2xl bg-zen-dark/60 border border-zen-border text-left flex items-center justify-between hover:border-zen-gold/50 transition-all">
+            <span class="font-bold text-xs sm:text-sm text-zen-muted">Dores Crônicas & Enxaqueca</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+          </button>
+          
+          <button onclick="selectZen('digestivo')" id="btn-zen-digestivo" class="w-full p-4 rounded-2xl bg-zen-dark/60 border border-zen-border text-left flex items-center justify-between hover:border-zen-gold/50 transition-all">
+            <span class="font-bold text-xs sm:text-sm text-zen-muted">Digestão & Equilíbrio Intestinal</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+          </button>
+          
+          <button onclick="selectZen('feminino')" id="btn-zen-feminino" class="w-full p-4 rounded-2xl bg-zen-dark/60 border border-zen-border text-left flex items-center justify-between hover:border-zen-gold/50 transition-all">
+            <span class="font-bold text-xs sm:text-sm text-zen-muted">Saúde da Mulher & TPM</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+          </button>
+        </div>
+
+        <!-- Painel de Detalhes da Queixa Selecionada -->
+        <div class="md:col-span-7 bg-zen-dark p-6 sm:p-8 rounded-2xl border border-zen-border space-y-4">
+          <span id="zen-tag" class="text-[10px] font-mono uppercase font-bold px-3 py-1 rounded-full bg-zen-deep border border-zen-gold/30 text-zen-gold-light inline-block">
+            Meridiano do Coração & Pericárdio
+          </span>
+          <h3 id="zen-title" class="font-playfair font-bold text-2xl text-zen-warm-white">
+            Ansiedade, Estresse & Insônia
+          </h3>
+          <p id="zen-desc" class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light">
+            Estímulo nos pontos Yintang (terceiro olho) e Shenmen (porta do espírito). Reduz a produção de cortisol e ativa o sistema parassimpático, proporcionando sensação imediata de paz interior.
+          </p>
+          <div class="pt-2 text-xs space-y-2 border-t border-zen-border/60">
+            <div class="flex items-center gap-2 text-zen-sage">
+              <i class="fa-solid fa-leaf text-zen-gold"></i>
+              <strong class="text-zen-warm-white">Técnica Recomendada:</strong>
+              <span id="zen-technique">Acupuntura Tradicional + Auriculoterapia Calmante</span>
+            </div>
+            <div class="flex items-center gap-2 text-zen-sage">
+              <i class="fa-solid fa-clock text-zen-gold"></i>
+              <strong class="text-zen-warm-white">Duração:</strong>
+              <span id="zen-duration">Sessão relaxante de 60 minutos</span>
+            </div>
+          </div>
+          <div class="pt-4">
+            <a id="btn-zen-whatsapp" href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20acupuntura%20com%20foco%20em%3A%20Ansiedade%2C%20Estresse%20%26%20Ins%C3%B4nia." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-zen-gold to-zen-gold-light text-zen-black font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md hover:opacity-95 transition-all">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Agendar Sessão Para Essa Queixa</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 6. TÉCNICAS (DESTINO DO LINK 'TÉCNICAS' NO HEADER)                         -->
+  <!-- ========================================================================= -->
+  <section id="tecnicas" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-zen-border/60">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-zen-gold bg-zen-deep/90 px-4 py-1.5 rounded-full border border-zen-gold/25 inline-block">
+        Tradição Milenar & Rigor Clínico
+      </span>
+      <h2 class="font-playfair text-3xl sm:text-4xl lg:text-5xl font-normal text-zen-warm-white">
+        Técnicas Integradas em Cada Consulta
+      </h2>
+      <p class="text-sm sm:text-base text-zen-muted leading-relaxed font-light">
+        Combinamos diferentes abordagens da Medicina Tradicional Chinesa para potencializar a recuperação corporal.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Técnica 1 -->
+      <div class="p-6 rounded-3xl bg-zen-dark/80 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-zen-deep text-zen-gold-light flex items-center justify-center text-lg border border-zen-gold/20">
+          <i class="fa-solid fa-feather"></i>
+        </div>
+        <h3 class="font-playfair text-lg font-bold text-zen-warm-white">Acupuntura Sistêmica</h3>
+        <p class="text-xs text-zen-muted leading-relaxed font-light">
+          Aplicação em pontos estratégicos dos meridianos corporais com agulhas ultrafinas descartáveis de silício, restabelecendo o fluxo equilibrado de energia.
+        </p>
+      </div>
+
+      <!-- Técnica 2 -->
+      <div class="p-6 rounded-3xl bg-zen-dark/80 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-zen-deep text-zen-gold-light flex items-center justify-center text-lg border border-zen-gold/20">
+          <i class="fa-solid fa-fire-burner"></i>
+        </div>
+        <h3 class="font-playfair text-lg font-bold text-zen-warm-white">Ventosaterapia</h3>
+        <p class="text-xs text-zen-muted leading-relaxed font-light">
+          Sucção a vácuo suave sobre a musculatura das costas e ombros, promovendo aumento imediato da circulação local e alívio de nós de tensão miofascial.
+        </p>
+      </div>
+
+      <!-- Técnica 3 -->
+      <div class="p-6 rounded-3xl bg-zen-dark/80 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-zen-deep text-zen-gold-light flex items-center justify-center text-lg border border-zen-gold/20">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+        <h3 class="font-playfair text-lg font-bold text-zen-warm-white">Moxabustão Térmica</h3>
+        <p class="text-xs text-zen-muted leading-relaxed font-light">
+          Aplicação indireta de calor com a erva medicinal Artemísia, aquecendo meridianos frios, aliviando cólicas, lombalgias e dores articulares.
+        </p>
+      </div>
+
+      <!-- Técnica 4 -->
+      <div class="p-6 rounded-3xl bg-zen-dark/80 border border-zen-border hover:border-zen-gold/40 transition-all duration-300 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-zen-deep text-zen-gold-light flex items-center justify-center text-lg border border-zen-gold/20">
+          <i class="fa-solid fa-ear-listen"></i>
+        </div>
+        <h3 class="font-playfair text-lg font-bold text-zen-warm-white">Auriculoterapia</h3>
+        <p class="text-xs text-zen-muted leading-relaxed font-light">
+          Fixação de microesferas de ouro na orelha através de micropore cirúrgico discreto, mantendo o estímulo terapêutico contínuo ao longo da semana.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 7. BENEFÍCIOS (DESTINO DO LINK 'BENEFÍCIOS' NO HEADER)                     -->
+  <!-- ========================================================================= -->
+  <section id="beneficios" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-zen-border/60">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-5 space-y-6">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-zen-gold bg-zen-deep/90 px-4 py-1.5 rounded-full border border-zen-gold/25 inline-block">
+          Equilíbrio Comprovado
+        </span>
+        <h2 class="font-playfair text-3xl sm:text-4xl lg:text-5xl font-normal text-zen-warm-white leading-tight">
+          Benefícios para o Corpo e a Mente
+        </h2>
+        <p class="text-sm sm:text-base text-zen-muted leading-relaxed font-light">
+          A estimulação dos pontos de acupuntura atua diretamente no sistema nervoso autônomo, promovendo autorregulação biológica e clareza mental.
+        </p>
+        <div class="pt-2">
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Quero%20agendar%20minha%20sess%C3%A3o%20na%20Shen%20Zen." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-zen-gold to-zen-gold-light text-zen-black font-bold text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition-all">
+            <span>Experimente o Alívio</span>
+            <i class="fa-solid fa-arrow-right text-[11px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        
+        <div class="p-6 rounded-3xl bg-zen-card/80 border border-zen-border space-y-2">
+          <div class="text-zen-gold text-xl mb-1"><i class="fa-solid fa-bed"></i></div>
+          <h4 class="font-playfair font-bold text-lg text-zen-warm-white">Sono Profundo & Reparador</h4>
+          <p class="text-xs text-zen-muted leading-relaxed font-light">
+            Regulação natural da melatonina e redução de pensamentos acelerados na hora de dormir.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-zen-card/80 border border-zen-border space-y-2">
+          <div class="text-zen-gold text-xl mb-1"><i class="fa-solid fa-brain"></i></div>
+          <h4 class="font-playfair font-bold text-lg text-zen-warm-white">Alívio de Ansiedade & Tensão</h4>
+          <p class="text-xs text-zen-muted leading-relaxed font-light">
+            Queda nos índices de cortisol circulante e ativação do tônus parassimpático calmante.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-zen-card/80 border border-zen-border space-y-2">
+          <div class="text-zen-gold text-xl mb-1"><i class="fa-solid fa-person-walking"></i></div>
+          <h4 class="font-playfair font-bold text-lg text-zen-warm-white">Redução de Dores Crônicas</h4>
+          <p class="text-xs text-zen-muted leading-relaxed font-light">
+            Efeito analgésico por liberação endógena de endorfina na cervical, coluna lombar e articulações.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-zen-card/80 border border-zen-border space-y-2">
+          <div class="text-zen-gold text-xl mb-1"><i class="fa-solid fa-battery-full"></i></div>
+          <h4 class="font-playfair font-bold text-lg text-zen-warm-white">Vitalidade Renovada (Qi)</h4>
+          <p class="text-xs text-zen-muted leading-relaxed font-light">
+            Desbloqueio de canais energéticos para combater a fadiga constante e o esgotamento do dia a dia.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 8. PLANOS & PACOTES (SESSÕES AVULSAS & TRATAMENTO CONTÍNUO)                -->
+  <!-- ========================================================================= -->
+  <section id="planos" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-zen-border/60">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-zen-gold bg-zen-deep/90 px-4 py-1.5 rounded-full border border-zen-gold/25 inline-block">
+        Investimento em Saúde
+      </span>
+      <h2 class="font-playfair text-3xl sm:text-4xl lg:text-5xl font-normal text-zen-warm-white">
+        Sessões Avulsas & Pacotes Zen
+      </h2>
+      <p class="text-sm sm:text-base text-zen-muted leading-relaxed font-light">
+        Planos flexíveis para quem busca uma experiência de alívio pontual ou um acompanhamento contínuo de equilíbrio.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Sessão Avulsa -->
+      <div class="bg-zen-dark/80 p-8 rounded-3xl border border-zen-border flex flex-col justify-between space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase text-zen-muted">Primeira Experiência</span>
+          <h3 class="font-playfair font-bold text-2xl text-zen-warm-white mt-1 mb-4">Sessão Avulsa Zen</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-zen-warm-white">R$ 160</span>
+            <span class="text-xs text-zen-sage block mt-1">60 minutos de duração completa</span>
+          </div>
+          <ul class="space-y-3 text-xs text-zen-muted font-light">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Diagnóstico de pulso e língua (MTC)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Acupuntura corporal com agulhas de silício</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Ventosaterapia para soltar as costas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Auriculoterapia inclusa para levar para casa</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20Sess%C3%A3o%20Avulsa%20Zen." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-full bg-zen-deep hover:bg-zen-border text-zen-warm-white font-bold text-xs uppercase tracking-wider text-center border border-zen-border transition-all">
+          Agendar Sessão Avulsa
+        </a>
+      </div>
+
+      <!-- Pacote 5 Sessões (Destaque) -->
+      <div class="bg-zen-card p-8 rounded-3xl border-2 border-zen-gold shadow-2xl relative flex flex-col justify-between space-y-6">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-zen-gold to-zen-gold-light text-zen-black text-[10px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow">
+          Mais Procurado
+        </div>
+        <div>
+          <span class="text-xs font-semibold uppercase text-zen-gold-light">Tratamento Contínuo</span>
+          <h3 class="font-playfair font-bold text-2xl text-zen-warm-white mt-1 mb-4">Pacote Equilíbrio (5 Sessões)</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-zen-gold-light">R$ 599</span>
+            <span class="text-xs text-zen-sage block mt-1">Sai por R$ 119 por sessão (ou 3x no cartão)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-zen-warm-white font-light">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> 5 Sessões completas de Acupuntura + Ventosa</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Auriculoterapia com ouro em todas as visitas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Acompanhamento detalhado da evolução da dor</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Horários flexíveis e reagendamento fácil</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20o%20Pacote%20Equil%C3%ADbrio%20(5%20Sess%C3%B5es)." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-full bg-gradient-to-r from-zen-gold via-zen-gold-light to-zen-gold text-zen-black font-bold text-xs uppercase tracking-wider text-center shadow-lg hover:opacity-95 transition-all">
+          Garantir Pacote Equilíbrio
+        </a>
+      </div>
+
+      <!-- Pacote 10 Sessões -->
+      <div class="bg-zen-dark/80 p-8 rounded-3xl border border-zen-border flex flex-col justify-between space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase text-zen-muted">Saúde Integral</span>
+          <h3 class="font-playfair font-bold text-2xl text-zen-warm-white mt-1 mb-4">Plano Vitalidade (10 Sessões)</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-zen-warm-white">R$ 980</span>
+            <span class="text-xs text-zen-sage block mt-1">Sai por R$ 98 por sessão (ou 6x no cartão)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-zen-muted font-light">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> 10 Sessões completas personalizadas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Moxabustão térmica inclusa quando indicada</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Ideal para fibromialgia e crises crônicas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-zen-gold"></i> Validade de 1 ano completo para utilização</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20escolher%20o%20Plano%20Vitalidade%20(10%20Sess%C3%B5es)." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-full bg-zen-deep hover:bg-zen-border text-zen-warm-white font-bold text-xs uppercase tracking-wider text-center border border-zen-border transition-all">
+          Escolher Plano Vitalidade
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 9. PERGUNTAS FREQUENTES (DESTINO DO LINK 'FAQ' NO HEADER)                  -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-20 sm:py-28 max-w-4xl mx-auto px-4 sm:px-6 border-b border-zen-border/60">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-zen-gold bg-zen-deep/90 px-4 py-1.5 rounded-full border border-zen-gold/25 inline-block">
+        Tire Suas Dúvidas
+      </span>
+      <h2 class="font-playfair text-3xl sm:text-4xl font-normal text-zen-warm-white">
+        Perguntas Frequentes sobre a Acupuntura
+      </h2>
+      <p class="text-sm text-zen-muted leading-relaxed font-light">
+        Tudo o que você precisa saber para realizar sua sessão com total segurança e tranquilidade.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      
+      <!-- FAQ 1 -->
+      <div class="p-6 rounded-2xl bg-zen-dark/70 border border-zen-border space-y-2">
+        <h3 class="font-playfair font-bold text-lg text-zen-warm-white flex items-center justify-between">
+          <span>A aplicação de agulhas de acupuntura dói?</span>
+          <i class="fa-solid fa-chevron-down text-zen-gold text-xs"></i>
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light pt-1">
+          Não. As agulhas de acupuntura são extremamente finas (cerca de 0,18mm, comparáveis à espessura de um fio de cabelo), revestidas de silicone cirúrgico. A sensação é de um leve toque ou leve formigamento de relaxamento, sem dor de injeção convencional.
+        </p>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="p-6 rounded-2xl bg-zen-dark/70 border border-zen-border space-y-2">
+        <h3 class="font-playfair font-bold text-lg text-zen-warm-white flex items-center justify-between">
+          <span>As agulhas são descartáveis e seguras?</span>
+          <i class="fa-solid fa-chevron-down text-zen-gold text-xs"></i>
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light pt-1">
+          Sim, 100% descartáveis, estéreis de fábrica e de uso único. Cada embalagem é aberta exclusivamente na frente do paciente e descartada imediatamente em recipiente apropriado para material biológico após a sessão.
+        </p>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="p-6 rounded-2xl bg-zen-dark/70 border border-zen-border space-y-2">
+        <h3 class="font-playfair font-bold text-lg text-zen-warm-white flex items-center justify-between">
+          <span>Quantas sessões são necessárias para sentir melhora?</span>
+          <i class="fa-solid fa-chevron-down text-zen-gold text-xs"></i>
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light pt-1">
+          Grande parte dos pacientes relata alívio e sensação de leveza já na primeira sessão. Para dores crônicas ou quadros recorrentes de ansiedade e insônia, recomendamos um ciclo de 5 a 10 sessões para consolidação duradoura do equilíbrio energético.
+        </p>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="p-6 rounded-2xl bg-zen-dark/70 border border-zen-border space-y-2">
+        <h3 class="font-playfair font-bold text-lg text-zen-warm-white flex items-center justify-between">
+          <span>Posso fazer acupuntura junto com tratamentos médicos convencionais?</span>
+          <i class="fa-solid fa-chevron-down text-zen-gold text-xs"></i>
+        </h3>
+        <p class="text-xs sm:text-sm text-zen-muted leading-relaxed font-light pt-1">
+          Sim. A acupuntura é uma terapia integrativa reconhecida pela Organização Mundial da Saúde (OMS), complementando perfeitamente os tratamentos médicos sem interferir em medicações alopáticas.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 10. LOCALIZAÇÃO (CLÍNICA TAO / SHEN ZEN - SÃO PAULO)                       -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Harmonia entre Corpo, Mente e Energia</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Agulhas siliconadas ultrafinas descartáveis em pontos de meridianos para alívio duradouro.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/acup-hero.jpg" alt="Acupuntura Tradicional sem Dor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Acupuntura Tradicional sem Dor</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Aplicação precisa em pontos neurorreativos que estimulam a liberação de endorfinas naturais.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/acup-needles.jpg" alt="Material 100% Descartável e Esterilizado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Material 100% Descartável e Esterilizado</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Agulhas descartáveis de uso único com guia de aplicação suave para máximo conforto.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/acup-zen.jpg" alt="Ambiente Aromaterápico e Zen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Ambiente Aromaterápico e Zen</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Música suave, aromaterapia relaxante e iluminação terapêutica durante toda a sessão.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/acup-stones.jpg" alt="Ventosaterapia & Pedras Quentes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Ventosaterapia & Pedras Quentes</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Desintoxicação miofascial e alívio profundo de nós musculares nas costas e pescoço.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que o Tratamento na Equilíbrio Oriental Funciona?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Equilíbrio holístico entre corpo e mente com alívio comprovado de estresse e dores crônicas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Abordagens Medicamentosas Tradicionais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Dependência de ansiolíticos e analgésicos com múltiplos efeitos colaterais</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Consultas de 10 minutos sem investigação das causas emocionais e energéticas</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Tratamentos isolados que não consideram a saúde integral do paciente</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de ambiente terapêutico acolhedor gerando mais ansiedade</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Saúde Integrativa
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Equilíbrio Oriental Acupuntura</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Aplicação indolor com agulhas ultrafinas 100% descartáveis em pontos de meridianos</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Estímulo natural da liberação de endorfinas, serotonina e relaxamento muscular</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Associação com ventosaterapia, moxabustão e aromaterapia terapêutica</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Ambiente zen climatizado com música suave e atendimento humanizado</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20acupuntura%20na%20Equilíbrio%20Oriental." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>A agulha de acupuntura causa dor?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            As agulhas são tão finas quanto fios de cabelo. A sensação é de leve formigamento ou calor relaxante.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Para quais problemas a acupuntura é indicada?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Dores lombares, ansiedade, insônia, enxaqueca, fibromialgia, estresse e regulação do ciclo hormonal.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>A acupuntura é reconhecida pela OMS e Conselho Médico?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Sim! A Organização Mundial da Saúde e os conselhos federais de saúde chancelam a prática.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Sabrina Paiva</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Minha crise de ansiedade e insônia melhorou desde a primeira consulta. Saio renovada a cada sessão."</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Jorge Antunes</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"As dores crônicas na lombar sumiram. Recomendo de olhos fechados!"</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-20 sm:py-28 bg-[#0B130E] border-b border-zen-border/70 text-zen-warm-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zen-deep border border-zen-gold/25 text-zen-gold-light text-xs font-semibold">
+          <i class="fa-solid fa-location-dot text-zen-gold"></i>
+          <span>Fácil Acesso na Região da Avenida Paulista</span>
+        </div>
+        <h2 class="font-playfair text-3xl sm:text-4xl font-normal text-zen-warm-white">
+          Onde Estamos Localizados
+        </h2>
+        <p class="text-sm text-zen-muted leading-relaxed font-light">
+          Consultório calmo e silencioso, planejado com isolamento acústico e aromaterapia no coração de São Paulo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-zen-card rounded-3xl p-6 sm:p-8 border border-zen-border shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full border border-zen-gold/40 bg-zen-deep text-zen-gold-light flex items-center justify-center text-lg">
+                <i class="fa-solid fa-spa"></i>
+              </div>
+              <div>
+                <span class="font-playfair font-bold text-lg text-zen-warm-white block">Shen Zen Acupuntura</span>
+                <span class="text-[9px] font-sans tracking-widest uppercase text-zen-gold font-bold block">Espaço Terapêutico Integrado</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-zen-gold text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-zen-warm-white block font-semibold">Endereço Principal:</strong>
+                  <span class="text-zen-muted font-light">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-zen-warm-white block font-semibold">Metrô Mais Próximo:</strong>
+                  <span class="text-zen-muted font-light">250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-zen-gold-light text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-zen-warm-white block font-semibold">Estacionamento:</strong>
+                  <span class="text-zen-muted font-light">Vaga coberta com manobrista no próprio edifício.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-zen-sage text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-zen-warm-white block font-semibold">Horários:</strong>
+                  <span class="text-zen-muted font-light">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zen-border flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-full bg-zen-gold text-zen-black text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-zen-gold-light transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20de%20localiza%C3%A7%C3%A3o%20da%20Shen%20Zen." target="_blank" rel="noopener noreferrer" class="py-3 px-5 rounded-full bg-zen-deep hover:bg-zen-border text-zen-warm-white text-center font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-zen-border transition">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-zen-border bg-zen-dark min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Shen Zen Acupuntura em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 11. FOOTER PREMIUM SHEN ZEN                                               -->
+  <!-- ========================================================================= -->
+  <footer class="bg-zen-black border-t border-zen-border py-14 text-center text-xs text-zen-muted">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      <div class="flex items-center justify-center gap-3">
+        <div class="w-8 h-8 rounded-full border border-zen-gold/30 bg-zen-deep text-zen-gold flex items-center justify-center text-xs">
+          <i class="fa-solid fa-yin-yang"></i>
+        </div>
+        <span class="font-playfair text-lg text-zen-warm-white tracking-[0.16em]">SHEN ZEN</span>
+      </div>
+      <p class="font-sans text-zen-gold-light text-xs font-semibold tracking-wider uppercase">
+        Acupuntura & Medicina Oriental Contemporânea
+      </p>
+      <div class="flex items-center justify-center gap-4 text-zen-muted font-mono text-[11px] pt-2">
+        <span><i class="fa-brands fa-whatsapp text-emerald-400 mr-1"></i> (32) 99929-2311</span>
+        <span>•</span>
+        <span>Av. Paulista, São Paulo - SP</span>
+      </div>
+      <p class="text-[11px] text-zen-border/90 pt-3">
+        © 2026 Shen Zen Terapias Integrativas. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- CLIENT JAVASCRIPT: SCROLL DINÂMICO, MOBILE DRAWER & SELETOR DE MERIDIANOS -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Header Dinâmico no Scroll (300-500ms suave)
+    const zenHeader = document.getElementById('zen-header');
+    const headerContainer = document.getElementById('header-container');
+
+    function updateHeaderOnScroll() {
+      if (window.scrollY > 40) {
+        zenHeader.classList.remove('bg-gradient-to-b', 'from-[#070D09]/95', 'via-[#070D09]/75', 'to-transparent');
+        zenHeader.classList.add('bg-[#0B130E]/94', 'backdrop-blur-md', 'border-b', 'border-[#C9A86A]/20', 'shadow-[0_10px_30px_rgba(0,0,0,0.45)]');
+        headerContainer.classList.remove('h-24');
+        headerContainer.classList.add('h-20');
+      } else {
+        zenHeader.classList.add('bg-gradient-to-b', 'from-[#070D09]/95', 'via-[#070D09]/75', 'to-transparent');
+        zenHeader.classList.remove('bg-[#0B130E]/94', 'backdrop-blur-md', 'border-b', 'border-[#C9A86A]/20', 'shadow-[0_10px_30px_rgba(0,0,0,0.45)]');
+        headerContainer.classList.add('h-24');
+        headerContainer.classList.remove('h-20');
+      }
+    }
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+    updateHeaderOnScroll();
+
+    // 2. Mobile Drawer Navigation
+    const mobileToggle = document.getElementById('zen-mobile-toggle');
+    const drawerClose = document.getElementById('zen-drawer-close');
+    const mobileDrawer = document.getElementById('zen-mobile-drawer');
+
+    if (mobileToggle && mobileDrawer) {
+      mobileToggle.addEventListener('click', () => {
+        mobileDrawer.classList.remove('pointer-events-none', 'opacity-0');
+        mobileDrawer.classList.add('pointer-events-auto', 'opacity-100');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    function closeMobileMenu() {
+      if (mobileDrawer) {
+        mobileDrawer.classList.add('pointer-events-none', 'opacity-0');
+        mobileDrawer.classList.remove('pointer-events-auto', 'opacity-100');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (drawerClose) {
+      drawerClose.addEventListener('click', closeMobileMenu);
+    }
+
+    document.querySelectorAll('.mobile-zen-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Fechar com tecla Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    // 3. Seletor de Queixas & Meridianos
+    const zenData = {
+      ansiedade: {
+        title: 'Ansiedade, Estresse & Insônia',
+        tag: 'Meridiano do Coração & Pericárdio',
+        desc: 'Estímulo nos pontos Yintang (terceiro olho) e Shenmen (porta do espírito). Reduz a produção de cortisol e ativa o sistema parassimpático, proporcionando sensação imediata de paz interior.',
+        technique: 'Acupuntura Tradicional + Auriculoterapia Calmante',
+        duration: 'Sessão relaxante de 60 minutos'
+      },
+      dores: {
+        title: 'Dores Crônicas & Enxaqueca',
+        tag: 'Meridianos da Bexiga & Vesícula Biliar',
+        desc: 'Desbloqueio com os pontos Hegu (IG4) e Taichong (F3). Induz analgesia potente e liberação profunda de endorfinas, aliviando tensão muscular em até 20 minutos.',
+        technique: 'Acupuntura Sistêmica + Ventosaterapia Miofascial',
+        duration: 'Sessão terapêutica de 60 minutos'
+      },
+      digestivo: {
+        title: 'Digestão & Equilíbrio Intestinal',
+        tag: 'Elemento Terra · Estômago e Baço-Pâncreas',
+        desc: 'Ajuste nos pontos Zusanli (E36) e Zhongwan (VC12). Alivia queimação gástrica, melhora o trânsito intestinal e reduz a sensação de estufamento e fadiga pós-refeição.',
+        technique: 'Acupuntura + Moxabustão suave no abdômen',
+        duration: 'Sessão revigorante de 60 minutos'
+      },
+      feminino: {
+        title: 'Saúde da Mulher & TPM',
+        tag: 'Harmonização dos Canais do Fígado e Baço',
+        desc: 'Harmonização no ponto Sanyinjiao (BP6). Alivia cólicas menstruais intensas, estabiliza oscilações de humor e atenua sintomas do climatério e menopausa.',
+        technique: 'Acupuntura Sistêmica + Auriculoterapia com Ouro',
+        duration: 'Sessão harmonizadora de 60 minutos'
+      }
+    };
+
+    function selectZen(key) {
+      const data = zenData[key];
+      if (!data) return;
+
+      document.getElementById('zen-title').textContent = data.title;
+      document.getElementById('zen-tag').textContent = data.tag;
+      document.getElementById('zen-desc').textContent = data.desc;
+      document.getElementById('zen-technique').textContent = data.technique;
+      document.getElementById('zen-duration').textContent = data.duration;
+
+      const buttons = ['ansiedade', 'dores', 'digestivo', 'feminino'];
+      buttons.forEach(b => {
+        const btn = document.getElementById('btn-zen-' + b);
+        if (!btn) return;
+        const dot = btn.querySelector('span:last-child');
+        const text = btn.querySelector('span:first-child');
+        
+        if (b === key) {
+          btn.className = 'w-full p-4 rounded-2xl bg-zen-dark border-2 border-zen-gold text-left flex items-center justify-between transition-all';
+          if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-zen-gold';
+          if (text) text.className = 'font-bold text-xs sm:text-sm text-zen-warm-white';
+        } else {
+          btn.className = 'w-full p-4 rounded-2xl bg-zen-dark/60 border border-zen-border text-left flex items-center justify-between hover:border-zen-gold/50 transition-all';
+          if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-slate-600';
+          if (text) text.className = 'font-bold text-xs sm:text-sm text-zen-muted';
+        }
+      });
+
+      const msg = `Olá Shen Zen! Gostaria de agendar uma sessão com foco em: ${data.title}.`;
+      const btnWhats = document.getElementById('btn-zen-whatsapp');
+      if (btnWhats) {
+        btnWhats.href = 'https://wa.me/5532999292311?text=' + encodeURIComponent(msg);
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM CONVERSION DOCK (CULT UI 1-CLICK CONVERSION)                -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-stone-900/95 backdrop-blur-md border-t border-stone-800 p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="shimmer-btn flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+      <i class="fa-brands fa-whatsapp text-sm"></i>
+      <span>Falar no WhatsApp</span>
+    </a>
+    <a href="#contato" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center border border-white/15">
+      <i class="fa-solid fa-calendar-check text-xs"></i>
+    </a>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Equilíbrio Oriental</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20acupuntura%20na%20Equilíbrio%20Oriental." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

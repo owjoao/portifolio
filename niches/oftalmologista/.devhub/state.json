@@ -1,0 +1,16 @@
+{
+  "id": "proj-1791051782254",
+  "name": "oftalmologista",
+  "path": "F:\\Nova pasta\\site\\oftalmologista",
+  "currentTask": null,
+  "currentAgent": null,
+  "status": "idle",
+  "executionMode": "auto",
+  "completed": [
+    "task-001"
+  ],
+  "pending": [],
+  "failed": [],
+  "createdAt": "2026-10-03T18:23:02.328Z",
+  "updatedAt": "2026-10-03T18:27:00.000Z"
+}

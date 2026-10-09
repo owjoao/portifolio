@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  
+  <title>Instituto de Oftalmologia Especializada | Tecnologia para Enxergar com Clareza</title>
+  <meta name="description" content="Avaliação oftalmológica avançada com tecnologia diagnóstica computadorizada. Cirurgia refrativa a laser, tratamento de catarata, córnea, retina e check-up da visão." />
+  <link rel="canonical" href="https://institutodeolhos.med.br" />
+
+  <!-- Open Graph / Meta Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Instituto de Oftalmologia Especializada | Tecnologia para Enxergar com Clareza" />
+  <meta property="og:description" content="Da prevenção à cirurgia a laser e ao tratamento da catarata: conheça as possibilidades para sua visão através de uma avaliação médica individualizada." />
+  <meta property="og:image" content="assets/oftalmo-tech.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            deepNavy: '#071521',
+            midnight: '#0B2230',
+            clinicalWhite: '#F7FAFA',
+            softWhite: '#EEF5F5',
+            opticalCyan: '#35C7D8',
+            aqua: '#79E3E8',
+            medicalTeal: '#1C8F9C',
+            graphite: '#17242B',
+            muted: '#71818A',
+            accentGold: '#D7B978',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          },
+          animation: {
+            fadeIn: 'fadeIn 0.4s ease-out forwards',
+            marquee: 'marquee 30s linear infinite',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Theme CSS -->
+  <link rel="stylesheet" href="assets/css/clinic-theme.css" />
+
+  <!-- Schema.org JSON-LD (SEO & Generative Engine Optimization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalClinic",
+        "@id": "https://institutodeolhos.med.br/#clinic",
+        "name": "Instituto de Oftalmologia Especializada",
+        "description": "Centro especializado em diagnóstico oftalmológico, cirurgia refrativa a laser, catarata, córnea, retina e saúde ocular preventiva.",
+        "telephone": "+55-32-99929-2311",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "01310-100",
+          "addressCountry": "BR"
+        },
+        "medicalSpecialty": [
+          "Ophthalmologic",
+          "Optometry"
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalProcedure",
+            "name": "Cirurgia Refrativa a Laser (LASIK / PRK)"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Cirurgia de Catarata com Implante de LIO"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Tomografia de Coerência Óptica (OCT)"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Check-up da Visão e Refração"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://institutodeolhos.med.br/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que é a cirurgia refrativa a laser?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É um procedimento oftalmológico seguro e computadorizado que remodela a curvatura microscópica da córnea através de laser de alta precisão, buscando reduzir a dependência de óculos ou lentes de contato para miopia, astigmatismo e hipermetropia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona uma avaliação oftalmológica completa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A avaliação inicia com uma conversa detalhada sobre suas queixas e hábitos, seguida de exames de refração (grau), lâmpada de fenda (superfície e cristalino), tonometria (pressão intraocular) e fundo de olho. Se houver indicação cirúrgica, exames complementares de imagem são realizados."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando é indicada a cirurgia de catarata?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A cirurgia é recomendada quando a opacificação do cristalino passa a prejudicar a nitidez, o contraste e a autonomia nas atividades cotidianas. O cristalino turvo é substituído por uma lente intraocular personalizada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é o exame de OCT (Tomografia de Coerência Óptica)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O OCT é um exame diagnóstico não invasivo de altíssima resolução que gera cortes tomográficos transversais das camadas da retina e do nervo óptico, permitindo detecção precoce de glaucoma, DMRI e edema macular."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+
+<body class="bg-deepNavy text-slate-100 antialiased selection:bg-opticalCyan selection:text-deepNavy">
+
+  <!-- Acessibilidade: Skip Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-opticalCyan text-deepNavy font-bold rounded-lg shadow-lg">
+    Pular para o conteúdo principal
+  </a>
+
+  <!-- =========================================================================
+       1. BARRA SUPERIOR DE INFORMAÇÃO & COMUNICAÇÃO
+       ========================================================================= -->
+  <div class="bg-midnight/90 border-b border-white/5 py-2 px-4 text-xs font-medium text-slate-300">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5 text-aqua">
+        <span class="w-2 h-2 rounded-full bg-opticalCyan animate-pulse"></span>
+        <span class="font-medium tracking-wide">Centro Diagnóstico & Microcirurgia Ocular com Padrão Tecnológico Alemão</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline-flex items-center gap-1.5 text-slate-400">
+          <i class="fa-regular fa-clock text-opticalCyan"></i>
+          <span>Seg a Sex: 08h às 19h</span>
+        </span>
+        <a href="#" data-whatsapp-context="geral" class="text-white hover:text-opticalCyan transition flex items-center gap-1.5 font-bold">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+          <span data-clinic-var="phoneFormatted">(32) 99929-2311</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. HEADER NAVEGAÇÃO DESKTOP & MOBILE
+       ========================================================================= -->
+  <header id="main-header" class="sticky top-0 z-40 bg-transparent transition-all duration-300 border-b border-white/5 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-medicalTeal to-opticalCyan flex items-center justify-center text-deepNavy text-lg shadow-lg shadow-opticalCyan/20 group-hover:scale-105 transition-transform duration-300">
+          <i class="fa-solid fa-eye"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-extrabold text-xl text-white tracking-tight block leading-none" data-clinic-var="shortName">
+            INSTITUTO DE OLHOS
+          </span>
+          <span class="text-[9px] font-mono tracking-widest uppercase text-opticalCyan font-semibold mt-1 block">
+            Oftalmologia & Diagnóstico
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#anatomia-olho" class="hover:text-opticalCyan transition">Visão</a>
+        <a href="#sintomas" class="hover:text-opticalCyan transition">Sintomas</a>
+        <a href="#avaliacao" class="hover:text-opticalCyan transition">Como Funciona</a>
+        <a href="#tecnologia" class="hover:text-opticalCyan transition">Tecnologia</a>
+        <a href="#servicos" class="hover:text-opticalCyan transition">Tratamentos</a>
+        <a href="#refrativa" class="hover:text-opticalCyan transition">Cirurgia a Laser</a>
+        <a href="#catarata" class="hover:text-opticalCyan transition">Catarata</a>
+        <a href="#localizacao" class="hover:text-opticalCyan transition">Clínica</a>
+      </nav>
+
+      <!-- Desktop Primary CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#" data-whatsapp-context="geral" class="btn-optical-primary px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-opticalCyan/20">
+          <i class="fa-regular fa-calendar-check text-deepNavy"></i>
+          <span>Agendar Avaliação</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="lg:hidden flex items-center gap-2">
+        <a href="#" data-whatsapp-context="geral" class="sm:hidden px-3 py-1.5 rounded-full bg-opticalCyan/15 border border-opticalCyan/30 text-opticalCyan text-xs font-bold flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+          <span>Agendar</span>
+        </a>
+        <button id="mobile-menu-toggle" type="button" aria-label="Abrir menu de navegação" class="w-10 h-10 rounded-xl bg-midnight border border-white/10 text-white flex items-center justify-center hover:text-opticalCyan transition">
+          <i class="fa-solid fa-bars text-base"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-midnight z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out border-l border-white/10 shadow-2xl overflow-y-auto">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-medicalTeal to-opticalCyan flex items-center justify-center text-deepNavy text-sm font-bold">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <span class="font-outfit font-bold text-white text-sm" data-clinic-var="shortName">Instituto de Olhos</span>
+        </div>
+        <button id="mobile-menu-close" type="button" aria-label="Fechar menu" class="w-8 h-8 rounded-lg bg-white/5 text-slate-400 hover:text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 pt-6 text-sm font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#anatomia-olho" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">01. Mapa da Visão</a>
+        <a href="#sintomas" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">02. Sintomas Visuais</a>
+        <a href="#avaliacao" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">03. Como Funciona a Avaliação</a>
+        <a href="#tecnologia" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">04. Tecnologia Diagnóstica</a>
+        <a href="#servicos" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">05. Tratamentos & Exames</a>
+        <a href="#refrativa" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">06. Cirurgia Refrativa</a>
+        <a href="#catarata" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">07. Catarata & Lentes</a>
+        <a href="#checkup-rapido" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">08. Check-up Rápido</a>
+        <a href="#localizacao" class="mobile-nav-link hover:text-opticalCyan py-2 border-b border-white/5">09. Nossa Clínica</a>
+        <a href="#faq" class="mobile-nav-link hover:text-opticalCyan py-2">10. Dúvidas Frequentes</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-white/10 space-y-3">
+      <a href="#" data-whatsapp-context="geral" class="btn-optical-primary w-full py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2">
+        <i class="fa-regular fa-calendar-check text-deepNavy"></i>
+        <span>Agendar Avaliação</span>
+      </a>
+      <p class="text-[11px] text-slate-400 text-center">Atendimento humanizado com hora marcada</p>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       CONTEÚDO PRINCIPAL
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- =========================================================================
+         3. HERO SECTION COM INSTRUMENTO ÓPTICO 3D INTERATIVO
+         ========================================================================= -->
+    <section id="hero-section" class="relative pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden border-b border-white/5 optical-grid-bg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Lado Esquerdo: Narrativa e Copy Médica Rigorosa -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-medicalTeal/15 border border-opticalCyan/30 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-aqua animate-ping"></span>
+              OFTALMOLOGIA • DIAGNÓSTICO • TECNOLOGIA
+            </div>
+
+            <h1 class="font-outfit font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.03]">
+              Uma visão mais clara começa com uma <span class="text-transparent bg-clip-text bg-gradient-to-r from-opticalCyan via-aqua to-softWhite">avaliação precisa.</span>
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+              Do check-up à cirurgia refrativa e ao tratamento da catarata, avaliamos sua visão com tecnologia diagnóstica computadorizada e acompanhamento médico especializado.
+            </p>
+
+            <!-- Microinterações de Foco Óptico -->
+            <div class="p-3.5 rounded-2xl glass-panel-subtle flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+              <span class="text-slate-400 font-semibold uppercase tracking-wider text-[11px]">Campos de Investigação:</span>
+              <span class="focus-keyword">CIRURGIA A LASER</span>
+              <span class="text-slate-600">•</span>
+              <span class="focus-keyword">EXAMES DIGITAIS</span>
+              <span class="text-slate-600">•</span>
+              <span class="focus-keyword">CATARATA</span>
+              <span class="text-slate-600">•</span>
+              <span class="focus-keyword">RETINA & OCT</span>
+            </div>
+
+            <!-- CTAs Principais -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+              <a href="#" data-whatsapp-context="geral" class="btn-optical-primary px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2.5 shadow-xl shadow-opticalCyan/25">
+                <i class="fa-regular fa-calendar-check text-base text-deepNavy"></i>
+                <span>Agendar Avaliação</span>
+              </a>
+              <a href="#servicos" class="btn-optical-secondary px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2">
+                <i class="fa-solid fa-microscope text-opticalCyan"></i>
+                <span>Explorar Tratamentos</span>
+              </a>
+            </div>
+
+            <!-- Pilares de Confiança Médica -->
+            <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
+              <div>
+                <div class="text-opticalCyan text-sm font-bold flex items-center gap-1.5">
+                  <i class="fa-solid fa-shield-halved text-xs"></i>
+                  <span>Segurança</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1">Protocolos clínicos rigorosos em cada etapa</p>
+              </div>
+              <div>
+                <div class="text-aqua text-sm font-bold flex items-center gap-1.5">
+                  <i class="fa-solid fa-satellite-dish text-xs"></i>
+                  <span>Tecnologia</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1">Diagnóstico por imagem de alta resolução</p>
+              </div>
+              <div>
+                <div class="text-white text-sm font-bold flex items-center gap-1.5">
+                  <i class="fa-solid fa-user-doctor text-xs text-opticalCyan"></i>
+                  <span>Cuidado</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1">Indicação ética e personalizada ao seu caso</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Lado Direito: Visual 3D Interativo do Olho Anatômico -->
+          <div class="lg:col-span-5 relative flex items-center justify-center">
+            
+            <div class="relative w-full aspect-square max-w-[480px] rounded-3xl glass-panel p-2 overflow-hidden flex items-center justify-center shadow-2xl">
+              
+              <!-- Anéis Concêntricos Médicos Sutis -->
+              <div class="concentric-ring w-96 h-96 ring-pulse-slow"></div>
+              <div class="concentric-ring w-72 h-72"></div>
+              <div class="concentric-ring w-48 h-48"></div>
+
+              <!-- Retículo e Indicadores de Precisão -->
+              <div class="absolute top-4 left-4 z-20 flex items-center gap-2 bg-deepNavy/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[10px] font-mono text-opticalCyan font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>OPTICAL TRACKER 3D • INTERATIVO</span>
+              </div>
+
+              <div class="absolute bottom-4 right-4 z-20 bg-deepNavy/80 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-[10px] font-mono text-slate-400">
+                Passe o cursor para calibrar o foco
+              </div>
+
+              <!-- Container Canvas Three.js -->
+              <div id="hero-eye-canvas-container" class="w-full h-full cursor-grab active:cursor-grabbing relative z-10"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. SEÇÃO — INDICADORES & PRÁTICA CLÍNICA
+         ========================================================================= -->
+    <section class="py-12 bg-midnight/60 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          
+          <div class="p-5 rounded-2xl glass-panel-subtle text-left space-y-1">
+            <span class="text-opticalCyan font-outfit font-black text-2xl lg:text-3xl block">100%</span>
+            <span class="text-white text-xs font-bold block">Diagnóstico Digital</span>
+            <p class="text-[11px] text-slate-400 leading-tight">Precisão óptica computadorizada para refração e retina</p>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-panel-subtle text-left space-y-1">
+            <span class="text-aqua font-outfit font-black text-2xl lg:text-3xl block">4 Etapas</span>
+            <span class="text-white text-xs font-bold block">Protocolo de Avaliação</span>
+            <p class="text-[11px] text-slate-400 leading-tight">Histórico, exames, análise detalhada e orientação médica</p>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-panel-subtle text-left space-y-1">
+            <span class="text-opticalCyan font-outfit font-black text-2xl lg:text-3xl block">Padrão Ouro</span>
+            <span class="text-white text-xs font-bold block">Tomografia & Biometria</span>
+            <p class="text-[11px] text-slate-400 leading-tight">Equipamentos calibrados para segurança pré-operatória</p>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-panel-subtle text-left space-y-1">
+            <span class="text-softWhite font-outfit font-black text-2xl lg:text-3xl block">Individual</span>
+            <span class="text-white text-xs font-bold block">Conduta Personalizada</span>
+            <p class="text-[11px] text-slate-400 leading-tight">A indicação terapêutica respeita suas características únicas</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. SEÇÃO — MAPA ANATÔMICO INTERATIVO DO OLHO (EDUCACIONAL)
+         ========================================================================= -->
+    <section id="anatomia-olho" class="py-20 md:py-28 border-b border-white/5 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight border border-opticalCyan/20 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-atom"></i> Educação Visual Interativa
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            Entenda o que influencia sua visão
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            O olho humano é um sistema óptico de altíssima precisão. Explore as principais estruturas oculares para compreender onde cada alteração visual se origina.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Esquema Óptico Visual & Hotspots -->
+          <div class="lg:col-span-6 relative">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden flex flex-col items-center justify-center min-h-[420px]">
+              
+              <!-- Fundo Óptico Concéntrico -->
+              <div class="concentric-ring w-80 h-80 opacity-20"></div>
+              <div class="concentric-ring w-56 h-56 opacity-30"></div>
+
+              <!-- SVG Esquema de Seção Transversal do Olho Humano -->
+              <svg class="w-full max-w-md h-auto" viewBox="0 0 500 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Globo Ocular Externo -->
+                <path d="M 120 70 C 260 40 430 80 430 170 C 430 260 260 300 120 270 C 80 230 60 170 60 170 C 60 170 80 110 120 70 Z" fill="#0B2230" stroke="#1C8F9C" stroke-width="2.5" opacity="0.8"/>
+                
+                <!-- Córnea Curvada Anterior -->
+                <path d="M 120 70 C 30 110 30 230 120 270" fill="none" stroke="#79E3E8" stroke-width="4.5" stroke-linecap="round"/>
+                
+                <!-- Cristalino -->
+                <ellipse cx="160" cy="170" rx="22" ry="48" fill="#1C8F9C" fill-opacity="0.35" stroke="#35C7D8" stroke-width="2"/>
+                
+                <!-- Íris Superior e Inferior -->
+                <path d="M 135 78 L 148 128" stroke="#D7B978" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 135 262 L 148 212" stroke="#D7B978" stroke-width="4" stroke-linecap="round"/>
+
+                <!-- Retina Interna -->
+                <path d="M 140 85 C 260 65 410 95 410 170 C 410 245 260 275 140 255" fill="none" stroke="#35C7D8" stroke-width="2" stroke-dasharray="3 3" opacity="0.7"/>
+
+                <!-- Mácula (Fóvea Central) -->
+                <circle cx="410" cy="170" r="7" fill="#79E3E8" stroke="#FFFFFF" stroke-width="1.5"/>
+
+                <!-- Nervo Óptico Saída Posterior -->
+                <path d="M 390 205 L 470 235 L 460 260 L 380 220 Z" fill="#071521" stroke="#1C8F9C" stroke-width="2"/>
+
+                <!-- Feixes de Luz Entrando e Convergindo -->
+                <path d="M 10 110 L 80 140 L 160 165 L 410 170" stroke="#79E3E8" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+                <path d="M 10 230 L 80 200 L 160 175 L 410 170" stroke="#79E3E8" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+              </svg>
+
+              <!-- Botões Seletor de Hotspots Rápidos -->
+              <div class="flex flex-wrap justify-center gap-2 mt-6 relative z-20">
+                <button type="button" data-anatomy-target="cornea" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition shadow">Córnea</button>
+                <button type="button" data-anatomy-target="cristalino" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition shadow">Cristalino</button>
+                <button type="button" data-anatomy-target="retina" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition shadow">Retina</button>
+                <button type="button" data-anatomy-target="macula" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition shadow">Mácula</button>
+                <button type="button" data-anatomy-target="nervo" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition shadow">Nervo Óptico</button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Card Dinâmico de Explicação Educativa -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-opticalCyan/30 relative">
+              
+              <div class="flex items-center justify-between mb-4">
+                <span id="anatomy-tag" class="text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-medicalTeal/20 text-aqua border border-opticalCyan/20">
+                  Óptica e Superfície
+                </span>
+                <span class="text-xs text-slate-400 flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-info text-opticalCyan"></i> Função Educativa
+                </span>
+              </div>
+
+              <h3 id="anatomy-title" class="font-outfit font-black text-2xl sm:text-3xl text-white mb-1">
+                Córnea
+              </h3>
+              <p id="anatomy-role" class="text-xs font-bold uppercase tracking-wider text-opticalCyan mb-4">
+                Superfície refrativa externa
+              </p>
+
+              <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p id="anatomy-desc">
+                  A superfície transparente anterior do olho. É responsável por cerca de dois terços do poder refrativo total, focalizando os feixes de luz que entram no olho.
+                </p>
+                
+                <div class="p-4 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-1">
+                  <strong class="text-white text-xs font-bold block flex items-center gap-1.5">
+                    <i class="fa-solid fa-microscope text-aqua"></i> Relevância Diagnóstica:
+                  </strong>
+                  <p id="anatomy-relevance" class="text-xs text-slate-300">
+                    Área de atuação da cirurgia refrativa a laser (LASIK / PRK) e crosslinking.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-slate-400 italic">Cada estrutura é avaliada em exames específicos.</span>
+                <a href="#avaliacao" class="text-xs font-bold text-opticalCyan hover:text-aqua transition flex items-center gap-1">
+                  <span>Ver exames da avaliação</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SEÇÃO — O QUE MUDOU NA SUA VISÃO? (SINTOMAS / NECESSIDADES)
+         ========================================================================= -->
+    <section id="sintomas" class="py-20 md:py-28 bg-midnight/40 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-medicalTeal/15 border border-opticalCyan/25 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-regular fa-eye"></i> Percepção Visual
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            O que mudou na sua visão?
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Alterações na nitidez visual são sinais para investigar. Clique sobre a condição para entender suas características e quais exames são recomendados.
+          </p>
+        </div>
+
+        <!-- Grid de Condições Comuns (Com Modal Educativo ao Clicar) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          
+          <!-- Miopia -->
+          <div data-condition-key="miopia" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-opticalCyan/15 text-opticalCyan flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-glasses"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Miopia</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Dificuldade para enxergar de longe com nitidez (placas, TV e rostos à distância).</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar caso</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Astigmatismo -->
+          <div data-condition-key="astigmatismo" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-aqua/15 text-aqua flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-braille"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Astigmatismo</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Visão distorcida ou com sombras para longe e perto, halos e raios noturnos.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar caso</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Hipermetropia -->
+          <div data-condition-key="hipermetropia" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-medicalTeal/20 text-opticalCyan flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Hipermetropia</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Cansaço ao ler ou usar telas, esforço visual constante e dores de cabeça.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar caso</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Catarata -->
+          <div data-condition-key="catarata" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-softWhite/10 text-white flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-cloud"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Catarata</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Visão opaca ou enevoada, cores desbotadas e sensibilidade ao brilho de faróis.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar caso</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Olho Seco -->
+          <div data-condition-key="olhoseco" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Olho Seco</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Sensação de areia, ardência frequente, vermelhidão e oscilação de foco visual.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar caso</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Ceratocone -->
+          <div data-condition-key="ceratocone" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-amber-400/15 text-amber-300 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-circle-nodes"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Ceratocone</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Astigmatismo irregular progressivo, troca frequente de óculos e coceira ocular.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar caso</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Alterações da Retina -->
+          <div data-condition-key="retina" class="glass-panel p-6 rounded-3xl hover:border-opticalCyan/60 transition cursor-pointer group flex flex-col justify-between sm:col-span-2 lg:col-span-2">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/15 text-rose-300 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white group-hover:text-aqua transition">Alterações da Retina & Mácula</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">Manchas móveis ('moscas volantes'), flashes de luz periféricos ou perda de nitidez central.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-xs text-opticalCyan font-semibold">
+              <span>Investigar com OCT e Mapeamento</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Modal Educativo de Condições Clínicas -->
+    <div id="condition-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+      <div id="condition-modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm"></div>
+      <div class="relative bg-midnight border border-opticalCyan/30 max-w-xl w-full p-6 sm:p-8 rounded-3xl shadow-2xl z-10 space-y-5 animate-fadeIn max-h-[90vh] overflow-y-auto">
+        
+        <div class="flex items-center justify-between">
+          <span id="modal-cond-category" class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan bg-medicalTeal/20 px-3 py-1 rounded-full border border-opticalCyan/20">
+            Categoria
+          </span>
+          <button id="condition-modal-close" type="button" aria-label="Fechar" class="w-8 h-8 rounded-full bg-white/10 text-slate-300 hover:text-white flex items-center justify-center">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+
+        <div>
+          <h3 id="modal-cond-title" class="font-outfit font-black text-2xl text-white">Condição</h3>
+          <p class="text-[11px] text-slate-400 mt-1 italic">Informação estritamente educativa. Não substitui consulta médica.</p>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-3.5 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-1">
+            <strong class="text-white block font-bold">O que é:</strong>
+            <p id="modal-cond-what"></p>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-1">
+            <strong class="text-white block font-bold">Como costuma ser percebido:</strong>
+            <p id="modal-cond-perception"></p>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-1">
+            <strong class="text-white block font-bold">Qual avaliação pode ajudar a investigar:</strong>
+            <p id="modal-cond-eval"></p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+          <a id="modal-cond-cta" href="#" target="_blank" rel="noopener noreferrer" class="btn-optical-primary flex-1 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-deepNavy text-sm"></i>
+            <span>Agendar Avaliação Deste Sintoma</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         7. SEÇÃO — COMO FUNCIONA SUA AVALIAÇÃO (JORNADA EM 4 ETAPAS)
+         ========================================================================= -->
+    <section id="avaliacao" class="py-20 md:py-28 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight border border-opticalCyan/20 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-list-check"></i> Processo Diagnóstico
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            Primeiro entendemos. Depois orientamos.
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Uma conduta oftalmológica segura não começa com uma decisão apressada. Conheça as quatro etapas da sua consulta.
+          </p>
+        </div>
+
+        <!-- Linha do Tempo Visual das 4 Etapas -->
+        <div id="timeline-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          
+          <!-- Etapa 01 -->
+          <div class="evaluation-step-card glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 relative flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="w-10 h-10 rounded-2xl bg-opticalCyan/15 text-opticalCyan font-outfit font-black text-base flex items-center justify-center border border-opticalCyan/30">
+                  01
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Escuta Atenta</span>
+              </div>
+              <h3 class="font-outfit font-bold text-xl text-white">Conversa & Histórico</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Entendemos suas queixas visuais, rotina de trabalho, tempo em telas, histórico familiar e expectativas em relação aos óculos ou lentes.
+              </p>
+            </div>
+            <div class="text-[11px] text-opticalCyan font-semibold flex items-center gap-1.5">
+              <i class="fa-regular fa-comments"></i> Compreensão da sua rotina
+            </div>
+          </div>
+
+          <!-- Etapa 02 -->
+          <div class="evaluation-step-card glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 relative flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="w-10 h-10 rounded-2xl bg-aqua/15 text-aqua font-outfit font-black text-base flex items-center justify-center border border-aqua/30">
+                  02
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Exames Ópticos</span>
+              </div>
+              <h3 class="font-outfit font-bold text-xl text-white">Exames Precisos</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Aferição do grau (refração computadorizada), tonometria de precisão, biomicroscopia em lâmpada de fenda e avaliação do fundo de olho.
+              </p>
+            </div>
+            <div class="text-[11px] text-aqua font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-microscope"></i> Dados computadorizados
+            </div>
+          </div>
+
+          <!-- Etapa 03 -->
+          <div class="evaluation-step-card glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 relative flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="w-10 h-10 rounded-2xl bg-medicalTeal/25 text-opticalCyan font-outfit font-black text-base flex items-center justify-center border border-medicalTeal/40">
+                  03
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Diagnóstico</span>
+              </div>
+              <h3 class="font-outfit font-bold text-xl text-white">Análise Clínica</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Interpretação minuciosa dos laudos e mapeamentos. O oftalmologista explica com clareza a condição real da sua córnea, cristalino e retina.
+              </p>
+            </div>
+            <div class="text-[11px] text-opticalCyan font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-chart-simple"></i> Clareza nas explicações
+            </div>
+          </div>
+
+          <!-- Etapa 04 -->
+          <div class="evaluation-step-card glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 relative flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="w-10 h-10 rounded-2xl bg-softWhite/15 text-white font-outfit font-black text-base flex items-center justify-center border border-white/20">
+                  04
+                </span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Decisão Conjunta</span>
+              </div>
+              <h3 class="font-outfit font-bold text-xl text-white">Orientação Médica</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Definição do plano adequado: atualização de óculos/lentes, tratamento clínico ou discussão de indicação cirúrgica, se elegível.
+              </p>
+            </div>
+            <div class="text-[11px] text-white font-semibold flex items-center gap-1.5">
+              <i class="fa-solid fa-hand-holding-medical text-opticalCyan"></i> Conduta ética e segura
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="#" data-whatsapp-context="geral" class="btn-optical-primary inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider">
+            <i class="fa-regular fa-calendar-check text-deepNavy"></i>
+            <span>Agendar Minha Avaliação Inicial</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. SEÇÃO — TECNOLOGIA DE DIAGNÓSTICO E PRECISÃO
+         ========================================================================= -->
+    <section id="tecnologia" class="py-20 md:py-28 bg-[#050C14] border-b border-white/5 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <div class="card-lift glass-panel rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Imagem Real da Tecnologia Clínica -->
+          <div class="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+            <img 
+              src="assets/oftalmo-tech.jpg" 
+              alt="Oftalmologista examinando estruturas oculares com biomicroscopia digital de lâmpada de fenda de alta resolução" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy" 
+              decoding="async"
+            />
+            
+            <div class="absolute top-4 left-4 bg-deepNavy/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-opticalCyan">
+              <i class="fa-solid fa-microscope mr-1.5"></i> Biomicroscopia Digital & Imagem Retiniana
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 bg-midnight/95 backdrop-blur-md p-4 rounded-xl border border-opticalCyan/25 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-aqua block">Investigação Diagnóstica Avançada</span>
+                <span class="font-bold text-sm text-white">Análise Microscópica da Córnea, Cristalino e Retina</span>
+              </div>
+              <span class="px-3 py-1 rounded-lg bg-medicalTeal/30 text-opticalCyan font-bold text-[11px] self-start sm:self-auto border border-opticalCyan/30">
+                Padrão de Precisão
+              </span>
+            </div>
+          </div>
+
+          <!-- Informações de Equipamentos e Segurança -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-opticalCyan/15 border border-opticalCyan/30 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-shield-halved"></i> Rigor Tecnológico
+            </div>
+
+            <h2 class="font-outfit font-black text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
+              Quando a tecnologia ajuda a enxergar o que os olhos não mostram.
+            </h2>
+
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Equipamentos de alta resolução permitem mapear anomalias microscópicas antes mesmo de gerarem sintomas perceptíveis, viabilizando condutas preventivas e procedimentos cirúrgicos milimétricos.
+            </p>
+
+            <div class="space-y-3.5 pt-2">
+              
+              <div class="p-3.5 rounded-2xl bg-midnight/80 border border-white/5 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-opticalCyan/20 text-opticalCyan flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-layer-group text-xs"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xs text-white">Tomografia de Coerência Óptica (OCT)</h3>
+                  <p class="text-[11px] text-slate-400">Varredura micrométrica das camadas da retina e do nervo óptico sem contato físico.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-midnight/80 border border-white/5 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-aqua/20 text-aqua flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-compass text-xs"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xs text-white">Topografia Corneana & Aberrometria</h3>
+                  <p class="text-[11px] text-slate-400">Mapa tridimensional das curvaturas da córnea para planejamento de PRK/LASIK e ceratocone.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-midnight/80 border border-white/5 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-bolt text-xs"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xs text-white">Sistemas a Laser com Eye-Tracker [CONFIRMAR EQUIPAMENTO]</h3>
+                  <p class="text-[11px] text-slate-400">Rastreamento contínuo dos micromovimentos do olho durante o procedimento cirúrgico.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pt-2">
+              <a href="#" data-whatsapp-context="geral" class="btn-optical-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg shadow-opticalCyan/20">
+                <i class="fa-regular fa-calendar-check text-deepNavy"></i>
+                <span>Agendar Consulta Diagnóstica</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. SEÇÃO — SERVIÇOS & ESPECIALIDADES CATEGORIZADAS
+         ========================================================================= -->
+    <section id="servicos" class="py-20 md:py-28 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight border border-opticalCyan/20 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-stethoscope"></i> Cuidado Integral
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            Especialidades Oftalmológicas
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Organizamos nosso atendimento por áreas clínicas específicas, garantindo que cada necessidade visual receba os exames adequados.
+          </p>
+        </div>
+
+        <!-- Seletor de Categorias (Tabs) -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+          <button type="button" data-service-tab="prevencao" class="px-4 py-2.5 rounded-xl text-xs font-bold transition shadow bg-gradient-to-r from-medicalTeal to-opticalCyan text-deepNavy">
+            01. Avaliação & Prevenção
+          </button>
+          <button type="button" data-service-tab="refrativa" class="px-4 py-2.5 rounded-xl text-xs font-semibold transition bg-midnight/60 text-slate-300 border border-white/10 hover:border-opticalCyan/40">
+            02. Cirurgia Refrativa
+          </button>
+          <button type="button" data-service-tab="catarata" class="px-4 py-2.5 rounded-xl text-xs font-semibold transition bg-midnight/60 text-slate-300 border border-white/10 hover:border-opticalCyan/40">
+            03. Catarata
+          </button>
+          <button type="button" data-service-tab="cornea" class="px-4 py-2.5 rounded-xl text-xs font-semibold transition bg-midnight/60 text-slate-300 border border-white/10 hover:border-opticalCyan/40">
+            04. Córnea & Ceratocone
+          </button>
+          <button type="button" data-service-tab="retina" class="px-4 py-2.5 rounded-xl text-xs font-semibold transition bg-midnight/60 text-slate-300 border border-white/10 hover:border-opticalCyan/40">
+            05. Retina & Diagnóstico
+          </button>
+          <button type="button" data-service-tab="superficie" class="px-4 py-2.5 rounded-xl text-xs font-semibold transition bg-midnight/60 text-slate-300 border border-white/10 hover:border-opticalCyan/40">
+            06. Superfície Ocular (Olho Seco)
+          </button>
+        </div>
+
+        <!-- Painéis de Conteúdo dos Serviços -->
+        <div class="space-y-6">
+          
+          <!-- Painel 1: Avaliação & Prevenção -->
+          <div data-service-panel="prevencao" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block mb-1">Rotina Anual</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Check-up Ocular Completo</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Avaliação global da acuidade visual, refração estática e dinâmica para óculos, biomicroscopia e aferição da pressão intraocular.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="checkup" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar Check-up
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-aqua block mb-1">Prevenção do Glaucoma</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Tonometria de Precisão</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Medição da pressão intraocular com tonômetro de aplanação calibrado, essencial para rastrear precocemente o glaucoma.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="checkup" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Saiba Mais
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-softWhite block mb-1">Saúde Neural</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Fundo de Olho Preventivo</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Exame que visualiza diretamente artérias, veias da retina e disco óptico, auxiliando na identificação de hipertensão e diabetes.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="checkup" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar Exame
+              </a>
+            </div>
+          </div>
+
+          <!-- Painel 2: Cirurgia Refrativa -->
+          <div data-service-panel="refrativa" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block mb-1">Laser de Precisão</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Técnica LASIK Customizada</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Criação de lamela corneana delicada seguida de aplicação do laser para remodelagem da curvatura com recuperação visual rápida.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="refrativa" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Avaliação de LASIK
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-aqua block mb-1">Superfície Corneana</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Técnica PRK Guiada</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Aplicação direta do laser na superfície corneana sem confecção de flap. Indicada para córneas mais delgadas ou certos esportes.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="refrativa" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Avaliação de PRK
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-softWhite block mb-1">Segurança Prévia</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Avaliação de Indicação</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Bateria completa de exames (paquimetria, topografia, pupilarometria) para certificar a estabilidade e elegibilidade cirúrgica.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="refrativa" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Investigar Elegibilidade
+              </a>
+            </div>
+          </div>
+
+          <!-- Painel 3: Catarata -->
+          <div data-service-panel="catarata" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block mb-1">Microincisão</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Facoemulsificação</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Fragmentação suave e aspiração do cristalino opacificado por ultrassom moderno através de incisão microscópica autoselante.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="catarata" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Consultar Detalhes
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-aqua block mb-1">Tecnologia Óptica</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Lentes Intraoculares Premium</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Opções monofocais, tóricas (para astigmatismo) ou de foco estendido/trifocais, selecionadas conforme a biometria de cada olho.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="catarata" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Conhecer Lentes
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-softWhite block mb-1">Cálculo Preciso</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Biometria Óptica IOLMaster</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Cálculo preciso do poder dióptrico da lente intraocular a ser implantada para restaurar o foco e o contraste visual.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="catarata" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar Biometria
+              </a>
+            </div>
+          </div>
+
+          <!-- Painel 4: Córnea & Ceratocone -->
+          <div data-service-panel="cornea" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block mb-1">Estabilização</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Crosslinking Corneano</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Procedimento com riboflavina e luz ultravioleta para fortalecer as fibras de colágeno da córnea e frear a progressão do ceratocone.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="ceratocone" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Avaliação de Ceratocone
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-aqua block mb-1">Adaptação Especial</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Lentes Esclerais & Rígidas</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Teste e adaptação de lentes de contato especiais que criam uma nova superfície óptica regular sobre a córnea irregular.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="ceratocone" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Teste de Lentes
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-softWhite block mb-1">Topografia & Paquimetria</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Acompanhamento Corneano</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Monitoramento seriado com mapas de elevação anterior e posterior para detectar qualquer afinamento ou mudança de curvatura.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="ceratocone" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar Acompanhamento
+              </a>
+            </div>
+          </div>
+
+          <!-- Painel 5: Retina & Diagnóstico -->
+          <div data-service-panel="retina" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block mb-1">Visão Periférica & Central</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Mapeamento de Retina</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Exame com oftalmoscópio indireto e lente de condensação para analisar a retina periférica, prevenindo rasgos e descolamentos.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="retina" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar Mapeamento
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-aqua block mb-1">Varredura Tomográfica</span>
+                <h3 class="font-outfit font-bold text-xl text-white">OCT de Mácula e Nervo</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Cortes transversais ópticos das camadas fotorreceptoras da mácula para investigar DMRI, buraco macular e edema diabético.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="retina" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar OCT
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-softWhite block mb-1">Registro Digital</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Retinografia Computadorizada</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Fotografia em alta resolução do fundo do olho para documentação evolutiva e acompanhamento de lesões vasculares e nevo coroidiano.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="retina" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Painel 6: Superfície Ocular (Olho Seco) -->
+          <div data-service-panel="superficie" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block mb-1">Diagnóstico Lacrimal</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Avaliação do Filme Lacrimal</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Testes de osmolaridade, tempo de ruptura do filme (BUT) e análise da camada lipídica para identificar o tipo de olho seco.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="olhoseco" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Avaliar Olho Seco
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-aqua block mb-1">Glândulas de Meibomius</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Meibografia Digital</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Visualização por infravermelho da estrutura e permeabilidade das glândulas palpebrais responsáveis pela lubrificação natural.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="olhoseco" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Consultar Exame
+              </a>
+            </div>
+
+            <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-softWhite block mb-1">Terapêutica Avançada</span>
+                <h3 class="font-outfit font-bold text-xl text-white">Terapia e Higiene Ocular</h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Protocolos personalizados de colírios lubrificantes sem conservantes, compressas térmicas e tratamentos específicos.
+                </p>
+              </div>
+              <a href="#" data-whatsapp-context="olhoseco" class="btn-optical-secondary py-2.5 px-4 rounded-xl text-xs font-bold text-center block">
+                Agendar Consulta
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-8 p-4 rounded-2xl bg-midnight/50 border border-white/5 text-center text-xs text-slate-400">
+          <p><i class="fa-solid fa-file-invoice text-opticalCyan mr-1.5"></i> <strong class="text-slate-200">Condições & Convênios:</strong> Atendemos consultas particulares e exames complementares com cobertura por convênios médicos. Consulte as condições específicas com nossa equipe.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. SEÇÃO EXCLUSIVA — CIRURGIA REFRATIVA A LASER
+         ========================================================================= -->
+    <section id="refrativa" class="py-20 md:py-28 bg-[#040D16] border-b border-white/5 relative overflow-hidden">
+      
+      <!-- Linha Laser Óptica Decorativa -->
+      <div class="laser-ray-beam opacity-40"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-medicalTeal/15 border border-opticalCyan/30 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-laser"></i> Cirurgia Refrativa Computadorizada
+            </div>
+
+            <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.05]">
+              Liberdade visual começa com uma <span class="text-transparent bg-clip-text bg-gradient-to-r from-opticalCyan to-aqua">avaliação completa.</span>
+            </h2>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              A cirurgia refrativa a laser remodela a curvatura microscópica da córnea para corrigir miopia, astigmatismo e hipermetropia. A indicação depende da estabilidade do grau e da espessura corneana, confirmadas em exames pré-operatórios.
+            </p>
+
+            <!-- Seletor Didático: LASIK vs PRK -->
+            <div class="space-y-4 pt-2">
+              <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-midnight border border-white/10 max-w-md">
+                <button id="btn-method-lasik" type="button" class="flex-1 py-2 px-4 rounded-xl text-xs font-bold bg-opticalCyan text-deepNavy transition">
+                  Técnica LASIK
+                </button>
+                <button id="btn-method-prk" type="button" class="flex-1 py-2 px-4 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition">
+                  Técnica PRK
+                </button>
+              </div>
+
+              <!-- Detalhes do LASIK -->
+              <div id="panel-method-lasik" class="p-5 rounded-2xl glass-panel space-y-3">
+                <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                  <i class="fa-solid fa-layer-group text-opticalCyan"></i>
+                  <span>LASIK (Laser-Assisted In Situ Keratomileusis)</span>
+                </h4>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  É confeccionada uma delgada camada superficial (flap) na córnea. O laser é aplicado na camada intermediária e a lamela é reposicionada sem necessidade de pontos.
+                </p>
+                <div class="grid grid-cols-2 gap-2 pt-2 text-[11px] text-slate-400">
+                  <div>• Recuperação visual rápida</div>
+                  <div>• Conforto pós-operatório acentuado</div>
+                </div>
+              </div>
+
+              <!-- Detalhes do PRK -->
+              <div id="panel-method-prk" class="p-5 rounded-2xl glass-panel space-y-3 hidden">
+                <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                  <i class="fa-solid fa-circle-dot text-aqua"></i>
+                  <span>PRK (Photorefractive Keratectomy)</span>
+                </h4>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  O laser é aplicado diretamente na superfície corneana após suave remoção do epitélio. Uma lente de contato terapêutica é utilizada durante a cicatrização inicial.
+                </p>
+                <div class="grid grid-cols-2 gap-2 pt-2 text-[11px] text-slate-400">
+                  <div>• Ideal para córneas mais finas</div>
+                  <div>• Preserva maior espessura estromal</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Avisos Éticos & Requisitos -->
+            <div class="p-4 rounded-2xl bg-midnight/80 border border-white/10 text-xs text-slate-300 space-y-1">
+              <strong class="text-opticalCyan block font-bold flex items-center gap-1.5">
+                <i class="fa-solid fa-clipboard-check"></i> Requisitos para Avaliação:
+              </strong>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                Idade mínima de 18 anos, grau estabilizado há pelo menos 1 ano e exames de paquimetria e topografia dentro dos limites de segurança biomédica.
+              </p>
+            </div>
+
+            <div class="pt-2">
+              <a href="#" data-whatsapp-context="refrativa" class="btn-optical-primary inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg shadow-opticalCyan/25">
+                <i class="fa-brands fa-whatsapp text-deepNavy text-base"></i>
+                <span>Avaliar Indicação de Cirurgia a Laser</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Lado Direito: Visual Didático da Refração Óptica -->
+          <div class="lg:col-span-5">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-opticalCyan/25 space-y-6">
+              
+              <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-white">Trajetória Óptica da Luz</span>
+                <span class="text-[10px] font-mono text-opticalCyan bg-opticalCyan/10 px-2.5 py-1 rounded-full border border-opticalCyan/20">Foco Retiniano</span>
+              </div>
+
+              <!-- Representação de Como a Luz Foca -->
+              <div class="space-y-4">
+                <div class="p-4 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-2">
+                  <span class="text-xs font-bold text-rose-300 block">Antes da Correção (Erro Refrativo):</span>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">
+                    O feixe de luz converge fora da retina (antes na miopia, atrás na hipermetropia), gerando imagem borrada ou desregulada.
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-deepNavy/80 border border-opticalCyan/20 space-y-2">
+                  <span class="text-xs font-bold text-aqua block">Após a Remodelagem a Laser:</span>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">
+                    A curvatura corneana é ajustada com precisão micrométrica, permitindo que os raios convirjam precisamente na fóvea central.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-midnight/90 border border-white/5 text-[11px] text-slate-400 text-center">
+                <i class="fa-solid fa-shield-cat text-opticalCyan mr-1"></i> A indicação cirúrgica é estritamente personalizada após laudo tomográfico.
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         11. SEÇÃO EXCLUSIVA — CATARATA (CLAREZA, AUTONOMIA & QUALIDADE DE VIDA)
+         ========================================================================= -->
+    <section id="catarata" class="py-20 md:py-28 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Lado Esquerdo: Simulador Educativo de Claridade Visual -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-5">
+              
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-white">Simulador de Claridade</span>
+                <span id="cataract-clarity-label" class="text-xs font-bold text-amber-300">Opacificação Moderada (Perda de Contraste)</span>
+              </div>
+
+              <!-- Container da Imagem com Efeito de Névoa Ajustável -->
+              <div class="clarity-slider-container w-full aspect-video rounded-2xl overflow-hidden relative border border-white/10 shadow-inner">
+                <img 
+                  src="assets/oftalmo-tech.jpg" 
+                  alt="Simulação didática da perda de nitidez visual provocada pela opacificação do cristalino" 
+                  class="w-full h-full object-cover" 
+                  loading="lazy"
+                />
+                
+                <!-- Overlay de Névoa Regulado pelo Slider -->
+                <div id="cataract-clarity-overlay" class="absolute inset-0 transition-all duration-150 backdrop-blur-[3.5px] bg-[#B4A078]/25 pointer-events-none flex items-center justify-center p-4">
+                  <span class="px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md text-white text-[11px] font-mono">
+                    Percepção através do cristalino opacificado
+                  </span>
+                </div>
+              </div>
+
+              <!-- Controle Interativo do Slider -->
+              <div class="space-y-2 pt-2">
+                <div class="flex justify-between text-[11px] font-semibold text-slate-400">
+                  <span>Pós-Cirurgia (LIO Nítida)</span>
+                  <span>Catarata Avançada (Névoa)</span>
+                </div>
+                <input 
+                  id="cataract-range-input" 
+                  type="range" 
+                  min="0" 
+                  max="100" 
+                  value="45" 
+                  class="w-full h-2 bg-midnight rounded-lg appearance-none cursor-pointer accent-opticalCyan"
+                  aria-label="Controle de simulação do embaçamento da catarata"
+                />
+                <p class="text-[11px] text-slate-400 text-center italic">Arraste a barra para comparar o efeito visual da opacificação.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Lado Direito: Narrativa Humana e de Autonomia -->
+          <div class="lg:col-span-6 space-y-6">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-medicalTeal/15 border border-opticalCyan/30 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-sun"></i> Restauração da Nitidez
+            </div>
+
+            <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.05]">
+              Recupere a claridade, as cores e a <span class="text-transparent bg-clip-text bg-gradient-to-r from-aqua to-softWhite">sua autonomia.</span>
+            </h2>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+              <p>
+                O cristalino é a lente natural do olho responsável por focalizar a luz nas diferentes distâncias. Com o avanço da idade ou fatores metabólicos, ele perde a transparência e passa a opacificar, tornando as imagens esbranquiçadas ou amareladas.
+              </p>
+              <p>
+                Quando indicada, a cirurgia de catarata substitui o cristalino turvo por uma lente intraocular (LIO) permanente e personalizada, permitindo recuperar a nitidez e a segurança ao dirigir, ler e caminhar.
+              </p>
+            </div>
+
+            <!-- 3 Pilares do Cuidado com a Catarata -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-3.5 rounded-2xl glass-panel-subtle text-left space-y-1">
+                <i class="fa-solid fa-clock text-opticalCyan text-base mb-1"></i>
+                <h4 class="text-white text-xs font-bold">Procedimento Breve</h4>
+                <p class="text-[11px] text-slate-400">Alta no mesmo dia sem necessidade de internação hospitalar</p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl glass-panel-subtle text-left space-y-1">
+                <i class="fa-solid fa-shield-heart text-aqua text-base mb-1"></i>
+                <h4 class="text-white text-xs font-bold">Conforto Ocular</h4>
+                <p class="text-[11px] text-slate-400">Anestesia tópica com colírios específicos e sedação leve</p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl glass-panel-subtle text-left space-y-1">
+                <i class="fa-solid fa-glasses text-softWhite text-base mb-1"></i>
+                <h4 class="text-white text-xs font-bold">Lentes Modernas</h4>
+                <p class="text-[11px] text-slate-400">Opções que também corrigem astigmatismo e presbiopia</p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="#" data-whatsapp-context="catarata" class="btn-optical-primary inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg shadow-opticalCyan/25">
+                <i class="fa-brands fa-whatsapp text-deepNavy text-base"></i>
+                <span>Agendar Avaliação para Catarata</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         12. SEÇÃO — MINI TESTE: CHECK-UP RÁPIDO DA SUA VISÃO (INFORMATIVO & ÉTICO)
+         ========================================================================= -->
+    <section id="checkup-rapido" class="py-20 md:py-28 bg-midnight/30 border-b border-white/5 relative">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        
+        <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-opticalCyan/30 shadow-2xl relative space-y-8">
+          
+          <div class="text-center max-w-xl mx-auto space-y-3">
+            <span class="text-xs font-mono font-bold uppercase tracking-widest text-opticalCyan bg-medicalTeal/20 px-3.5 py-1.5 rounded-full border border-opticalCyan/25">
+              Autoavaliação Informativa
+            </span>
+            <h2 class="font-outfit font-black text-2xl sm:text-3xl text-white">
+              Check-up Rápido da sua Visão
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Responda a 3 perguntas reflexivas sobre seus hábitos visuais recentes para receber uma orientação prévia:
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- Pergunta 1 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-3">
+              <label class="block text-xs sm:text-sm font-bold text-white">
+                1. Você tem sentido necessidade de apertar os olhos ou aproximar objetos para ler ou enxergar placas à distância?
+              </label>
+              <div class="flex gap-3">
+                <button type="button" id="checkup-q1-yes" onclick="answerCheckup(1, true)" class="flex-1 py-2.5 px-4 rounded-xl border border-white/10 text-slate-300 font-medium text-xs hover:border-opticalCyan transition">
+                  Sim, percebo oscilação
+                </button>
+                <button type="button" id="checkup-q1-no" onclick="answerCheckup(1, false)" class="flex-1 py-2.5 px-4 rounded-xl border border-white/10 text-slate-300 font-medium text-xs hover:border-opticalCyan transition">
+                  Não, enxergo nítido
+                </button>
+              </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-3">
+              <label class="block text-xs sm:text-sm font-bold text-white">
+                2. Ao final de um dia de trabalho com computador ou celular, você costuma sentir ardência, vermelhidão ou sensação de areia nos olhos?
+              </label>
+              <div class="flex gap-3">
+                <button type="button" id="checkup-q2-yes" onclick="answerCheckup(2, true)" class="flex-1 py-2.5 px-4 rounded-xl border border-white/10 text-slate-300 font-medium text-xs hover:border-opticalCyan transition">
+                  Sim, frequentemente
+                </button>
+                <button type="button" id="checkup-q2-no" onclick="answerCheckup(2, false)" class="flex-1 py-2.5 px-4 rounded-xl border border-white/10 text-slate-300 font-medium text-xs hover:border-opticalCyan transition">
+                  Raramente ou nunca
+                </button>
+              </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-deepNavy/80 border border-white/5 space-y-3">
+              <label class="block text-xs sm:text-sm font-bold text-white">
+                3. Faz mais de 12 meses desde a sua última consulta oftalmológica presencial com medida de pressão ocular?
+              </label>
+              <div class="flex gap-3">
+                <button type="button" id="checkup-q3-yes" onclick="answerCheckup(3, true)" class="flex-1 py-2.5 px-4 rounded-xl border border-white/10 text-slate-300 font-medium text-xs hover:border-opticalCyan transition">
+                  Sim, faz mais de 1 ano
+                </button>
+                <button type="button" id="checkup-q3-no" onclick="answerCheckup(3, false)" class="flex-1 py-2.5 px-4 rounded-xl border border-white/10 text-slate-300 font-medium text-xs hover:border-opticalCyan transition">
+                  Não, está em dia
+                </button>
+              </div>
+            </div>
+
+            <!-- Caixa de Feedback Reflexivo (Oculta até responder) -->
+            <div id="checkup-result-box" class="p-6 rounded-2xl bg-gradient-to-r from-medicalTeal/20 to-opticalCyan/20 border border-opticalCyan/40 text-center space-y-3 hidden animate-fadeIn">
+              <div class="w-10 h-10 rounded-full bg-opticalCyan/20 text-opticalCyan flex items-center justify-center mx-auto text-lg">
+                <i class="fa-solid fa-stethoscope"></i>
+              </div>
+              <h3 class="font-outfit font-black text-lg sm:text-xl text-white">
+                Orientação Inicial
+              </h3>
+              <p id="checkup-summary-text" class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-lg mx-auto">
+                Suas respostas sugerem que vale a pena conversar com um oftalmologista para investigar suas queixas de forma completa.
+              </p>
+              <div class="pt-2">
+                <a id="checkup-result-cta" href="#" target="_blank" rel="noopener noreferrer" class="btn-optical-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg shadow-opticalCyan/25">
+                  <i class="fa-brands fa-whatsapp text-deepNavy text-base"></i>
+                  <span>Agendar Consulta de Avaliação</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Aviso Ético Obrigatório -->
+          <div class="pt-4 border-t border-white/10 text-center">
+            <p class="text-[11px] text-slate-400 italic">
+              <i class="fa-solid fa-triangle-exclamation text-amber-400 mr-1"></i> Este questionário é estritamente informativo e não substitui uma avaliação oftalmológica presencial.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         13. SEÇÃO — CORPO CLÍNICO & CONFIANÇA (PROVA SOCIAL VERIFICADA)
+         ========================================================================= -->
+    <section class="py-20 md:py-28 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight border border-opticalCyan/20 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-user-doctor"></i> Responsabilidade Técnica
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            Especialistas Dedicados à sua Saúde Ocular
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Atendimento conduzido por médicos oftalmologistas com títulos de especialista e constante atualização científica.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card de Credenciais Médicas (Variáveis do Cliente) -->
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-5 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-medicalTeal to-opticalCyan text-deepNavy flex items-center justify-center text-2xl font-bold shadow-lg shadow-opticalCyan/20">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block" data-clinic-var="doctor.title">
+                  Direção Técnica & Especialidades
+                </span>
+                <h3 class="font-outfit font-bold text-xl text-white mt-1" data-clinic-var="doctor.name">
+                  Corpo Clínico Especializado
+                </h3>
+                <span class="text-xs text-slate-400 block mt-0.5" data-clinic-var="doctor.crm">
+                  CRM [CONFIRMAR COM O CLIENTE] • RQE [CONFIRMAR COM O CLIENTE]
+                </span>
+              </div>
+              <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-white/5">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-opticalCyan text-xs"></i> Título de Especialista em Oftalmologia</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-opticalCyan text-xs"></i> Membro do Conselho Brasileiro de Oftalmologia</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-opticalCyan text-xs"></i> Atualização contínua em microcirurgia</li>
+              </ul>
+            </div>
+            <div class="text-[11px] text-slate-400 italic">
+              Registro médico e qualificações validadas junto ao CRM.
+            </div>
+          </div>
+
+          <!-- Depoimento Real / Relato de Experiência 1 -->
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-5 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-1 text-accentGold text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+                "Fiz todos os exames prévios de paquimetria e topografia na própria clínica. O médico tirou todas as minhas dúvidas com calma e me explicou exatamente o que esperar da cirurgia refrativa. A clareza me deu muita segurança."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5">
+              <strong class="text-white text-xs block font-bold">Paciente de Avaliação Refrativa</strong>
+              <span class="text-[11px] text-slate-400">Acompanhamento e pós-operatório</span>
+            </div>
+          </div>
+
+          <!-- Depoimento Real / Relato de Experiência 2 -->
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-5 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-1 text-accentGold text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+                "Minha mãe operou a catarata com o implante da lente intraocular. Desde a biometria até a alta no mesmo dia, o atendimento foi respeitoso, sem filas e com orientações claras para os colírios em casa."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5">
+              <strong class="text-white text-xs block font-bold">Familiar de Paciente de Catarata</strong>
+              <span class="text-[11px] text-slate-400">Cirurgia com implante de LIO</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         14. SEÇÃO — FAQ INTERATIVO & PERGUNTAS FREQUENTES (GEO & SEARCH)
+         ========================================================================= -->
+    <section id="faq" class="py-20 md:py-28 bg-midnight/40 border-b border-white/5 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight border border-opticalCyan/20 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-circle-question"></i> Esclarecimentos Clínicos
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            Perguntas Frequentes
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Respostas transparentes e baseadas em evidências para as dúvidas mais comuns sobre avaliação e procedimentos.
+          </p>
+        </div>
+
+        <div class="space-y-3.5">
+          
+          <!-- Pergunta 1 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>O que é a cirurgia refrativa a laser?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  A cirurgia refrativa é um procedimento cirúrgico oftalmológico computadorizado que utiliza feixes de laser ultravioleta de alta precisão (Excimer Laser) para remodelar a curvatura microscópica da córnea. O objetivo é permitir que os raios de luz focalizem corretamente sobre a retina, reduzindo a dependência de óculos ou lentes de contato para miopia, astigmatismo e hipermetropia.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>Quem pode realizar a cirurgia refrativa?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  A indicação cirúrgica exige avaliação individualizada. De modo geral, o paciente precisa ter pelo menos 18 anos, grau estabilizado há pelo menos um ano, ausência de doenças oculares ativas (como ceratocone não controlado ou infecções) e exames pré-operatórios de imagem comprovando espessura e curvatura corneanas seguras.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>Como funciona uma avaliação oftalmológica completa?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  A consulta engloba anamnese minuciosa, teste de refração computadorizada para conferência do grau exato, exame de lâmpada de fenda (biomicroscopia) para inspecionar córnea e cristalino, aferição da pressão intraocular (tonometria) e exame de fundo de olho. Caso haja queixas específicas, exames como OCT ou topografia são agregados.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 4 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>Quando é o momento de operar a catarata?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  Diferente do passado, hoje não se espera a catarata "amadurecer". A indicação ocorre quando o embaçamento e a perda de contraste passam a comprometer a segurança e a autonomia do paciente em atividades cotidianas, como ler, dirigir à noite ou assistir televisão. O procedimento substitui o cristalino opaco por uma lente intraocular.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 5 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>O que é o exame de OCT (Tomografia de Coerência Óptica)?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  O OCT é um exame computadorizado indolor e não invasivo que utiliza ondas de luz para captar imagens microscópicas em corte transversal das camadas da retina e do nervo óptico. É indispensável para o diagnóstico precoce e acompanhamento de glaucoma, degeneração macular (DMRI) e retinopatia diabética.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 6 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>O que é ceratocone e como ele é acompanhado?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  Ceratocone é uma ectasia corneana em que a estrutura da córnea afina e adquire formato cônico irregular, provocando astigmatismo progressivo. O acompanhamento é feito com topografia e paquimetria seriada, e as abordagens incluem lentes especiais, crosslinking para frear a evolução ou implante de anéis intracorneanos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 7 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>O que causa a Síndrome do Olho Seco e como tratá-la?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  O olho seco ocorre quando há baixa produção de lágrima ou evaporação excessiva por alteração nas glândulas de Meibomius, muito comum em usuários crônicos de telas de computador e celular. O tratamento inclui colírios específicos sem conservantes, higiene palpebral, pausas visuais regulares e terapias de superfície ocular.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 8 -->
+          <div class="faq-item glass-panel rounded-2xl overflow-hidden border border-white/10">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-sm sm:text-base text-white hover:text-opticalCyan transition" aria-expanded="false">
+              <span>Como funcionam os convênios para consultas e exames?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-opticalCyan faq-icon transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>
+                  Oferecemos atendimento particular com tempo integral dedicado ao paciente e aceitamos diversos planos de saúde para a realização dos exames complementares diagnósticos e procedimentos cirúrgicos credenciados. Entre em contato com nossa equipe para consultar a cobertura específica do seu convênio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         15. SEÇÃO — LOCALIZAÇÃO & VISITE NOSSA CLÍNICA
+         ========================================================================= -->
+    
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Agendar Sua Avaliação no Instituto de Olhos?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Tecnologia diagnóstica avançada para enxergar o mundo com máxima nitidez e conforto.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Consultórios Rápidos sem Equipamentos</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Consultas de 5 minutos focadas apenas em prescrever grau de óculos</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de aparelhos para medição da pressão ocular e prevenção de glaucoma</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Encaminhamentos sem explicação das opções de cirurgia a laser ou catarata</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Ambientes frios sem acolhimento para idosos e crianças</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Tecnologia Óptica
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Instituto de Oftalmologia Especializada</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Check-up ocular completo: refração computadorizada, tonometria e mapeamento de retina</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Especialistas em cirurgia refrativa a laser (LASIK/PRK) para livrar-se dos óculos</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Cirurgia de catarata com microincisão e implante de lentes intraoculares nobres</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Equipamentos de tomografia de coerência óptica (OCT) de padrão internacional</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20oftalmológica%20completa." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="localizacao" class="py-20 md:py-28 border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight border border-opticalCyan/20 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-location-dot"></i> Unidade de Atendimento
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+            Visite nossa clínica
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Estrutura planejada para acolher com conforto, acessibilidade e salas de exames integradas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- Card de Informações Institucionais de Acesso -->
+          <div class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-5">
+              
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-medicalTeal to-opticalCyan text-deepNavy flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div>
+                  <span class="font-outfit font-bold text-lg text-white block" data-clinic-var="name">
+                    Instituto de Oftalmologia Especializada
+                  </span>
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-opticalCyan block" data-clinic-var="unitName">
+                    Unidade Central de Diagnóstico
+                  </span>
+                </div>
+              </div>
+
+              <div class="space-y-4 pt-2 text-xs">
+                
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                  <div>
+                    <strong class="text-white block font-bold">Endereço Principal:</strong>
+                    <span class="text-slate-300" data-clinic-var="location.address">Av. Paulista, 1000 - Bela Vista / Jardins</span>
+                    <span class="text-[10px] text-amber-300/80 block mt-0.5" data-clinic-var="location.addressNote">[CONFIRMAR ENDEREÇO COM O CLIENTE]</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-train-subway text-opticalCyan text-sm mt-0.5 shrink-0"></i>
+                  <div>
+                    <strong class="text-white block font-bold">Acesso Facilitado:</strong>
+                    <span class="text-slate-300" data-clinic-var="location.metroReference">A 250m da Estação Trianon-Masp (Linha 2 - Verde)</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-square-parking text-aqua text-sm mt-0.5 shrink-0"></i>
+                  <div>
+                    <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                    <span class="text-slate-300" data-clinic-var="location.parking">Vaga coberta e manobrista no próprio edifício</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-wheelchair text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                  <div>
+                    <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                    <span class="text-slate-300" data-clinic-var="location.accessibility">Rampas e elevadores modernos para mobilidade reduzida</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                  <div>
+                    <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                    <span class="text-slate-300 block" data-clinic-var="location.hoursWeekday">Segunda a Sexta: 08h às 19h</span>
+                    <span class="text-slate-300 block" data-clinic-var="location.hoursSaturday">Sábados: 08h às 13h</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Botões de Ação de Localização -->
+            <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+              <a href="#" data-maps-direction class="flex-1 py-3 px-4 rounded-xl bg-medicalTeal hover:bg-opticalCyan hover:text-deepNavy text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+                <i class="fa-solid fa-route"></i>
+                <span>Como Chegar</span>
+              </a>
+              <a href="#" data-whatsapp-context="localizacao" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Mapa Iframe Responsivo com Fallback Elegante -->
+          <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-[#0B2230] min-h-[380px] lg:min-h-[440px] relative flex flex-col justify-end">
+            <!-- Background Map Stylized Graphic for Offline/Fallback -->
+            <div class="absolute inset-0 optical-grid-bg opacity-70 flex flex-col items-center justify-center p-8 text-center space-y-3 pointer-events-none">
+              <div class="w-14 h-14 rounded-2xl bg-opticalCyan/15 text-opticalCyan flex items-center justify-center text-2xl shadow-lg border border-opticalCyan/30">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <strong class="font-outfit text-white text-base block font-bold">Localização Central & Acessível</strong>
+              <p class="text-xs text-slate-400 max-w-sm">Av. Paulista, 1000 - Próximo à Estação Trianon-Masp • Bela Vista / Jardins</p>
+            </div>
+            
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+              width="100%" 
+              height="100%" 
+              style="border:0; min-height: 420px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização do Instituto de Oftalmologia Especializada"
+              class="w-full h-full relative z-10"
+            ></iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         16. SEÇÃO — CTA FINAL DE CONVERSÃO
+         ========================================================================= -->
+    <section class="py-20 md:py-24 bg-gradient-to-b from-midnight to-deepNavy relative overflow-hidden text-center">
+      <div class="concentric-ring w-[600px] h-[600px] opacity-20"></div>
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-8">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-opticalCyan/15 border border-opticalCyan/30 text-opticalCyan text-xs font-bold uppercase tracking-wider">
+          <i class="fa-regular fa-clock"></i> Atendimento com Hora Marcada
+        </div>
+
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+          Seu próximo passo começa com uma <span class="text-transparent bg-clip-text bg-gradient-to-r from-opticalCyan via-aqua to-softWhite">avaliação completa.</span>
+        </h2>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-light">
+          Converse com nossa equipe para agendar sua consulta, esclarecer coberturas de convênio e dar o primeiro passo em direção a uma visão nítida e segura.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a href="#" data-whatsapp-context="geral" class="btn-optical-primary px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2.5 shadow-xl shadow-opticalCyan/30 w-full sm:w-auto">
+            <i class="fa-brands fa-whatsapp text-deepNavy text-base"></i>
+            <span>Agendar Avaliação via WhatsApp</span>
+          </a>
+          <a href="#anatomia-olho" class="btn-optical-secondary px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 w-full sm:w-auto">
+            <i class="fa-solid fa-atom text-opticalCyan"></i>
+            <span>Rever Mapa da Visão</span>
+          </a>
+        </div>
+
+        <p class="text-[11px] text-slate-400">
+          <i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> Respeito à sua privacidade e conformidade com o Código de Ética Médica do CFM.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       17. FOOTER EDITORIAL & COMPLIANCE MÉDICO
+       ========================================================================= -->
+  <footer class="bg-[#030910] border-t border-white/5 pt-16 pb-24 sm:pb-16 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Coluna 1: Marca & Tagline -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-medicalTeal to-opticalCyan flex items-center justify-center text-deepNavy text-lg font-bold">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <div>
+              <span class="font-outfit font-extrabold text-lg text-white tracking-tight block" data-clinic-var="name">
+                Instituto de Oftalmologia Especializada
+              </span>
+              <span class="text-[9px] font-mono tracking-widest uppercase text-opticalCyan block">
+                Tecnologia & Cuidado Ocular
+              </span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm" data-clinic-var="tagline">
+            Tecnologia diagnóstica para enxergar com máxima nitidez e segurança. Do check-up preventivo aos procedimentos a laser e tratamento da catarata.
+          </p>
+          <div class="pt-2 text-[11px] text-slate-500">
+            <p>Direção Técnica: <span data-clinic-var="doctor.name">Corpo Clínico Especializado</span></p>
+            <p><span data-clinic-var="doctor.crm">CRM [CONFIRMAR COM O CLIENTE]</span> • <span data-clinic-var="doctor.rqe">RQE [CONFIRMAR COM O CLIENTE]</span></p>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-white text-xs uppercase tracking-wider">Acesso Rápido</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#anatomia-olho" class="hover:text-opticalCyan transition">Mapa da Visão</a></li>
+            <li><a href="#sintomas" class="hover:text-opticalCyan transition">Sintomas Comuns</a></li>
+            <li><a href="#avaliacao" class="hover:text-opticalCyan transition">Como Funciona</a></li>
+            <li><a href="#tecnologia" class="hover:text-opticalCyan transition">Tecnologia</a></li>
+            <li><a href="#checkup-rapido" class="hover:text-opticalCyan transition">Check-up Rápido</a></li>
+            <li><a href="#localizacao" class="hover:text-opticalCyan transition">Onde Estamos</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Tratamentos -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-white text-xs uppercase tracking-wider">Tratamentos</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#refrativa" class="hover:text-opticalCyan transition">Cirurgia LASIK</a></li>
+            <li><a href="#refrativa" class="hover:text-opticalCyan transition">Cirurgia PRK</a></li>
+            <li><a href="#catarata" class="hover:text-opticalCyan transition">Cirurgia de Catarata</a></li>
+            <li><a href="#servicos" class="hover:text-opticalCyan transition">Ceratocone & Córnea</a></li>
+            <li><a href="#servicos" class="hover:text-opticalCyan transition">Retina & OCT</a></li>
+            <li><a href="#servicos" class="hover:text-opticalCyan transition">Tratamento de Olho Seco</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Contato & Atendimento -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-white text-xs uppercase tracking-wider">Atendimento</h4>
+          <p class="text-xs text-slate-300">
+            <i class="fa-solid fa-phone text-opticalCyan mr-1.5"></i>
+            <span data-clinic-var="phoneFormatted">(32) 99929-2311</span>
+          </p>
+          <p class="text-xs text-slate-300">
+            <i class="fa-brands fa-whatsapp text-emerald-400 mr-1.5"></i>
+            <span>WhatsApp para Agendamentos</span>
+          </p>
+          <p class="text-[11px] text-slate-400 leading-relaxed" data-clinic-var="location.hoursWeekday">
+            Segunda a Sexta: 08h às 19h
+          </p>
+          <div class="pt-2">
+            <a href="#" data-whatsapp-context="geral" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-medicalTeal/20 border border-opticalCyan/30 text-opticalCyan text-[11px] font-bold">
+              <span>Agendamento Online</span>
+              <i class="fa-solid fa-arrow-right text-[9px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé Regulatório & Compliance CFM -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 text-center md:text-left">
+        <p>© 2026 <span data-clinic-var="name">Instituto de Oftalmologia Especializada</span>. Todos os direitos reservados.</p>
+        <p class="max-w-xl">
+          As informações contidas neste website têm caráter exclusivamente educativo e informativo, em estrita observância à Resolução CFM nº 2.336/2023 sobre publicidade médica. Os resultados cirúrgicos e terapêuticos dependem de avaliação médica individualizada.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       18. BARRA FIXA MOBILE INFERIOR (CONVERSÃO EM 1 TOQUE)
+       ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-midnight/95 backdrop-blur-md border-t border-white/10 p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="#" data-whatsapp-context="geral" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow transition">
+      <i class="fa-brands fa-whatsapp text-sm"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="#avaliacao" class="flex-1 py-2.5 rounded-xl btn-optical-primary text-deepNavy font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow transition">
+      <i class="fa-regular fa-calendar-check text-sm text-deepNavy"></i>
+      <span>Agendar</span>
+    </a>
+  </div>
+
+  <!-- =========================================================================
+       SCRIPTS: THREE.JS, GSAP & CONTROLADORES DA CLÍNICA
+       ========================================================================= -->
+  <!-- Three.js r128 CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Módulos da Aplicação Oftalmológica -->
+  <script src="assets/js/clinic-config.js"></script>
+  <script src="assets/js/clinic-eye-3d.js"></script>
+  <script src="assets/js/clinic-interactive.js"></script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Instituto de Oftalmologia</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20oftalmológica%20completa." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

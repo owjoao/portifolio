@@ -1,0 +1,465 @@
+{
+  "energia-solar/index.html": {
+    "url": "energia-solar/index.html",
+    "title": "SunEco OS",
+    "image": "assets/previews/energia-solar.png",
+    "desc": "Dimensionamento solar automatizado, calculadora de economia para o cliente e CRM completo com controle de usinas, rastreio de inversores e módulos por lote.",
+    "tags": [
+      "Calculadora Solar 25 Anos",
+      "CRM Kanban",
+      "Estoque Inversores/Placas",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "dentista/index.html": {
+    "url": "dentista/index.html",
+    "title": "Lumina Dental OS",
+    "image": "assets/previews/dentista.png",
+    "desc": "Agendamento estético 3D, simulação de facetas e alinhadores, e painel CRM com histórico, faturamento e rastreio de resinas e anestésicos por lote.",
+    "tags": [
+      "Avaliação 3D Sem Dor",
+      "CRM Clínico",
+      "Controle Resinas por Lote",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "advogado/index.html": {
+    "url": "advogado/index.html",
+    "title": "Valente & Associados (LexPro OS)",
+    "image": "assets/previews/advogado.png",
+    "desc": "Captação confidencial com Diagnóstico de Risco Jurídico online e CRM com alerta vermelho de prazos prescricionais fatais e rateio de custas processuais.",
+    "tags": [
+      "Diagnóstico de Risco",
+      "Alerta Prazos Fatais",
+      "CRM Jurídico",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "concessionaria-honda/index.html": {
+    "url": "concessionaria-honda/index.html",
+    "title": "AutoDrive Honda OS",
+    "image": "assets/previews/concessionaria-honda.png",
+    "desc": "Agendamento interativo de test-drive, catálogo digital de seminovos e novos, e CRM operacional com estoque de peças genuínas com preços variados por lote.",
+    "tags": [
+      "Test-Drive Online",
+      "CRM Automotivo",
+      "Estoque de Peças",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "arquiteto/index.html": {
+    "url": "arquiteto/index.html",
+    "title": "ArtVista Wall Art",
+    "image": "assets/previews/arquiteto.png",
+    "desc": "Esculturas tridimensionais exclusivas e quadros com iluminação em LED quente dimerizável, loja virtual com carrinho interativo e simulação na parede via WhatsApp.",
+    "tags": [
+      "Simulador por m²",
+      "CRM de Obras",
+      "Materiais por Lote",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "banho-e-tosa/index.html": {
+    "url": "banho-e-tosa/index.html",
+    "title": "Pawly Petshop",
+    "image": "assets/previews/banho-e-tosa.png",
+    "desc": "Simulador Pet Spa por porte (P/M/G/GG) e pelagem, agendamento de táxi dog climatizado e CRM com controle de vacinas e cosméticos por lote.",
+    "tags": [
+      "Carrinho Interativo",
+      "Adoção de Pets",
+      "Quiz Personalizado",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "barbearia/index.html": {
+    "url": "barbearia/index.html",
+    "title": "Barber Club OS",
+    "image": "assets/previews/barbearia.png",
+    "desc": "Catálogo de cortes modernos/clássicos, seleção do barbeiro preferido e CRM de gestão com cálculo de comissões por profissional e estoque de pomadas.",
+    "tags": [
+      "Seletor de Estilo VIP",
+      "CRM Barbearia",
+      "Estoque Pomadas",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "corretor-imoveis/index.html": {
+    "url": "corretor-imoveis/index.html",
+    "title": "ImobMax OS",
+    "image": "assets/previews/corretor-imoveis.png",
+    "desc": "Simulador completo de financiamento imobiliário CAIXA SAC/Price, agendamento de visita VIP a coberturas e CRM de funil de vendas e comissões.",
+    "tags": [
+      "Simulador Caixa SAC",
+      "CRM Imobiliário",
+      "VGV & Comissões",
+      "Painel CRM",
+      ""
+    ],
+    "data_niche": ""
+  },
+  "psicologia/index.html": {
+    "url": "psicologia/index.html",
+    "title": "Mente Serena",
+    "image": "assets/previews/preview_psicologia.jpg",
+    "desc": "Atendimentos clínicos online e presenciais com acolhimento terapêutico, TCC e sigilo absoluto.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "oftalmologista/index.html": {
+    "url": "oftalmologista/index.html",
+    "title": "Visão Prime Clínica",
+    "image": "assets/previews/preview_oftalmologista.jpg",
+    "desc": "Exames completos de acuidade visual com equipamentos a laser de última geração sem desconforto.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "nutricionista/index.html": {
+    "url": "nutricionista/index.html",
+    "title": "NutriViva",
+    "image": "assets/previews/preview_nutricionista.jpg",
+    "desc": "Planos alimentares sem dietas restritivas extremas, com foco em longevidade, hipertrofia e energia.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "quiropraxista/index.html": {
+    "url": "quiropraxista/index.html",
+    "title": "Coluna Viva",
+    "image": "assets/previews/preview_quiropraxista.jpg",
+    "desc": "Alívio de dores nas costas e alinhamento postural já na primeira sessão sem uso de remédios.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "acupunturista/index.html": {
+    "url": "acupunturista/index.html",
+    "title": "Equilíbrio Oriental",
+    "image": "assets/previews/preview_acupunturista.jpg",
+    "desc": "Equilíbrio energético corporal, alívio da ansiedade e controle de dores com agulhas indolores.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "podologo/index.html": {
+    "url": "podologo/index.html",
+    "title": "Podologia Especializada",
+    "image": "assets/previews/preview_podologo.jpg",
+    "desc": "Tratamento de unhas encravadas e calosidades com esterilização cirúrgica e alívio imediato.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "gtmotors/index.html": {
+    "url": "gtmotors/index.html",
+    "title": "GT Motors Brasil",
+    "image": "assets/previews/preview_gtmotors.jpg",
+    "desc": "Showroom exclusivo de carros esportivos, importados e supercarros com laudo cautelar 100% aprovado.",
+    "tags": [
+      "Veículos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "shineray-uba/index.html": {
+    "url": "shineray-uba/index.html",
+    "title": "Shineray Ubá",
+    "image": "assets/previews/preview_shineray_uba.jpg",
+    "desc": "Concessionária autorizada com toda a linha de motos zero km, consórcio facilitado e oficina mecânica.",
+    "tags": [
+      "Veículos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "topmotos032/index.html": {
+    "url": "topmotos032/index.html",
+    "title": "TOP MOTOS 032",
+    "image": "assets/previews/preview_topmotos032.jpg",
+    "desc": "Motos seminovas revisadas com garantia total, avaliação justa do seu usado e oficina especializada.",
+    "tags": [
+      "Veículos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "vrum-motos/index.html": {
+    "url": "vrum-motos/index.html",
+    "title": "Vrum Motos",
+    "image": "assets/previews/preview_vrum_motos.jpg",
+    "desc": "Estoque completo de motocicletas novas e seminovas com aprovação de financiamento rápida.",
+    "tags": [
+      "Veículos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "fumaca-motos/index.html": {
+    "url": "fumaca-motos/index.html",
+    "title": "Fumaça Motos Multimarcas",
+    "image": "assets/previews/preview_fumaca_motos.jpg",
+    "desc": "Motos revisadas com procedência atestada, garantia e primeira parcela com prazo estendido.",
+    "tags": [
+      "Veículos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "rampabike/index.html": {
+    "url": "rampabike/index.html",
+    "title": "Rampa Bike Especializada",
+    "image": "assets/previews/preview_rampabike.jpg",
+    "desc": "Desde 1994 oferecendo as melhores marcas de bikes, acessórios profissionais e oficina especializada.",
+    "tags": [
+      "Veículos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "restaurante-egeu/index.html": {
+    "url": "restaurante-egeu/index.html",
+    "title": "Restaurante Egeu Mediterrâneo",
+    "image": "assets/previews/preview_restaurante_egeu.jpg",
+    "desc": "Culinária mediterrânea autêntica com peixes e frutos do mar frescos e reserva de mesa VIP sem espera.",
+    "tags": [
+      "Gastronomia",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "boteco-portugues/index.html": {
+    "url": "boteco-portugues/index.html",
+    "title": "O Tasco Boteco Lusitano",
+    "image": "assets/previews/preview_boteco_portugues.jpg",
+    "desc": "Bolinhos de bacalhau artesanais premiados, chopp hiper gelado e ambiente tradicional acolhedor.",
+    "tags": [
+      "Gastronomia",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "caxixi/index.html": {
+    "url": "caxixi/index.html",
+    "title": "Bar & Restaurante Caxixi",
+    "image": "assets/previews/preview_caxixi.jpg",
+    "desc": "Sabores tradicionais da culinária baiana em Salvador com porções generosas, cerveja trincando e aconchego.",
+    "tags": [
+      "Gastronomia",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "reconcavo/index.html": {
+    "url": "reconcavo/index.html",
+    "title": "Recôncavo Culinária",
+    "image": "assets/previews/preview_reconcavo.jpg",
+    "desc": "Gastronomia afro-baiana na Barra em Salvador: moquecas de dendê puro, acarajé e tempero ancestral.",
+    "tags": [
+      "Gastronomia",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "fotografo-casamento/index.html": {
+    "url": "fotografo-casamento/index.html",
+    "title": "Lumière Photo Studio",
+    "image": "assets/previews/preview_fotografo_casamento.jpg",
+    "desc": "Cobertura fotográfica cinematográfica de casamentos com entrega do pré-wedding em 48 horas.",
+    "tags": [
+      "Eventos",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "reforma-moveis/index.html": {
+    "url": "reforma-moveis/index.html",
+    "title": "Ateliê Renova Móveis",
+    "image": "assets/previews/preview_reforma_moveis.jpg",
+    "desc": "Seu móvel favorito pode ter uma nova história. Restauração artesanal de móveis clássicos e estofados.",
+    "tags": [
+      "Serviços",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "lavanderia/index.html": {
+    "url": "lavanderia/index.html",
+    "title": "LavaClean Express",
+    "image": "assets/previews/preview_lavanderia.jpg",
+    "desc": "Higienização profissional com coleta e entrega expressa em domicílio sem danificar tecidos.",
+    "tags": [
+      "Serviços",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "personal-trainer/index.html": {
+    "url": "personal-trainer/index.html",
+    "title": "ProFit Performance",
+    "image": "assets/previews/preview_personal_trainer.jpg",
+    "desc": "Consultoria fitness individualizada com metodologia anti-lesão e evolução física comprovada.",
+    "tags": [
+      "Saúde",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "contador/index.html": {
+    "url": "contador/index.html",
+    "title": "Exata Contábil",
+    "image": "assets/previews/preview_contador.jpg",
+    "desc": "Planejamento tributário, abertura ágil de empresas e BPO financeiro com redução legal de impostos.",
+    "tags": [
+      "Financeiro",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "professor-idiomas/index.html": {
+    "url": "professor-idiomas/index.html",
+    "title": "Polyglot Academy",
+    "image": "assets/previews/preview_professor_idiomas.jpg",
+    "desc": "Fluência conversacional para viagens e negócios sem foco excessivo em gramática maçante.",
+    "tags": [
+      "Educação",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "professor-musica/index.html": {
+    "url": "professor-musica/index.html",
+    "title": "Harmonia Instituto",
+    "image": "assets/previews/preview_professor_musica.jpg",
+    "desc": "Aulas práticas no seu instrumento preferido desde a 1ª aula, tocando suas músicas favoritas.",
+    "tags": [
+      "Educação",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "professor-particular/index.html": {
+    "url": "professor-particular/index.html",
+    "title": "Nota 10 Aulas",
+    "image": "assets/previews/preview_professor_particular.jpg",
+    "desc": "Reforço escolar personalizado com garantia de entendimento da matéria e notas altas.",
+    "tags": [
+      "Educação",
+      "Alta Conversão",
+      "WhatsApp Integrado",
+      "Copiar Link"
+    ],
+    "data_niche": ""
+  },
+  "sorveteria/index.html": {
+    "url": "sorveteria/index.html",
+    "title": "SCOOPÉRA Gelato & Sorveteria Artesanal",
+    "image": "assets/previews/preview_sorveteria.jpg",
+    "desc": "Experiência gastronômica imersiva para sorveterias e gelaterias: vitrine dinâmica de sabores, oferta Compre 1 Leve 2 e carrinho interativo com checkout direto no WhatsApp.",
+    "tags": [
+      "Vitrine 5 Sabores",
+      "Oferta Compre 1 Leve 2",
+      "Checkout WhatsApp",
+      "Animações GSAP"
+    ],
+    "data_niche": "sorveteria"
+  },
+  "pizzaria_landingpage/index.html": {
+    "url": "pizzaria_landingpage/index.html",
+    "title": "Bella Napoli — Pizzaria Artesanal & Forno a Lenha",
+    "image": "pizzaria_landingpage/assets/hero_pizzas.png",
+    "desc": "Landing page gastronômica para pizzarias napolitanas: seleção de pizzas no forno a lenha, cálculo de combos e pedido instantâneo no WhatsApp.",
+    "tags": [
+      "Pizzas Artesanais",
+      "Forno a Lenha",
+      "Cardápio Interativo",
+      "WhatsApp Direto"
+    ],
+    "data_niche": "pizzaria"
+  },
+  "lanchonete/index.html": {
+    "url": "lanchonete/index.html",
+    "title": "KFC Express — Fast Food & Delivery Oficial",
+    "image": "lanchonete/assets/deal_drinks.png",
+    "desc": "Cardápio digital ágil para lanchonetes e fast-food: baldes crocantes, combos com bebida e fechamento automatizado de pedidos.",
+    "tags": [
+      "Fast Food",
+      "Delivery Ágil",
+      "Combos Promocionais",
+      "WhatsApp Delivery"
+    ],
+    "data_niche": "lanchonete"
+  }
+}

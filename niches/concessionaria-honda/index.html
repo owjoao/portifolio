@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consórcio Nacional Honda Oficial | Conquiste sua Moto 0km</title>
+  <meta name="description" content="Simule seu Consórcio Nacional Honda oficial com parcelas sem juros, planos em até 80x, lance embutido de 15% e retirada na concessionária autorizada mais próxima." />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Consórcio Nacional Honda Oficial | 0% de Juros" />
+  <meta property="og:description" content="Simule sua moto Honda 0km em até 80x sem juros. Contemplações mensais por sorteio e lance." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts: Outfit & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            honda: {
+              red: '#E4002B',
+              darkred: '#B30022',
+              lightred: '#FF2A4D',
+              glow: '#FF1E46',
+              dark: '#0B0F14',
+              surface: '#111722',
+              card: '#161D2A',
+              border: '#232D3F',
+              gray: '#8E9AA8',
+              light: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            syne: ['Syne', 'sans-serif']
+          },
+          boxShadow: {
+            'honda-glow': '0 0 35px -5px rgba(228, 0, 43, 0.65)',
+            'honda-subtle': '0 8px 30px -8px rgba(228, 0, 43, 0.4)',
+            'card-dark': '0 20px 45px -15px rgba(0, 0, 0, 0.7)',
+            'glow-red-sm': '0 0 15px rgba(228, 0, 43, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E4002B;
+      border-radius: 4px;
+    }
+
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #E4002B, #FF4D6D, #E4002B);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Dark Radial Background Showroom */
+    .hero-radial-bg {
+      background: radial-gradient(circle at 35% 45%, #182333 0%, #0D131C 55%, #080B0F 100%);
+    }
+
+    /* Motorcycle Stage & Transparent PNG Transitions */
+    .bike-stage {
+      position: relative;
+      width: 100%;
+      min-height: 400px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .bike-render {
+      position: absolute;
+      left: -4%;
+      width: 108%;
+      max-width: 820px;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.5s ease;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.85));
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Slide Left / Right Animation States */
+    .bike-render.slide-out-left {
+      transform: translateX(-120px) scale(0.92);
+      opacity: 0;
+      filter: blur(6px) drop-shadow(0 5px 15px rgba(0,0,0,0.4));
+    }
+    .bike-render.slide-out-right {
+      transform: translateX(120px) scale(0.92);
+      opacity: 0;
+      filter: blur(6px) drop-shadow(0 5px 15px rgba(0,0,0,0.4));
+    }
+    .bike-render.slide-in-start-right {
+      transform: translateX(120px) scale(0.94);
+      opacity: 0;
+      filter: blur(6px);
+    }
+    .bike-render.slide-in-start-left {
+      transform: translateX(-120px) scale(0.94);
+      opacity: 0;
+      filter: blur(6px);
+    }
+    .bike-render.slide-in-active {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.9)) blur(0px);
+    }
+
+    /* Realistic Ground Floor Shadow */
+    .floor-shadow {
+      position: absolute;
+      bottom: 25px;
+      left: 6%;
+      width: 88%;
+      height: 30px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0) 75%);
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(4px);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    /* Content Fade Animations */
+    .content-animated {
+      transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .content-animated.fade-out {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .content-animated.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Bottom Model Tabs Active Style (Kawasaki Reference Layout) */
+    .model-tab-item {
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .model-tab-item .tab-number {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #64748B;
+      transition: color 0.3s ease;
+    }
+    .model-tab-item .tab-line {
+      height: 2px;
+      width: 28px;
+      background-color: transparent;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .model-tab-item.active .tab-number {
+      color: #FFFFFF;
+    }
+    .model-tab-item.active .tab-line {
+      background-color: #E4002B;
+      box-shadow: 0 0 12px #E4002B;
+    }
+    .model-tab-item .tab-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #64748B;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    .model-tab-item.active .tab-name {
+      color: #FFFFFF;
+    }
+    .model-tab-item:hover .tab-name {
+      color: #E2E8F0;
+    }
+
+    /* Custom range input slider */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 6px;
+      background: #232D3F;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #E4002B;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(228, 0, 43, 0.8);
+      transition: transform 0.15s ease, background-color 0.15s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.25);
+      background: #FF2A4D;
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Pulse Glow Animation */
+    @keyframes pulse-honda {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(228, 0, 43, 0.6);
+      }
+      50% {
+        box-shadow: 0 0 0 16px rgba(228, 0, 43, 0);
+      }
+    }
+    .btn-honda-pulse {
+      animation: pulse-honda 2.2s infinite;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "AutoDrive Honda OS • Concessionária & Oficina Especializada",
+  "description": "Motos e carros Honda zero km e seminovos revisados com planos de consórcio e oficina técnica oficial.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/concessionaria-honda/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-honda-dark text-slate-100 font-sans antialiased selection:bg-honda-red selection:text-white">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Top Announcement Bar (Dark Showroom Style) -->
+  <div class="bg-black/90 text-gray-400 text-xs py-2 px-4 border-b border-gray-800/80 z-50 relative">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <span class="bg-honda-red text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded uppercase tracking-wider shadow-glow-red-sm">
+          Oficial
+        </span>
+        <span class="text-gray-300 font-medium hidden sm:inline">
+          Consórcio Nacional Honda — Mais de 7 Milhões de Motos Entregues no Brasil
+        </span>
+        <span class="text-gray-300 font-medium sm:hidden">Consórcio Honda Oficial • 0% Juros</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <a href="#simulador" class="text-gray-300 hover:text-white transition flex items-center gap-1.5">
+          <i class="fa-solid fa-calculator text-honda-lightred"></i>
+          <span>Simulador Online</span>
+        </a>
+        <span class="text-gray-700">|</span>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1,%20gostaria%20de%20simular%20o%20Cons%C3%B3rcio%20Honda!" target="_blank" class="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Consultores Online</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Fixed Header Navigation (Clean Dark Luxury Style) -->
+  <header id="main-header" class="sticky top-0 z-50 bg-[#0B0F14]/90 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Left: Honda Brand Wordmark & Wing -->
+        <div class="flex items-center gap-6">
+          <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2 rounded-lg transition" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars-staggered text-2xl"></i>
+          </button>
+          
+          <a href="#" class="flex items-center gap-3.5 group">
+            <svg class="h-8 w-auto text-honda-red transition-transform group-hover:scale-105 duration-300" viewBox="0 0 100 80" fill="currentColor">
+              <path d="M98.2,1.2 C74.6,0.3 54.8,11.2 41.5,23.1 C32.1,31.6 25.3,42.4 20.8,54.2 C19.6,57.4 18.6,60.8 17.8,64.2 C16.5,58.7 17.5,52.8 20.6,47.9 C24.2,42.2 29.8,37.8 35.8,34.2 C45.4,28.4 56.4,24.8 67.5,22.8 C71.2,22.1 74.8,21.7 78.5,21.5 C77.2,23.3 75.6,24.8 73.8,26.1 C63.5,33.5 50.8,37.6 38.3,41.2 C29.4,43.7 20.3,46.8 12.8,52.9 C8.6,56.3 5.3,60.8 3.3,65.8 C1.8,69.5 1.1,73.5 1.2,77.5 C1.3,78.8 2.5,79.5 3.6,79.1 C9.1,77.1 14.3,74.1 19.1,70.5 C31.4,61.2 40.5,47.7 51.2,36.2 C62.8,23.8 78.2,14.6 94.6,11.5 C97.2,11 98.7,7.8 98.2,1.2 Z"/>
+            </svg>
+            <div class="flex flex-col">
+              <span class="font-outfit font-black tracking-tight text-2xl leading-none text-white flex items-center gap-1.5">
+                HONDA
+              </span>
+              <span class="text-[9px] font-mono font-bold tracking-widest text-honda-lightred uppercase -mt-0.5">
+                Consórcio Nacional
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Center: Desktop Horizontal Navigation (Clean Underline Style) -->
+        <nav class="hidden lg:flex items-center gap-8 text-xs font-bold tracking-wider uppercase">
+          <a href="#hero-showcase" class="text-white hover:text-white transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-honda-red">Modelos</a>
+          <a href="#simulador" class="text-gray-400 hover:text-white transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-honda-red after:transition-all">Simulador</a>
+          <a href="#como-funciona" class="text-gray-400 hover:text-white transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-honda-red after:transition-all">Como Funciona</a>
+          <a href="#planos" class="text-gray-400 hover:text-white transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-honda-red after:transition-all">Planos & Lances</a>
+          <a href="#vantagens" class="text-gray-400 hover:text-white transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-honda-red after:transition-all">Garantia & Vantagens</a>
+          <a href="#faq" class="text-gray-400 hover:text-white transition py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-honda-red after:transition-all">Dúvidas</a>
+        </nav>
+
+        <!-- Right: Actions (Search, WhatsApp Quote) -->
+        <div class="flex items-center gap-4">
+          <button onclick="scrollToSimulatorWithModel()" class="text-gray-400 hover:text-white transition p-2 rounded-lg" title="Buscar Modelo / Simulação">
+            <i class="fa-solid fa-magnifying-glass text-base"></i>
+          </button>
+          
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1,%20gostaria%20de%20fazer%20uma%20simula%C3%A7%C3%A3o%20do%20Cons%C3%B3rcio%20Honda!" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-honda-red hover:bg-honda-darkred text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg transition-all shadow-honda-subtle hover:shadow-honda-glow transform hover:-translate-y-0.5" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Simular no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0D131C] border-b border-gray-800 px-6 py-5 transition-all">
+      <div class="flex flex-col gap-4 text-sm font-semibold">
+        <a href="#hero-showcase" class="text-white font-bold py-2 border-b border-gray-800/80 mobile-link">Modelos & Motos 2026</a>
+        <a href="#simulador" class="text-gray-300 hover:text-white py-2 border-b border-gray-800/80 mobile-link">Simulador de Parcelas</a>
+        <a href="#como-funciona" class="text-gray-300 hover:text-white py-2 border-b border-gray-800/80 mobile-link">Como Funciona o Consórcio</a>
+        <a href="#planos" class="text-gray-300 hover:text-white py-2 border-b border-gray-800/80 mobile-link">Planos & Modalidades de Lance</a>
+        <a href="#vantagens" class="text-gray-300 hover:text-white py-2 border-b border-gray-800/80 mobile-link">3 Anos de Garantia de Fábrica</a>
+        <a href="#faq" class="text-gray-300 hover:text-white py-2 mobile-link">Perguntas Frequentes</a>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20do%20Cons%C3%B3rcio%20Honda!" target="_blank" class="w-full text-center bg-honda-red text-white py-3.5 rounded-xl font-bold uppercase text-xs tracking-wider mt-2 shadow-honda-subtle" rel="noopener noreferrer">
+          Falar com Consultor Autorizado
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Right Edge Vertical Pagination & Socials (As Seen in Reference Design) -->
+  <aside class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden 2xl:flex flex-col items-center gap-6 pointer-events-auto">
+    <!-- Vertical Socials -->
+    <div class="flex flex-col gap-4">
+      <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition" title="Instagram Oficial" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram text-sm"></i>
+      </a>
+      <a href="https://wa.me/5532999292311" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-emerald-400 transition" title="WhatsApp Oficial" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-sm"></i>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition" title="Facebook Oficial" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook-f text-xs"></i>
+      </a>
+    </div>
+
+    <!-- Vertical Pagination Dots -->
+    <div class="flex flex-col items-center gap-3 py-4 border-y border-white/10" id="vertical-dots">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <span class="text-[11px] font-mono font-bold text-gray-500 rotate-90 mt-3 tracking-widest" id="hero-year-vertical">2026</span>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 1: HERO SHOWCASE (DARK SHOWROOM LAYOUT IN THE STYLE OF REFERENCE) -->
+  <!-- ========================================================================= -->
+  <section id="hero-showcase" class="relative min-h-[calc(100vh-100px)] flex flex-col justify-between overflow-hidden hero-radial-bg pt-6 pb-6 border-b border-white/5">
+    
+    <!-- Ambient Red Honda Ambient Lighting -->
+    <div class="absolute -top-20 left-1/4 w-[600px] h-[600px] bg-honda-red/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-[450px] h-[450px] bg-honda-red/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 my-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- LEFT: MOTORCYCLE SIDE-PROFILE VIEW WITH SMOOTH CAROUSEL -->
+        <div class="lg:col-span-7 relative flex flex-col items-center justify-center min-h-[380px] sm:min-h-[480px]">
+          
+          <!-- Prev / Next Floating Arrows -->
+          <button id="hero-prev-btn" class="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-honda-red text-white backdrop-blur-md border border-white/10 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg" aria-label="Modelo Anterior">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          
+          <button id="hero-next-btn" class="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-honda-red text-white backdrop-blur-md border border-white/10 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg" aria-label="Próximo Modelo">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+
+          <!-- Bike Stage Container -->
+          <div class="bike-stage w-full">
+            <!-- Outgoing / Incoming Image Slots for Smooth Crossfade -->
+            <img id="bike-img-primary" 
+                 src="images/clean/cg160_clean.png" 
+                 alt="CG 160 Titan Flex" 
+                 class="bike-render slide-in-active" />
+            
+            <img id="bike-img-secondary" 
+                 src="" 
+                 alt="" 
+                 class="bike-render opacity-0" / loading="lazy" decoding="async">
+
+            <!-- Realistic Ground Floor Shadow -->
+            <div class="floor-shadow"></div>
+          </div>
+
+          <!-- Color Swatches & Status Tag -->
+          <div class="flex items-center justify-between w-full max-w-md px-4 mt-2">
+            <div class="flex items-center gap-2.5 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full text-xs font-semibold text-gray-300">
+              <span class="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Cores:</span>
+              <div id="hero-colors-container" class="flex items-center gap-2">
+                <!-- Color dots injected by JS -->
+              </div>
+            </div>
+
+            <div class="text-[11px] font-semibold text-gray-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-honda-red animate-pulse"></span>
+              <span>Visualização Oficial Showroom</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: MODEL SPECS, PRICE & CTA (STYLE OF REFERENCE IMAGE) -->
+        <div class="lg:col-span-5 flex flex-col justify-center">
+          
+          <div id="hero-content-block" class="content-animated">
+            
+            <!-- Category Tag -->
+            <div class="flex items-center gap-2.5 mb-2.5">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-honda-red/15 text-honda-lightred border border-honda-red/30">
+                <i class="fa-solid fa-shield-halved text-xs"></i>
+                <span id="hero-category">Street Líder</span>
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/30">
+                <i class="fa-solid fa-circle-check text-xs"></i> 0% de Juros
+              </span>
+            </div>
+
+            <!-- Model Title (Bold & Direct like Reference) -->
+            <h1 id="hero-title" class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-none mb-2">
+              CG 160 TITAN
+            </h1>
+            
+            <!-- Installment / Starting Price -->
+            <div class="mb-4">
+              <span class="text-gray-400 text-xs uppercase font-bold tracking-wider">Parcelas a partir de</span>
+              <div class="flex items-baseline gap-2 mt-0.5">
+                <span class="text-honda-lightred font-outfit font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight drop-shadow-sm" id="hero-price">
+                  R$ 229,00
+                </span>
+                <span class="text-gray-400 font-semibold text-sm">/mês</span>
+              </div>
+            </div>
+
+            <!-- Motorcycle Description (High-Tech & Direct) -->
+            <p id="hero-subtitle" class="text-gray-300 text-sm leading-relaxed mb-6 font-normal max-w-lg">
+              A moto mais vendida e amada do Brasil. Economia extrema de até 42 km/l, painel blackout digital e alto valor de revenda garantido.
+            </p>
+
+            <!-- Quick Specs Info Strip -->
+            <div class="grid grid-cols-3 gap-3 bg-black/40 backdrop-blur-md rounded-2xl p-3.5 border border-white/10 mb-6">
+              <div class="text-center">
+                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">Crédito</span>
+                <strong class="text-xs sm:text-sm font-outfit font-bold text-white" id="hero-credit">R$ 19.800</strong>
+              </div>
+              <div class="text-center border-x border-white/10">
+                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">Plano</span>
+                <strong class="text-xs sm:text-sm font-outfit font-bold text-white" id="hero-term">Até 80x</strong>
+              </div>
+              <div class="text-center">
+                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">Lance Médio</span>
+                <strong class="text-xs sm:text-sm font-outfit font-bold text-honda-lightred" id="hero-bid">18% a 22%</strong>
+              </div>
+            </div>
+
+            <!-- Action Button (Matching the Reference Button Style with Honda Red Glow) -->
+            <div class="flex flex-col sm:flex-row items-stretch gap-3">
+              <button onclick="scrollToSimulatorWithModel()" class="flex-1 bg-honda-red hover:bg-honda-darkred text-white font-outfit font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-xl transition-all shadow-honda-glow hover:shadow-honda-glow transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 btn-honda-pulse">
+                <i class="fa-solid fa-calculator"></i>
+                <span>Simular Meu Plano</span>
+              </button>
+              
+              <a id="hero-whatsapp-link" href="https://wa.me/5532999292311?text=Ol%C3%A1,%20gostaria%20de%20simular%20o%20cons%C3%B3rcio%20da%20CG%20160%20TITAN!" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-honda-red font-outfit font-bold text-sm uppercase tracking-wider py-4 px-6 rounded-xl transition flex items-center justify-center gap-2" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                <span>Proposta WhatsApp</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- BOTTOM MODEL SELECTOR BAR (MATCHING THE REFERENCE TABS)  -->
+    <!-- ======================================================== -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 mt-6">
+      <div class="card-lift bg-black/50 backdrop-blur-xl rounded-2xl p-3 border border-white/10 shadow-2xl">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" id="hero-model-tabs">
+          <!-- Injected via JavaScript dynamically -->
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 2: INTERACTIVE SIMULATOR (CALCULADORA DE PARCELAS EM TEMPO REAL)  -->
+  <!-- ========================================================================= -->
+  <section id="simulador" class="py-20 bg-[#080B0F] text-white relative overflow-hidden border-b border-white/5">
+    <!-- Ambient Background Elements -->
+    <div class="absolute -right-32 top-0 w-96 h-96 bg-honda-red/15 rounded-full blur-[130px] pointer-events-none"></div>
+    <div class="absolute -left-32 bottom-0 w-96 h-96 bg-honda-red/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <span class="text-honda-lightred font-bold text-xs uppercase tracking-widest bg-honda-red/15 border border-honda-red/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+          Simulador Oficial Online
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white">
+          Calcule a Parcela da Sua Honda 0km
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-3">
+          Escolha o modelo, ajuste o prazo e veja quanto você economiza ao fugir dos juros abusivos de bancos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: Simulator Controls Form (7 Cols) -->
+        <div class="card-lift lg:col-span-7 bg-[#111722]/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-gray-800 shadow-2xl flex flex-col justify-between reveal-left">
+          <div>
+            
+            <!-- Step 1: Model Selection Grid -->
+            <div class="mb-6">
+              <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">
+                1. Selecione o Modelo Honda Desejado:
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="sim-model-selector">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Step 2: Installment Term Slider (Prazos) -->
+            <div class="mb-6">
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">
+                  2. Prazo do Plano:
+                </label>
+                <span class="text-honda-lightred font-outfit font-black text-lg" id="sim-term-display">
+                  80 Meses
+                </span>
+              </div>
+              <input type="range" id="sim-term-slider" min="12" max="80" step="12" value="80" class="w-full cursor-pointer" />
+              <div class="flex justify-between text-[11px] text-gray-400 mt-2 font-medium">
+                <span>12x (1 ano)</span>
+                <span>36x</span>
+                <span>48x</span>
+                <span>60x</span>
+                <span>72x</span>
+                <span class="text-honda-lightred font-bold">80x (Recomendado)</span>
+              </div>
+            </div>
+
+            <!-- Step 3: Estimated Bid Type (Lance Opcional) -->
+            <div class="mb-6">
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">
+                  3. Pretende dar Lance para antecipar? (Opcional):
+                </label>
+                <span class="text-emerald-400 font-outfit font-bold text-sm" id="sim-bid-display">
+                  Apenas Sorteio (0%)
+                </span>
+              </div>
+              <input type="range" id="sim-bid-slider" min="0" max="40" step="5" value="0" class="w-full cursor-pointer" />
+              <div class="flex justify-between text-[11px] text-gray-400 mt-2 font-medium">
+                <span>0% (Só Sorteio)</span>
+                <span class="counter-up" data-target="10%">10%</span>
+                <span class="text-yellow-400">15% (Lance Embutido)</span>
+                <span class="counter-up" data-target="25%">25%</span>
+                <span>40% (Contemplação Rápida)</span>
+              </div>
+            </div>
+
+            <!-- Features Checkboxes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-gray-800 text-xs text-gray-300">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-honda-lightred"></i>
+                <span>Garantia de 3 Anos de Fábrica</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-honda-lightred"></i>
+                <span>0% de Taxa de Juros</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-honda-lightred"></i>
+                <span>Lance Embutido de até 15%</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-honda-lightred"></i>
+                <span>Retirada na Concessionária mais Próxima</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Results & WhatsApp Direct Quote (5 Cols) -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-[#E4002B] via-[#B80022] to-[#800018] rounded-3xl p-6 sm:p-8 text-white shadow-honda-glow flex flex-col justify-between relative overflow-hidden reveal-right">
+          
+          <!-- Decorative Background Badge -->
+          <div class="absolute -right-10 -bottom-10 opacity-15 pointer-events-none">
+            <svg class="w-64 h-64 text-white" viewBox="0 0 100 80" fill="currentColor">
+              <path d="M98.2,1.2 C74.6,0.3 54.8,11.2 41.5,23.1 C32.1,31.6 25.3,42.4 20.8,54.2 C19.6,57.4 18.6,60.8 17.8,64.2 C16.5,58.7 17.5,52.8 20.6,47.9 C24.2,42.2 29.8,37.8 35.8,34.2 C45.4,28.4 56.4,24.8 67.5,22.8 C71.2,22.1 74.8,21.7 78.5,21.5 C77.2,23.3 75.6,24.8 73.8,26.1 C63.5,33.5 50.8,37.6 38.3,41.2 C29.4,43.7 20.3,46.8 12.8,52.9 C8.6,56.3 5.3,60.8 3.3,65.8 C1.8,69.5 1.1,73.5 1.2,77.5 C1.3,78.8 2.5,79.5 3.6,79.1 C9.1,77.1 14.3,74.1 19.1,70.5 C31.4,61.2 40.5,47.7 51.2,36.2 C62.8,23.8 78.2,14.6 94.6,11.5 C97.2,11 98.7,7.8 98.2,1.2 Z"/>
+            </svg>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between border-b border-white/20 pb-4 mb-5">
+              <div>
+                <span class="text-xs uppercase font-bold text-white/80 tracking-wider">Resultado da Simulação</span>
+                <h3 class="font-outfit font-black text-2xl" id="sim-result-model">CG 160 Titan Flex</h3>
+              </div>
+              <span class="bg-black/30 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full uppercase border border-white/20">
+                0% Juros
+              </span>
+            </div>
+
+            <!-- Installment Output -->
+            <div class="bg-black/30 backdrop-blur-md rounded-2xl p-5 border border-white/15 mb-5">
+              <div class="text-xs font-medium text-white/80">Valor Estimado da Mensalidade:</div>
+              <div class="font-outfit font-black text-4xl sm:text-5xl tracking-tight my-1 drop-shadow" id="sim-result-installment">
+                R$ 229,00
+              </div>
+              <div class="text-xs text-white/80" id="sim-result-term-summary">
+                Plano em 80 parcelas mensais sem juros
+              </div>
+            </div>
+
+            <!-- Economy Comparison -->
+            <div class="space-y-2 mb-6 text-xs">
+              <div class="flex justify-between text-white/95">
+                <span>Crédito da Moto:</span>
+                <strong id="sim-result-credit">R$ 19.800,00</strong>
+              </div>
+              <div class="flex justify-between text-white/95">
+                <span>Total no Consórcio:</span>
+                <strong class="text-emerald-300" id="sim-result-total">R$ 22.770,00</strong>
+              </div>
+              <div class="flex justify-between text-white/70 line-through">
+                <span>No Financiamento Bancário:</span>
+                <span id="sim-result-bank">R$ 38.500,00</span>
+              </div>
+              <div class="bg-emerald-500/25 backdrop-blur-md text-emerald-100 p-3 rounded-xl border border-emerald-400/40 flex items-center gap-2 font-semibold">
+                <i class="fa-solid fa-piggy-bank text-emerald-300 text-lg"></i>
+                <span>Economia de até <strong id="sim-result-savings" class="text-white font-bold">R$ 15.730,00</strong> em juros!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form / Action -->
+          <div>
+            <a id="sim-whatsapp-link" href="https://wa.me/5532999292311?text=Ol%C3%A1,%20fiz%20uma%20simula%C3%A7%C3%A3o%20da%20CG%20160%20em%2080x%20e%20quero%20minha%20proposta!" target="_blank" class="w-full bg-white hover:bg-gray-100 text-honda-red font-outfit font-black text-base uppercase tracking-wider py-4 px-6 rounded-xl transition-all shadow-xl flex items-center justify-center gap-3 text-center transform hover:scale-[1.02]" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-2xl text-emerald-600"></i>
+              <span>Garantir Proposta Oficial</span>
+            </a>
+            <p class="text-[11px] text-white/80 text-center mt-2.5">
+              Consultores autorizados de prontidão para tirar dúvidas sem compromisso.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 3: COMO FUNCIONA O CONSÓRCIO (4 ETAPAS CLARAS)                   -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SHOWROOM MODERNO & OFICINA MASTER HONDA (FLOW PHOTOREALISTIC ASSETS)      -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#080B10] border-b border-red-900/40 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-red-500 bg-red-600/10 px-3.5 py-1.5 rounded-full border border-red-600/30">
+          Infraestrutura Oficial Honda
+        </span>
+        <h2 class="font-sans font-black text-3xl sm:text-4xl text-white mt-4">
+          Concessionária Conceito & Box Técnico Certificado
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Card 1: Showroom Iluminado -->
+        <div class="card-lift bg-[#0D111A] border border-red-600/30 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div class="relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+            <img 
+              src="assets/showroom-hero.jpg" 
+              alt="Showroom de motocicletas Honda com piso de microcimento polido e iluminação halo no teto" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy" 
+              decoding="async"
+            />
+            <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-red-400">
+              <i class="fa-solid fa-store mr-1.5"></i> Showroom Climatizado
+            </div>
+          </div>
+          <h3 class="font-sans font-black text-2xl text-white">Linha Completa 0km Pronta Entrega</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Modelos Street, Trail, Scooter e Big Trail disponíveis para você montar, testar o conforto e sair pilotando no mesmo dia.
+          </p>
+        </div>
+
+        <!-- Card 2: Oficina Master Service com Scanner -->
+        <div class="card-lift bg-[#0D111A] border border-red-600/30 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div class="relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+            <img 
+              src="assets/workshop-service.jpg" 
+              alt="Mecânico mestre certificado Honda utilizando scanner digital em motocicleta touring no elevador hidráulico" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy" 
+              decoding="async"
+            />
+            <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-emerald-400">
+              <i class="fa-solid fa-wrench mr-1.5"></i> Honda Master Service
+            </div>
+          </div>
+          <h3 class="font-sans font-black text-2xl text-white">Diagnóstico Computadorizado Oficial</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Elevadores pneumáticos, peças 100% genuínas Honda HAMP e telemetria eletrônica direta com a fábrica para revisões transparentes.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="como-funciona" class="py-20 bg-[#0B0F14] relative border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="text-honda-lightred font-bold text-xs uppercase tracking-widest bg-honda-red/15 border border-honda-red/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+          Passo a Passo Simples
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+          Como Funciona o Consórcio Nacional Honda
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2">
+          Conquiste sua moto 0km de forma planejada, inteligente e com garantia de fábrica.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="card-lift bg-[#111722] hover:bg-[#161E2C] rounded-3xl p-7 border border-gray-800 hover:border-honda-red/40 hover:shadow-card-dark transition-all duration-300 group reveal">
+          <div class="w-14 h-14 rounded-2xl bg-honda-red text-white font-outfit font-black text-2xl flex items-center justify-center mb-6 shadow-honda-subtle group-hover:scale-110 transition-transform">
+            1
+          </div>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">
+            Escolha seu Modelo
+          </h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            Selecione a moto Honda dos seus sonhos (da CG 160 à CBR 1000RR) e defina o plano com parcelas ideais para seu bolso.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card-lift bg-[#111722] hover:bg-[#161E2C] rounded-3xl p-7 border border-gray-800 hover:border-honda-red/40 hover:shadow-card-dark transition-all duration-300 group reveal" style="transition-delay: 150ms;">
+          <div class="card-lift w-14 h-14 rounded-2xl bg-black/60 border border-white/10 text-white font-outfit font-black text-2xl flex items-center justify-center mb-6 group-hover:bg-honda-red transition-colors">
+            2
+          </div>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">
+            Pague Sem Juros
+          </h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            Pague suas mensalidades com taxas administrativas baixas e fixas. Sem cobrança de juros abusivos bancários.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card-lift bg-[#111722] hover:bg-[#161E2C] rounded-3xl p-7 border border-gray-800 hover:border-honda-red/40 hover:shadow-card-dark transition-all duration-300 group reveal" style="transition-delay: 300ms;">
+          <div class="card-lift w-14 h-14 rounded-2xl bg-black/60 border border-white/10 text-white font-outfit font-black text-2xl flex items-center justify-center mb-6 group-hover:bg-honda-red transition-colors">
+            3
+          </div>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">
+            Seja Contemplado
+          </h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            Concorra todos os meses por sorteio pela Loteria Federal ou oferte lances (livres, fixos ou 15% embutidos) para acelerar.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="card-lift bg-[#111722] hover:bg-[#161E2C] rounded-3xl p-7 border border-gray-800 hover:border-honda-red/40 hover:shadow-card-dark transition-all duration-300 group reveal" style="transition-delay: 450ms;">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white font-outfit font-black text-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+            4
+          </div>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">
+            Retire sua Honda 0km
+          </h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            Retire a moto novinha diretamente na concessionária Honda oficial da sua cidade com 3 anos de garantia de fábrica.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Authority Banner -->
+      <div class="card-lift mt-14 bg-gradient-to-r from-[#141B26] via-[#101620] to-[#141B26] rounded-3xl p-8 text-white border border-gray-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 reveal-scale">
+        <div class="flex items-center gap-5">
+          <div class="w-16 h-16 rounded-2xl bg-honda-red/20 border border-honda-red/40 flex items-center justify-center text-honda-lightred text-3xl shrink-0">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div>
+            <h4 class="font-outfit font-bold text-xl sm:text-2xl text-white">Líder Absoluto no Brasil</h4>
+            <p class="text-gray-400 text-xs sm:text-sm">Mais de 7 milhões de clientes já realizaram o sonho da moto própria pelo Consórcio Honda.</p>
+          </div>
+        </div>
+        <a href="#simulador" class="bg-honda-red hover:bg-honda-darkred text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl transition whitespace-nowrap shadow-honda-subtle">
+          Fazer Minha Simulação
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 4: MODALIDADES DE PLANOS & LANCES                                 -->
+  <!-- ========================================================================= -->
+  <section id="planos" class="py-20 bg-[#080B0F] border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="text-honda-lightred font-bold text-xs uppercase tracking-widest bg-honda-red/15 border border-honda-red/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+          Planos Oficiais
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+          Opções de Planos Feitas sob Medida
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2">
+          Modelos desenhados para quem quer pagar menos por mês ou para quem tem pressa em retirar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Plano 1: Plano Fácil -->
+        <div class="card-lift bg-[#111722] rounded-3xl p-8 border border-gray-800 shadow-sm hover:shadow-card-dark transition-all duration-300 flex flex-col justify-between reveal">
+          <div>
+            <span class="bg-white/10 text-gray-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Econômico</span>
+            <h3 class="font-outfit font-black text-2xl text-white mt-4 mb-2">Plano Fácil Honda</h3>
+            <p class="text-gray-400 text-xs leading-relaxed mb-6">
+              Ideal para quem busca a menor parcela possível no orçamento mensal.
+            </p>
+            
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Parcelas 25% menores até a contemplação</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Prazo flexível de 36 a 72 meses</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Sorteios e lances em todas as assembleias</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Disponível para motos de 160cc a 300cc</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="scrollToSimulatorWithModel()" class="w-full bg-white/5 hover:bg-honda-red hover:text-white text-gray-200 font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition border border-white/10">
+            Simular Plano Fácil
+          </button>
+        </div>
+
+        <!-- Plano 2: Plano Conquista (Destaque) -->
+        <div class="card-lift bg-[#151D2A] rounded-3xl p-8 border-2 border-honda-red shadow-honda-glow relative flex flex-col justify-between transform md:-translate-y-3 reveal-scale">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-honda-red text-white text-[11px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+            Mais Vendido
+          </div>
+          
+          <div>
+            <span class="bg-honda-red/20 text-honda-lightred text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Maior Contemplação</span>
+            <h3 class="font-outfit font-black text-2xl text-white mt-4 mb-2">Plano Conquista</h3>
+            <p class="text-gray-300 text-xs leading-relaxed mb-6">
+              O plano com o maior número de motos entregues por mês por grupo.
+            </p>
+            
+            <ul class="space-y-3 text-xs text-gray-200 mb-8">
+              <li class="flex items-center gap-2.5 font-semibold">
+                <i class="fa-solid fa-fire text-honda-lightred"></i>
+                <span>Até 12 contemplações por mês no grupo</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Prazos de 12 a 80 meses</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Possibilidade de Lance Embutido de 15%</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Válido para toda a linha Honda</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="scrollToSimulatorWithModel()" class="w-full bg-honda-red hover:bg-honda-darkred text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl transition shadow-honda-subtle">
+            Simular Plano Conquista
+          </button>
+        </div>
+
+        <!-- Plano 3: Plano Especial Alta Cilindrada -->
+        <div class="card-lift bg-[#111722] rounded-3xl p-8 border border-gray-800 shadow-sm hover:shadow-card-dark transition-all duration-300 flex flex-col justify-between reveal">
+          <div>
+            <span class="bg-white/10 text-gray-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta Cilindrada</span>
+            <h3 class="font-outfit font-black text-2xl text-white mt-4 mb-2">Plano Especial CB & CBR</h3>
+            <p class="text-gray-400 text-xs leading-relaxed mb-6">
+              Condições exclusivas para as linhas 500cc, 650cc, NC 750X e CBR 1000RR.
+            </p>
+            
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Grupos exclusivos de alta cilindrada</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Lances livres altamente competitivos</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Prazo estendido em até 80 meses</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-check text-honda-lightred"></i>
+                <span>Atendimento prioritário VIP</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="scrollToSimulatorWithModel()" class="w-full bg-white/5 hover:bg-honda-red hover:text-white text-gray-200 font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition border border-white/10">
+            Simular Alta Cilindrada
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 5: BENEFÍCIOS OFICIAIS HONDA (GARANTIA & ÓLEO GRÁTIS)             -->
+  <!-- ========================================================================= -->
+  <section id="vantagens" class="py-20 bg-[#0B0F14] border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="text-honda-lightred font-bold text-xs uppercase tracking-widest bg-honda-red/15 border border-honda-red/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+          Diferenciais Exclusivos
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+          Por Que Escolher a Rede Oficial Honda?
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2">
+          Segurança, tradição e suporte completo da maior montadora de motos do mundo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-[#111722] rounded-3xl p-6 border border-gray-800 hover:border-honda-red/30 transition">
+          <div class="w-12 h-12 rounded-xl bg-honda-red/20 text-honda-lightred flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">3 Anos de Garantia</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Todas as motos 0km entregues contam com garantia total de fábrica de 3 anos sem limite de quilometragem.
+          </p>
+        </div>
+
+        <div class="bg-[#111722] rounded-3xl p-6 border border-gray-800 hover:border-honda-red/30 transition">
+          <div class="w-12 h-12 rounded-xl bg-honda-red/20 text-honda-lightred flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-oil-can"></i>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">Óleo Pro Honda Grátis</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Ganhe óleo genuíno Pro Honda gratuito em até 7 revisões periódicas na concessionária autorizada.
+          </p>
+        </div>
+
+        <div class="bg-[#111722] rounded-3xl p-6 border border-gray-800 hover:border-honda-red/30 transition">
+          <div class="w-12 h-12 rounded-xl bg-honda-red/20 text-honda-lightred flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">App Meu Consórcio</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Acompanhe resultados de assembleias, oferte lances e emita boletos direto pelo aplicativo no celular.
+          </p>
+        </div>
+
+        <div class="bg-[#111722] rounded-3xl p-6 border border-gray-800 hover:border-honda-red/30 transition">
+          <div class="w-12 h-12 rounded-xl bg-honda-red/20 text-honda-lightred flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">+1.100 Concessionárias</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            A maior rede autorizada do Brasil para você retirar sua moto e realizar todas as revisões com facilidade.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 6: FAQ ACORDEÃO (QUEBRA DE OBJEÇÕES)                             -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-20 bg-[#080B0F] border-b border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14 reveal">
+        <span class="text-honda-lightred font-bold text-xs uppercase tracking-widest bg-honda-red/15 border border-honda-red/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+          Tire Suas Dúvidas
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+          Perguntas Frequentes sobre o Consórcio Honda
+        </h2>
+      </div>
+
+      <div class="space-y-3.5" id="faq-accordion">
+        
+        <!-- Question 1 -->
+        <div class="border border-gray-800 rounded-2xl overflow-hidden transition-all bg-[#111722] faq-item">
+          <button class="w-full text-left p-5 font-outfit font-bold text-sm sm:text-base text-white flex items-center justify-between gap-4 faq-toggle">
+            <span>O Consórcio Honda realmente não tem taxa de juros?</span>
+            <i class="fa-solid fa-chevron-down text-honda-lightred transition-transform duration-300"></i>
+          </button>
+          <div class="p-5 pt-0 text-xs sm:text-sm text-gray-400 leading-relaxed hidden faq-content">
+            Sim! O consórcio é uma compra em grupo regulamentada pelo Banco Central do Brasil onde não incidem taxas de juros bancários. Existe apenas uma taxa de administração diluída em todas as parcelas ao longo do plano, tornando o valor final até 40% mais barato que um financiamento convencional.
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="border border-gray-800 rounded-2xl overflow-hidden transition-all bg-[#111722] faq-item">
+          <button class="w-full text-left p-5 font-outfit font-bold text-sm sm:text-base text-white flex items-center justify-between gap-4 faq-toggle">
+            <span>Como funciona a contemplação por Lance Embutido de 15%?</span>
+            <i class="fa-solid fa-chevron-down text-honda-lightred transition-transform duration-300"></i>
+          </button>
+          <div class="p-5 pt-0 text-xs sm:text-sm text-gray-400 leading-relaxed hidden faq-content">
+            No Lance Embutido, você não precisa ter dinheiro guardado! Você pode utilizar até 15% do valor da sua própria carta de crédito como lance para aumentar suas chances de ser contemplado logo nas primeiras assembleias.
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="border border-gray-800 rounded-2xl overflow-hidden transition-all bg-[#111722] faq-item">
+          <button class="w-full text-left p-5 font-outfit font-bold text-sm sm:text-base text-white flex items-center justify-between gap-4 faq-toggle">
+            <span>Posso usar minha moto usada como lance?</span>
+            <i class="fa-solid fa-chevron-down text-honda-lightred transition-transform duration-300"></i>
+          </button>
+          <div class="p-5 pt-0 text-xs sm:text-sm text-gray-400 leading-relaxed hidden faq-content">
+            Sim! A concessionária autorizada Honda avalia sua moto usada e o valor dela pode ser utilizado integralmente como lance para você retirar sua moto 0km imediatamente.
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="border border-gray-800 rounded-2xl overflow-hidden transition-all bg-[#111722] faq-item">
+          <button class="w-full text-left p-5 font-outfit font-bold text-sm sm:text-base text-white flex items-center justify-between gap-4 faq-toggle">
+            <span>E se eu for sorteado no primeiro mês?</span>
+            <i class="fa-solid fa-chevron-down text-honda-lightred transition-transform duration-300"></i>
+          </button>
+          <div class="p-5 pt-0 text-xs sm:text-sm text-gray-400 leading-relaxed hidden faq-content">
+            Você já pode retirar sua moto 0km imediatamente na concessionária! Você continuará pagando as parcelas normais restantes mês a mês, já pilotando sua nova Honda.
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="border border-gray-800 rounded-2xl overflow-hidden transition-all bg-[#111722] faq-item">
+          <button class="w-full text-left p-5 font-outfit font-bold text-sm sm:text-base text-white flex items-center justify-between gap-4 faq-toggle">
+            <span>Onde eu retiro minha moto após ser contemplado?</span>
+            <i class="fa-solid fa-chevron-down text-honda-lightred transition-transform duration-300"></i>
+          </button>
+          <div class="p-5 pt-0 text-xs sm:text-sm text-gray-400 leading-relaxed hidden faq-content">
+            Na concessionária oficial Honda de sua preferência em sua cidade ou região, com garantia nacional de fábrica e toda a assistência autorizada.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 7: BOTTOM CTA FOOTER                                              -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">A Linha Completa Honda para Você</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Motos econômicas para o dia a dia e modelos de alta cilindrada com condições exclusivas de financiamento.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/honda-hero.jpg" alt="Motos Honda Zero KM Pronta Entrega" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Motos Honda Zero KM Pronta Entrega</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">CG 160 Titan, CB 300F Twister e CB 500F com emplacamento cortesia e garantia de 3 anos.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/honda-showroom.jpg" alt="Showroom Moderno & Peças Genuínas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Showroom Moderno & Peças Genuínas</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Equipe de consultores prontos para montar a melhor simulação de consórcio ou financiamento.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/honda-moto-speed.jpg" alt="Linha Esportiva & Aventura" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Linha Esportiva & Aventura</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Motos de alta performance para quem busca emoção nas estradas e finais de semana.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/honda-workshop.jpg" alt="Oficina Credenciada & Revisão Rápida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Oficina Credenciada & Revisão Rápida</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Mecânicos certificados pela fábrica com ferramentas eletrônicas e peças originais Honda.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Conquistar Sua Honda na AutoDrive?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          A maior concessionária autorizada com pronta entrega, planos de consórcio e oficina oficial.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Revendedoras Não Oficiais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Motos sem garantia total de fábrica ou com peças paralelas</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Demora excessiva na documentação e emplacamento do veículo</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Planos de financiamento com taxas ocultas e parcelas altas</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Oficinas sem mecânicos certificados e sem ferramentas eletrônicas oficiais</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Concessionária Autorizada
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">AutoDrive Honda OS</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Linha completa de motos Honda zero km com garantia de 3 anos de fábrica</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Condições exclusivas pelo Consórcio Nacional Honda com lances embutidos</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Melhor avaliação da sua moto usada na troca com saída imediata da nova</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Oficina técnica credenciada com peças originais e troca de óleo Pro Honda</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20fazer%20uma%20simulação%20de%20consórcio%20ou%20financiamento%20Honda." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Como funciona o Consórcio Nacional Honda?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Planos sem juros com parcelas acessíveis e contemplações mensais por sorteio e lance livre.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>A concessionária aceita minha moto usada como entrada?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Sim! Avaliamos sua moto na hora e você já sai com a Honda zero km.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>A garantia de fábrica é mantida?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Todas as motos novas contam com garantia de 3 anos Honda e óleo Pro Honda gratuito nas primeiras revisões.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Bruno Fagundes</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Tirei minha CG 160 Titan no consórcio em menos de 3 meses com lance embutido. Atendimento nota 10!"</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Larissa Menezes</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Oficina rápida e transparente. Fizeram a revisão da minha moto e entregaram lavada."</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Showroom completo de motocicletas Honda zero km, consórcio com aprovação facilitada e oficina autorizada na Av. Paulista.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-motorcycle"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">Honda Prime Motos</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Concessionária & Oficina Especializada Honda</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-red-600 hover:bg-red-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(Honda Prime Motos)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Honda Prime Motos em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-[#05070A] text-white pt-16 pb-12 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Upper Banner -->
+      <div class="bg-gradient-to-r from-honda-red via-honda-darkred to-red-900 rounded-3xl p-8 sm:p-12 mb-16 text-center text-white shadow-honda-glow reveal-scale">
+        <h2 class="font-outfit font-black text-2xl sm:text-4xl mb-3">
+          Pronto para Conquistar sua Honda 0km?
+        </h2>
+        <p class="text-white/80 text-xs sm:text-sm max-w-2xl mx-auto mb-8">
+          Faça sua simulação gratuita agora mesmo. Nossos consultores oficiais estão online para encontrar o plano ideal para você.
+        </p>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1,%20quero%20minha%20proposta%20do%20Cons%C3%B3rcio%20Honda!" target="_blank" class="inline-flex items-center gap-3 bg-white text-honda-red hover:bg-gray-100 font-outfit font-black text-sm uppercase tracking-wider py-4 px-8 rounded-full transition shadow-xl transform hover:scale-105" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+          <span>Falar com Consultor no WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Footer Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-gray-800 text-xs text-gray-400">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-outfit font-black text-2xl text-white">HONDA</span>
+            <span class="text-xs font-bold text-honda-lightred">Consórcio Nacional</span>
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
+            Administradora de Consórcio Nacional Honda Ltda. Autorizada e fiscalizada pelo Banco Central do Brasil. Realizando o sonho de milhões de motociclistas há mais de 40 anos.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold uppercase tracking-wider mb-3">Modelos Populares</h4>
+          <ul class="space-y-2">
+            <li><a href="#hero-showcase" class="hover:text-white transition">CG 160 Titan & Fan</a></li>
+            <li><a href="#hero-showcase" class="hover:text-white transition">CB 300F Twister</a></li>
+            <li><a href="#hero-showcase" class="hover:text-white transition">XRE 300 Sahara</a></li>
+            <li><a href="#hero-showcase" class="hover:text-white transition">PCX 160 ABS</a></li>
+            <li><a href="#hero-showcase" class="hover:text-white transition">CB 500F & CBR 1000RR</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold uppercase tracking-wider mb-3">Links Rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#simulador" class="hover:text-white transition">Simulador Online</a></li>
+            <li><a href="#como-funciona" class="hover:text-white transition">Como Funciona</a></li>
+            <li><a href="#planos" class="hover:text-white transition">Modalidades de Lances</a></li>
+            <li><a href="#faq" class="hover:text-white transition">Dúvidas Frequentes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-gray-500">
+        <div>
+          © 2026 Consórcio Nacional Honda Oficial. Todos os direitos reservados.
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-gray-400 font-semibold">The Power of Dreams</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON (PULSING) -->
+  <aside class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div class="hidden sm:flex bg-[#111722] px-3.5 py-2 rounded-2xl shadow-xl border border-gray-800 items-center gap-2 text-xs font-semibold text-gray-200 animate-bounce">
+      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <span>Simule sua Honda agora!</span>
+    </div>
+    
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1,%20gostaria%20de%20fazer%20uma%20simula%C3%A7%C3%A3o%20do%20Cons%C3%B3rcio%20Honda!" target="_blank" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-3xl shadow-xl transition-all transform hover:scale-110 active:scale-95 btn-honda-pulse" title="Falar no WhatsApp" rel="noopener noreferrer">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: MOTORCYCLE DATABASE & SMOOTH SEAMLESS CAROUSEL ANIMATION      -->
+  <!-- ========================================================================= -->
+  <script>
+    // Honda Motorcycles Database with Transparent Clean Side Profile PNG Images
+    const HONDA_BIKES = [
+      {
+        id: 'cg160',
+        tabNum: '01',
+        tabLabel: 'CG 160 TITAN',
+        title: 'CG 160 TITAN FLEX',
+        subtitle: 'A moto mais vendida e amada do Brasil. Economia extrema de até 42 km/l, painel blackout digital e alto valor de revenda garantido.',
+        category: 'Street Líder',
+        year: '2026',
+        credit: 19800,
+        installments: { 80: 229, 72: 254, 60: 305, 48: 381, 36: 508, 24: 762, 12: 1525 },
+        avgBid: '18% a 22%',
+        image: 'images/clean/cg160_clean.png',
+        colors: [
+          { name: 'Vermelho Perolizado', bg: '#E4002B' },
+          { name: 'Cinza Metálico', bg: '#4B5563' },
+          { name: 'Azul Metálico', bg: '#1D4ED8' }
+        ]
+      },
+      {
+        id: 'cb300f',
+        tabNum: '02',
+        tabLabel: 'CB 300F TWISTER',
+        title: 'CB 300F TWISTER ABS',
+        subtitle: 'Visual agressivo naked com iluminação Full LED, embreagem assistida e deslizante e motor de 24,7 cv com torque instantâneo.',
+        category: 'Naked Esportiva',
+        year: '2026',
+        credit: 25900,
+        installments: { 80: 299, 72: 332, 60: 398, 48: 498, 36: 664, 24: 996, 12: 1992 },
+        avgBid: '20% a 25%',
+        image: 'images/clean/cb300f_clean.png',
+        colors: [
+          { name: 'Vermelho Victory', bg: '#E4002B' },
+          { name: 'Dourado Metálico', bg: '#CA8A04' },
+          { name: 'Cinza Fosco', bg: '#374151' }
+        ]
+      },
+      {
+        id: 'sahara300',
+        tabNum: '03',
+        tabLabel: 'XRE 300 SAHARA',
+        title: 'XRE 300 SAHARA RALLY',
+        subtitle: 'Pronta para qualquer terreno. Câmbio de 6 marchas, suspensão de longo curso com amortecimento Pro-Link e tomada USB-C integrada.',
+        category: 'Trail / Aventura',
+        year: '2026',
+        credit: 32900,
+        installments: { 80: 389, 72: 432, 60: 518, 48: 648, 36: 864, 24: 1296, 12: 2592 },
+        avgBid: '22% a 26%',
+        image: 'images/clean/sahara300_clean.png',
+        colors: [
+          { name: 'Vermelho Rally', bg: '#E4002B' },
+          { name: 'Cinza Metálico', bg: '#4B5563' },
+          { name: 'Bege Metálico', bg: '#D4B996' }
+        ]
+      },
+      {
+        id: 'pcx160',
+        tabNum: '04',
+        tabLabel: 'PCX 160 ABS',
+        title: 'PCX 160 SMART KEY',
+        subtitle: 'A scooter líder absoluta no país. Chave presencial Smart Key, controle de tração HSTC, freios ABS e compartimento de 30 litros.',
+        category: 'Scooter Urbana',
+        year: '2026',
+        credit: 21400,
+        installments: { 80: 279, 72: 310, 60: 372, 48: 465, 36: 620, 24: 930, 12: 1860 },
+        avgBid: '20% a 25%',
+        image: 'images/clean/pcx160_clean.png',
+        colors: [
+          { name: 'Branco Perolizado', bg: '#F8FAFC' },
+          { name: 'Azul Metálico', bg: '#1E3A8A' },
+          { name: 'Cinza Fosco', bg: '#4B5563' }
+        ]
+      },
+      {
+        id: 'cb500f',
+        tabNum: '05',
+        tabLabel: 'CB 500F ABS',
+        title: 'CB 500F CONNECTED ABS',
+        subtitle: 'Alta performance com motor bicilíndrico de 50,4 cv, duplo disco dianteiro com pinças radiais e suspensão invertida Showa SFF-BP.',
+        category: 'Naked Sport',
+        year: '2026',
+        credit: 40500,
+        installments: { 80: 489, 72: 543, 60: 651, 48: 814, 36: 1085, 24: 1628, 12: 3256 },
+        avgBid: '25% a 30%',
+        image: 'images/clean/cb500f_clean.png',
+        colors: [
+          { name: 'Vermelho Victory Red', bg: '#E4002B' },
+          { name: 'Preto Fosco Mat Black', bg: '#1E1E1E' },
+          { name: 'Prata Force Metallic', bg: '#9CA3AF' }
+        ]
+      },
+      {
+        id: 'cbr1000rr',
+        tabNum: '06',
+        tabLabel: 'CBR 1000RR-R',
+        title: 'CBR 1000RR-R FIREBLADE',
+        subtitle: 'A lenda das pistas de corrida. Motor de 217,5 cv, aerodinâmica inspirada na MotoGP com asas winglets e suspensão eletrônica Öhlins.',
+        category: 'Super Sport Racing',
+        year: '2026',
+        credit: 159000,
+        installments: { 80: 1980, 72: 2200, 60: 2640, 48: 3300, 36: 4400, 24: 6600, 12: 13200 },
+        avgBid: '35% a 40%',
+        image: 'images/clean/cbr1000rr_clean.png',
+        colors: [
+          { name: 'Vermelho Grand Prix Tricolor', bg: '#E4002B' },
+          { name: 'Preto Fosco Mat Pearl', bg: '#111827' }
+        ]
+      }
+    ];
+
+    let currentBikeIndex = 0;
+    let selectedSimBikeIndex = 0;
+    let isAnimating = false;
+
+    // Helper: format currency BRL
+    function formatMoney(value) {
+      return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    // Render Bottom Model Tabs (01, 02, 03, 04, 05, 06) Exactly like Reference
+    function renderModelTabs() {
+      const container = document.getElementById('hero-model-tabs');
+      container.innerHTML = HONDA_BIKES.map((b, i) => `
+        <div onclick="switchBike(${i})" id="tab-btn-${i}" class="model-tab-item ${i === currentBikeIndex ? 'active' : ''} p-2 rounded-xl transition">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="tab-number">${b.tabNum}</span>
+            <div class="tab-line"></div>
+          </div>
+          <div class="tab-name truncate">${b.tabLabel}</div>
+        </div>
+      `).join('');
+
+      // Render Vertical Dots
+      const vertDots = document.getElementById('vertical-dots');
+      vertDots.innerHTML = HONDA_BIKES.map((_, i) => `
+        <button onclick="switchBike(${i})" class="w-2 h-2 rounded-full transition-all duration-300 ${i === currentBikeIndex ? 'bg-honda-red scale-150 shadow-glow-red-sm' : 'bg-gray-600 hover:bg-gray-400'}" aria-label="Ir para modelo ${i+1}"></button>
+      `).join('');
+    }
+
+    // SWITCH MOTORCYCLE WITH SMOOTH SEAMLESS CAROUSEL TRANSITION
+    function switchBike(newIndex, direction = null) {
+      if (newIndex === currentBikeIndex || isAnimating) return;
+      isAnimating = true;
+
+      const oldIndex = currentBikeIndex;
+      const isNext = direction !== null ? direction === 'next' : newIndex > oldIndex;
+      currentBikeIndex = newIndex;
+      const newBike = HONDA_BIKES[newIndex];
+
+      // 1. Update Tabs Active State
+      HONDA_BIKES.forEach((_, i) => {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        if (btn) {
+          if (i === newIndex) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        }
+      });
+      renderModelTabs();
+
+      // 2. Animate Right Content (Fade Out -> Fade In)
+      const contentBlock = document.getElementById('hero-content-block');
+      contentBlock.classList.remove('fade-in');
+      contentBlock.classList.add('fade-out');
+
+      // 3. Smooth Two-Layer Image Transition (Side-view glide)
+      const primaryImg = document.getElementById('bike-img-primary');
+      const secondaryImg = document.getElementById('bike-img-secondary');
+
+      secondaryImg.src = newBike.image;
+      secondaryImg.alt = newBike.title;
+      secondaryImg.className = 'bike-render ' + (isNext ? 'slide-in-start-right' : 'slide-in-start-left');
+
+      // Force reflow
+      void secondaryImg.offsetWidth;
+
+      // Animate outgoing primary image
+      primaryImg.className = 'bike-render ' + (isNext ? 'slide-out-left' : 'slide-out-right');
+
+      // Animate incoming secondary image into place
+      secondaryImg.className = 'bike-render slide-in-active';
+
+      // 4. Update Texts & Counters
+      setTimeout(() => {
+        document.getElementById('hero-category').innerText = newBike.category;
+        document.getElementById('hero-title').innerText = newBike.title;
+        document.getElementById('hero-subtitle').innerText = newBike.subtitle;
+        document.getElementById('hero-price').innerText = `R$ ${newBike.installments[80].toFixed(2).replace('.', ',')}`;
+        document.getElementById('hero-credit').innerText = formatMoney(newBike.credit);
+        document.getElementById('hero-bid').innerText = newBike.avgBid;
+        document.getElementById('hero-year-vertical').innerText = newBike.year;
+        document.getElementById('hero-whatsapp-link').href = `https://wa.me/5532999292311?text=Ol%C3%A1,%20gostaria%20de%20simular%20o%20cons%C3%B3rcio%20da%20${encodeURIComponent(newBike.title)}!`;
+
+        // Render Colors
+        const colorsContainer = document.getElementById('hero-colors-container');
+        colorsContainer.innerHTML = newBike.colors.map(c => `
+          <button class="w-3.5 h-3.5 rounded-full border border-white/40 shadow-sm transition transform hover:scale-125" style="background-color: ${c.bg}" title="${c.name}"></button>
+        `).join('');
+
+        contentBlock.classList.remove('fade-out');
+        contentBlock.classList.add('fade-in');
+      }, 200);
+
+      // 5. Swap layers after transition completes
+      setTimeout(() => {
+        primaryImg.src = newBike.image;
+        primaryImg.alt = newBike.title;
+        primaryImg.className = 'bike-render slide-in-active';
+        secondaryImg.className = 'bike-render opacity-0';
+        isAnimating = false;
+      }, 620);
+    }
+
+    // Hero Navigation Arrows
+    document.getElementById('hero-prev-btn').addEventListener('click', () => {
+      const newIdx = (currentBikeIndex - 1 + HONDA_BIKES.length) % HONDA_BIKES.length;
+      switchBike(newIdx, 'prev');
+    });
+
+    document.getElementById('hero-next-btn').addEventListener('click', () => {
+      const newIdx = (currentBikeIndex + 1) % HONDA_BIKES.length;
+      switchBike(newIdx, 'next');
+    });
+
+    // SIMULATOR LOGIC
+    function initSimulator() {
+      const selector = document.getElementById('sim-model-selector');
+      selector.innerHTML = HONDA_BIKES.map((b, i) => `
+        <button onclick="setSimModel(${i})" id="sim-btn-${i}" class="text-left p-3 rounded-xl border text-xs font-semibold transition ${i === 0 ? 'bg-honda-red text-white border-honda-red shadow-honda-subtle' : 'bg-gray-800/80 text-gray-300 border-gray-700 hover:border-gray-500'}">
+          <div class="font-outfit font-bold">${b.tabLabel}</div>
+          <div class="text-[10px] opacity-75">${b.category}</div>
+        </button>
+      `).join('');
+
+      document.getElementById('sim-term-slider').addEventListener('input', runSimulation);
+      document.getElementById('sim-bid-slider').addEventListener('input', runSimulation);
+      runSimulation();
+    }
+
+    function setSimModel(index) {
+      selectedSimBikeIndex = index;
+      HONDA_BIKES.forEach((_, i) => {
+        const btn = document.getElementById(`sim-btn-${i}`);
+        if (btn) {
+          if (i === index) {
+            btn.className = 'text-left p-3 rounded-xl border text-xs font-semibold transition bg-honda-red text-white border-honda-red shadow-honda-subtle';
+          } else {
+            btn.className = 'text-left p-3 rounded-xl border text-xs font-semibold transition bg-gray-800/80 text-gray-300 border-gray-700 hover:border-gray-500';
+          }
+        }
+      });
+      runSimulation();
+    }
+
+    function runSimulation() {
+      const bike = HONDA_BIKES[selectedSimBikeIndex];
+      const termSlider = document.getElementById('sim-term-slider');
+      const bidSlider = document.getElementById('sim-bid-slider');
+      
+      const term = parseInt(termSlider.value, 10);
+      const bidPercent = parseInt(bidSlider.value, 10);
+
+      document.getElementById('sim-term-display').innerText = `${term} Meses`;
+      
+      if (bidPercent === 0) {
+        document.getElementById('sim-bid-display').innerText = 'Apenas Sorteio (0%)';
+      } else if (bidPercent === 15) {
+        document.getElementById('sim-bid-display').innerText = '15% (Lance Embutido)';
+      } else {
+        document.getElementById('sim-bid-display').innerText = `${bidPercent}% (~ ${formatMoney(bike.credit * (bidPercent/100))})`;
+      }
+
+      // Base admin fee ~ 15% spread over term
+      const totalConsorcio = bike.credit * 1.15;
+      const baseMonthly = totalConsorcio / term;
+      const effectiveMonthly = bidPercent > 0 ? (totalConsorcio * (1 - (bidPercent/100))) / term : baseMonthly;
+
+      // Bank financing comparison (1.9% monthly)
+      const totalBank = bike.credit * (1 + (0.019 * term));
+      const savings = totalBank - totalConsorcio;
+
+      // Update Result UI
+      document.getElementById('sim-result-model').innerText = bike.title;
+      document.getElementById('sim-result-installment').innerText = formatMoney(effectiveMonthly);
+      document.getElementById('sim-result-term-summary').innerText = `Plano em ${term} parcelas sem juros ${bidPercent > 0 ? `com lance de ${bidPercent}%` : ''}`;
+      document.getElementById('sim-result-credit').innerText = formatMoney(bike.credit);
+      document.getElementById('sim-result-total').innerText = formatMoney(totalConsorcio);
+      document.getElementById('sim-result-bank').innerText = formatMoney(totalBank);
+      document.getElementById('sim-result-savings').innerText = formatMoney(savings);
+
+      // WhatsApp link with formatted quote
+      const msg = `Olá! Fiz uma simulação oficial no site:\n🏍️ *Modelo:* ${bike.title}\n📅 *Prazo:* ${term} meses\n💰 *Parcela Estimada:* ${formatMoney(effectiveMonthly)}/mês\n🎯 *Lance:* ${bidPercent}%\nQuero receber minha proposta detalhada!`;
+      document.getElementById('sim-whatsapp-link').href = `https://wa.me/5532999292311?text=${encodeURIComponent(msg)}`;
+    }
+
+    function scrollToSimulatorWithModel() {
+      setSimModel(currentBikeIndex);
+      document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const content = item.querySelector('.faq-content');
+        const icon = btn.querySelector('i');
+        const isHidden = content.classList.contains('hidden');
+
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
+
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // Scroll Progress Bar & Header Shadow
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+
+      const header = document.getElementById('main-header');
+      if (winScroll > 30) {
+        header.classList.add('shadow-xl', 'bg-[#0B0F14]/98');
+      } else {
+        header.classList.remove('shadow-xl', 'bg-[#0B0F14]/98');
+      }
+    });
+
+    // Intersection Observer for Smooth Scroll Animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.12
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // Init Page
+    document.addEventListener('DOMContentLoaded', () => {
+      renderModelTabs();
+      const colorsContainer = document.getElementById('hero-colors-container');
+      colorsContainer.innerHTML = HONDA_BIKES[0].colors.map(c => `
+        <button class="w-3.5 h-3.5 rounded-full border border-white/40 shadow-sm transition transform hover:scale-125" style="background-color: ${c.bg}" title="${c.name}"></button>
+      `).join('');
+      initSimulator();
+    });
+  </script>
+
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Liberdade, Economia de Tempo e Prazer de Pilotar Todos os Dias
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo como escapar do trânsito com autonomia de mais de 45 km/litro e garantia de fábrica de 3 anos da Honda.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(Honda Prime Motos)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Test-ride imediato, pronta entrega e financiamento aprovado em poucos minutos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(Honda Prime Motos)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('simulador') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(Honda Prime Motos).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">AutoDrive Honda OS</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20fazer%20uma%20simulação%20de%20consórcio%20ou%20financiamento%20Honda." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

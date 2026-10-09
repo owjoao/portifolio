@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus CRM Vendas - Gestão Desktop, Produtos & Lucro por Item</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-feature-settings: "tnum" 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.7); border-radius: 9999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.9); border-radius: 9999px; }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(16, 185, 129, 0.6); }
+
+    /* Fast-scan KPI Cards & Smooth Animations */
+    .kpi-card-transition {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .kpi-card-transition:hover {
+      transform: translateY(-2px);
+    }
+    .progress-bar-fill {
+      transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.01); }
+    }
+    .animate-pulse-alert {
+      animation: pulseAlert 2s infinite ease-in-out;
+    }
+  </style>
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Crm Vendas",
+    "description": "Atendimento profissional especializado em Crm Vendas com agendamento rápido via WhatsApp.",
+    "telephone": "+55-32-99929-2311",
+    "url": "https://nexusflow.digital/crm-vendas/",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col md:flex-row antialiased selection:bg-emerald-500 selection:text-black transition-colors duration-200">
+
+  <!-- ========================================================================= -->
+  <!-- LEFT SIDEBAR: DESKTOP NAVIGATION, BRANDING & CONTROLS                     -->
+  <!-- ========================================================================= -->
+  <aside class="w-full md:w-72 lg:w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between shrink-0 z-40 shadow-sm md:h-screen md:sticky md:top-0 transition-colors duration-200">
+    
+    <!-- Top Branding & Switcher -->
+    <div class="p-5 border-b border-slate-100 dark:border-slate-800/80">
+      
+      <!-- Logo + Business Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-emerald-500/25 shrink-0">
+          <i class="fa-solid fa-cart-shopping text-xl"></i>
+        </div>
+        <div class="overflow-hidden">
+          <div class="flex items-center gap-1.5">
+            <h1 id="sidebar-company-name" class="font-extrabold text-base text-slate-900 dark:text-white tracking-tight truncate cursor-pointer hover:text-emerald-500 dark:hover:text-emerald-400 transition" onclick="openConfigModal()" title="Clique para editar o nome">
+              Nexus Distribuição & Comércio
+            </h1>
+            <button onclick="openConfigModal()" class="text-xs text-slate-400 hover:text-emerald-500 p-0.5" title="Editar nome">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </div>
+          <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            CRM de Vendas & Produtos
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Switch to CRM Serviços -->
+      <div class="mt-4">
+        <a href="../crm-servicos/index.html" class="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-300 transition group">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-hand-holding-medical text-cyan-500"></i>
+            <span>Ir para <strong>CRM Serviços</strong></span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:translate-x-0.5 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- CTA Principal: Nova Venda -->
+      <div class="mt-3">
+        <button onclick="openNovaVendaModal()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 transition transform active:scale-95">
+          <i class="fa-solid fa-plus text-sm"></i>
+          <span>Nova Venda</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Middle: Vertical Navigation Tabs -->
+    <nav class="p-3.5 space-y-1.5 flex-1 overflow-y-auto custom-scrollbar font-medium text-xs">
+      
+      <button onclick="switchTab('pipeline')" id="tab-btn-pipeline" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold transition text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800/60 shadow-sm">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-filter-circle-dollar text-base w-5 text-center"></i>
+          <span>Pipeline & Funil</span>
+        </span>
+        <span id="badge-total-vendas" class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-200 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200">0</span>
+      </button>
+
+      <button onclick="switchTab('historico')" id="tab-btn-historico" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-receipt text-base w-5 text-center text-indigo-500"></i>
+          <span>Histórico de Vendas</span>
+        </span>
+      </button>
+
+      <button onclick="switchTab('margens')" id="tab-btn-margens" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-chart-line text-base w-5 text-center text-cyan-500"></i>
+          <span>Análise de Margens</span>
+        </span>
+        <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800/60">Rank</span>
+      </button>
+
+      <button onclick="switchTab('produtos')" id="tab-btn-produtos" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-boxes-packing text-base w-5 text-center text-amber-500"></i>
+          <span>Catálogo & Estoque</span>
+        </span>
+      </button>
+
+      <button onclick="switchTab('clientes')" id="tab-btn-clientes" class="tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200">
+        <span class="flex items-center gap-3">
+          <i class="fa-solid fa-users text-base w-5 text-center text-purple-500"></i>
+          <span>Clientes & Compradores</span>
+        </span>
+      </button>
+
+    </nav>
+
+    <!-- Bottom Sidebar: Theme Switcher & Actions -->
+    <div class="p-4 border-t border-slate-100 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/60 space-y-2">
+      
+      <!-- THEME TOGGLE (CLARO / ESCURO) -->
+      <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:border-emerald-500 transition shadow-sm">
+        <span class="flex items-center gap-2">
+          <i id="theme-icon" class="fa-solid fa-moon text-amber-500"></i>
+          <span id="theme-label">Tema Escuro</span>
+        </span>
+        <span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono">Alternar</span>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <!-- Settings Modal Trigger -->
+        <button onclick="openConfigModal()" class="flex-1 py-2 px-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 flex items-center justify-center gap-1.5 transition">
+          <i class="fa-solid fa-sliders text-xs"></i>
+          <span>Configurações</span>
+        </button>
+
+        <!-- Return to Home -->
+        <a href="../index.html" class="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition" title="Voltar ao Portfólio">
+          <i class="fa-solid fa-house text-sm"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN WORKSPACE: TOP BAR, KPIS, ADAPTABLE DATE FILTER & TAB VIEWS          -->
+  <!-- ========================================================================= -->
+  <div class="flex-1 flex flex-col min-w-0 overflow-y-auto custom-scrollbar md:h-screen">
+    
+    <!-- TOP APP BAR: DATE CONTROLS & HEADER -->
+    <header class="bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800/80 px-4 sm:px-6 lg:px-8 py-3.5 sticky top-0 z-30 backdrop-blur-md transition-colors">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
+        
+        <!-- Active View Title & Current Context -->
+        <div>
+          <h2 id="topbar-view-title" class="font-black text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+            <span>Pipeline & Funil Comercial</span>
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Gestão de Vendas, Custo de Aquisição por Item & Lucro Líquido.
+          </p>
+        </div>
+
+        <!-- Adaptable Date Filters Bar -->
+        <div class="flex items-center gap-2 flex-wrap text-xs">
+          <span class="text-slate-400 font-semibold flex items-center gap-1">
+            <i class="fa-regular fa-calendar"></i> Período:
+          </span>
+          <div class="inline-flex rounded-xl p-1 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
+            <button onclick="setDateFilter('tudo')" id="df-tudo" class="df-btn px-2.5 py-1 rounded-lg bg-emerald-900 text-white font-bold transition">Tudo</button>
+            <button onclick="setDateFilter('hoje')" id="df-hoje" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">Hoje</button>
+            <button onclick="setDateFilter('7d')" id="df-7d" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">7 Dias</button>
+            <button onclick="setDateFilter('30d')" id="df-30d" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">30 Dias</button>
+            <button onclick="setDateFilter('mes')" id="df-mes" class="df-btn px-2.5 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition">Este Mês</button>
+          </div>
+
+          <!-- Custom range -->
+          <div class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-950 px-2 py-1 rounded-xl border border-slate-200 dark:border-slate-800 text-[11px]">
+            <span class="text-slate-400">De:</span>
+            <input type="date" id="filter-date-start" onchange="applyCustomDateFilter()" class="bg-transparent text-slate-800 dark:text-slate-200 outline-none text-[11px]">
+            <span class="text-slate-400">Até:</span>
+            <input type="date" id="filter-date-end" onchange="applyCustomDateFilter()" class="bg-transparent text-slate-800 dark:text-slate-200 outline-none text-[11px]">
+            <button onclick="clearDateFilter()" class="text-slate-400 hover:text-rose-500 p-0.5" title="Limpar filtro"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- METRIC KPI CARDS (COLORFUL DESKTOP STRIP) -->
+    <section class="px-4 sm:px-6 lg:px-8 py-5">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-3.5">
+        
+        <!-- Faturamento de Vendas (Emerald) -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-emerald-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Faturamento Total</span>
+            <div class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-cash-register"></i>
+            </div>
+          </div>
+          <div id="kpi-faturamento" class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-mono tracking-tight">R$ 0,00</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Receita bruta de vendas</span>
+        </div>
+
+        <!-- Custo das Mercadorias (Amber) -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-amber-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Custo dos Itens (CMV)</span>
+            <div class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-tag"></i>
+            </div>
+          </div>
+          <div id="kpi-custos" class="text-xl sm:text-2xl font-black text-amber-600 dark:text-amber-400 font-mono tracking-tight">R$ 0,00</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Custo de compra unitário</span>
+        </div>
+
+        <!-- Lucro Líquido / Prejuízo (Dinâmico) -->
+        <div id="kpi-card-lucro" class="kpi-card-transition bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-emerald-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span id="kpi-lucro-title" class="text-[11px] font-bold uppercase tracking-wider">Lucro Líquido Real</span>
+            <div id="kpi-lucro-icon-box" class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs">
+              <i id="kpi-lucro-icon" class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+          </div>
+          <div id="kpi-lucro" class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono tracking-tight">R$ 0,00</div>
+          <span id="kpi-lucro-desc" class="text-[11px] text-emerald-600 dark:text-emerald-400 mt-1 block font-semibold flex items-center gap-1">
+            <i class="fa-solid fa-circle-check text-[9px]"></i> Faturamento - Custos (CMV)
+          </span>
+        </div>
+
+        <!-- Margem Média (Cyan) -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-cyan-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Margem Média</span>
+            <div class="w-8 h-8 rounded-xl bg-cyan-100 dark:bg-cyan-950/80 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+          </div>
+          <div id="kpi-margem" class="text-xl sm:text-2xl font-black text-cyan-600 dark:text-cyan-300 font-mono tracking-tight">0.0%</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Rentabilidade comercial</span>
+        </div>
+
+        <!-- Itens Vendidos (Purple) -->
+        <div class="col-span-2 lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden group hover:border-purple-500/50 transition">
+          <div class="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider">Itens Vendidos</span>
+            <div class="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-box-open"></i>
+            </div>
+          </div>
+          <div id="kpi-itens-vendidos" class="text-xl sm:text-2xl font-black text-purple-600 dark:text-purple-300 font-mono tracking-tight">0</div>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block">Ticket Médio: <strong id="kpi-ticket" class="text-slate-800 dark:text-slate-200">R$ 0,00</strong></span>
+        </div>
+      </div>
+
+      <!-- TERMÔMETRO VISUAL DE RENTABILIDADE (GRÁFICO ANIMADO PARA VISUALIZAÇÃO RÁPIDA) -->
+      <div class="mt-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-100 dark:border-slate-800/80">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-base font-bold shrink-0">
+              <i class="fa-solid fa-chart-column"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                  Termômetro Comercial em Tempo Real
+                </h3>
+                <span id="health-semaphore-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-normal uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Operação Altamente Lucrativa
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">Visão executiva imediata: retenção líquida de caixa vs Custo de Mercadorias Vendidas (CMV)</p>
+            </div>
+          </div>
+          
+          <!-- Quick Legend with dynamic values -->
+          <div class="flex items-center gap-4 text-xs font-mono shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-md bg-emerald-500 shrink-0"></span>
+              <span class="text-slate-500 dark:text-slate-400 font-sans text-[11px]">Lucro Líquido:</span>
+              <strong id="bar-legend-lucro" class="text-emerald-600 dark:text-emerald-400 font-bold">R$ 0,00 (0%)</strong>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-md bg-amber-500 shrink-0"></span>
+              <span class="text-slate-500 dark:text-slate-400 font-sans text-[11px]">Custo CMV:</span>
+              <strong id="bar-legend-custo" class="text-amber-600 dark:text-amber-400 font-bold">R$ 0,00 (0%)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Proportion Bar -->
+        <div class="space-y-1.5">
+          <div class="w-full bg-slate-100 dark:bg-slate-950 h-5 sm:h-6 rounded-xl overflow-hidden p-0.5 border border-slate-200 dark:border-slate-800 flex gap-0.5">
+            <div id="chart-bar-lucro" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-lg transition-all duration-1000 ease-out flex items-center justify-center px-2 text-[10px] font-bold text-slate-950 font-mono shadow-sm" style="width: 0%;" title="Lucro Líquido"></div>
+            <div id="chart-bar-custo" class="h-full bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg transition-all duration-1000 ease-out flex items-center justify-center px-2 text-[10px] font-bold text-slate-950 font-mono shadow-sm" style="width: 0%;" title="CMV"></div>
+          </div>
+          <div class="flex justify-between items-center text-[10px] text-slate-400 font-mono px-1">
+            <span>0% (Custo Zero)</span>
+            <span id="chart-bar-hint" class="font-sans font-semibold text-slate-600 dark:text-slate-300">Retenção de caixa: 44.0%</span>
+            <span>100% (Receita Total)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT PANES -->
+    <main class="px-4 sm:px-6 lg:px-8 pb-16 flex-1 w-full">
+
+      <!-- ==================== TAB 1: PIPELINE / FUNIL KANBAN ==================== -->
+      <div id="tab-content-pipeline" class="tab-pane">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <input type="text" id="search-pipeline" oninput="renderPipeline()" placeholder="Buscar cliente ou produto..." class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:border-emerald-500 outline-none w-56 sm:w-80 shadow-sm">
+          </div>
+          <button onclick="openNovaVendaModal()" class="px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-500/20">
+            <i class="fa-solid fa-plus"></i> <span>Nova Venda</span>
+          </button>
+        </div>
+
+        <!-- 6 PIPELINE COLUMNS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3.5 overflow-x-auto pb-4 custom-scrollbar">
+          
+          <!-- Col 1: Novo Lead -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[230px] shadow-sm">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                <span>1. Novo Lead</span>
+              </div>
+              <span id="col-count-novo" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="pipeline-col-novo" class="flex-1 space-y-2.5 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 2: Qualificação -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[230px] shadow-sm">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                <span>2. Qualificação</span>
+              </div>
+              <span id="col-count-qualificacao" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="pipeline-col-qualificacao" class="flex-1 space-y-2.5 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 3: Proposta -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[230px] shadow-sm">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
+                <span>3. Proposta</span>
+              </div>
+              <span id="col-count-proposta" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="pipeline-col-proposta" class="flex-1 space-y-2.5 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 4: Negociação -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[230px] shadow-sm">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+                <span>4. Negociação</span>
+              </div>
+              <span id="col-count-negociacao" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="pipeline-col-negociacao" class="flex-1 space-y-2.5 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 5: Venda Fechada -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[230px] shadow-sm">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span>5. Fechada</span>
+              </div>
+              <span id="col-count-fechada" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="pipeline-col-fechada" class="flex-1 space-y-2.5 min-h-[350px]"></div>
+          </div>
+
+          <!-- Col 6: Perdida -->
+          <div class="bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col min-w-[230px] shadow-sm">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span>6. Perdida</span>
+              </div>
+              <span id="col-count-perdida" class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-600 dark:text-slate-300">0</span>
+            </div>
+            <div id="pipeline-col-perdida" class="flex-1 space-y-2.5 min-h-[350px]"></div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 2: HISTÓRICO DE VENDAS ==================== -->
+      <div id="tab-content-historico" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-receipt text-emerald-500"></i>
+                <span>Histórico Completo de Vendas & Lucro por Item</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Auditoria detalhada de cada produto vendido, CMV unitário e receita.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="text" id="search-historico" oninput="renderHistorico()" placeholder="Filtrar por produto ou cliente..." class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200 outline-none focus:border-emerald-500 w-48 shadow-sm">
+              <button onclick="exportarHistoricoCSV()" class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition flex items-center gap-1.5">
+                <i class="fa-solid fa-file-csv text-emerald-500 text-sm"></i>
+                <span>Exportar CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Table of sales movements -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 custom-scrollbar">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr>
+                  <th class="py-3.5 px-3.5">Data / Hora</th>
+                  <th class="py-3.5 px-3.5">Cliente</th>
+                  <th class="py-3.5 px-3.5">Produto(s) Vendido(s)</th>
+                  <th class="py-3.5 px-3.5 text-center">Qtd</th>
+                  <th class="py-3.5 px-3.5 text-right">Preço Venda</th>
+                  <th class="py-3.5 px-3.5 text-right">Custo dos Itens</th>
+                  <th class="py-3.5 px-3.5 text-right">Lucro da Venda</th>
+                  <th class="py-3.5 px-3.5 text-center">Margem (%)</th>
+                  <th class="py-3.5 px-3.5 text-center">Pagamento</th>
+                  <th class="py-3.5 px-3.5 text-center">Status</th>
+                  <th class="py-3.5 px-3.5 text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="historico-tbody" class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-200">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="historico-empty" class="hidden py-12 text-center text-slate-400 text-xs">
+            <i class="fa-solid fa-cart-arrow-down text-3xl mb-2 text-slate-400 dark:text-slate-600 block"></i>
+            Nenhuma movimentação comercial registrada no período selecionado.
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 3: ANÁLISE DE MARGENS & PERFORMANCE ==================== -->
+      <div id="tab-content-margens" class="tab-pane hidden">
+        <div class="space-y-6">
+          
+          <!-- Header summary for Margins -->
+          <div class="bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-transparent bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950 px-2.5 py-0.5 rounded-full border border-emerald-300 dark:border-emerald-800">
+                  Inteligência Comercial
+                </span>
+                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1.5">Ranking de Produtos por Rentabilidade</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Identifique quais produtos deixam a maior margem percentual e maior lucro em reais no seu caixa.</p>
+              </div>
+              
+              <div class="flex items-center gap-2 text-xs">
+                <span class="text-slate-500 dark:text-slate-400 font-semibold">Ordenar por:</span>
+                <select id="sort-margens" onchange="renderMargens()" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl px-3 py-2 outline-none focus:border-emerald-500 font-medium">
+                  <option value="melhor_margem">🏆 Melhor Margem (%)</option>
+                  <option value="maior_lucro">💰 Maior Lucro em R$</option>
+                  <option value="mais_vendidos">🔥 Mais Vendidos (Giro)</option>
+                  <option value="maior_faturamento">📈 Maior Faturamento</option>
+                  <option value="maior_cmv">⚠️ Maior Custo de Compra</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Margin Cards Grid & Visual Comparisons -->
+          <div id="margens-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Rendered via JS -->
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 4: CATÁLOGO DE PRODUTOS & ESTOQUE ==================== -->
+      <div id="tab-content-produtos" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-boxes-packing text-amber-500"></i>
+                <span>Catálogo de Produtos & Controle de Estoque</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Cadastre seus produtos com custo de compra (CMV) e preço de venda para cálculo de margem unitária.</p>
+            </div>
+            <button onclick="openNovoProdutoModal()" class="px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-500/20">
+              <i class="fa-solid fa-plus"></i> <span>Novo Produto</span>
+            </button>
+          </div>
+
+          <!-- Products table -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 custom-scrollbar">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr>
+                  <th class="py-3.5 px-3.5">Código / SKU</th>
+                  <th class="py-3.5 px-3.5">Nome do Produto</th>
+                  <th class="py-3.5 px-3.5">Categoria</th>
+                  <th class="py-3.5 px-3.5 text-right">Custo de Compra</th>
+                  <th class="py-3.5 px-3.5 text-right">Preço de Venda</th>
+                  <th class="py-3.5 px-3.5 text-right">Lucro Unitário</th>
+                  <th class="py-3.5 px-3.5 text-center">Margem Unitária</th>
+                  <th class="py-3.5 px-3.5 text-center">Estoque Atual</th>
+                  <th class="py-3.5 px-3.5 text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="produtos-tbody" class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-200">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ==================== TAB 5: CLIENTES ==================== -->
+      <div id="tab-content-clientes" class="tab-pane hidden">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-users text-purple-500"></i>
+                <span>Clientes & Compradores</span>
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Histórico de compras realizadas, LTV e canal de WhatsApp.</p>
+            </div>
+            <button onclick="openNovoClienteModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-500/20">
+              <i class="fa-solid fa-plus"></i> <span>Novo Cliente</span>
+            </button>
+          </div>
+
+          <div id="clientes-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- MODAL: NOVA / EDITAR VENDA -->
+  <div id="modal-venda" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-venda-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-cart-plus text-emerald-500"></i>
+          <span>Registrar Venda / Proposta</span>
+        </h3>
+        <button onclick="closeModal('modal-venda')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="venda-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Cliente *</label>
+            <div class="flex gap-2">
+              <select id="venda-cliente" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500"></select>
+              <button type="button" onclick="openNovoClienteModal(true)" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 border border-slate-300 dark:border-slate-700 rounded-xl" title="Cadastrar cliente rápido">
+                <i class="fa-solid fa-user-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Data e Hora *</label>
+            <input type="datetime-local" id="venda-data" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="sm:col-span-2">
+            <label class="block font-semibold mb-1">Produto *</label>
+            <select id="venda-produto" onchange="onProdutoSelecionadoNaVenda()" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500"></select>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Quantidade *</label>
+            <input type="number" min="1" id="venda-qtd" oninput="recalcularValoresVenda()" value="1" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-900 dark:text-white font-mono font-bold w-full outline-none focus:border-emerald-500 text-center">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Etapa no Pipeline</label>
+            <select id="venda-etapa" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+              <option value="novo">1. Novo Lead</option>
+              <option value="qualificacao">2. Qualificação / Interesse</option>
+              <option value="proposta">3. Proposta Enviada</option>
+              <option value="negociacao">4. Negociação & Pagamento</option>
+              <option value="fechada" selected>5. Venda Fechada & Entregue</option>
+              <option value="perdida">6. Perdida</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Forma de Pagamento</label>
+            <select id="venda-pagamento" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+              <option value="PIX">PIX à vista</option>
+              <option value="Cartão de Crédito">Cartão de Crédito</option>
+              <option value="Boleto Bancário">Boleto Bancário</option>
+              <option value="Financiamento">Financiamento</option>
+              <option value="Dinheiro">Dinheiro</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Composição Financeira da Venda -->
+        <div class="p-3.5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <i class="fa-solid fa-calculator text-emerald-500"></i> Composição Financeira da Venda
+            </span>
+            <span id="venda-resumo-margem" class="font-mono text-emerald-600 dark:text-emerald-400 font-bold">Margem: 0%</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block text-slate-500 dark:text-slate-400 mb-1">Valor Total Venda (R$)</label>
+              <input type="number" step="0.01" id="venda-total" oninput="recalcularValoresVenda(true)" class="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-900 dark:text-white font-mono font-bold w-full outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-slate-500 dark:text-slate-400 mb-1">Custo Total Itens (R$)</label>
+              <input type="number" step="0.01" id="venda-custo-total" readonly class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-800 rounded-xl p-2 text-amber-600 dark:text-amber-400 font-mono font-bold w-full cursor-not-allowed">
+            </div>
+            <div>
+              <label class="block text-slate-500 dark:text-slate-400 mb-1">Lucro Líquido (R$)</label>
+              <input type="number" step="0.01" id="venda-lucro" readonly class="bg-slate-100 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-800 rounded-xl p-2 text-emerald-600 dark:text-emerald-400 font-mono font-bold w-full cursor-not-allowed">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">Observações da Venda / Dados de Entrega</label>
+          <textarea id="venda-obs" rows="2" placeholder="Ex: Cliente solicitou entrega para sexta-feira, negociado desconto de 5% à vista no PIX..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500"></textarea>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-venda')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarVenda()" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 transition">Salvar Venda</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: NOVO / EDITAR PRODUTO -->
+  <div id="modal-produto" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-md max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-produto-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-box text-emerald-500"></i>
+          <span>Novo Produto</span>
+        </h3>
+        <button onclick="closeModal('modal-produto')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-3.5 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="prod-id">
+
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <label class="block font-semibold mb-1">SKU / Código</label>
+            <input type="text" id="prod-sku" placeholder="PRD-01" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white w-full outline-none focus:border-emerald-500 uppercase font-mono font-bold">
+          </div>
+          <div class="col-span-2">
+            <label class="block font-semibold mb-1">Nome do Produto *</label>
+            <input type="text" id="prod-nome" placeholder="Ex: Inversor Solar 5kW, Kit Peças..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white w-full outline-none focus:border-emerald-500 font-bold">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">Categoria</label>
+          <input type="text" id="prod-categoria" placeholder="Ex: Equipamentos, Acessórios, Autopeças..." class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Custo Compra (R$) *</label>
+            <input type="number" step="0.01" id="prod-custo" oninput="recalcularMargemProdutoModal()" placeholder="0,00" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-amber-600 dark:text-amber-400 font-mono font-bold w-full outline-none focus:border-emerald-500">
+            <span class="text-[10px] text-slate-400">Quanto você paga pelo item</span>
+          </div>
+
+          <div>
+            <label class="block font-semibold mb-1">Preço Venda (R$) *</label>
+            <input type="number" step="0.01" id="prod-preco" oninput="recalcularMargemProdutoModal()" placeholder="0,00" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-emerald-600 dark:text-emerald-400 font-mono font-bold w-full outline-none focus:border-emerald-500">
+            <span class="text-[10px] text-slate-400">Preço cobrado do cliente</span>
+          </div>
+        </div>
+
+        <!-- Profit & Margin Preview -->
+        <div class="p-3.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl border border-emerald-200 dark:border-emerald-800/60 font-mono space-y-1">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-600 dark:text-slate-300">Lucro Unitário:</span>
+            <strong id="prod-preview-lucro" class="text-emerald-600 dark:text-emerald-400 text-sm">R$ 0,00</strong>
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-600 dark:text-slate-300">Margem Comercial:</span>
+            <strong id="prod-preview-margem" class="text-cyan-600 dark:text-cyan-300 text-sm">0.0%</strong>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold mb-1">Estoque Atual</label>
+            <input type="number" id="prod-estoque" value="10" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-900 dark:text-white w-full outline-none focus:border-emerald-500 font-mono">
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Estoque Mínimo</label>
+            <input type="number" id="prod-estoque-min" value="2" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2 text-slate-900 dark:text-white w-full outline-none focus:border-emerald-500 font-mono">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-produto')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarProduto()" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 transition">Salvar Produto</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: NOVO / EDITAR CLIENTE -->
+  <div id="modal-cliente" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-md max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="modal-cliente-title" class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-user-plus text-purple-500"></i>
+          <span>Novo Cliente Comprador</span>
+        </h3>
+        <button onclick="closeModal('modal-cliente')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-3 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <input type="hidden" id="cli-id">
+        <div>
+          <label class="block font-semibold mb-1">Nome Completo / Razão Social *</label>
+          <input type="text" id="cli-nome" placeholder="Ex: Gabriel Rezende" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white w-full outline-none focus:border-emerald-500">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">WhatsApp / Telefone *</label>
+          <input type="text" id="cli-telefone" placeholder="(32) 99929-2311" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">E-mail</label>
+          <input type="email" id="cli-email" placeholder="cliente@empresa.com" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">Cidade / Estado</label>
+          <input type="text" id="cli-cidade" placeholder="Ex: São Paulo - SP" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-cliente')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarCliente()" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 transition">Salvar Cliente</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL: CONFIGURAÇÕES & BACKUP -->
+  <div id="modal-config" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-emerald-500"></i>
+          <span>Configurações & Backup dos Dados</span>
+        </h3>
+        <button onclick="closeModal('modal-config')" class="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4 custom-scrollbar flex-1 text-xs text-slate-700 dark:text-slate-300">
+        <div>
+          <label class="block font-semibold mb-1">Nome da Empresa / Loja *</label>
+          <input type="text" id="cfg-nome-empresa" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-900 dark:text-white w-full outline-none focus:border-emerald-500 font-bold">
+          <span class="text-[10px] text-slate-400">Personalize o nome da sua loja ou distribuidora comercial.</span>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">WhatsApp Padrão para Atendimento</label>
+          <input type="text" id="cfg-whatsapp" value="32999292311" class="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl p-2.5 text-slate-800 dark:text-slate-200 w-full outline-none focus:border-emerald-500">
+        </div>
+
+        <div class="p-3.5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
+          <span class="font-bold block">Backup & Migração dos Dados</span>
+          <p class="text-[11px] text-slate-400">Seus dados ficam 100% salvos no seu navegador. Exporte ou importe o arquivo JSON a qualquer momento.</p>
+          <div class="flex items-center gap-2 pt-1">
+            <button onclick="exportarBackupJSON()" class="px-3.5 py-2 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl font-semibold flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-download text-emerald-500"></i> Exportar Dados (JSON)
+            </button>
+            <label class="px-3.5 py-2 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl font-semibold flex items-center gap-1.5 cursor-pointer shadow-sm">
+              <i class="fa-solid fa-upload text-cyan-500"></i> Importar Dados (JSON)
+              <input type="file" id="cfg-import-file" onchange="importarBackupJSON(event)" accept=".json" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <div class="p-3.5 bg-rose-50 dark:bg-rose-950/30 rounded-2xl border border-rose-200 dark:border-rose-900/40 space-y-2">
+          <span class="font-bold text-rose-700 dark:text-rose-300 block">Área de Redefinição</span>
+          <div class="flex items-center gap-2">
+            <button onclick="resetarDadosExemplo()" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/60 hover:bg-amber-200 dark:hover:bg-amber-800 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700/60 rounded-xl font-semibold">
+              <i class="fa-solid fa-rotate-left"></i> Carregar Exemplo
+            </button>
+            <button onclick="limparTodosDados()" class="px-3 py-1.5 bg-rose-100 dark:bg-rose-900/60 hover:bg-rose-200 dark:hover:bg-rose-800 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700/60 rounded-xl font-semibold">
+              <i class="fa-solid fa-trash-can"></i> Limpar Tudo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-end gap-2">
+        <button onclick="closeModal('modal-config')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition">Cancelar</button>
+        <button onclick="salvarConfiguracoes()" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20 transition">Salvar Configurações</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script src="crm_vendas.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('section').forEach(sec => {
+          gsap.from(sec, {
+            opacity: 0.9,
+            y: 15,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 88%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM CONVERSION DOCK (CULT UI 1-CLICK CONVERSION)                -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-stone-900/95 backdrop-blur-md border-t border-stone-800 p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="shimmer-btn flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+      <i class="fa-brands fa-whatsapp text-sm"></i>
+      <span>Falar no WhatsApp</span>
+    </a>
+    <a href="#contato" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center border border-white/15">
+      <i class="fa-solid fa-calendar-check text-xs"></i>
+    </a>
+  </div>
+
+</body>
+</html>

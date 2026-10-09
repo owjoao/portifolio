@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bella Napoli — Pizzaria Artesanal & Forno a Lenha</title>
+  <meta name="description" content="Pizzas artesanais napolitanas de fermentação natural de 48h, forno a lenha a 450°C e ingredientes selecionados. Faça seu pedido online!">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF8F5',
+              dark: '#141416',
+              green: '#1E3932',
+              'green-dark': '#132520',
+              'green-light': '#2D554B',
+              terracotta: '#C8452E',
+              'terracotta-dark': '#A3331F',
+              gold: '#D97706',
+              amber: '#F59E0B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1F2937;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .font-serif-title {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F3EFEA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D1C7BD;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A89F95;
+    }
+
+    .badge-shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 2.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .glass-header {
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Pizzaria_landingpage",
+    "description": "Atendimento profissional especializado em Pizzaria_landingpage com agendamento rápido via WhatsApp.",
+    "telephone": "+55-32-99929-2311",
+    "url": "https://nexusflow.digital/pizzaria_landingpage/",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+
+</head>
+<body class="bg-brand-cream text-stone-800 antialiased selection:bg-brand-terracotta selection:text-white pb-24 md:pb-12">
+
+  <!-- ========================================== -->
+  <!-- 1. TOP HEADER & LOCATION BAR               -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 glass-header border-b border-stone-200/80 transition-all duration-200">
+    <!-- Faixa Topo de Urgência -->
+    <div class="bg-brand-green text-white text-xs py-1.5 px-4 text-center font-medium flex items-center justify-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Forno a Lenha Aquecido a 450°C • Tempo médio de entrega: <strong>32-45 min</strong></span>
+      <span class="hidden md:inline text-emerald-300">• Cupom <strong>PIZZA50</strong> ativo</span>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <!-- Marca / Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-brand-terracotta text-white flex items-center justify-center text-2xl shadow-md shadow-brand-terracotta/30 group-hover:scale-105 transition-transform">
+          🍕
+        </div>
+        <div>
+          <span class="font-serif-title font-bold text-xl tracking-tight text-stone-900 group-hover:text-brand-terracotta transition-colors">
+            Bella Napoli
+          </span>
+          <span class="block text-[10px] tracking-wider font-bold text-brand-green uppercase">
+            Pizzaria Artesanal • 1998
+          </span>
+        </div>
+      </a>
+
+      <!-- Seletor de Localização (Conforme imagem de referência) -->
+      <div class="hidden sm:flex items-center gap-2 bg-stone-100 hover:bg-stone-200/70 border border-stone-200 px-3.5 py-1.5 rounded-full cursor-pointer transition-colors text-xs" onclick="alterarEndereco()">
+        <svg class="w-4 h-4 text-brand-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <div class="text-left leading-tight">
+          <span class="text-[10px] text-stone-500 font-medium block">Entregar em</span>
+          <span id="current-address" class="font-bold text-stone-800">Casa • Rua Augusta, 1420</span>
+        </div>
+        <svg class="w-3.5 h-3.5 text-stone-500 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
+
+      <!-- Ações do Cabeçalho -->
+      <div class="flex items-center gap-3">
+        <!-- Notificação -->
+        <button onclick="alert('🔔 Nenhuma notificação nova no momento!')" class="relative p-2.5 rounded-xl bg-stone-100 hover:bg-stone-200/70 text-stone-700 transition-colors" title="Notificações">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+          </svg>
+          <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-brand-terracotta"></span>
+        </button>
+
+        <!-- Botão Carrinho / Sacola -->
+        <button onclick="toggleCartModal(true)" class="flex items-center gap-2 bg-brand-green hover:bg-brand-green-dark text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-brand-green/20 transition-all active:scale-95">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="hidden sm:inline">Sacola</span>
+          <span id="cart-count-badge" class="bg-amber-400 text-stone-900 text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO BANNER ("Mais Sabor, Mais Momentos")-->
+  <!-- ========================================== -->
+  <section class="max-w-6xl mx-auto px-4 pt-6 pb-4">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 text-white shadow-xl">
+      <!-- Imagem de Fundo de Alta Resolução -->
+      <div class="absolute inset-0 opacity-45 mix-blend-overlay">
+        <img src="assets/hero_pizzas.png" alt="Mesa de Pizzas Artesanais" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1400&q=80'" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent md:bg-gradient-to-r md:from-stone-950 md:via-stone-950/80 md:to-transparent"></div>
+
+      <div class="relative z-10 p-6 md:p-12 max-w-xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-terracotta/90 text-white text-[11px] font-bold tracking-wide uppercase mb-3">
+          <span>🔥</span> Tradizione Napoletana
+        </div>
+        <h1 class="font-serif-title text-3xl sm:text-5xl font-bold leading-tight tracking-tight text-white mb-3">
+          Mais Sabor,<br><span class="italic text-amber-300">Mais Momentos.</span>
+        </h1>
+        <p class="text-stone-300 text-sm sm:text-base leading-relaxed mb-6">
+          Massa de fermentação natural de 48 horas, farinha italiana tipo 00 e forno a lenha estalando a 450°C. Entregue quentinha na sua porta.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#ofertas" class="bg-brand-terracotta hover:bg-brand-terracotta-dark text-white px-6 py-3 rounded-xl font-bold text-sm shadow-lg shadow-brand-terracotta/30 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+            <span>Pedir Agora</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="#categorias" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-5 py-3 rounded-xl font-semibold text-sm transition-all">
+            Ver Cardápio
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. OFERTA DO DIA (LIVE COUNTDOWN TIMER)     -->
+  <!-- ========================================== -->
+  <section id="ofertas" class="max-w-6xl mx-auto px-4 py-6">
+    <div class="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border border-amber-300/60 rounded-3xl p-5 md:p-7 shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
+            Oferta Especial do Dia
+          </div>
+          <h2 class="font-serif-title text-2xl md:text-3xl font-bold text-stone-900 mt-0.5">
+            Combo Pizza & Burger Supreme
+          </h2>
+          <p class="text-stone-600 text-xs sm:text-sm mt-1">
+            Corra! Esta oferta promocional se encerra assim que o cronômetro zerar:
+          </p>
+        </div>
+
+        <!-- Cronômetro Ativo (JS) -->
+        <div class="flex items-center gap-2 bg-stone-900 text-white px-4 py-2.5 rounded-2xl shadow-inner font-mono">
+          <div class="text-center">
+            <span id="timer-hours" class="text-xl md:text-2xl font-black text-amber-400">02</span>
+            <span class="block text-[9px] uppercase tracking-wider text-stone-400 font-sans">Horas</span>
+          </div>
+          <span class="text-lg font-bold text-stone-500">:</span>
+          <div class="text-center">
+            <span id="timer-minutes" class="text-xl md:text-2xl font-black text-amber-400">45</span>
+            <span class="block text-[9px] uppercase tracking-wider text-stone-400 font-sans">Min</span>
+          </div>
+          <span class="text-lg font-bold text-stone-500">:</span>
+          <div class="text-center">
+            <span id="timer-seconds" class="text-xl md:text-2xl font-black text-amber-400">18</span>
+            <span class="block text-[9px] uppercase tracking-wider text-stone-400 font-sans">Seg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card do Combo do Dia -->
+      <div class="bg-white rounded-2xl border border-stone-200/90 p-4 md:p-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center shadow-sm">
+        <div class="md:col-span-5 relative overflow-hidden rounded-2xl h-56 md:h-64 bg-stone-100">
+          <img src="assets/deal_drinks.png" alt="Oferta do Dia" onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-3 left-3 bg-brand-terracotta text-white font-extrabold text-xs px-3 py-1 rounded-full shadow-md">
+            🔥 35% OFF
+          </div>
+        </div>
+
+        <div class="md:col-span-7 flex flex-col justify-between h-full space-y-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                Mais Pedido Hoje
+              </span>
+              <span class="text-xs text-stone-500">Serve 3 a 4 pessoas</span>
+            </div>
+            <h3 class="font-serif-title text-xl md:text-2xl font-bold text-stone-900">
+              Combo Bella Famiglia: 1 Pizza Grande + 1 Burger Artesanal + Refri 2L
+            </h3>
+            <p class="text-stone-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              1 Pizza Grande (Margherita Speciale ou Pepperoni Supreme) de 8 fatias com massa de fermentação lenta, acompanhada de 1 smash burger com queijo gouda e 1 Refrigerante gelado de 2L.
+            </p>
+          </div>
+
+          <div class="pt-2 border-t border-stone-100 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="text-xs text-stone-400 line-through">De R$ 119,90</span>
+              <div class="flex items-baseline gap-1">
+                <span class="text-stone-900 font-bold text-sm">R$</span>
+                <span class="text-3xl font-extrabold text-brand-terracotta">77,90</span>
+                <span class="text-xs font-medium text-emerald-600 ml-1">à vista ou PIX</span>
+              </div>
+            </div>
+
+            <button onclick="addToCart('Combo Bella Famiglia (Pizza + Burger + Refri)', 77.90, 'assets/deal_drinks.png')" class="bg-brand-terracotta hover:bg-brand-terracotta-dark text-white px-6 py-3 rounded-xl font-bold text-sm shadow-md shadow-brand-terracotta/20 flex items-center gap-2 transition-all active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              <span>Aproveitar Oferta</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. CATEGORY GRID (GRID DE CATEGORIAS)      -->
+  <!-- ========================================== -->
+  <section id="categorias" class="max-w-6xl mx-auto px-4 py-4">
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h2 class="font-serif-title text-xl md:text-2xl font-bold text-stone-900">
+          O Que Você Deseja Hoje?
+        </h2>
+        <p class="text-xs text-stone-500">Selecione uma categoria para filtrar o cardápio</p>
+      </div>
+      <span class="text-xs font-bold text-brand-green hover:underline cursor-pointer" onclick="filterCategory('todos')">
+        Ver Todas
+      </span>
+    </div>
+
+    <!-- 5 Categorias em Cards/Chips Interativos -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+      <!-- Categoria 1: Combos Família -->
+      <button onclick="filterCategory('familia')" class="category-card group bg-white hover:bg-brand-green hover:text-white p-3.5 rounded-2xl border border-stone-200/90 text-left transition-all duration-200 shadow-sm flex flex-col justify-between">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 group-hover:bg-white/20 text-xl flex items-center justify-center transition-colors mb-3">
+          👨‍👩‍👧‍👦
+        </div>
+        <div>
+          <h3 class="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-white">Combos Família</h3>
+          <p class="text-[11px] text-stone-500 group-hover:text-stone-200 mt-0.5">Pizzas para 4+ pessoas</p>
+        </div>
+      </button>
+
+      <!-- Categoria 2: Caixas para Festas -->
+      <button onclick="filterCategory('festa')" class="category-card group bg-white hover:bg-brand-green hover:text-white p-3.5 rounded-2xl border border-stone-200/90 text-left transition-all duration-200 shadow-sm flex flex-col justify-between">
+        <div class="w-10 h-10 rounded-xl bg-rose-100 group-hover:bg-white/20 text-xl flex items-center justify-center transition-colors mb-3">
+          🎁
+        </div>
+        <div>
+          <h3 class="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-white">Caixas P/ Festas</h3>
+          <p class="text-[11px] text-stone-500 group-hover:text-stone-200 mt-0.5">Degustação & Galera</p>
+        </div>
+      </button>
+
+      <!-- Categoria 3: Menus Econômicos -->
+      <button onclick="filterCategory('economico')" class="category-card group bg-white hover:bg-brand-green hover:text-white p-3.5 rounded-2xl border border-stone-200/90 text-left transition-all duration-200 shadow-sm flex flex-col justify-between">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 group-hover:bg-white/20 text-xl flex items-center justify-center transition-colors mb-3">
+          💰
+        </div>
+        <div>
+          <h3 class="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-white">Menus Econômicos</h3>
+          <p class="text-[11px] text-stone-500 group-hover:text-stone-200 mt-0.5">A partir de R$ 39,90</p>
+        </div>
+      </button>
+
+      <!-- Categoria 4: Especiais Fim de Semana -->
+      <button onclick="filterCategory('especiais')" class="category-card group bg-white hover:bg-brand-green hover:text-white p-3.5 rounded-2xl border border-stone-200/90 text-left transition-all duration-200 shadow-sm flex flex-col justify-between">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 group-hover:bg-white/20 text-xl flex items-center justify-center transition-colors mb-3">
+          🌟
+        </div>
+        <div>
+          <h3 class="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-white">Especiais FDS</h3>
+          <p class="text-[11px] text-stone-500 group-hover:text-stone-200 mt-0.5">Massas & Receitas Únicas</p>
+        </div>
+      </button>
+
+      <!-- Categoria 5: Mais Vendidos -->
+      <button onclick="filterCategory('todos')" class="category-card group bg-white hover:bg-brand-green hover:text-white p-3.5 rounded-2xl border border-stone-200/90 text-left transition-all duration-200 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
+        <div class="w-10 h-10 rounded-xl bg-purple-100 group-hover:bg-white/20 text-xl flex items-center justify-center transition-colors mb-3">
+          🔥
+        </div>
+        <div>
+          <h3 class="font-bold text-xs sm:text-sm text-stone-900 group-hover:text-white">Mais Vendidos</h3>
+          <p class="text-[11px] text-stone-500 group-hover:text-stone-200 mt-0.5">Os favoritos da casa</p>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. FEATURED BUNDLE CARDS (CARDS DE DESTAQUE)-->
+  <!-- ========================================== -->
+  <section class="max-w-6xl mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Card Destaque 1: Combo Família Tradizionale -->
+      <div class="product-item familia relative bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+        <div class="relative h-60 overflow-hidden bg-stone-100">
+          <img src="assets/menu_margherita.png" alt="Combo Família" onerror="this.src='https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-4 left-4 bg-brand-terracotta text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+            Economize até 30% OFF
+          </div>
+          <div class="absolute bottom-3 right-3 bg-stone-900/80 backdrop-blur-md text-white text-[11px] font-medium px-2.5 py-1 rounded-lg">
+            ⭐ 4.9 (420 avaliações)
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                Combo Família
+              </span>
+              <span class="text-xs text-stone-500">2 Pizzas Grandes + Refri 2L</span>
+            </div>
+            <h3 class="font-serif-title text-xl font-bold text-stone-900">
+              Combo Família Napolitano
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
+              Duas pizzas grandes de 8 fatias com fermentação biológica lenta (Margherita DOC + Calabresa Especial com cebola roxa caramelizada) e Refrigerante de 2L.
+            </p>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-stone-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-stone-400 line-through">De R$ 128,00</span>
+              <div class="flex items-baseline gap-1">
+                <span class="text-stone-900 font-bold text-xs">R$</span>
+                <span class="text-2xl font-black text-stone-900">89,90</span>
+              </div>
+            </div>
+            <button onclick="addToCart('Combo Família Napolitano (2 Pizzas + Refri)', 89.90, 'assets/menu_margherita.png')" class="bg-brand-green hover:bg-brand-green-dark text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-brand-green/20 flex items-center gap-2 transition-all active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              <span>Adicionar à Sacola</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Destaque 2: Caixa Degustação & Festa -->
+      <div class="product-item festa relative bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+        <div class="relative h-60 overflow-hidden bg-stone-100">
+          <img src="assets/menu_pepperoni.png" alt="Caixa Degustação Festa" onerror="this.src='https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-4 left-4 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+            Perfeito para Grupos
+          </div>
+          <div class="absolute bottom-3 right-3 bg-stone-900/80 backdrop-blur-md text-white text-[11px] font-medium px-2.5 py-1 rounded-lg">
+            ⭐ 5.0 (310 avaliações)
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-xs font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">
+                Caixa Degustação
+              </span>
+              <span class="text-xs text-stone-500">12 Fatias Variadas + Dips</span>
+            </div>
+            <h3 class="font-serif-title text-xl font-bold text-stone-900">
+              Caixa Festa Degustação & Dips Artesanais
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
+              Caixa em papel craft rígido com 4 sabores artesanais (Pepperoni Rustico, 4 Queijos com Mel, Quatro Carnes e Margherita), acompanhada de molho pesto e dip de alho confitado.
+            </p>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-stone-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-stone-400 line-through">De R$ 139,90</span>
+              <div class="flex items-baseline gap-1">
+                <span class="text-stone-900 font-bold text-xs">R$</span>
+                <span class="text-2xl font-black text-stone-900">99,90</span>
+              </div>
+            </div>
+            <button onclick="addToCart('Caixa Festa Degustação & Dips (12 Fatias)', 99.90, 'assets/menu_pepperoni.png')" class="bg-brand-green hover:bg-brand-green-dark text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-brand-green/20 flex items-center gap-2 transition-all active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              <span>Adicionar à Sacola</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. SECONDARY PROMO GRID (3 CARDS)          -->
+  <!-- ========================================== -->
+  <section class="max-w-6xl mx-auto px-4 py-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Card Promo 1: Menus Econômicos -->
+      <div class="product-item economico bg-white p-5 rounded-3xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="relative h-40 rounded-2xl overflow-hidden mb-4 bg-stone-100">
+            <img src="assets/menu_cheese.png" alt="Menu Econômico" onerror="this.src='https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80'" class="w-full h-full object-cover">
+            <span class="absolute top-2.5 left-2.5 bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+              Econômico
+            </span>
+          </div>
+          <h3 class="font-serif-title font-bold text-lg text-stone-900">
+            Menu Individual Express
+          </h3>
+          <p class="text-xs text-stone-600 mt-1 leading-relaxed">
+            1 Pizza Média Individual (4 fatias) com massa fina crocante + 1 Refrigerante em lata gelado.
+          </p>
+        </div>
+        <div class="pt-4 mt-3 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-lg font-black text-stone-900">R$ 39,90</span>
+          <button onclick="addToCart('Menu Individual Express (Pizza Média + Bebida)', 39.90, 'assets/menu_cheese.png')" class="text-xs font-bold text-brand-green hover:text-brand-green-dark bg-stone-100 hover:bg-stone-200 px-3.5 py-2 rounded-xl transition-colors">
+            + Adicionar
+          </button>
+        </div>
+      </div>
+
+      <!-- Card Promo 2: Especiais de Fim de Semana -->
+      <div class="product-item especiais bg-white p-5 rounded-3xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="relative h-40 rounded-2xl overflow-hidden mb-4 bg-stone-100">
+            <img src="assets/menu_chicken.png" alt="Especiais FDS" onerror="this.src='https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=600&q=80'" class="w-full h-full object-cover">
+            <span class="absolute top-2.5 left-2.5 bg-amber-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+              Até 25% OFF
+            </span>
+          </div>
+          <h3 class="font-serif-title font-bold text-lg text-stone-900">
+            Especiais Forno & Burrata
+          </h3>
+          <p class="text-xs text-stone-600 mt-1 leading-relaxed">
+            Receitas exclusivas do chef com queijo burrata fresca, azeite trufado e presunto cru italiano.
+          </p>
+        </div>
+        <div class="pt-4 mt-3 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-lg font-black text-stone-900">R$ 64,90</span>
+          <button onclick="addToCart('Especial Burrata & Trufas no Forno', 64.90, 'assets/menu_chicken.png')" class="text-xs font-bold text-brand-green hover:text-brand-green-dark bg-stone-100 hover:bg-stone-200 px-3.5 py-2 rounded-xl transition-colors">
+            + Adicionar
+          </button>
+        </div>
+      </div>
+
+      <!-- Card Promo 3: Pontos de Fidelidade (Exato da referência) -->
+      <div class="bg-gradient-to-br from-brand-green via-brand-green-dark to-stone-950 text-white p-6 rounded-3xl shadow-md flex flex-col justify-between relative overflow-hidden">
+        <!-- Detalhe decorativo sutil -->
+        <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/5 pointer-events-none"></div>
+
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-400 text-stone-950 flex items-center justify-center font-black text-xl shadow-md">
+              👑
+            </div>
+            <span class="bg-white/10 text-amber-300 text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border border-white/10 font-bold">
+              Clube Bella Napoli
+            </span>
+          </div>
+          <p class="text-xs text-stone-300 font-medium">Seu Saldo Disponível</p>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span class="text-3xl font-black text-amber-400 tracking-tight font-mono">1.250</span>
+            <span class="text-xs font-bold text-stone-300 uppercase">Pontos</span>
+          </div>
+          <p class="text-[11px] text-stone-300 mt-2 leading-relaxed">
+            Cada R$ 1,00 gasto equivale a 1 ponto. Você já pode trocar seus pontos por 1 Pizza Broto Doce ou Frete Grátis vitalício!
+          </p>
+        </div>
+
+        <div class="pt-5 mt-4 border-t border-white/10">
+          <button onclick="resgatarPontos()" class="w-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-xs py-3 rounded-xl transition-all shadow-md active:scale-98 text-center flex items-center justify-center gap-2">
+            <span>Resgatar Recompensas</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7-7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. SOCIAL PROOF & FEEDBACK (AVALIAÇÕES)    -->
+  <!-- ========================================== -->
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-bold text-amber-700 uppercase tracking-wider">
+          <span>⭐</span> Avaliações de Quem Provou
+        </div>
+        <h2 class="font-serif-title text-2xl md:text-3xl font-bold text-stone-900 mt-0.5">
+          Mais de 3.400 Clientes Satisfeitos
+        </h2>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-stone-600 bg-white px-3.5 py-1.5 rounded-full border border-stone-200">
+        <span class="font-bold text-stone-900">4.9 / 5.0</span>
+        <span class="text-amber-500">★★★★★</span>
+        <span>no Google & iFood</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Depoimento 1 -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center font-bold text-stone-700 text-xs">
+                MC
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-stone-900">Marcelo Castro</h4>
+                <p class="text-[10px] text-emerald-600 font-semibold">✓ Comprador Verificado</p>
+              </div>
+            </div>
+            <span class="text-amber-500 text-xs">★★★★★</span>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed italic">
+            "A massa é simplesmente perfeita! Fermentação impecável, leve, com borda aerada e queijinho tostado no ponto certo. O Combo Família salvou o jantar de domingo."
+          </p>
+        </div>
+        <span class="text-[10px] text-stone-400 mt-3 block">Pediu Combo Família Napolitano</span>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-800 text-xs">
+                BF
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-stone-900">Beatriz Fernandes</h4>
+                <p class="text-[10px] text-emerald-600 font-semibold">✓ Comprador Verificado</p>
+              </div>
+            </div>
+            <span class="text-amber-500 text-xs">★★★★★</span>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed italic">
+            "A Caixa Degustação para a festa da firma foi um espetáculo! Todo mundo elogiou os molhos de alho confitado e a crocância das fatias. Entrega muito pontual."
+          </p>
+        </div>
+        <span class="text-[10px] text-stone-400 mt-3 block">Pediu Caixa Festa Degustação</span>
+      </div>
+
+      <!-- Depoimento 3 -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center font-bold text-rose-800 text-xs">
+                RA
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-stone-900">Rodrigo Almeida</h4>
+                <p class="text-[10px] text-emerald-600 font-semibold">✓ Comprador Verificado</p>
+              </div>
+            </div>
+            <span class="text-amber-500 text-xs">★★★★★</span>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed italic">
+            "Chegou em 30 minutos pelando de quente! O programa de fidelidade é real, já resgatei minha pizza doce na semana passada. Atendimento 10/10."
+          </p>
+        </div>
+        <span class="text-[10px] text-stone-400 mt-3 block">Cliente VIP • 12 pedidos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. DELIVERY PROMO BANNER (SCOOTER & CUPOM) -->
+  <!-- ========================================== -->
+  <section class="max-w-6xl mx-auto px-4 py-4 mb-6">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-terracotta via-brand-terracotta-dark to-amber-700 text-white p-6 md:p-8 shadow-lg">
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        
+        <div class="md:col-span-8 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/20 text-white text-xs font-bold uppercase tracking-wide">
+            <span>🛵</span> Entrega Rápida & Segura
+          </div>
+          <h2 class="font-serif-title text-2xl md:text-3xl font-bold text-white">
+            Frete Grátis Acima de R$ 99,00
+          </h2>
+          <p class="text-white/90 text-xs sm:text-sm max-w-xl leading-relaxed">
+            Utilize o cupom promocional no checkout e garanta <strong>Frete Grátis</strong> + <strong>10% OFF extra</strong> pagando via PIX!
+          </p>
+          
+          <!-- Box do Cupom -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <div class="flex items-center gap-2 bg-white text-stone-900 px-4 py-2 rounded-xl font-mono font-bold text-sm shadow-inner">
+              <span class="text-stone-400 text-xs font-sans">Cupom:</span>
+              <span id="coupon-code">PIZZA50</span>
+              <button onclick="copyCoupon()" class="ml-2 text-xs text-brand-terracotta font-sans font-bold hover:underline" title="Copiar Cupom">
+                Copiar
+              </button>
+            </div>
+            <span class="text-xs text-white/80 font-medium">Válido até o fim do dia de hoje</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 flex md:justify-end">
+          <button onclick="toggleCartModal(true)" class="w-full md:w-auto bg-stone-900 hover:bg-stone-950 text-white px-7 py-3.5 rounded-xl font-bold text-sm shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+            <span>Ir para o Carrinho</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 9. FOOTER COMPLETO                         -->
+  <!-- ========================================== -->
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que a Forneria Napolitana é a Preferida da Cidade?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Massa de fermentação lenta 48h, farinha italiana tipo 00 e forno a lenha a 450°C.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Pizzarias Rápidas Convencionais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Massa pesada e cheia de fermento biológico que estufa o estômago</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Molhos de tomate de lata com acidez artificial e conservantes</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Queijos análogos com gordura vegetal que criam capa oleosa</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Entregas demoradas com pizza fria e borda borrachuda</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Fermentação 48h
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Forneria Napolitana Artesanal</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Massa leve de fermentação natural de 48 horas que não pesa na digestão</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Molho de tomate pelado San Marzano e queijo mozzarella de alta fusão</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Forno a lenha napolitano a 450°C com assamento perfeito em 90 segundos</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Embalagens térmicas especiais com respiro para a pizza chegar quentinha e crocante</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20pedir%20uma%20pizza%20artesanal." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🍕</span>
+          <span class="font-serif-title font-bold text-lg text-white">Bella Napoli</span>
+        </div>
+        <p class="text-xs leading-relaxed text-stone-400">
+          Tradição napolitana desde 1998 com massa de fermentação natural de 48 horas e ingredientes selecionados com amor e respeito ao sabor.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Horário de Funcionamento</h4>
+        <ul class="text-xs space-y-1.5 text-stone-400">
+          <li>Terça a Quinta: 18h às 23h</li>
+          <li>Sexta e Sábado: 18h à 00h30</li>
+          <li>Domingo: 18h às 23h30</li>
+          <li class="text-stone-500 font-semibold">Segunda-feira: Fechado para descanso da massa</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Contato & Localização</h4>
+        <ul class="text-xs space-y-1.5 text-stone-400">
+          <li>📍 Rua Augusta, 1420 — Cerqueira César, SP</li>
+          <li>📞 (11) 3288-9900</li>
+          <li>📱 WhatsApp: (11) 99999-8888</li>
+          <li>✉️ contato@bellanapoli.com.br</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Formas de Pagamento</h4>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="bg-stone-800 text-emerald-400 px-2.5 py-1 rounded font-mono font-bold">PIX (10% OFF)</span>
+          <span class="bg-stone-800 text-stone-300 px-2 py-1 rounded">Cartão de Crédito</span>
+          <span class="bg-stone-800 text-stone-300 px-2 py-1 rounded">VR / Sodexo</span>
+        </div>
+        <p class="text-[11px] text-stone-500 mt-3">
+          CNPJ: 24.123.456/0001-89 • Bella Napoli Alimentos Ltda.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- 10. BOTTOM NAVIGATION BAR (MOBILE)         -->
+  <!-- ========================================== -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 px-6 py-2 flex items-center justify-between shadow-2xl">
+    <a href="#" class="flex flex-col items-center text-brand-terracotta text-[10px] font-bold">
+      <span class="text-lg">🏠</span>
+      <span>Início</span>
+    </a>
+    <a href="#categorias" class="flex flex-col items-center text-stone-500 text-[10px] font-medium">
+      <span class="text-lg">🔍</span>
+      <span>Buscar</span>
+    </a>
+    <a href="#ofertas" class="flex flex-col items-center text-stone-500 text-[10px] font-medium">
+      <span class="text-lg">🏷️</span>
+      <span>Ofertas</span>
+    </a>
+    <button onclick="toggleCartModal(true)" class="relative flex flex-col items-center text-stone-700 text-[10px] font-bold">
+      <span class="text-lg">🛒</span>
+      <span>Sacola</span>
+      <span id="mobile-cart-badge" class="absolute -top-1 right-1 bg-brand-terracotta text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+    </button>
+    <button onclick="resgatarPontos()" class="flex flex-col items-center text-stone-500 text-[10px] font-medium">
+      <span class="text-lg">👤</span>
+      <span>Perfil</span>
+    </button>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- 11. MODAL DE CARRINHO (DRAWER)             -->
+  <!-- ========================================== -->
+  <div id="cart-modal" class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden transition-opacity duration-300">
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between p-6">
+      <!-- Topo Modal -->
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-stone-100">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🛒</span>
+            <h3 class="font-serif-title font-bold text-lg text-stone-900">Sua Sacola</h3>
+          </div>
+          <button onclick="toggleCartModal(false)" class="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors">
+            ✕
+          </button>
+        </div>
+
+        <!-- Lista de Itens -->
+        <div id="cart-items-container" class="py-4 space-y-3 max-h-[50vh] overflow-y-auto">
+          <p class="text-xs text-stone-400 text-center py-8">Sua sacola está vazia.<br>Escolha seus itens favoritos do cardápio!</p>
+        </div>
+      </div>
+
+      <!-- Resumo Financeiro & Checkout -->
+      <div class="pt-4 border-t border-stone-200 space-y-3">
+        <div class="space-y-1.5 text-xs text-stone-600">
+          <div class="flex justify-between">
+            <span>Subtotal</span>
+            <span id="cart-subtotal" class="font-semibold text-stone-800">R$ 0,00</span>
+          </div>
+          <div class="flex justify-between text-emerald-600 font-medium">
+            <span>Desconto (Cupom PIZZA50)</span>
+            <span id="cart-discount">- R$ 0,00</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Taxa de Entrega</span>
+            <span id="cart-delivery" class="text-emerald-700 font-bold">GRÁTIS</span>
+          </div>
+          <div class="flex justify-between text-sm font-black text-stone-900 pt-2 border-t border-stone-100">
+            <span>Total Final</span>
+            <span id="cart-total" class="text-brand-terracotta text-lg">R$ 0,00</span>
+          </div>
+        </div>
+
+        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition-all active:scale-98">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Finalizar Pedido no WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT: INTERATIVIDADE E CARRINHO     -->
+  <!-- ========================================== -->
+  <script>
+    // Estado do Carrinho
+    let cart = [];
+    let discountApplied = false;
+
+    // 1. Contador Regressivo (Live Countdown)
+    let totalSeconds = 2 * 3600 + 45 * 60 + 18;
+    function updateCountdown() {
+      if (totalSeconds > 0) {
+        totalSeconds--;
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        
+        document.getElementById('timer-hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('timer-minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('timer-seconds').innerText = String(seconds).padStart(2, '0');
+      }
+    }
+    setInterval(updateCountdown, 1000);
+
+    // 2. Adicionar Item ao Carrinho
+    function addToCart(name, price, img) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`Adicionado: ${name}`);
+    }
+
+    // 3. Atualizar Quantidade
+    function updateQty(name, delta) {
+      const item = cart.find(i => i.name === name);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.name !== name);
+        }
+      }
+      renderCart();
+    }
+
+    // 4. Renderizar Carrinho
+    function renderCart() {
+      const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+      document.getElementById('cart-count-badge').innerText = totalCount;
+      document.getElementById('mobile-cart-badge').innerText = totalCount;
+
+      const container = document.getElementById('cart-items-container');
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="text-xs text-stone-400 text-center py-8">Sua sacola está vazia.<br>Escolha seus itens favoritos do cardápio!</p>';
+        document.getElementById('cart-subtotal').innerText = 'R$ 0,00';
+        document.getElementById('cart-discount').innerText = '- R$ 0,00';
+        document.getElementById('cart-total').innerText = 'R$ 0,00';
+        return;
+      }
+
+      let subtotal = 0;
+      let html = '';
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        html += `
+          <div class="flex items-center justify-between p-3 bg-stone-50 rounded-2xl border border-stone-100">
+            <div class="flex items-center gap-3">
+              <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover" onerror="this.src='assets/hero_pizzas.png'">
+              <div>
+                <h4 class="font-bold text-xs text-stone-800 line-clamp-1">${item.name}</h4>
+                <p class="text-[11px] font-semibold text-brand-terracotta">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="updateQty('${item.name}', -1)" class="w-6 h-6 rounded-lg bg-stone-200 text-stone-700 text-xs font-bold hover:bg-stone-300">-</button>
+              <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+              <button onclick="updateQty('${item.name}', 1)" class="w-6 h-6 rounded-lg bg-stone-200 text-stone-700 text-xs font-bold hover:bg-stone-300">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      // Cálculo de Cupom / Desconto (10% se acima de R$ 70)
+      const discount = subtotal > 70 ? (subtotal * 0.10) : 0;
+      const total = subtotal - discount;
+
+      document.getElementById('cart-subtotal').innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      document.getElementById('cart-discount').innerText = discount > 0 ? `- R$ ${discount.toFixed(2).replace('.', ',')}` : 'R$ 0,00';
+      document.getElementById('cart-total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    // 5. Abrir / Fechar Modal de Carrinho
+    function toggleCartModal(open) {
+      const modal = document.getElementById('cart-modal');
+      if (open) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    // 6. Checkout via WhatsApp
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Sua sacola está vazia! Adicione uma pizza ou combo primeiro.');
+        return;
+      }
+
+      let mensagem = `🍕 *NOVO PEDIDO — BELLA NAPOLI*\n\n`;
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        mensagem += `• ${item.qty}x ${item.name} — R$ ${itemTotal.toFixed(2).replace('.', ',')}\n`;
+      });
+
+      const discount = subtotal > 70 ? (subtotal * 0.10) : 0;
+      const total = subtotal - discount;
+
+      mensagem += `\n*Subtotal:* R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      if (discount > 0) {
+        mensagem += `\n*Desconto Cupom PIZZA50:* -R$ ${discount.toFixed(2).replace('.', ',')}`;
+      }
+      mensagem += `\n*Taxa de Entrega:* GRÁTIS`;
+      mensagem += `\n*Total a Pagar:* R$ ${total.toFixed(2).replace('.', ',')}`;
+      mensagem += `\n*Endereço:* ${document.getElementById('current-address').innerText}`;
+      mensagem += `\n\nPor favor, confirmem o tempo estimado de entrega!`;
+
+      const url = `https://wa.me/5511999998888?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+
+    // 7. Copiar Cupom
+    function copyCoupon() {
+      navigator.clipboard.writeText('PIZZA50');
+      showToast('Cupom PIZZA50 copiado para a área de transferência!');
+    }
+
+    // 8. Resgatar Pontos
+    function resgatarPontos() {
+      alert('🎉 Parabéns! Você possui 1.250 Pontos no Clube Bella Napoli. Você pode resgatar 1 Pizza Doce Broto no seu próximo pedido via WhatsApp!');
+    }
+
+    // 9. Alterar Endereço
+    function alterarEndereco() {
+      const novo = prompt('Informe seu endereço de entrega:', document.getElementById('current-address').innerText);
+      if (novo) {
+        document.getElementById('current-address').innerText = novo;
+        showToast('Endereço de entrega atualizado!');
+      }
+    }
+
+    // 10. Filtrar Categorias
+    function filterCategory(cat) {
+      const items = document.querySelectorAll('.product-item');
+      items.forEach(el => {
+        if (cat === 'todos' || el.classList.contains(cat)) {
+          el.style.display = 'flex';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      showToast(`Filtrando: ${cat.toUpperCase()}`);
+    }
+
+    // Toast de Feedback
+    function showToast(msg) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed top-20 right-4 z-50 bg-stone-900 text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-2xl border border-stone-700 flex items-center gap-2 animate-bounce';
+      toast.innerHTML = `<span>✓</span> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 2500);
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('section').forEach(sec => {
+          gsap.from(sec, {
+            opacity: 0.9,
+            y: 15,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 88%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Forneria Napolitana</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20pedir%20uma%20pizza%20artesanal." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

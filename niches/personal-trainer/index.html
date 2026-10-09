@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Silva • Seu Personal Trainer | Treinos de Alta Performance</title>
+  <meta name="description" content="Seu personal trainer exclusivo. Construa o corpo dos seus sonhos em 3 meses com metodologia individualizada, treinos dinâmicos e resultados garantidos." />
+
+  <!-- Google Fonts: Outfit / Plus Jakarta Sans / Caveat (para assinaturas manuscritas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            script: ['Caveat', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            fit: {
+              blue: '#0D62FF',
+              blueDark: '#0848C4',
+              blueLight: '#EBF2FF',
+              cyan: '#00D4FF',
+              dark: '#0F172A',
+              card: '#FFFFFF',
+              bgLight: '#F5F8FC',
+              border: '#E2E8F0',
+              neonPink: '#FF2E93',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <style>
+    /* Grid milimetrado sutil de fundo (estilo gráfico fitness) */
+    .bg-grid-pattern {
+      background-color: #F5F8FC;
+      background-image: 
+        linear-gradient(to right, rgba(13, 98, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(13, 98, 255, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Botão carimbo circular característico do layout */
+    .stamp-button {
+      animation: pulse-subtle 3s infinite ease-in-out;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .stamp-button:hover {
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 15px 35px -5px rgba(13, 98, 255, 0.45);
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* Glow neon para seção de treino */
+    .neon-cyan-glow {
+      box-shadow: 0 0 30px -5px rgba(0, 212, 255, 0.4);
+    }
+  </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "ProFit Performance • Treinamento Personalizado",
+  "description": "Consultoria fitness individualizada para emagrecimento, hipertrofia e condicionamento físico de alta intensidade.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/personal-trainer/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-fit-bgLight bg-grid-pattern text-fit-dark font-sans antialiased selection:bg-fit-blue selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- TOP STRIP COM WHATSAPP                                                    -->
+  <!-- ========================================================================= -->
+  <aside class="bg-fit-dark text-white py-2 px-4 text-xs font-semibold">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-fit-cyan animate-pulse"></span>
+        <span class="tracking-wide text-[11px] sm:text-xs">Atendimento Presencial em Academias & Consultoria Online no App</span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="hover:text-fit-cyan transition flex items-center gap-1.5 font-bold text-[11px] sm:text-xs" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> (32) 99929-2311
+      </a>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- HEADER & NAVEGAÇÃO                                                        -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-fit-border/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-2xl bg-fit-blue text-white flex items-center justify-center text-lg font-black shadow-md shadow-fit-blue/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-xl text-fit-dark tracking-tight block leading-tight">LUCAS SILVA</span>
+          <span class="block text-[9px] uppercase tracking-[0.2em] text-fit-blue font-bold">Personal Trainer</span>
+        </div>
+      </a>
+
+      <!-- Menu Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-600">
+        <a href="#como-funciona" class="hover:text-fit-blue transition">Como Funciona</a>
+        <a href="#planos" class="hover:text-fit-blue transition">Planos de Treino</a>
+        <a href="#resultados" class="hover:text-fit-blue transition">Resultados</a>
+        <a href="#faq" class="hover:text-fit-blue transition">Dúvidas</a>
+      </nav>
+
+      <!-- Botão Header WhatsApp -->
+      <div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="shimmer-btn px-5 py-2.5 rounded-full bg-fit-blue hover:bg-fit-blueDark text-white font-black text-xs uppercase tracking-wider shadow-md shadow-fit-blue/30 transition transform hover:scale-105 flex items-center gap-2" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Agendar Treino</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION (Identical to Left Phone Mockup)                             -->
+  <!-- ========================================================================= -->
+  <section class="reveal relative py-12 md:py-20 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <!-- Main Phone-Style Card Frame -->
+      <div class="bg-white rounded-3xl sm:rounded-[36px] border border-fit-border shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+        
+        <!-- Top Badge & Subtitle Row -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-fit-dark text-white font-outfit font-black text-xs sm:text-sm uppercase tracking-wider w-fit shadow-md">
+            <span>SEU PERSONAL TRAINER</span>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-bold text-slate-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-fit-blue"></span>
+            <span>Juntos construiremos o corpo dos seus sonhos em apenas 3 meses</span>
+          </div>
+        </div>
+
+        <!-- Big Bold Title -->
+        <h1 class="font-outfit font-black text-4xl sm:text-6xl md:text-7xl text-fit-blue tracking-tight leading-[1.02] uppercase mb-8">
+          Personal<br><span class="text-fit-dark">Trainer.</span>
+        </h1>
+
+        <!-- Hero Photo Container with Signature -->
+        <div class="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] bg-slate-100 border border-fit-border shadow-inner mb-8 group">
+          <img 
+            src="assets/hero-trainer.jpg" 
+            alt="Personal trainer atlético sorrindo com regata branca na academia" 
+            class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700" 
+            loading="eager"
+          />
+
+          <!-- Handwritten Script Signature -->
+          <div class="absolute top-6 left-6 -rotate-6">
+            <span class="font-script text-4xl sm:text-5xl text-fit-dark font-bold drop-shadow-md">Lucas Silva</span>
+          </div>
+
+          <!-- Instagram Pill Tag -->
+          <div class="absolute top-6 right-6 bg-fit-dark/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-white text-xs font-bold flex items-center gap-1.5">
+            <i class="fa-brands fa-instagram text-fit-cyan"></i>
+            <span>@lucassilva.personal</span>
+          </div>
+        </div>
+
+        <!-- Floating White Card: "EFICIENTE & PRÁTICO" -->
+        <div class="bg-white rounded-3xl border-2 border-slate-100 shadow-xl p-6 sm:p-8 mb-8">
+          
+          <div class="mb-6">
+            <span class="text-[11px] uppercase tracking-widest text-slate-400 font-bold block">Treinamento que te leva ao resultado</span>
+            <h2 class="font-outfit font-black text-2xl sm:text-3xl text-fit-dark uppercase mt-0.5">
+              Eficiente <span class="text-fit-blue">&</span> Prático
+            </h2>
+          </div>
+
+          <!-- 3 Rounded Feature Items -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-fit-bgLight border border-fit-border/60">
+              <div class="w-12 h-12 rounded-xl bg-fit-dark text-white flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-list-check"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-sm text-fit-dark">Para todos os níveis:</h4>
+                <p class="text-xs text-slate-500">Trabalho com alunos de qualquer idade, desde iniciantes sedentários até atletas avançados.</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-fit-bgLight border border-fit-border/60">
+              <div class="w-12 h-12 rounded-xl bg-fit-dark text-fit-cyan flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-sm text-fit-dark">Garantia de evolução rápida:</h4>
+                <p class="text-xs text-slate-500">Método de sobrecarga progressiva e biomecânica para queima de gordura e hipertrofia acelerada.</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-fit-bgLight border border-fit-border/60">
+              <div class="w-12 h-12 rounded-xl bg-fit-dark text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-dumbbell"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-sm text-fit-dark">Formato 100% flexível:</h4>
+                <p class="text-xs text-slate-500">Treinos na sua academia, no condomínio do seu prédio ou consultoria online completa no aplicativo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar with Overlapping Circular Stamp Button -->
+          <div class="relative bg-fit-dark rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-white text-xs sm:text-sm font-black uppercase tracking-wider flex items-center gap-2">
+              <span class="text-fit-cyan">Desconto de 15%</span> na primeira sessão experimental
+              <i class="fa-solid fa-arrow-right text-xs hidden sm:inline"></i>
+            </div>
+
+            <!-- Circular Stamp Button (Identical to Reference Image) -->
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="stamp-button w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-fit-blue text-white flex flex-col items-center justify-center font-outfit font-black text-center text-[11px] sm:text-xs uppercase tracking-tight shadow-2xl border-4 border-white cursor-pointer -mt-6 sm:-mt-0 sm:-mr-8 flex-shrink-0" rel="noopener noreferrer">
+              <span>Agendar</span>
+              <span class="text-sm">Treino</span>
+              <i class="fa-solid fa-bolt text-fit-cyan text-xs mt-0.5"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Dumbbell Accent Indicator -->
+        <div class="text-center pt-2">
+          <div class="inline-flex flex-col items-center gap-2 text-slate-400 hover:text-fit-blue transition">
+            <span class="text-[10px] font-bold uppercase tracking-widest">Conheça o Método</span>
+            <div class="w-10 h-10 rounded-full bg-fit-bgLight border border-fit-border flex items-center justify-center text-fit-blue">
+              <i class="fa-solid fa-chevron-down animate-bounce text-xs"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 2: COMO É TREINAR COMIGO (Dual-Tone Neon Gym Section)                -->
+  <!-- ========================================================================= -->
+  <section id="como-funciona" class="reveal py-16 md:py-24 bg-fit-dark text-white relative overflow-hidden">
+    <!-- Fundo de iluminação neon sutil -->
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-fit-cyan/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 right-1/4 w-96 h-96 bg-fit-neonPink/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-fit-cyan">Metodologia Personalizada</span>
+        <h2 class="font-outfit font-black text-4xl sm:text-5xl text-white uppercase tracking-tight mt-1">
+          Como é Treinar Comigo
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 mt-2">
+          Nada de treinos padronizados ou fichas genéricas de academia. Aqui cada série tem um propósito anatômico claro.
+        </p>
+      </div>
+
+      <!-- Neon Card Container with Action Photo & Floating Glassmorphism Notes -->
+      <div class="relative bg-slate-900/90 rounded-3xl sm:rounded-[36px] border border-white/10 p-6 sm:p-10 shadow-2xl overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Callout Cards -->
+          <div class="lg:col-span-4 space-y-6">
+            
+            <!-- Note 1 -->
+            <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl relative">
+              <span class="font-script text-2xl text-fit-cyan font-bold block mb-1">com muito cuidado</span>
+              <h4 class="font-outfit font-bold text-sm text-white uppercase">Horários Flexíveis & Adaptados</h4>
+              <p class="text-xs text-slate-300 mt-1">Ajusto meus horários à sua agenda de trabalho e família. Treine sem estresse.</p>
+            </div>
+
+            <!-- Note 2 -->
+            <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl relative">
+              <span class="font-script text-2xl text-emerald-400 font-bold block mb-1">sem sacrifícios inúteis</span>
+              <h4 class="font-outfit font-bold text-sm text-white uppercase">Sem passar fome</h4>
+              <p class="text-xs text-slate-300 mt-1">Você não precisa cortar tudo o que gosta para emagrecer e tonificar.</p>
+            </div>
+
+          </div>
+
+          <!-- Center Neon Action Photo -->
+          <div class="lg:col-span-4 relative">
+            <div class="rounded-3xl overflow-hidden aspect-[3/4] border-2 border-white/20 shadow-2xl relative group">
+              <img 
+                src="assets/trainer-neon-action.jpg" 
+                alt="Personal trainer mostrando abdômen definido em ambiente de treino com iluminação neon ciano e magenta" 
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                loading="lazy" 
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              
+              <!-- Center Tag -->
+              <div class="absolute bottom-4 left-4 right-4 bg-fit-blue/90 backdrop-blur-md p-3 rounded-xl text-center text-xs font-black uppercase text-white shadow-lg">
+                Foco em Biomecânica & Segurança
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Callout Cards -->
+          <div class="lg:col-span-4 space-y-6">
+            
+            <!-- Note 3 -->
+            <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl relative">
+              <span class="font-script text-2xl text-fit-neonPink font-bold block mb-1">resultados reais</span>
+              <h4 class="font-outfit font-bold text-sm text-white uppercase">Você vai amar treinar</h4>
+              <p class="text-xs text-slate-300 mt-1">Crie consistência e torne o exercício o melhor momento do seu dia.</p>
+            </div>
+
+            <!-- Note 4 -->
+            <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl relative">
+              <span class="font-script text-2xl text-amber-300 font-bold block mb-1">e sem exercícios chatos</span>
+              <h4 class="font-outfit font-bold text-sm text-white uppercase">Estímulos sempre variados</h4>
+              <p class="text-xs text-slate-300 mt-1">Periodização moderna para você nunca cair na rotina ou platô de resultados.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 3: PLANOS DE TREINAMENTO (Right Phone Mockup)                       -->
+  <!-- ========================================================================= -->
+  <section id="planos" class="reveal py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6">
+    
+    <div class="bg-white rounded-3xl sm:rounded-[36px] border border-fit-border shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="font-outfit font-black text-3xl sm:text-5xl text-fit-blue uppercase tracking-tight">
+          Planos de Treino
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+          Escolha o formato mais confortável para sua rotina. Quanto mais sessões, maior o seu custo-benefício por treino:
+        </p>
+      </div>
+
+      <!-- Pricing Table / Cards (Interactive links to WhatsApp) -->
+      <div class="space-y-4 max-w-2xl mx-auto mb-8">
+        
+        <!-- Plano 1: Sessão Experimental -->
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" rel="noopener noreferrer" class="group block p-5 rounded-2xl bg-fit-bgLight border border-fit-border hover:border-fit-blue hover:shadow-lg transition-all transform hover:-translate-y-1">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="font-outfit font-bold text-sm text-fit-dark group-hover:text-fit-blue transition block">Treino Experimental + Avaliação Física</span>
+              <span class="text-xs text-slate-500">Bioimpedância e teste de mobilidade articular</span>
+            </div>
+            <div class="text-right">
+              <span class="font-outfit font-black text-xl text-fit-dark">R$ 120</span>
+              <span class="text-[10px] text-slate-400 block">sessão única</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Plano 2: Pacote 10 Treinos -->
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" rel="noopener noreferrer" class="group block p-5 rounded-2xl bg-fit-bgLight border border-fit-border hover:border-fit-blue hover:shadow-lg transition-all transform hover:-translate-y-1">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="font-outfit font-bold text-sm text-fit-dark group-hover:text-fit-blue transition block">10 Treinos Individuais Personalizados</span>
+              <span class="text-xs text-slate-500">Planejamento focado em queima de gordura e hipertrofia</span>
+            </div>
+            <div class="text-right">
+              <span class="font-outfit font-black text-xl text-fit-blue">R$ 950</span>
+              <span class="text-[10px] text-slate-400 block">R$ 95 / treino</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Plano 3: Pacote 15 Treinos VIP (Destaque) -->
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" rel="noopener noreferrer" class="group block p-5 rounded-2xl bg-fit-blueLight border-2 border-fit-blue hover:shadow-xl transition-all transform hover:-translate-y-1 relative">
+          <div class="absolute -top-3 right-6 bg-fit-blue text-white text-[9px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full shadow">
+            Mais Escolhido
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="font-outfit font-black text-sm text-fit-dark group-hover:text-fit-blue transition block">15 Treinos Individuais + Consultoria App</span>
+              <span class="text-xs text-fit-blue font-bold">Suporte direto diário via WhatsApp</span>
+            </div>
+            <div class="text-right">
+              <span class="font-outfit font-black text-2xl text-fit-blue">R$ 1.350</span>
+              <span class="text-[10px] text-slate-600 block">R$ 90 / treino</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Info Badge -->
+      <div class="max-w-2xl mx-auto p-4 rounded-xl bg-slate-50 border border-fit-border text-center mb-8">
+        <p class="text-xs text-slate-500">
+          <i class="fa-solid fa-circle-info text-fit-blue mr-1.5"></i> Duração de 60 minutos por treino. Acompanhamento biométrico periódico e substituição rápida de horários.
+        </p>
+      </div>
+
+      <!-- CTA Bar with Stamp Button -->
+      <div class="max-w-2xl mx-auto relative bg-fit-dark rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-white text-xs sm:text-sm font-black uppercase tracking-wider flex items-center gap-2">
+          <span>Garanta sua vaga para este mês</span>
+          <i class="fa-solid fa-arrow-right text-fit-cyan text-xs hidden sm:inline"></i>
+        </div>
+
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="stamp-button w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-fit-blue text-white flex flex-col items-center justify-center font-outfit font-black text-center text-[11px] sm:text-xs uppercase tracking-tight shadow-2xl border-4 border-white cursor-pointer -mt-6 sm:-mt-0 sm:-mr-8 flex-shrink-0" rel="noopener noreferrer">
+          <span>Garantir</span>
+          <span class="text-sm">Vaga</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] mt-0.5"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 4: DEPOIMENTOS & RESULTADOS REAIS                                   -->
+  <!-- ========================================================================= -->
+  <section id="resultados" class="reveal py-16 max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-fit-blue">Transformações Comprovadas</span>
+      <h2 class="font-outfit font-black text-4xl sm:text-5xl text-fit-dark uppercase tracking-tight mt-1">
+        Resultados dos Alunos
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-500 mt-2">Veja o que diz quem treina comigo na rotina real do dia a dia:</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Card Aluno 1 -->
+      <div class="bg-white p-8 rounded-3xl border border-fit-border shadow-lg flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-sm">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+            "Eliminei 8kg em 9 semanas sem fazer loucuras. O Lucas ajustou os treinos para caber exatamente nos 50 minutos que tenho antes de ir pro escritório. Recomendo de olhos fechados!"
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-fit-border mt-6">
+          <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-fit-blue">
+            <img src="assets/student-review.jpg" alt="Aluna do personal trainer sorrindo" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <span class="font-outfit font-bold text-sm text-fit-dark block">Mariana Duarte</span>
+            <span class="text-[11px] text-fit-blue font-semibold">Aluna há 7 meses • Menos 8kg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Aluno 2 -->
+      <div class="bg-fit-blue text-white p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center gap-1 text-amber-300 text-sm">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-white/90 leading-relaxed italic">
+            "Eu sempre desistia da academia depois de 1 mês porque sentia dores na lombar. Com o foco do Lucas na postura e na biomecânica, ganhei 5kg de massa muscular sem dor nenhuma."
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/20 mt-6">
+          <div class="w-11 h-11 rounded-full bg-white text-fit-blue font-black flex items-center justify-center text-sm">
+            RS
+          </div>
+          <div>
+            <span class="font-outfit font-bold text-sm text-white block">Rodrigo Santana</span>
+            <span class="text-[11px] text-fit-cyan font-bold">Aluno Presencial • Hipertrofia</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 5: DÚVIDAS FREQUENTES (FAQ Accordion)                               -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="reveal py-16 max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <h2 class="font-outfit font-black text-3xl sm:text-4xl text-fit-dark uppercase">
+        Dúvidas Frequentes
+      </h2>
+      <p class="text-xs text-slate-500 mt-1">Tudo o que você precisa saber antes do primeiro treino:</p>
+    </div>
+
+    <div class="space-y-3">
+      
+      <details class="group bg-white p-5 rounded-2xl border border-fit-border shadow-sm cursor-pointer">
+        <summary class="flex items-center justify-between font-outfit font-bold text-sm text-fit-dark">
+          <span>Como funciona a primeira sessão experimental?</span>
+          <div class="w-8 h-8 rounded-full bg-fit-blueLight text-fit-blue flex items-center justify-center text-xs group-open:rotate-180 transition-transform">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </summary>
+        <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-fit-border leading-relaxed">
+          Na primeira aula realizamos uma anamnese detalhada, teste de mobilidade, avaliação da sua postura e um treino introdutório para calibrar as cargas ideais para você.
+        </p>
+      </details>
+
+      <details class="group bg-white p-5 rounded-2xl border border-fit-border shadow-sm cursor-pointer">
+        <summary class="flex items-center justify-between font-outfit font-bold text-sm text-fit-dark">
+          <span>Nunca treinei na vida, vou conseguir acompanhar?</span>
+          <div class="w-8 h-8 rounded-full bg-fit-blueLight text-fit-blue flex items-center justify-center text-xs group-open:rotate-180 transition-transform">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </summary>
+        <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-fit-border leading-relaxed">
+          Com certeza! Mais da metade dos meus alunos começou do zero absoluto. O treino é progressivo e respeita o seu ritmo para evitar lesões.
+        </p>
+      </details>
+
+      <details class="group bg-white p-5 rounded-2xl border border-fit-border shadow-sm cursor-pointer">
+        <summary class="flex items-center justify-between font-outfit font-bold text-sm text-fit-dark">
+          <span>Você atende no meu prédio ou academia do condomínio?</span>
+          <div class="w-8 h-8 rounded-full bg-fit-blueLight text-fit-blue flex items-center justify-center text-xs group-open:rotate-180 transition-transform">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </summary>
+        <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-fit-border leading-relaxed">
+          Sim! Posso ir até a academia do seu prédio ou podemos treinar na academia conveniada mais próxima da sua casa ou trabalho.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO 6: VAMOS COMEÇAR / CONTATO (Identical to Bottom of Mockup)          -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 bg-fit-blue text-white relative overflow-hidden">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      
+      <!-- Circular Avatar Photo of the Trainer -->
+      <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-2xl mx-auto mb-4 bg-white">
+        <img src="assets/hero-trainer.jpg" alt="Foto de perfil de Lucas Silva" class="w-full h-full object-cover object-top">
+      </div>
+
+      <h2 class="font-outfit font-black text-4xl sm:text-5xl uppercase tracking-tight mb-2">
+        Vamos Conversar?
+      </h2>
+      <p class="text-xs sm:text-sm text-white/80 max-w-md mx-auto mb-8">
+        Mande uma mensagem agora e agende sua primeira avaliação. O melhor dia para começar foi ontem, o segundo melhor é hoje!
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="shimmer-btn py-4 px-8 rounded-2xl bg-fit-dark hover:bg-black text-white font-outfit font-black text-xs uppercase tracking-wider shadow-2xl flex items-center justify-center gap-2 transition transform hover:scale-105" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+          <span>Falar no WhatsApp: (32) 99929-2311</span>
+        </a>
+      </div>
+
+      <!-- Energetic Cursive Sign-off identical to Mockup -->
+      <p class="font-script text-2xl sm:text-3xl text-fit-cyan font-bold mt-8">
+        Pegue seu tênis e venha treinar! :)
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Treinamento Inteligente com Resultados Reais</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Biomecânica correta, progressão de carga sem lesões e suporte diário via aplicativo exclusivo.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/trainer-hero.jpg" alt="Treino Personalizado 1-on-1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Treino Personalizado 1-on-1</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Acompanhamento lado a lado com correção postural imediata e estímulo de alta intensidade.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/trainer-session.jpg" alt="Hipertrofia & Ganho de Massa Magra" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Hipertrofia & Ganho de Massa Magra</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Periodização de força estruturada com base na sua rotina e tempo disponível para treinar.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/trainer-weights.jpg" alt="Equipamentos Livres e Funcionais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Equipamentos Livres e Funcionais</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Exercícios eficientes com barras, halteres e pesos livres que ativam mais grupos musculares.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/trainer-cardio.jpg" alt="Cardio Estratégico & Queima de Gordura" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Cardio Estratégico & Queima de Gordura</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Protocolos HIIT que aceleram o metabolismo sem perda de massa muscular magra.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SKIPER UI: SLIDER INTERATIVO ANTES & DEPOIS (EVOLUÇÃO CORPORAL)           -->
+  <!-- ========================================================================= -->
+  <section id="transformacao-visual" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-arrows-left-right"></i> Resultados Reais
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white">Evolução de Composição Corporal</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Arraste a linha para ver a transformação após 16 semanas de periodização e acompanhamento 1-on-1.</p>
+      </div>
+
+      <div class="ba-container relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl select-none cursor-ew-resize">
+        <!-- DEPOIS (Base) -->
+        <img src="assets/trainer-results.jpg" alt="Definição e Ganho de Massa Magra" class="absolute inset-0 w-full h-full object-cover" />
+        <span class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md text-emerald-400 border border-emerald-500/30 text-xs px-3.5 py-1.5 rounded-full font-bold">DEPOIS: -12kg Gordura & +4kg Músculo</span>
+
+        <!-- ANTES (Layer Cortada) -->
+        <div class="ba-after-layer absolute inset-0 w-1/2 overflow-hidden pointer-events-none border-r-2 border-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+          <img src="assets/hero-trainer.jpg" alt="Início do Treinamento" class="absolute inset-0 w-full h-full object-cover max-w-none filter grayscale contrast-125" />
+          <span class="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md text-white text-xs px-3.5 py-1.5 rounded-full font-bold">ANTES: Sedentarismo & Fadiga</span>
+        </div>
+
+        <!-- Slider Handle -->
+        <div class="ba-slider-handle absolute top-0 bottom-0 left-1/2 w-1 bg-emerald-400 flex items-center justify-center -translate-x-1/2 pointer-events-none">
+          <div class="w-9 h-9 rounded-full bg-slate-950 border-2 border-emerald-400 text-emerald-300 shadow-xl flex items-center justify-center text-xs font-bold">
+            ⇄
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que o Treinamento ProFit Entrega Resultados Rápidos?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Periodização científica, biomecânica sem lesões e suporte diário para seu objetivo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Treinar Sozinho em Academias Lotadas</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Fichas genéricas de treino sem progressão de carga ou periodização</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Risco alto de lesões articulares e na coluna por execução incorreta</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de motivação constante que leva a desistir em menos de 2 meses</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Treinar horas sem ver evolução na balança ou no espelho</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Resultados Reais
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">ProFit Performance</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Acompanhamento individualizado 1-on-1 com correção postural imediata</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Periodização científica estruturada para queima de gordura ou ganho de massa magra</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Aplicativo exclusivo com vídeos dos exercícios e registro de cargas e medidas</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Alinhamento com nutricionistas esportivos para acelerar sua transformação</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Iniciantes sedentários podem começar?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Sim! Montamos um período de adaptação neuromotora respeitando seus limites articulares para evitar lesões.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>O acompanhamento inclui plano alimentar?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Trabalhamos em parceria com nutricionistas esportivos para alinhar seus macros às metas do treino.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Como funciona a consultoria online?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Você recebe seu treino montado em aplicativo com vídeos tutoriais e faz check-ins semanais de evolução.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Rodrigo Simas</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Perdi 12kg em 4 meses sem loucuras e ganhei uma disposição incrível no dia a dia."</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Ana Clara Vieira</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Treinos dinâmicos e que não enjoam. O melhor personal trainer que já tive!"</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Studio de treinamento individualizado para fortalecimento, emagrecimento e longevidade na Av. Paulista.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-dumbbell"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">ProFit Personal</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Treinamento Personalizado & Alta Performance</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(ProFit Personal)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização ProFit Personal em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-fit-dark text-white/60 py-8 text-center text-xs border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="font-bold text-white text-sm mb-1">LUCAS SILVA • PERSONAL TRAINER</p>
+      <p class="text-[11px] text-white/50">CREF Ativo • Treinamento Físico Personalizado & Consultoria Esportiva</p>
+      <p class="text-[11px] text-white/30 mt-3">© 2026 Lucas Silva Personal. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Core Motion & Interactive Engine -->
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Corpo Forte, Disposição e Saúde Duradoura para a sua Rotina
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo como 45 minutos de treino sob medida transformam sua imunidade, sono, postura e autoestima com segurança biomecânica.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(ProFit Personal)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Acompanhamento 100% individualizado com metodologia científica sem lesões</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(ProFit Personal)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('agendamento') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(ProFit Personal).";
+      }
+    }
+  </script>
+
+
+  <script>
+    // Skiper UI Before/After Slider Interaction (Mouse & Touch)
+    document.querySelectorAll('.ba-container').forEach(container => {
+      const afterLayer = container.querySelector('.ba-after-layer');
+      const handle = container.querySelector('.ba-slider-handle');
+      if (!afterLayer || !handle) return;
+      let isDown = false;
+
+      const move = (e) => {
+        if (!isDown) return;
+        const rect = container.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        let x = clientX - rect.left;
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+        const percent = (x / rect.width) * 100;
+        afterLayer.style.width = percent + '%';
+        handle.style.left = percent + '%';
+      };
+
+      container.addEventListener('mousedown', () => isDown = true);
+      window.addEventListener('mouseup', () => isDown = false);
+      container.addEventListener('mousemove', move);
+
+      container.addEventListener('touchstart', () => isDown = true);
+      window.addEventListener('touchend', () => isDown = false);
+      container.addEventListener('touchmove', move);
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">ProFit Performance</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20de%20consultoria%20fitness." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

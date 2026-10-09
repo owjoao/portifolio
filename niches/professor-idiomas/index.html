@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polyglot Academy • Inglês Conversacional & Business | Fluência em 90 Dias</title>
+  <meta name="description" content="Destrave sua conversão em inglês sem tradução mental. Aulas individuais focadas em viagens internacionais, entrevistas de emprego e reuniões corporativas." />
+
+  <!-- Google Fonts: Montserrat, Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            poly: {
+              dark: '#080C16',
+              card: '#101728',
+              border: '#1E2C4D',
+              indigo: '#6366F1',
+              cyan: '#06B6D4',
+              gold: '#F59E0B',
+              sky: '#38BDF8'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Polyglot Academy • Ensino Personalizado de Idiomas",
+  "description": "Aulas particulares de Inglês, Espanhol e Francês focadas em fluência rápida, viagens e negócios.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/professor-idiomas/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-poly-dark text-slate-100 font-sans antialiased selection:bg-poly-cyan selection:text-black">
+
+  <!-- Top Strip -->
+  <aside class="bg-poly-card border-b border-poly-border py-2.5 px-4 text-xs font-semibold">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2.5 text-poly-cyan">
+        <i class="fa-solid fa-earth-americas text-sm"></i>
+        <span>Método Direct Speech: Pense em Inglês desde a 1ª aula sem traduzir para o português</span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20nivelamento%20de%20idiomas." target="_blank" class="text-white hover:text-poly-cyan transition flex items-center gap-1.5 font-bold">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> Nivelamento Gratuito
+      </a>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-poly-dark/95 backdrop-blur-md border-b border-poly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-poly-indigo to-poly-cyan flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-500/20 font-black">
+          <i class="fa-solid fa-language"></i>
+        </div>
+        <div>
+          <span class="font-montserrat font-black text-2xl text-white tracking-tight">POLYGLOT</span>
+          <span class="block text-[9px] font-mono tracking-widest uppercase text-poly-cyan font-bold -mt-1">Language Institute & Business</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-300">
+        <a href="#diagnostico" class="hover:text-poly-cyan transition text-poly-cyan flex items-center gap-1.5">
+          <i class="fa-solid fa-comments"></i> Rota de Fluência
+        </a>
+        <a href="#modalidades" class="hover:text-poly-cyan transition">Modalidades</a>
+        <a href="#metodo" class="hover:text-poly-cyan transition">Método Anti-Gramática</a>
+        <a href="#casos" class="hover:text-poly-cyan transition">Casos Reais</a>
+      </nav>
+
+      <a href="#diagnostico" class="shimmer-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-poly-indigo to-poly-cyan text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-indigo-500/25 hover:scale-105 transition transform">
+        Teste de Nivelamento
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="reveal relative py-16 md:py-24 overflow-hidden border-b border-poly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-poly-indigo/20 border border-poly-cyan/30 text-poly-cyan text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-passport"></i> Inglês Prático • Business • Viagens • Entrevistas
+          </div>
+
+          <h1 class="font-montserrat text-4xl sm:text-6xl text-white font-black tracking-tight leading-[1.1]">
+            Fale Inglês com Naturalidade. <span class="text-transparent bg-clip-text bg-gradient-to-r from-poly-cyan via-indigo-400 to-sky-300">Perca o Medo de Falar.</span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+            Você entende quando ouve ou lê, mas trava na hora de abrir a boca? Nosso método foca 100% na fala imediata, com simulações de situações reais de aeroporto, hotéis e apresentações corporativas.
+          </p>
+
+          <!-- Objection Breaker -->
+          <div class="p-4 rounded-2xl bg-poly-card border border-poly-border text-xs leading-relaxed text-slate-200">
+            <span class="text-poly-cyan font-bold uppercase tracking-wider block mb-1">
+              <i class="fa-solid fa-shield-check"></i> Fim do Bloqueio por Vergonha do Sotaque
+            </span>
+            Nativos não se importam com sotaque — eles se importam com clareza. Você praticará conversação em um ambiente 100% acolhedor, focado em destravar sua confiança vocal.
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#diagnostico" class="shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-poly-indigo to-poly-cyan text-white font-black text-xs uppercase tracking-wider shadow-xl shadow-indigo-500/25 text-center hover:scale-105 transition transform">
+              Descobrir Minha Rota em 90 Dias
+            </a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20nivelamento%20de%20idiomas." target="_blank" class="px-8 py-4 rounded-xl bg-poly-card hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider border border-poly-border text-center flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i> Aula Experimental VIP
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Card Visual -->
+        <div class="relative">
+          <div class="card-lift p-8 rounded-3xl bg-poly-card border border-poly-border shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-poly-border pb-4">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Certificação Internacional</span>
+                <h4 class="font-montserrat text-lg font-bold text-white">Preparação & Performance</h4>
+              </div>
+              <span class="text-xs font-mono font-bold text-poly-cyan bg-poly-indigo/20 px-3 py-1 rounded-full border border-poly-cyan/40">
+                Padrão CEFR (A1 - C2)
+              </span>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300">
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-poly-dark border border-poly-border">
+                <i class="fa-solid fa-briefcase text-poly-cyan text-base"></i>
+                <span>Business English: Reuniões, negociações com fornecedores gringos e pitch.</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-poly-dark border border-poly-border">
+                <i class="fa-solid fa-plane-departure text-poly-gold text-base"></i>
+                <span>Travel English: Alfândega, pedidos em restaurantes e resolução de imprevistos.</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-poly-dark border border-poly-border">
+                <i class="fa-solid fa-award text-emerald-400 text-base"></i>
+                <span>TOEFL & IELTS: Estratégias de pontuação máxima para imigração e intercâmbio.</span>
+              </div>
+            </div>
+
+            <div class="pt-2 text-center text-[11px] text-slate-400">
+              🌍 Aulas individuais de 50 minutos com feedback fonético gravado por IA.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FERRAMENTA INTERATIVA: DIAGNÓSTICO DE FLUÊNCIA & ROTA DE 90 DIAS -->
+  
+  <!-- ========================================================================= -->
+  <!-- AULAS DE CONVERSAÇÃO DINÂMICAS & CAFÉ (FLOW PHOTOREALISTIC ASSET)         -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#080E17] border-b border-cyan-900/40 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="card-lift bg-[#0D1624] border border-cyan-500/30 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+        <div class="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+          <img 
+            src="assets/aulas-conversacao.jpg" 
+            alt="Sessão dinâmica de conversação em inglês com professora e aluna sorridentes em cafeteria aconchegante com laptop e aplicativo" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            loading="lazy" 
+            decoding="async"
+          />
+          <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-cyan-300">
+            <i class="fa-solid fa-comments mr-1.5"></i> Método Direct Speech 100% Prático
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-cyan-200 text-black flex items-center justify-between text-xs">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-cyan-800 block">Inglês para Viagens, Carreira & Entrevistas</span>
+              <span class="font-bold font-montserrat text-sm text-slate-900">Fale com Confiança Desde a 1ª Semana</span>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-cyan-950 text-cyan-200 font-bold text-xs">Zero Bloqueio</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-earth-americas"></i> Destrave Sua Fala Definitivamente
+          </div>
+          <h2 class="font-montserrat font-black text-3xl sm:text-4xl text-white tracking-tight leading-snug">
+            Fluência Real Sem Regras Gramaticais Enfadonhas
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Esqueça anos de cursinho tradicional repetindo frases sem sentido. Criamos simulações reais do seu dia a dia profissional e de viagens para você pensar em inglês espontaneamente.
+          </p>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-cyan-400 font-black text-2xl counter-up" data-target="+680">+680</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Alunos Fluentes</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-emerald-400 font-black text-2xl counter-up" data-target="90">90 Dias</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Primeira Conversa</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-amber-400 font-black text-2xl">Grátis</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Nivelamento</div>
+            </div>
+          </div>
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20meu%20teste%20de%20nivelamento%20de%20ingl%C3%AAs%20gratuito." target="_blank" class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-cyan-950/40 transition transform hover:scale-105">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Agendar Nivelamento & Aula Teste</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diagnostico" class="py-20 max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="card-lift p-8 sm:p-12 rounded-3xl bg-poly-card border-2 border-poly-indigo/40 shadow-2xl space-y-8">
+      
+      <div class="text-center max-w-xl mx-auto">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-poly-cyan bg-poly-indigo/20 px-3.5 py-1.5 rounded-full border border-poly-cyan/30">
+          Autoavaliação Online
+        </span>
+        <h2 class="font-montserrat font-black text-3xl sm:text-4xl text-white mt-3">
+          Simulador de Rota de Fluência
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">
+          Selecione seu objetivo e descubra em quanto tempo você atingirá segurança para se comunicar:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Qual é a Sua Maior Prioridade?</label>
+          <select id="poly-goal" onchange="calcPolyRoute()" class="w-full bg-poly-dark border border-poly-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-poly-cyan">
+            <option value="business">Trabalho • Reuniões, E-mails e Promoção no Emprego</option>
+            <option value="travel">Viagens • Conversar com Estrangeiros sem Depender de Tradutor</option>
+            <option value="interview">Entrevista de Emprego em Multinacional em Breve</option>
+            <option value="cert">Certificação • TOEFL iBT ou IELTS Acadêmico</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">2. Como Você se Sente Hoje ao Falar?</label>
+          <select id="poly-level" onchange="calcPolyRoute()" class="w-full bg-poly-dark border border-poly-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-poly-cyan">
+            <option value="trava">Entendo bem o que leio, mas na hora de falar dá um branco total</option>
+            <option value="zero">Não sei quase nada (apenas o básico do verbo to be na escola)</option>
+            <option value="inter">Consigo falar algumas frases mas com muito sotaque e hesitação</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Caixa de Diagnóstico da Rota -->
+      <div class="p-6 rounded-2xl bg-poly-dark border border-poly-cyan/40 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-poly-cyan flex items-center gap-1.5">
+            <i class="fa-solid fa-compass"></i> Plano de Conversação Recomendado
+          </span>
+          <span id="poly-timeframe" class="text-xs font-mono font-bold text-white bg-poly-indigo px-3 py-1 rounded-full">
+            Programa Intensivo de 12 Semanas
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="p-3.5 rounded-xl bg-poly-card border border-poly-border">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Foco das Suas Sessões:</span>
+            <p id="poly-focus" class="font-bold text-white leading-relaxed">Roleplay diário de reuniões e apresentações com redução de vícios de linguagem.</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-poly-card border border-poly-border">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Resultado Conquistado:</span>
+            <p id="poly-result" class="font-bold text-emerald-400 text-sm leading-relaxed">Falar com fluidez e naturalidade sem traduzir palavra por palavra mentalmente.</p>
+          </div>
+        </div>
+
+        <button onclick="sendPolyWhatsapp()" class="shimmer-btn w-full py-4 rounded-xl bg-gradient-to-r from-poly-indigo to-poly-cyan text-white font-black text-xs uppercase tracking-wider shadow-lg hover:scale-102 transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Agendar Sessão de Nivelamento & Conversação Grátis</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Metodologia Prática & Foco em Conversação</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Sem regras gramaticais cansativas: você fala o idioma desde a primeira aula com situações reais.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/idiomas-hero.jpg" alt="Conversação Imersiva 1-on-1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Conversação Imersiva 1-on-1</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Treinamento de pronúncia e vocabulário natural aplicado à sua profissão e objetivos.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/idiomas-class.jpg" alt="Business English para Reuniões" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Business English para Reuniões</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Preparação para entrevistas de emprego em multinacionais, e-mails executivos e apresentações.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/idiomas-online.jpg" alt="Flexibilidade Total Presencial ou Online" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Flexibilidade Total Presencial ou Online</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Plataforma interativa com gravações das aulas, feedbacks de pronúncia e tarefas digitais.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/idiomas-books.jpg" alt="Material Didático Internacional Exclusivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Material Didático Internacional Exclusivo</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Conteúdos da Universidade de Cambridge e Oxford adaptados ao seu ritmo de aprendizado.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que o Método Polyglot Destrava Sua Fluência?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Conversação imersiva sem decoreba gramatical para falar com naturalidade em reuniões e viagens.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Cursos Tradicionais de Inglês</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Anos estudando gramática e regras teóricas sem conseguir falar em voz alta</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Turmas grandes de 15 alunos onde cada um fala menos de 2 minutos por aula</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Métodos infantis desatualizados sem conexão com sua área de trabalho</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Contratos anuais com multas abusivas de rescisão</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Fluência em 6 Meses
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Polyglot Academy</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Aulas individuais 1-on-1 com 100% do tempo focado na sua fala e pronúncia</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Simulação de situações reais de trabalho, viagens, e-mails e apresentações</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Ajuste imediato de sotaque e segurança para falar sem traduzir mentalmente</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Aulas online ao vivo com gravação disponível ou presenciais flexíveis</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20nivelamento%20de%20idiomas." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Em quanto tempo consigo atingir a fluência?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Com o método imersivo de 2 aulas por semana, nossos alunos atingem segurança em conversação em 6 a 9 meses.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>As aulas são gravadas?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Sim! Nas aulas online você recebe o link da gravação para revisar quantas vezes desejar.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Posso cancelar ou reagendar aulas?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Com aviso de até 2 horas de antecedência, remarcamos sua aula sem qualquer taxa extra.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Lucas Meneses</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Passei na entrevista de emprego para a empresa nos EUA depois de apenas 4 meses de aula!"</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Fernanda Bastos</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Perdi totalmente o medo de falar em reuniões. O professor é extremamente paciente e didático."</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Centro de imersão linguística presencial e online focado em conversação rápida, viagens e reuniões corporativas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-language"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">Global Fluency</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Idiomas & Business English VIP</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(Global Fluency)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Global Fluency em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-poly-border bg-black text-center text-xs text-slate-500 space-y-2">
+    <div class="font-montserrat font-black text-lg text-white">POLYGLOT ACADEMY</div>
+    <p>Aulas Online VIP 1-on-1 com Professores Fluentes & Feedback Fonético Imediato.</p>
+    <p>© 2026 Polyglot Academy. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function calcPolyRoute() {
+      const goal = document.getElementById('poly-goal').value;
+      const level = document.getElementById('poly-level').value;
+
+      const timeframeEl = document.getElementById('poly-timeframe');
+      const focusEl = document.getElementById('poly-focus');
+      const resultEl = document.getElementById('poly-result');
+
+      if (goal === 'business') {
+        timeframeEl.textContent = 'Programa Business 12 Semanas';
+        focusEl.textContent = 'Simulações reais de calls no Zoom, negociação de prazos, redação de e-mails corporativos e pitch sem insegurança.';
+        resultEl.textContent = 'Apresentar relatórios e interagir em reuniões globais com postura executiva e vocabulário assertivo.';
+      } else if (goal === 'travel') {
+        timeframeEl.textContent = 'Programa Viagens Express 8 Semanas';
+        focusEl.textContent = 'Vocabulário de aeroporto, imigração, aluguel de carros, restaurantes e situações médicas de emergência no exterior.';
+        resultEl.textContent = 'Viajar para qualquer país do mundo sem depender de tradutores ou acompanhantes para se comunicar.';
+      } else if (goal === 'interview') {
+        timeframeEl.textContent = 'Sprint Entrevista 4 Semanas';
+        focusEl.textContent = 'Treinamento das 25 perguntas mais feitas por recrutadores internacionais e estruturação das suas respostas no método STAR.';
+        resultEl.textContent = 'Passar na entrevista de emprego em inglês com respostas estruturadas e sem hesitação.';
+      } else {
+        timeframeEl.textContent = 'Preparatório TOEFL/IELTS 10 Semanas';
+        focusEl.textContent = 'Técnicas de timing nas seções de Speaking e Writing e estratégias de escuta rápida para pontuação acima de 100/7.5.';
+        resultEl.textContent = 'Atingir a pontuação necessária para admissão em universidades no exterior ou processos de visto.';
+      }
+    }
+
+    function sendPolyWhatsapp() {
+      const goal = document.getElementById('poly-goal').options[document.getElementById('poly-goal').selectedIndex].text;
+      const level = document.getElementById('poly-level').options[document.getElementById('poly-level').selectedIndex].text;
+      const plan = document.getElementById('poly-timeframe').textContent;
+
+      const msg = `Olá Polyglot Academy! Fiz a autoavaliação no site:%0A%0A• Objetivo: ${goal}%0A• Situação Atual: ${level}%0A• Rota Recomendada: ${plan}%0A%0AGostaria de agendar a sessão de nivelamento e conversação gratuita.`;
+      window.open(`https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20nivelamento%20de%20idiomas. '_blank');
+    }
+  </script>
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Fluência sem Ansiedade: Novas Oportunidades para sua Vida
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Assista ao vídeo e veja como nossa metodologia comunicativa destravar sua fala desde a primeira aula sem decorar regras chatas.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(Global Fluency)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Aulas 100% práticas adaptadas aos seus objetivos pessoais e profissionais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(Global Fluency)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('contato') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(Global Fluency).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Polyglot Academy</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20nivelamento%20de%20idiomas." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T00:00:00Z",
+  "title": "Design System: Recôncavo Culinária",
+  "extensions": {
+    "colorMeta": {
+      "forest": {
+        "role": "primary",
+        "displayName": "Verde de raiz",
+        "canonical": "#173d2d",
+        "tonalRamp": ["#102c21", "#173d2d", "#2b5a43", "#4f7c61", "#7da28a", "#b6cbb8", "#dce8d9"]
+      },
+      "saffron": {
+        "role": "accent",
+        "displayName": "Açafrão do logo",
+        "canonical": "#e5a21b",
+        "tonalRamp": ["#8d5d08", "#b77c0c", "#e5a21b", "#f2c75b", "#f7d98b", "#fbedc2"]
+      },
+      "terracotta": {
+        "role": "secondary",
+        "displayName": "Terracota de Bahia",
+        "canonical": "#b95635",
+        "tonalRamp": ["#6e2d1d", "#934126", "#b95635", "#d47a58", "#e8aa91", "#f4d5c8"]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Papel de luz",
+        "canonical": "#f7f0e4",
+        "tonalRamp": ["#2b211a", "#6f6256", "#9b8b79", "#c8bba9", "#e5d9c8", "#f0e6d5", "#f7f0e4", "#fffaf1"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial",
+        "purpose": "Statements, menu names and invitation language."
+      },
+      "body": {
+        "displayName": "Hospitality",
+        "purpose": "Navigation, descriptions, ingredients and practical information."
+      }
+    },
+    "shadows": [
+      {
+        "name": "paper-lift",
+        "value": "0 24px 60px rgba(44, 30, 17, 0.14)",
+        "purpose": "Raised editorial image frames and menu surfaces."
+      },
+      {
+        "name": "forest-lift",
+        "value": "0 28px 72px rgba(9, 28, 19, 0.28)",
+        "purpose": "Hero photography and dark-surface media."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-editorial",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Short entrances, image shifts and interaction feedback."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action for the menu and WhatsApp conversion paths.",
+      "html": "<a class=\"button button--saffron\" href=\"#cardapio\">Conheça o cardápio <span aria-hidden=\"true\">→</span></a>",
+      "css": ".button--saffron { display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:0 22px; color:#102c21; background:#e5a21b; border:1px solid transparent; border-radius:2px; font:800 0.76rem/1 Manrope, sans-serif; } .button--saffron:hover { background:#f2c75b; transform:translateY(-3px); }"
+    },
+    {
+      "name": "Menu Link",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary text action used for public information and location links.",
+      "html": "<a class=\"text-link\" href=\"#visite\">Ver no mapa <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".text-link { display:inline-flex; align-items:center; gap:10px; color:#173d2d; font:800 0.76rem/1.2 Manrope, sans-serif; } .text-link:hover { color:#b95635; gap:13px; }"
+    },
+    {
+      "name": "Arched Frame",
+      "kind": "custom",
+      "refersTo": "image-arch",
+      "description": "Editorial image treatment with one or two softened corners.",
+      "html": "<div class=\"identity__media-frame\"><img src=\"assets/casa-micangas.jpg\" alt=\"Textura do restaurante\"></div>",
+      "css": ".identity__media-frame { overflow:hidden; border-radius:0 130px 0 130px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O sabor como memória",
+    "overview": "A warm, premium Brazilian restaurant presentation that connects a real menu, Bahian cultural references and the feeling of a memorable meal.",
+    "keyCharacteristics": [
+      "Cream paper and deep root-green contrast.",
+      "Saffron and terracotta as purposeful signals.",
+      "Editorial serif display paired with readable sans body copy.",
+      "Arched image frames and numbered sections.",
+      "Direct menu, WhatsApp and map actions."
+    ],
+    "rules": [
+      {
+        "name": "The Menu First Rule",
+        "body": "The current official menu is a primary action in the hero, header, menu section and final CTA.",
+        "section": "conversion"
+      },
+      {
+        "name": "The Honest Preview Rule",
+        "body": "Show only confirmed public dish names, omit unconfirmed prices and link to the official menu for current availability.",
+        "section": "content"
+      },
+      {
+        "name": "The Restrained Culture Rule",
+        "body": "Use cultural references as material, rhythm and atmosphere rather than as tourist decoration.",
+        "section": "identity"
+      }
+    ],
+    "dos": [
+      "Do lead with real supplied photography and the official menu action.",
+      "Do use saffron as a navigational signal.",
+      "Do preserve keyboard focus, reduced motion and mobile navigation."
+    ],
+    "donts": [
+      "Don't invent a Google rating, review, price, award or menu item.",
+      "Don't copy the Pinterest reference or present it as a shipped asset.",
+      "Don't describe local compositions as new factual photographs."
+    ]
+  }
+}

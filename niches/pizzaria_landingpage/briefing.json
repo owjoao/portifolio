@@ -1,0 +1,80 @@
+{
+  "brandName": "DevHub Studio",
+  "niche": "negocio",
+  "theme": {
+    "mode": "dark",
+    "primaryColor": "#f59e0b",
+    "accentColor": "#ef4444",
+    "backgroundColor": "#0c0d14",
+    "textColor": "#f8fafc"
+  },
+  "headline": "Cuidado & Excelência em Cada Detalhe",
+  "subheadline": "Atendimento humanizado, alta tecnologia e especialistas dedicados a você.",
+  "whatsappNumber": "5511999998888",
+  "items": [
+    {
+      "id": "1",
+      "name": "Serviço Premium Especializado",
+      "description": "Atendimento completo com diagnósticos precisos e suporte personalizado.",
+      "price": "Sob Consulta",
+      "tag": "Recomendado"
+    },
+    {
+      "id": "2",
+      "name": "Atendimento Rápido e Eficiente",
+      "description": "Foco total no conforto, agilidade e resultados comprovados.",
+      "price": "Sob Consulta",
+      "tag": "Destaque"
+    }
+  ],
+  "sections": [
+    "hero",
+    "highlights",
+    "menu",
+    "deals",
+    "about",
+    "testimonials",
+    "footer"
+  ],
+  "features": [
+    {
+      "title": "Qualidade Garantida",
+      "desc": "Padrão ouro em cada etapa de execução",
+      "icon": "⭐"
+    },
+    {
+      "title": "Atendimento Humanizado",
+      "desc": "Suporte dedicado e focado na sua satisfação",
+      "icon": "🤝"
+    },
+    {
+      "title": "Rapidez & Pontualidade",
+      "desc": "Compromisso com prazos e excelência",
+      "icon": "⚡"
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "Camila Ferreira",
+      "role": "Cliente Frequente",
+      "comment": "Simplesmente a melhor da cidade! A massa é incrivelmente leve e os ingredientes são de outro nível.",
+      "stars": 5
+    },
+    {
+      "author": "Rodrigo Medeiros",
+      "role": "Crítico Gastronômico",
+      "comment": "Padrão internacional de qualidade. O atendimento pelo WhatsApp e a entrega são impecáveis.",
+      "stars": 5
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Qual o tempo médio de entrega?",
+      "answer": "Nosso tempo estimado é de 30 a 45 minutos para pedidos feitos no WhatsApp."
+    },
+    {
+      "question": "Quais as formas de pagamento aceitas?",
+      "answer": "Aceitamos PIX, cartões de crédito/débito e pagamento na entrega."
+    }
+  ]
+}

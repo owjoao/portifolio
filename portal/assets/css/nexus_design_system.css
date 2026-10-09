@@ -1,0 +1,231 @@
+/* ==========================================================================
+   NEXUS FLOW — DESIGN SYSTEM & TOKENS (ETAPA 3)
+   Arquitetura de Estilo Premium para Ecossistema de Vendas
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Dark Studio & Cyber Precision */
+  --bg-primary: #040812;
+  --bg-secondary: #080f20;
+  --bg-tertiary: #0e172e;
+  
+  --surface-card: rgba(14, 23, 46, 0.75);
+  --surface-card-hover: rgba(20, 33, 65, 0.9);
+  --surface-glass: rgba(10, 16, 32, 0.75);
+  --surface-active: rgba(6, 182, 212, 0.12);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-inverse: #020617;
+
+  /* Accent & Status Colors */
+  --accent-cyan: #06b6d4;
+  --accent-cyan-glow: rgba(6, 182, 212, 0.35);
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.35);
+  --accent-amber: #f59e0b;
+  --accent-indigo: #6366f1;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(6, 182, 212, 0.4);
+  --border-highlight: rgba(16, 185, 129, 0.4);
+
+  /* Radius Tokens */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadow & Elevation Tokens */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px -10px rgba(6, 182, 212, 0.15);
+  --shadow-glow: 0 0 35px -5px var(--accent-cyan-glow);
+
+  /* Animation Timings (Diretriz 23) */
+  --duration-micro: 180ms;
+  --duration-normal: 350ms;
+  --duration-complex: 650ms;
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Container Max Width */
+  --container-max: 1320px;
+}
+
+/* Base Body Overflow Protection */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy with clamp() (Diretriz 25) */
+.display-title {
+  font-size: clamp(2.1rem, 4.5vw + 0.8rem, 4.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.heading-section {
+  font-size: clamp(1.75rem, 3.2vw + 0.5rem, 2.75rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+.heading-card {
+  font-size: clamp(1.1rem, 1.4vw + 0.4rem, 1.35rem);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+.text-body-lead {
+  font-size: clamp(0.95rem, 0.9vw + 0.5rem, 1.2rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.font-mono-numbers {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* Glassmorphism & Atmospheric Layering */
+.nexus-glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nexus-glass-card {
+  background: linear-gradient(135deg, rgba(14, 23, 46, 0.75) 0%, rgba(8, 15, 32, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-normal) var(--ease-smooth),
+              border-color var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.nexus-glass-card:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* Button Microinteractions (Diretriz 24) */
+.btn-nexus-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.875rem;
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--duration-micro) var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-nexus-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+  background: linear-gradient(135deg, #22d3ee 0%, #0369a1 100%);
+}
+
+.btn-nexus-primary:active {
+  transform: translateY(0);
+}
+
+.btn-nexus-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all var(--duration-micro) var(--ease-smooth);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-nexus-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* Pulse Beacon */
+.status-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-emerald);
+  box-shadow: 0 0 10px var(--accent-emerald);
+  display: inline-block;
+  position: relative;
+}
+
+.status-beacon::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-emerald);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.5); opacity: 1; }
+  80%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Mobile Horizontal Scroll Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduced Motion Compliance (Diretriz 23) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

@@ -1,0 +1,18 @@
+{
+  "name": "Recôncavo Culinária e História",
+  "short_name": "Recôncavo",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f0e4",
+  "theme_color": "#173d2d",
+  "description": "Culinária baiana contemporânea, memória e uma mesa para ficar na Barra, Salvador.",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "160x160",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

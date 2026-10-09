@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barber Club • Barbearia Clássica & Gentlemen's Lounge | São Paulo</title>
+  <meta name="description" content="O clássico refinado com pontualidade britânica. Cortes impecáveis na tesoura, barboterapia com toalha quente e navalha de precisão nos Jardins, São Paulo." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>" />
+
+  <!-- Fonts: Cinzel (Titulares Clássicos) + Cormorant Garamond (Refino) + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            barber: {
+              black: '#0A0807',
+              bg: '#0F0C0A',
+              card: '#161311',
+              border: '#29221C',
+              amber: '#D97706',
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              leather: '#451A03'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #B8860B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-glow {
+      box-shadow: 0 0 30px -5px rgba(212, 175, 55, 0.2);
+    }
+    .card-lift {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #0A0807; }
+    ::-webkit-scrollbar-thumb { background: #29221C; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+  </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Barber Club OS • Barbearia Clássica",
+  "description": "Barbearia artesanal com toalha quente, navalha tradicional e ambiente lounge exclusivo.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/barbearia/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-[#0A0807] text-slate-100 font-sans antialiased selection:bg-[#D4AF37] selection:text-black">
+
+  <!-- TOP BAR: SUBTLE LUXURY -->
+  <aside aria-label="Aviso de Localização" class="bg-[#0C0A09] border-b border-[#29221C]/60 py-2 px-4 text-xs font-medium text-slate-400">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 text-[#D4AF37]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+        <span class="text-[11px] tracking-widest uppercase font-semibold">Jardins, São Paulo • Pontualidade Britânica Sem Fila</span>
+      </div>
+      <div class="flex items-center gap-5 text-[11px]">
+        <span class="hidden md:inline text-slate-400">Chopp Artesanal & Café Espresso Cortesia</span>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" rel="noopener noreferrer" class="text-[#D4AF37] hover:text-white font-bold flex items-center gap-1.5 transition">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+          <span>(32) 99929-2311</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- STICKY REFINED GLASS HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0A0807]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- LOGO: REFINEMENT & TYPOGRAPHY -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#1C1714] to-[#0A0807] border border-[#D4AF37]/40 flex items-center justify-center text-[#D4AF37] text-base shadow-lg shadow-black/60 group-hover:border-[#D4AF37] transition-all">
+          <i class="fa-solid fa-scissors"></i>
+        </div>
+        <div>
+          <div class="font-serif font-black text-xl text-white tracking-[0.15em] flex items-center gap-1.5">
+            BARBER <span class="text-[#D4AF37] font-light">CLUB</span>
+          </div>
+          <span class="block text-[8px] font-mono tracking-[0.3em] uppercase text-slate-400 font-medium">
+            Gentlemen's Lounge • São Paulo
+          </span>
+        </div>
+      </a>
+
+      <!-- NAVIGATION -->
+      <nav class="hidden md:flex items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-300">
+        <a href="#experiencia" class="hover:text-[#D4AF37] transition-colors">Experiência</a>
+        <a href="#seletor" class="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5 text-[#D4AF37]">
+          <i class="fa-solid fa-chair text-[10px]"></i> Estilos & Barbeiros
+        </a>
+        <a href="#diferenciais" class="hover:text-[#D4AF37] transition-colors">Garantia Sem Fila</a>
+        <a href="#contato" class="hover:text-[#D4AF37] transition-colors">Localização</a>
+      </nav>
+
+      <!-- HEADER ACTIONS -->
+      <div class="flex items-center gap-3">
+        <a href="admin/index.html" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-[#D4AF37] border border-[#29221C] transition" title="Painel da Barbearia">
+          <i class="fa-solid fa-lock text-[10px]"></i> BarberOS
+        </a>
+
+        <!-- WhatsApp Primary CTA -->
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:from-[#F3E5AB] hover:to-[#D4AF37] text-[#0A0807] font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-950/40 transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Reservar Cadeira VIP</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO PRINCIPAL COM IMAGEM DE FUNDO & TIPOGRAFIA DE REFINO (MINIMALISTA)   -->
+  <!-- ========================================================================= -->
+  <section class="relative min-h-[85vh] sm:min-h-[88vh] flex items-center justify-center overflow-hidden border-b border-[#29221C]/60">
+    
+    <!-- FULL-WIDTH BACKGROUND IMAGE -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="assets/barber-hero-bg.jpg" 
+        alt="Barbearia Vintage de Luxo Barber Club" 
+        class="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.12] scale-105 transition-transform duration-1000"
+      />
+      <!-- Sophisticated Vignette & Atmospheric Gradients -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0A0807] via-[#0A0807]/50 to-[#0A0807]/70"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0A0807_85%)] opacity-85"></div>
+      <!-- Subtle Golden Glow at Bottom -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none"></div>
+    </div>
+
+    <!-- HERO CONTENT (MINIMALISTA, CENTRADO, REFINADO) -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center py-16 sm:py-24 space-y-6">
+      
+      <!-- Monogram Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0A0807]/70 border border-[#D4AF37]/40 text-[#D4AF37] text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase backdrop-blur-md shadow-lg">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+        <span>Gentlemen's Sanctuary • Est. 2018</span>
+      </div>
+
+      <!-- Main Title (Cinzel + Cormorant Garamond) -->
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.12] max-w-3xl mx-auto">
+        O Rito Clássico da <br />
+        <span class="font-cormorant italic font-normal gold-gradient-text text-5xl sm:text-7xl lg:text-8xl">Elegância Masculina</span>
+      </h1>
+
+      <!-- Minimalist Brief Text -->
+      <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-xl mx-auto font-light leading-relaxed tracking-wide pt-1">
+        Cortes na tesoura, toalha quente e navalha de precisão. O respeito absoluto ao seu tempo, com pontualidade britânica e chopp artesanal cortesia.
+      </p>
+
+      <!-- Minimalist Refined Actions -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#B8860B] hover:from-[#F3E5AB] hover:to-[#D4AF37] text-[#0A0807] font-bold text-xs uppercase tracking-[0.2em] shadow-xl shadow-amber-950/50 transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2.5">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Reservar Cadeira VIP</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+
+        <a href="#seletor" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-[0.2em] border border-white/20 hover:border-[#D4AF37]/50 backdrop-blur-md transition-all flex items-center justify-center gap-2">
+          <i class="fa-solid fa-chair text-[#D4AF37] text-xs"></i>
+          <span>Escolher Estilo & Barbeiro</span>
+        </a>
+      </div>
+
+      <!-- Refined Trust Highlights -->
+      <div class="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-[11px] text-slate-400 uppercase tracking-widest font-medium">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-clock text-[#D4AF37]"></i>
+          <span>Zero Fila de Espera</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-[#D4AF37]"></i>
+          <span>Lâminas Descartáveis</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-beer-mug-empty text-[#D4AF37]"></i>
+          <span>Chopp Artesanal Incluso</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- AMBIENTE VINTAGE & EXPERIÊNCIA DO CORTE                                   -->
+  <!-- ========================================================================= -->
+  <section id="experiencia" class="py-20 bg-[#0E0B09] border-b border-[#29221C]/60 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 px-4 py-1.5 rounded-full border border-[#D4AF37]/30">
+          Experiência Gentleman
+        </span>
+        <h2 class="font-serif font-black text-3xl sm:text-5xl text-white">
+          Navalha Afiada, Toalha Quente & Ambiente Clássico
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
+          Cada detalhe do lounge foi projetado para desacelerar o seu dia e entregar um acabamento impecável.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Card 1: Cadeira Belmont & Espelho Iluminado -->
+        <div class="card-lift bg-barber-card border border-[#D4AF37]/30 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div class="relative rounded-2xl overflow-hidden aspect-[16/10] border border-barber-border shadow-2xl group">
+            <img 
+              src="assets/barber-chair-luxury.jpg" 
+              alt="Cadeira hidráulica Belmont em couro conhaque com bancada em nogueira e espelho circular halo" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy" 
+              decoding="async"
+            />
+            <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-[#D4AF37]">
+              <i class="fa-solid fa-chair mr-1.5"></i> Cadeira Belmont Vintage
+            </div>
+          </div>
+          <h3 class="font-serif font-bold text-2xl text-white">Conforto Ergonômico Máximo</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Reclinação suave com massagem lombar para o momento da toalha quente e barba tradicional com espuma morna batida na hora.
+          </p>
+        </div>
+
+        <!-- Card 2: Barbeiro com Navalhete & Fumaça de Toalha -->
+        <div class="card-lift bg-barber-card border border-[#D4AF37]/30 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div class="relative rounded-2xl overflow-hidden aspect-[16/10] border border-barber-border shadow-2xl group">
+            <img 
+              src="assets/barber-craftsman.jpg" 
+              alt="Mestre barbeiro alinhando barba com navalhete clássico e toalha quente fumegante" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy" 
+              decoding="async"
+            />
+            <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-emerald-400">
+              <i class="fa-solid fa-scissors mr-1.5"></i> Alinhamento Milimétrico
+            </div>
+          </div>
+          <h3 class="font-serif font-bold text-2xl text-white">Visagismo & Precisão de Lâmina</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Análise das linhas da mandíbula e do formato do rosto para criar a proporção ideal para sua barba e cabelo, sem falhas e sem irritação.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SELETOR INTERATIVO DE ESTILO & BARBEIRO                                  -->
+  <!-- ========================================================================= -->
+  <section id="seletor" class="py-20 bg-[#120F0D] border-b border-barber-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#D4AF37]/10 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/30">
+          Personalização de Atendimento
+        </span>
+        <h2 class="font-serif font-black text-3xl sm:text-4xl text-white mt-4">
+          Escolha seu Estilo & Barbeiro
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Selecione o procedimento desejado e o barbeiro titular para preparar seu atendimento sob medida.
+        </p>
+      </div>
+
+      <div class="card-lift bg-barber-card p-6 sm:p-10 rounded-3xl border border-barber-border shadow-2xl space-y-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Selecione o Procedimento:</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <button type="button" onclick="selectBarberStyle('corte')" id="btn-style-corte" class="style-btn active p-3 rounded-xl bg-[#D4AF37] text-black font-bold text-xs text-center border border-[#D4AF37] transition">
+              Corte & Visagismo
+            </button>
+            <button type="button" onclick="selectBarberStyle('barba')" id="btn-style-barba" class="style-btn p-3 rounded-xl bg-[#0C0A09] text-slate-300 hover:text-white font-bold text-xs text-center border border-barber-border transition">
+              Barboterapia VIP
+            </button>
+            <button type="button" onclick="selectBarberStyle('combo')" id="btn-style-combo" class="style-btn p-3 rounded-xl bg-[#0C0A09] text-slate-300 hover:text-white font-bold text-xs text-center border border-barber-border transition">
+              Combo Corte + Barba
+            </button>
+            <button type="button" onclick="selectBarberStyle('completo')" id="btn-style-completo" class="style-btn p-3 rounded-xl bg-[#0C0A09] text-slate-300 hover:text-white font-bold text-xs text-center border border-barber-border transition">
+              Spa Facial Completo
+            </button>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#0C0A09] border border-barber-border space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-scissors"></i> Experiência Selecionada
+            </span>
+            <span id="barber-tempo" class="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-500/30">
+              Duração: 45 min
+            </span>
+          </div>
+
+          <h4 id="barber-titulo" class="font-serif font-bold text-lg text-white">
+            Corte na Tesoura & Degradê Navalhado (Fade)
+          </h4>
+
+          <p id="barber-desc" class="text-xs text-slate-300 leading-relaxed">
+            Higienização capilar com xampu mentolado refrescante, alinhamento de fios, acabamento com navalha descartável e finalização com pomada modeladora matte.
+          </p>
+
+          <div class="pt-2 border-t border-barber-border/60 flex flex-wrap gap-2 text-[11px] text-slate-400">
+            <span class="font-bold text-slate-300">Cortesia inclusa:</span>
+            <span class="text-[#D4AF37]">Chopp artesanal pilsen gelado ou café espresso cremoso.</span>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a id="barber-wa-btn" href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:opacity-95 text-black font-black text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.01]">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Confirmar Horário no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- DIFERENCIAIS & QUEBRA DE OBJEÇÃO (PONTUALIDADE BRITÂNICA)                -->
+  <!-- ========================================================================= -->
+  <section id="diferenciais" class="py-16 bg-[#0A0807] border-b border-barber-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="card-lift p-8 rounded-3xl bg-[#161311] border border-[#D4AF37]/40 shadow-2xl text-center space-y-4">
+        <div class="w-12 h-12 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center mx-auto text-xl">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">Compromisso Barber Club</span>
+        <h3 class="font-serif font-bold text-2xl sm:text-3xl text-white">Pontualidade Britânica Sem Fila de Espera</h3>
+        <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          Cansado de esperar 40 minutos em pé em barbearias tradicionais? No Barber Club, seu horário é sagrado. Se houver atraso superior a 10 minutos após o horário agendado, o corte e o chopp são por nossa conta.
+        </p>
+        <div class="pt-2">
+          <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider border border-white/20 transition">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i> Falar com Atendente
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">A Experiência Barber Club</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Cortes clássicos, toalha quente, navalhetes esterilizados e chopp artesanal gelado.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/barber-hero.jpg" alt="Cortes Clássicos & Modernos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Cortes Clássicos & Modernos</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Degradê perfeito, tesoura artesanal e alinhamento milimétrico do perfil facial.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/barber-shave.jpg" alt="Barboterapia com Toalha Quente" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Barboterapia com Toalha Quente</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Espuma densa aquecida, óleos essenciais pós-barba e lâmina descartável de alta precisão.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/barber-cut.jpg" alt="Design de Barba & Bigode" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Design de Barba & Bigode</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Visagismo masculino adaptado à anatomia do seu rosto e estilo de vida.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/barber-tools.jpg" alt="Produtos Premium de Cuidados" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Produtos Premium de Cuidados</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Pomadas de alta fixação efeito matte, óleos hidratantes e balms aromáticos.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SKIPER UI: SLIDER INTERATIVO ANTES & DEPOIS (ALINHAMENTO & VISAGISMO)     -->
+  <!-- ========================================================================= -->
+  <section id="transformacao-visual" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-arrows-left-right"></i> Prova Visual Imediata
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white">Transformação em Barba & Visagismo</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Arraste a linha para comparar o antes e o depois do corte com toalha quente e navalhete.</p>
+      </div>
+
+      <div class="ba-container relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl select-none cursor-ew-resize">
+        <!-- DEPOIS (Base) -->
+        <img src="assets/barber-hero.jpg" alt="Depois do Corte e Barboterapia" class="absolute inset-0 w-full h-full object-cover" />
+        <span class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md text-amber-300 border border-amber-400/30 text-xs px-3.5 py-1.5 rounded-full font-bold">DEPOIS: Perfil Alinhado</span>
+
+        <!-- ANTES (Layer Cortada) -->
+        <div class="ba-after-layer absolute inset-0 w-1/2 overflow-hidden pointer-events-none border-r-2 border-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.5)]">
+          <img src="assets/barber-shave.jpg" alt="Antes do Tratamento na Barbearia" class="absolute inset-0 w-full h-full object-cover max-w-none filter grayscale contrast-125" />
+          <span class="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md text-white text-xs px-3.5 py-1.5 rounded-full font-bold">ANTES: Sem Alinhamento</span>
+        </div>
+
+        <!-- Slider Handle -->
+        <div class="ba-slider-handle absolute top-0 bottom-0 left-1/2 w-1 bg-amber-400 flex items-center justify-center -translate-x-1/2 pointer-events-none">
+          <div class="w-9 h-9 rounded-full bg-slate-950 border-2 border-amber-400 text-amber-300 shadow-xl flex items-center justify-center text-xs font-bold">
+            ⇄
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Escolher a Experiência Barber Club?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Descubra a diferença entre um corte comum e um atendimento artesanal completo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Salões & Barbearias Convencionais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Filas de espera imprevisíveis e horários não respeitados</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Cortes apressados em menos de 15 minutos sem visagismo facial</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Lâminas sem esterilização rigorosa e toalha fria</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Produtos genéricos que ressecam o couro cabeludo e a pele</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Experiência VIP
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Padrão Barber Club OS</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Pontualidade rigorosa com agendamento online inteligente sem filas</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Visagismo masculino personalizado com corte na tesoura e navalhete afiado</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Barboterapia completa com toalha aquecida, vapor de ozônio e óleos essenciais</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Ambiente climatizado, chopp artesanal gelado cortesia e produtos premium</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Preciso agendar horário com antecedência?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Recomendamos o agendamento prévio via WhatsApp para garantir zero fila e atendimento VIP pontual.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>O que está incluso no serviço de Barboterapia?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Massagem facial relaxante, vapor de ozônio, esfoliação leve, toalha aquecida e loção pós-barba importada.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Quais produtos vocês utilizam?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Utilizamos apenas pomadas e tônicos testados dermatologicamente com fixação matte e hidratação profunda.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Guilherme Antunes</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Melhor barbearia de São Paulo. A toalha quente e o atendimento com chopp gelado são imbatíveis."</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Thiago Meireles</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Pontualidade britânica e degradê na régua. Não troco por nada."</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Barbearia premium com toalha quente, navalha tradicional, corte sob medida e lounge exclusivo com café e chopp na Av. Paulista.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-scissors"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">Don Barber Lounge</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Barbearia Clássica & Cuidados Masculinos</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(Don Barber Lounge)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Don Barber Lounge em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contato" class="bg-[#080605] border-t border-barber-border/60 py-12 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <span class="font-serif font-bold text-white text-base">Barber Club • Gentlemen's Lounge</span>
+        <p class="text-[11px] text-slate-500 mt-1">Jardins, São Paulo - SP • Master Barber • Todos os direitos reservados 2026.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="admin/index.html" target="_blank" class="text-[#D4AF37] hover:underline font-bold flex items-center gap-1">
+          <i class="fa-solid fa-lock text-xs"></i> Acesso Restrito (BarberOS)
+        </a>
+        <a href="../index.html" class="hover:text-white transition">Voltar ao Portfólio Geral</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl shadow-emerald-500/30 hover:scale-110 active:scale-95 transition-all group" title="Agendar Horário">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="absolute right-16 bg-[#0A0807] text-white text-[11px] font-bold py-1.5 px-3 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-white/10 pointer-events-none shadow-lg">
+      Agendar no WhatsApp
+    </span>
+  </a>
+
+  <script>
+    const STYLES_DATA = {
+      corte: {
+        titulo: 'Corte na Tesoura & Degradê Navalhado (Fade)',
+        tempo: 'Duração: 45 min',
+        desc: 'Higienização capilar mentolada, acabamento com navalha cirúrgica descartável e finalização com pomada modeladora matte de alta fixação.'
+      },
+      barba: {
+        titulo: 'Barboterapia Tradicional com Toalha Quente & Óleo Argan',
+        tempo: 'Duração: 40 min',
+        desc: 'Abertura de poros com vapor de ozônio e toalha aquecida, desenho simétrico com navalhete, óleo hidratante e massagem relaxante pós-barba.'
+      },
+      combo: {
+        titulo: 'Combo Completo: Corte de Cabelo + Barboterapia',
+        tempo: 'Duração: 1h15',
+        desc: 'O pacote clássico completo para renovação do visual com acompanhamento de chopp artesanal e consultoria de produtos capilares.'
+      },
+      completo: {
+        titulo: 'Spa Facial Masculino com Máscara Black & Limpeza Profunda',
+        tempo: 'Duração: 50 min',
+        desc: 'Esfoliação de pele, remoção de cravos superficiais, máscara preta desintoxicante e hidratação facial anti-brilho.'
+      }
+    };
+
+    function selectBarberStyle(key) {
+      document.querySelectorAll('.style-btn').forEach(b => {
+        b.classList.remove('bg-[#D4AF37]', 'text-black', 'active');
+        b.classList.add('bg-[#0C0A09]', 'text-slate-300');
+      });
+
+      const btn = document.getElementById('btn-style-' + key);
+      if (btn) {
+        btn.classList.remove('bg-[#0C0A09]', 'text-slate-300');
+        btn.classList.add('bg-[#D4AF37]', 'text-black', 'active');
+      }
+
+      const data = STYLES_DATA[key];
+      if (!data) return;
+
+      document.getElementById('barber-titulo').textContent = data.titulo;
+      document.getElementById('barber-tempo').textContent = data.tempo;
+      document.getElementById('barber-desc').textContent = data.desc;
+      // All buttons point to the user's universal link
+      document.getElementById('barber-wa-btn').setAttribute('href', 'https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club.');
+    }
+  </script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Momento de Cuidado Masculino, Relaxamento e Autoestima
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo a experiência de relaxar em nossas cadeiras clássicas de couro com barboterapia com vapor de ozônio e massagem facial.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(Don Barber Lounge)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Pontualidade britânica e profissionais especialistas em visagismo masculino</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(Don Barber Lounge)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('agendamento') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(Don Barber Lounge).";
+      }
+    }
+  </script>
+
+
+  <script>
+    // Skiper UI Before/After Slider Interaction (Mouse & Touch)
+    document.querySelectorAll('.ba-container').forEach(container => {
+      const afterLayer = container.querySelector('.ba-after-layer');
+      const handle = container.querySelector('.ba-slider-handle');
+      if (!afterLayer || !handle) return;
+      let isDown = false;
+
+      const move = (e) => {
+        if (!isDown) return;
+        const rect = container.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        let x = clientX - rect.left;
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+        const percent = (x / rect.width) * 100;
+        afterLayer.style.width = percent + '%';
+        handle.style.left = percent + '%';
+      };
+
+      container.addEventListener('mousedown', () => isDown = true);
+      window.addEventListener('mouseup', () => isDown = false);
+      container.addEventListener('mousemove', move);
+
+      container.addEventListener('touchstart', () => isDown = true);
+      window.addEventListener('touchend', () => isDown = false);
+      container.addEventListener('touchmove', move);
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Barber Club OS</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20meu%20horário%20na%20Barber%20Club." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

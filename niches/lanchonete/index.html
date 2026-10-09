@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-[#FAF7F2] scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KFC — It's finger lickin' good. | Delivery Oficial</title>
+  <meta name="description" content="Peça os baldes mais crocantes, sanduíches Zinger artesanais e combos exclusivos com entrega rápida!">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fontes Google: Plus Jakarta Sans, Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            app: {
+              bg: '#FAF7F2',
+              card: '#FFFFFF',
+              kfc: '#E4002B',
+              'kfc-dark': '#B50022',
+              dark: '#1C1817',
+              muted: '#7A7670',
+              border: '#EFECE6'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
+            'card-hover': '0 16px 32px -4px rgba(228, 0, 43, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)',
+            'nav-bar': '0 -4px 25px rgba(0, 0, 0, 0.06)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1C1817;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ocultar barra de rolagem */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Microinteração de toque / clique */
+    .tap-effect {
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tap-effect:active {
+      transform: scale(0.95);
+    }
+
+    /* Animação do Coração */
+    @keyframes heartAnim {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    .heart-bounce {
+      animation: heartAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Animação Flutuante do Balde */
+    @keyframes foodFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    .animate-float-food {
+      animation: foodFloat 4.5s ease-in-out infinite;
+    }
+
+    /* Blur Header */
+    .glass-header {
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+  </style>
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Lanchonete",
+    "description": "Atendimento profissional especializado em Lanchonete com agendamento rápido via WhatsApp.",
+    "telephone": "+55-32-99929-2311",
+    "url": "https://nexusflow.digital/lanchonete/",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#E4002B] selection:text-white">
+
+  <!-- ======================================================== -->
+  <!-- 1. TOP HEADER & BRAND BAR (DESKTOP & MOBILE RESPONSIVO)  -->
+  <!-- ======================================================== -->
+  <header class="sticky top-0 z-40 glass-header border-b border-[#EFECE6] transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Lado Esquerdo: Menu & Marca -->
+      <div class="flex items-center gap-3.5">
+        <button onclick="showToast('Menu lateral e categorias')" class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center text-stone-800 shadow-sm border border-[#EFECE6] tap-effect" title="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+
+        <div class="flex items-center gap-3">
+          <a href="#" class="font-display font-black text-2xl lg:text-3xl tracking-tighter text-[#E4002B] leading-none hover:opacity-90 transition-opacity">
+            KFC
+          </a>
+          <div class="hidden sm:block border-l border-stone-300 pl-3">
+            <span class="block text-[11px] font-bold text-stone-700 leading-none">Hello, Chicken Lover! 👋</span>
+            <span class="text-[9.5px] font-semibold text-stone-500 leading-tight">It's finger lickin' good.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links de Navegação (Visíveis em Telas Médias e Grandes no PC) -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-bold text-stone-700">
+        <a href="#menu-section" class="hover:text-[#E4002B] transition-colors">Popular Combos</a>
+        <a href="#categories-section" class="hover:text-[#E4002B] transition-colors">Categorias</a>
+        <a href="#offers-section" class="hover:text-[#E4002B] transition-colors">Ofertas & Cupons</a>
+        <a href="https://wa.me/5511999998888" target="_blank" class="hover:text-[#E4002B] transition-colors">Atendimento WhatsApp</a>
+      </nav>
+
+      <!-- Lado Direito: Busca Rápida + Notificações + Sacola -->
+      <div class="flex items-center gap-2.5">
+        <!-- Notificações com Badge "3" -->
+        <button onclick="showToast('Você possui 3 cupons de 30% OFF ativos!')" class="relative w-11 h-11 bg-white rounded-2xl flex items-center justify-center text-stone-700 shadow-sm border border-[#EFECE6] tap-effect" title="Notificações">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+          </svg>
+          <span class="absolute top-1.5 right-1.5 bg-[#E4002B] text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white font-mono">
+            3
+          </span>
+        </button>
+
+        <!-- Botão Sacola / Carrinho com Contador Dinâmico -->
+        <button onclick="toggleBagDrawer(true)" class="relative h-11 px-3 sm:px-4 bg-[#1C1817] hover:bg-black text-white rounded-2xl flex items-center gap-2 shadow-md tap-effect" title="Minha Sacola">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="hidden sm:inline text-xs font-bold font-display">Sacola</span>
+          <span id="header-bag-count" class="bg-[#E4002B] text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center font-mono">
+            2
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- CONTEÚDO PRINCIPAL (LAYOUT RESPONSIVO FLUIDO)            -->
+  <!-- ======================================================== -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 space-y-8 pb-28 md:pb-16">
+
+    <!-- 2. BARRA DE BUSCA EM TEMPO REAL + FILTRO -->
+    <div class="flex items-center gap-3 max-w-2xl mx-auto w-full">
+      <div class="relative flex-1">
+        <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </span>
+        <input 
+          type="text" 
+          placeholder="Search for your favorite chicken, burger, fries..."
+          oninput="handleSearch(this.value)"
+          class="w-full pl-11 pr-4 py-3.5 bg-white border border-[#EFECE6] rounded-2xl text-xs sm:text-sm font-medium text-stone-800 placeholder-stone-400 outline-none shadow-subtle focus:border-[#E4002B] transition-colors"
+        />
+      </div>
+
+      <button onclick="showToast('Filtro rápido ativado')" class="w-12 h-12 bg-white border border-[#EFECE6] rounded-2xl flex items-center justify-center text-stone-800 shadow-subtle tap-effect shrink-0" title="Filtrar">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 3. HERO BANNER PRINCIPAL (CRISPY. JUICY. IRRESISTIBLE.) -->
+    <div class="relative rounded-3xl lg:rounded-[36px] bg-gradient-to-br from-[#7A060C] via-[#940810] to-[#450306] text-white p-6 sm:p-10 lg:p-12 overflow-hidden shadow-xl">
+      
+      <!-- Efeito de Luz Quente em Gradiente -->
+      <div class="absolute -right-16 -bottom-16 w-80 h-80 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
+        
+        <!-- Texto & Headline do Banner -->
+        <div class="md:col-span-7 space-y-3 sm:space-y-4">
+          <span class="inline-block text-[10px] sm:text-xs font-bold text-amber-300 tracking-widest uppercase font-mono bg-black/25 px-3 py-1 rounded-full">
+            🔥 LIMITED TIME
+          </span>
+
+          <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight uppercase">
+            CRISPY.<br>
+            JUICY.<br>
+            <span class="text-amber-300">IRRESISTIBLE.</span>
+          </h1>
+
+          <p class="text-xs sm:text-base text-stone-200/95 font-medium leading-relaxed max-w-md">
+            100% Real Chicken. Made Fresh. Always.<br class="hidden sm:inline">
+            Receita secreta marinada por 12h e frita na hora para a crocância perfeita.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button onclick="scrollToMenu()" class="bg-[#E4002B] hover:bg-[#B50022] text-white font-display font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-lg shadow-black/25 flex items-center gap-2 tap-effect group">
+              <span>Order Now</span>
+              <span class="text-sm group-hover:translate-x-1 transition-transform">➔</span>
+            </button>
+            <button onclick="copyCouponCode('KFC30')" class="bg-white/10 hover:bg-white/20 text-white font-display font-semibold text-xs sm:text-sm px-5 py-3.5 rounded-full border border-white/20 transition-all tap-effect">
+              Cupom 30% OFF: <strong class="text-amber-300 font-mono">KFC30</strong>
+            </button>
+          </div>
+        </div>
+
+        <!-- Composição Visual de Destaque -->
+        <div class="md:col-span-5 relative flex items-center justify-center">
+          <div class="relative w-56 sm:w-72 lg:w-80 h-56 sm:h-72 lg:h-80 flex items-center justify-center animate-float-food">
+            <img 
+              src="assets/flow_images_1791312899937-01.png" 
+              onerror="this.src='assets/reference_layout.png'"
+              alt="KFC Chicken Bucket Feast — Google Flow Scraped" 
+              class="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/20"
+            />
+            <div class="absolute -bottom-3 -left-3 bg-amber-400 text-stone-900 font-display font-black text-xs sm:text-sm px-3.5 py-1.5 rounded-xl shadow-lg border border-white/60">
+              ⚡ 100% FRESH & CRISPY
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Paginação / Pontinhos do Slider -->
+      <div class="flex items-center justify-center gap-2 pt-6">
+        <span class="w-6 h-2 rounded-full bg-white"></span>
+        <span class="w-2 h-2 rounded-full bg-white/40"></span>
+        <span class="w-2 h-2 rounded-full bg-white/40"></span>
+        <span class="w-2 h-2 rounded-full bg-white/40"></span>
+      </div>
+
+    </div>
+
+    <!-- 4. CARROSSEL DE CATEGORIAS CIRCULARES (SNAP NO MOBILE, ROW NO DESKTOP) -->
+    <section id="categories-section">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="font-display font-extrabold text-lg sm:text-xl text-stone-900">Categorias</h2>
+          <p class="text-xs text-stone-500">Escolha o seu prato favorito</p>
+        </div>
+        <span class="text-xs font-bold text-[#E4002B] cursor-pointer hover:underline" onclick="filterCategory('all')">
+          Ver Todas (7)
+        </span>
+      </div>
+
+      <!-- Grade / Carrossel de Categorias -->
+      <div class="flex items-center justify-start lg:justify-between gap-4 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+        
+        <!-- Categoria: All -->
+        <button onclick="filterCategory('all')" class="cat-pill active flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="all">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-2 border-[#E4002B] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="All">
+          </div>
+          <span class="cat-label text-xs font-bold text-[#E4002B]">All</span>
+        </button>
+
+        <!-- Categoria: Buckets -->
+        <button onclick="filterCategory('buckets')" class="cat-pill flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="buckets">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#EFECE6] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="Buckets">
+          </div>
+          <span class="cat-label text-xs font-medium text-stone-600">Buckets</span>
+        </button>
+
+        <!-- Categoria: Burgers -->
+        <button onclick="filterCategory('burgers')" class="cat-pill flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="burgers">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#EFECE6] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="Burgers">
+          </div>
+          <span class="cat-label text-xs font-medium text-stone-600">Burgers</span>
+        </button>
+
+        <!-- Categoria: Snacks -->
+        <button onclick="filterCategory('snacks')" class="cat-pill flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="snacks">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#EFECE6] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1587397845856-e6cf49176c70?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="Snacks">
+          </div>
+          <span class="cat-label text-xs font-medium text-stone-600">Snacks</span>
+        </button>
+
+        <!-- Categoria: Sides -->
+        <button onclick="filterCategory('sides')" class="cat-pill flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="sides">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#EFECE6] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="Sides">
+          </div>
+          <span class="cat-label text-xs font-medium text-stone-600">Sides</span>
+        </button>
+
+        <!-- Categoria: Drinks -->
+        <button onclick="filterCategory('drinks')" class="cat-pill flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="drinks">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#EFECE6] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="Drinks">
+          </div>
+          <span class="cat-label text-xs font-medium text-stone-600">Drinks</span>
+        </button>
+
+        <!-- Categoria: Desserts -->
+        <button onclick="filterCategory('desserts')" class="cat-pill flex flex-col items-center gap-2 shrink-0 group tap-effect" data-category="desserts">
+          <div class="cat-circle w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#EFECE6] p-1.5 flex items-center justify-center shadow-subtle group-hover:scale-105 transition-transform">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=200&q=80" class="w-full h-full rounded-full object-cover" alt="Desserts">
+          </div>
+          <span class="cat-label text-xs font-medium text-stone-600">Desserts</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- 5. POPULAR COMBOS (GRID ADAPTATIVO: 1 COLUNA MOBILE, 3 NO PC) -->
+    <section id="menu-section">
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <h2 class="font-display font-extrabold text-xl sm:text-2xl text-stone-900 tracking-tight">Popular Combos</h2>
+          <p class="text-xs sm:text-sm text-stone-500">Mais sabor com preços especiais de aplicativo</p>
+        </div>
+        <button onclick="filterCategory('all')" class="text-xs sm:text-sm font-bold text-[#E4002B] flex items-center gap-1 hover:underline">
+          <span>View All</span>
+          <span>➔</span>
+        </button>
+      </div>
+
+      <!-- Grid Responsivo: no mobile tem scroll suave snap, no PC divide em 3 colunas perfeitas -->
+      <div id="combos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- Card 1: 8 Pcs Chicken Bucket -->
+        <div class="product-card buckets bg-white rounded-3xl p-4 sm:p-5 shadow-subtle hover:shadow-card-hover border border-[#EFECE6] flex flex-col justify-between transition-all group" data-name="8 pcs chicken bucket fries dips drinks balde">
+          <div>
+            <div class="relative h-48 sm:h-52 rounded-2xl overflow-hidden bg-[#FAF7F2] mb-3 flex items-center justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80" 
+                alt="8 Pcs Chicken Bucket" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              
+              <!-- Badges de Status -->
+              <span class="absolute top-3 left-3 bg-[#E4002B] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow font-mono">
+                BESTSELLER
+              </span>
+
+              <!-- Botão de Favorito -->
+              <button onclick="toggleFavorite(this)" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-400 hover:text-[#E4002B] shadow-sm tap-effect" title="Favoritar">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+
+            <h3 class="font-display font-extrabold text-base sm:text-lg text-stone-900 leading-snug">
+              8 Pcs Chicken Bucket
+            </h3>
+            <p class="text-xs text-stone-500 mt-1 leading-relaxed">
+              2 Large Fries + 2 Dips + 2 Drinks. 8 pedaços generosos fritos na hora.
+            </p>
+
+            <div class="flex items-center gap-1.5 mt-2 text-xs">
+              <span class="text-amber-500 font-bold">★ 4.8</span>
+              <span class="text-stone-400 font-medium">(12.5K+ avaliações)</span>
+            </div>
+          </div>
+
+          <div class="pt-3 mt-4 border-t border-[#F2EFE9] flex items-center justify-between">
+            <span class="text-xl sm:text-2xl font-black text-stone-900 font-display">
+              $24.99
+            </span>
+
+            <button onclick="addToBag('8 Pcs Chicken Bucket', 24.99, 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80')" class="w-10 h-10 rounded-2xl bg-[#E4002B] hover:bg-[#B50022] text-white flex items-center justify-center text-xl font-bold shadow-md shadow-[#E4002B]/30 tap-effect" title="Adicionar à sacola">
+              +
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Zinger Burger Combo -->
+        <div class="product-card burgers bg-white rounded-3xl p-4 sm:p-5 shadow-subtle hover:shadow-card-hover border border-[#EFECE6] flex flex-col justify-between transition-all group" data-name="zinger burger combo fries drink sanduiche smash">
+          <div>
+            <div class="relative h-48 sm:h-52 rounded-2xl overflow-hidden bg-[#FAF7F2] mb-3 flex items-center justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" 
+                alt="Zinger Burger Combo" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              
+              <span class="absolute top-3 left-3 bg-[#F59E0B] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow font-mono">
+                POPULAR
+              </span>
+
+              <button onclick="toggleFavorite(this)" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-400 hover:text-[#E4002B] shadow-sm tap-effect" title="Favoritar">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+
+            <h3 class="font-display font-extrabold text-base sm:text-lg text-stone-900 leading-snug">
+              Zinger Burger Combo
+            </h3>
+            <p class="text-xs text-stone-500 mt-1 leading-relaxed">
+              Zinger Burger + Fries + Drink. Sobrecoxa crocante empanada com queijo cheddar cremoso.
+            </p>
+
+            <div class="flex items-center gap-1.5 mt-2 text-xs">
+              <span class="text-amber-500 font-bold">★ 4.7</span>
+              <span class="text-stone-400 font-medium">(8.7K+ avaliações)</span>
+            </div>
+          </div>
+
+          <div class="pt-3 mt-4 border-t border-[#F2EFE9] flex items-center justify-between">
+            <span class="text-xl sm:text-2xl font-black text-stone-900 font-display">
+              $9.99
+            </span>
+
+            <button onclick="addToBag('Zinger Burger Combo', 9.99, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80')" class="w-10 h-10 rounded-2xl bg-[#E4002B] hover:bg-[#B50022] text-white flex items-center justify-center text-xl font-bold shadow-md shadow-[#E4002B]/30 tap-effect" title="Adicionar à sacola">
+              +
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: 5 Pcs Hot & Crispy -->
+        <div class="product-card snacks bg-white rounded-3xl p-4 sm:p-5 shadow-subtle hover:shadow-card-hover border border-[#EFECE6] flex flex-col justify-between transition-all group" data-name="5 pcs hot crispy chicken fries drink tiras">
+          <div>
+            <div class="relative h-48 sm:h-52 rounded-2xl overflow-hidden bg-[#FAF7F2] mb-3 flex items-center justify-center">
+              <img 
+                src="assets/menu_chicken.png" 
+                onerror="this.src='https://images.unsplash.com/photo-1587397845856-e6cf49176c70?auto=format&fit=crop&w=600&q=80'"
+                alt="5 Pcs Hot & Crispy — Scraped Flow" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              
+              <span class="absolute top-3 left-3 bg-[#A00B14] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow font-mono">
+                SAVE 15%
+              </span>
+
+              <button onclick="toggleFavorite(this)" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-400 hover:text-[#E4002B] shadow-sm tap-effect" title="Favoritar">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+
+            <h3 class="font-display font-extrabold text-base sm:text-lg text-stone-900 leading-snug">
+              5 Pcs Hot &amp; Crispy
+            </h3>
+            <p class="text-xs text-stone-500 mt-1 leading-relaxed">
+              5 Pcs Chicken + Fries + Drink. Tiras tenras de peito com tempero picante da casa.
+            </p>
+
+            <div class="flex items-center gap-1.5 mt-2 text-xs">
+              <span class="text-amber-500 font-bold">★ 4.6</span>
+              <span class="text-stone-400 font-medium">(6.3K+ avaliações)</span>
+            </div>
+          </div>
+
+          <div class="pt-3 mt-4 border-t border-[#F2EFE9] flex items-center justify-between">
+            <span class="text-xl sm:text-2xl font-black text-stone-900 font-display">
+              $15.99
+            </span>
+
+            <button onclick="addToBag('5 Pcs Hot & Crispy', 15.99, 'https://images.unsplash.com/photo-1587397845856-e6cf49176c70?auto=format&fit=crop&w=600&q=80')" class="w-10 h-10 rounded-2xl bg-[#E4002B] hover:bg-[#B50022] text-white flex items-center justify-center text-xl font-bold shadow-md shadow-[#E4002B]/30 tap-effect" title="Adicionar à sacola">
+              +
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. BANNER DE OFERTA EXCLUSIVA (30% OFF) -->
+    <section id="offers-section" class="relative rounded-3xl lg:rounded-[36px] bg-[#F3EFE6] border border-[#E8E3D7] p-6 sm:p-8 lg:p-10 overflow-hidden shadow-sm">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        
+        <div class="md:col-span-8 space-y-2.5">
+          <span class="inline-block text-[10px] font-bold text-[#A00B14] uppercase tracking-wider font-mono">
+            EXCLUSIVE APP & WEB OFFER
+          </span>
+
+          <h3 class="font-display font-black text-2xl sm:text-3xl text-stone-900 leading-tight">
+            Up to 30% OFF on selected combos
+          </h3>
+
+          <p class="text-xs sm:text-sm text-stone-600 font-medium max-w-lg">
+            Use o cupom promocional <strong class="text-[#E4002B] font-mono">KFC30</strong> no fechamento e aproveite entrega expressa com molhos cortesia.
+          </p>
+
+          <div class="pt-2 flex items-center gap-3">
+            <button onclick="copyCouponCode('KFC30')" class="bg-[#E4002B] hover:bg-[#B50022] text-white font-display font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md flex items-center gap-2 tap-effect">
+              <span>Copiar Cupom KFC30</span>
+              <span class="text-xs">➔</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 flex items-center justify-center md:justify-end">
+          <div class="relative w-40 sm:w-48 h-32 flex items-center justify-center">
+            <img 
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" 
+              alt="Combo Burger Fries" 
+              class="w-36 h-28 object-cover rounded-2xl shadow-md"
+            />
+            <!-- Selo Circular 30% OFF -->
+            <div class="absolute -top-3 -right-2 w-16 h-16 bg-[#E4002B] rounded-full text-white flex flex-col items-center justify-center shadow-lg border-4 border-white font-display font-black leading-none">
+              <span class="text-lg">30%</span>
+              <span class="text-[9px] font-bold tracking-tighter">OFF</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- 7. BOTTOM NAVIGATION BAR (FIXA PARA MOBILE NO RODAPÉ)    -->
+  <!-- ======================================================== -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-[#EFECE6] px-5 py-2.5 flex items-center justify-between shadow-nav-bar z-30">
+    
+    <!-- 1. Home -->
+    <a href="#" class="flex flex-col items-center gap-1 text-[#E4002B] tap-effect">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span class="text-[9.5px] font-bold">Home</span>
+    </a>
+
+    <!-- 2. Menu -->
+    <a href="#menu-section" class="flex flex-col items-center gap-1 text-stone-500 hover:text-stone-800 tap-effect">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="7" height="7" rx="2"/>
+        <rect x="14" y="3" width="7" height="7" rx="2"/>
+        <rect x="14" y="14" width="7" height="7" rx="2"/>
+        <rect x="3" y="14" width="7" height="7" rx="2"/>
+      </svg>
+      <span class="text-[9.5px] font-medium">Menu</span>
+    </a>
+
+    <!-- 3. Orders (Botão Central Flutuante) -->
+    <button onclick="toggleBagDrawer(true)" class="relative -top-5 w-14 h-14 bg-[#E4002B] hover:bg-[#B50022] text-white rounded-full flex flex-col items-center justify-center shadow-lg shadow-[#E4002B]/40 border-4 border-[#FAF7F2] tap-effect">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+      </svg>
+      <span id="center-bag-badge" class="absolute -top-1 -right-1 bg-amber-400 text-stone-900 text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white font-mono">
+        2
+      </span>
+    </button>
+
+    <!-- 4. Offers -->
+    <a href="#offers-section" class="flex flex-col items-center gap-1 text-stone-500 hover:text-stone-800 tap-effect">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+      </svg>
+      <span class="text-[9.5px] font-medium">Offers</span>
+    </a>
+
+    <!-- 5. Profile -->
+    <button onclick="showToast('Perfil do cliente: autenticado com sucesso!')" class="flex flex-col items-center gap-1 text-stone-500 hover:text-stone-800 tap-effect">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+      </svg>
+      <span class="text-[9.5px] font-medium">Profile</span>
+    </button>
+
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- 8. MODAL DRAWER DA SACOLA (DESLIZANTE PARA PC E CELULAR) -->
+  <!-- ======================================================== -->
+  <div id="bag-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-end transition-opacity">
+    <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6">
+      
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-stone-100">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🍗</span>
+            <div>
+              <h3 class="font-display font-extrabold text-lg text-stone-900 leading-tight">Sua Sacola KFC</h3>
+              <p class="text-[11px] text-stone-500">Pronto para entrega quentinha</p>
+            </div>
+          </div>
+          <button onclick="toggleBagDrawer(false)" class="w-9 h-9 rounded-xl bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 tap-effect">
+            ✕
+          </button>
+        </div>
+
+        <!-- Lista Dinâmica de Itens -->
+        <div id="bag-items-list" class="py-4 space-y-3 max-h-[55vh] overflow-y-auto no-scrollbar">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+
+      <!-- Totais & Fechamento no WhatsApp -->
+      <div class="pt-4 border-t border-stone-100 space-y-3">
+        <div class="space-y-1.5 text-xs text-stone-600">
+          <div class="flex justify-between">
+            <span>Subtotal:</span>
+            <span id="bag-subtotal-val" class="font-bold text-stone-900">$34.98</span>
+          </div>
+          <div class="flex justify-between text-[#E4002B] font-medium">
+            <span>Desconto (Cupom KFC30):</span>
+            <span id="bag-discount-val">-$10.49</span>
+          </div>
+          <div class="flex justify-between text-stone-900 font-bold">
+            <span>Taxa de Entrega:</span>
+            <span class="text-emerald-600">GRÁTIS</span>
+          </div>
+          <div class="flex justify-between text-base font-black text-stone-900 pt-2 border-t border-stone-100">
+            <span>Total a Pagar:</span>
+            <span id="bag-total-val" class="text-[#E4002B] font-display text-xl font-black">$24.49</span>
+          </div>
+        </div>
+
+        <button onclick="checkoutViaWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-display font-extrabold text-sm py-4 rounded-2xl shadow-lg shadow-[#25D366]/25 flex items-center justify-center gap-2.5 tap-effect">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          <span>Finalizar Pedido no WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 9. FOOTER DESKTOP                                        -->
+  <!-- ======================================================== -->
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que os Hambúrgueres da SmashBurger São Imbatíveis?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Blend artesanal 100% fresco, crostinha perfeita e pão brioche amanteigado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Fast Foods Industriais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Carne congelada industrial ultraprocessada sem suculência</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Pães ressecados que esfarelam na primeira mordida</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Batatas moles encharcadas de óleo e frias na entrega</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Molhos artificiais cheios de conservantes e sódio</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Blend 100% Fresco
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">SmashBurger Artesanal</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Carne moída no dia prensada na chapa ultraquente com crosta caramelizada</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Pão brioche artesanal tostado na manteiga leve como uma nuvem</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Batatas rústicas sequinhas, crocantes por fora e macias por dentro</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Maionese temperada da casa e queijo cheddar derretido de verdade</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20burgers%20artesanais." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="hidden md:block border-t border-[#EFECE6] bg-white py-8 px-6 text-center text-xs text-stone-500">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-display font-black text-sm text-[#E4002B]">KFC Delivery © 2026 — It's finger lickin' good.</p>
+      <div class="flex items-center gap-6 text-stone-600 font-medium">
+        <a href="#menu-section" class="hover:underline">Cardápio</a>
+        <a href="#offers-section" class="hover:underline">Ofertas</a>
+        <a href="https://wa.me/5511999998888" target="_blank" class="hover:underline">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: LÓGICA E INTERATIVIDADE COMPLETA             -->
+  <!-- ======================================================== -->
+  <script>
+    let bag = [
+      { name: '8 Pcs Chicken Bucket', price: 24.99, img: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=400&q=80', qty: 1 },
+      { name: 'Zinger Burger Combo', price: 9.99, img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80', qty: 1 }
+    ];
+
+    let discountPercentage = 0.30;
+
+    function addToBag(name, price, img) {
+      const existing = bag.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        bag.push({ name, price, img, qty: 1 });
+      }
+      renderBag();
+      showToast(`+1 ${name} adicionado à sacola!`);
+    }
+
+    function changeQty(name, delta) {
+      const item = bag.find(i => i.name === name);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          bag = bag.filter(i => i.name !== name);
+        }
+      }
+      renderBag();
+    }
+
+    function renderBag() {
+      const totalCount = bag.reduce((acc, i) => acc + i.qty, 0);
+      document.getElementById('header-bag-count').innerText = totalCount;
+      const centerBadge = document.getElementById('center-bag-badge');
+      if (centerBadge) centerBadge.innerText = totalCount;
+
+      const container = document.getElementById('bag-items-list');
+      if (bag.length === 0) {
+        container.innerHTML = '<p class="text-xs text-stone-400 text-center py-10">Sua sacola está vazia.<br>Escolha um combo delicioso!</p>';
+        document.getElementById('bag-subtotal-val').innerText = '$0.00';
+        document.getElementById('bag-discount-val').innerText = '-$0.00';
+        document.getElementById('bag-total-val').innerText = '$0.00';
+        return;
+      }
+
+      let subtotal = 0;
+      let html = '';
+
+      bag.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        html += `
+          <div class="flex items-center justify-between p-3 bg-stone-50 rounded-2xl border border-stone-100">
+            <div class="flex items-center gap-3">
+              <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover" />
+              <div>
+                <h5 class="font-display font-bold text-xs text-stone-900 line-clamp-1">${item.name}</h5>
+                <span class="text-xs font-black text-[#E4002B]">$${item.price.toFixed(2)}</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="changeQty('${item.name}', -1)" class="w-6 h-6 rounded-lg bg-stone-200 text-stone-700 text-xs font-bold tap-effect">-</button>
+              <span class="text-xs font-bold w-4 text-center font-mono">${item.qty}</span>
+              <button onclick="changeQty('${item.name}', 1)" class="w-6 h-6 rounded-lg bg-stone-200 text-stone-700 text-xs font-bold tap-effect">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      const discount = subtotal * discountPercentage;
+      const total = subtotal - discount;
+
+      document.getElementById('bag-subtotal-val').innerText = `$${subtotal.toFixed(2)}`;
+      document.getElementById('bag-discount-val').innerText = `-$${discount.toFixed(2)}`;
+      document.getElementById('bag-total-val').innerText = `$${total.toFixed(2)}`;
+    }
+
+    function toggleBagDrawer(open) {
+      const drawer = document.getElementById('bag-drawer');
+      if (open) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    function toggleFavorite(btn) {
+      const svg = btn.querySelector('svg');
+      btn.classList.add('heart-bounce');
+      setTimeout(() => btn.classList.remove('heart-bounce'), 350);
+
+      if (svg.getAttribute('fill') === 'currentColor') {
+        svg.setAttribute('fill', 'none');
+        svg.classList.remove('text-[#E4002B]');
+        showToast('Removido dos favoritos');
+      } else {
+        svg.setAttribute('fill', 'currentColor');
+        svg.classList.add('text-[#E4002B]');
+        showToast('Salvo nos seus favoritos! ❤️');
+      }
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-pill').forEach(pill => {
+        const circle = pill.querySelector('.cat-circle');
+        const label = pill.querySelector('.cat-label');
+        if (pill.getAttribute('data-category') === cat) {
+          circle.classList.add('border-[#E4002B]', 'border-2');
+          circle.classList.remove('border-[#EFECE6]', 'border');
+          label.classList.add('text-[#E4002B]', 'font-bold');
+          label.classList.remove('text-stone-600', 'font-medium');
+        } else {
+          circle.classList.remove('border-[#E4002B]', 'border-2');
+          circle.classList.add('border-[#EFECE6]', 'border');
+          label.classList.remove('text-[#E4002B]', 'font-bold');
+          label.classList.add('text-stone-600', 'font-medium');
+        }
+      });
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.classList.contains(cat)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function handleSearch(query) {
+      const term = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name') || '';
+        if (name.includes(term)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function copyCouponCode(code) {
+      navigator.clipboard.writeText(code);
+      showToast(`Cupom ${code} copiado! 30% OFF aplicado.`);
+      discountPercentage = 0.30;
+      renderBag();
+    }
+
+    function scrollToMenu() {
+      document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function checkoutViaWhatsApp() {
+      if (bag.length === 0) {
+        alert('Sua sacola está vazia!');
+        return;
+      }
+
+      let msg = `🍗 *PEDIDO KFC — DELIVERY OFICIAL*\n\n`;
+      let subtotal = 0;
+
+      bag.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        msg += `• ${item.qty}x ${item.name} — $${itemTotal.toFixed(2)}\n`;
+      });
+
+      const discount = subtotal * discountPercentage;
+      const total = subtotal - discount;
+
+      msg += `\n*Subtotal:* $${subtotal.toFixed(2)}`;
+      msg += `\n*Cupom KFC30 (30% OFF):* -$${discount.toFixed(2)}`;
+      msg += `\n*Entrega:* GRÁTIS`;
+      msg += `\n*Total a Pagar:* $${total.toFixed(2)}`;
+      msg += `\n\nPor favor, confirmem o envio e o tempo estimado!`;
+
+      const url = `https://wa.me/5511999998888?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    function showToast(text) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed top-6 right-6 z-50 bg-stone-900 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2 animate-bounce';
+      toast.innerHTML = `<span>🍗</span> <span>${text}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2400);
+    }
+
+    renderBag();
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('section').forEach(sec => {
+          gsap.from(sec, {
+            opacity: 0.9,
+            y: 15,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 88%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">SmashBurger Artesanal</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20burgers%20artesanais." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

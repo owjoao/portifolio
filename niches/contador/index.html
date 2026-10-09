@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vértice Contabilidade Digital | Economia Tributária & Gestão Financeira Inteligente</title>
+  <meta name="description" content="Reduza até 45% dos impostos da sua empresa com planejamento tributário consultivo, BPO financeiro e contabilidade 100% digital. Abertura e migração grátis." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0B111E',
+              card: '#FFFFFF',
+              cardHover: '#F8FAFC',
+              border: '#E2E8F0',
+              emerald: '#059669',
+              emeraldLight: '#10B981',
+              cyan: '#0284C7',
+              gold: '#D97706',
+              primary: '#059669'
+            }
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Exata Contábil & Consultoria Fiscal",
+  "description": "Contabilidade consultiva, abertura rápida de empresas, planejamento tributário e redução legal de impostos.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/contador/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Top Strip Clean Light -->
+  <aside class="bg-slate-900 border-b border-slate-800 py-2.5 px-4 text-xs font-semibold text-slate-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3 text-emerald-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="hidden sm:inline">CRC Ativo SP-084920/O • Dr. Carlos Drummond • Auditoria & Inteligência Tributária</span>
+        <span class="sm:hidden">CRC SP-084920/O • Dr. Carlos Drummond</span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="text-white hover:text-emerald-400 transition flex items-center gap-1.5 font-bold" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> (32) 99929-2311
+      </a>
+    </div>
+  </aside>
+
+  <!-- Clean Light Header with Accountant Identity -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Persona Identity -->
+      <a href="index.html" class="flex items-center gap-3.5 group shrink-0">
+        <div class="relative w-12 h-12 rounded-2xl overflow-hidden border-2 border-emerald-600/80 shadow-md shadow-emerald-950/10 group-hover:scale-105 group-hover:border-emerald-600 transition-all duration-300 shrink-0 bg-slate-100">
+          <img src="assets/contador-perfil.jpg" alt="Dr. Carlos Drummond - Contador e Consultor Tributário" class="w-full h-full object-cover object-top" />
+          <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white ring-1 ring-emerald-400/40" title="Dr. Carlos Drummond disponível para consultoria"></span>
+        </div>
+        <div class="flex flex-col">
+          <div class="font-mono font-black text-xl sm:text-2xl text-slate-900 tracking-tight flex items-center gap-2">
+            DR. CARLOS DRUMMOND
+          </div>
+          <span class="text-[9.5px] font-mono tracking-widest uppercase text-emerald-700 font-bold -mt-0.5 flex items-center gap-1.5">
+            <span>CRC SP-084920/O</span>
+            <span class="text-slate-300">•</span>
+            <span class="text-slate-500 font-sans normal-case tracking-normal font-semibold">Vértice Contabilidade Digital</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Bar -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-700">
+        <a href="#sobre" class="hover:text-emerald-700 transition-colors flex items-center gap-1">
+          <span>O Contador</span>
+        </a>
+        <a href="#simulador" class="hover:text-emerald-700 transition-colors">Simulador</a>
+        <a href="#servicos" class="hover:text-emerald-700 transition-colors">Soluções</a>
+        <a href="#planos" class="hover:text-emerald-700 transition-colors">Planos & Preços</a>
+        <a href="#comparativo-originkit" class="hover:text-emerald-700 transition-colors">Diferenciais</a>
+        <a href="#localizacao" class="hover:text-emerald-700 transition-colors">Sede</a>
+      </nav>
+
+      <!-- Action Group -->
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="shimmer-btn px-4 sm:px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-emerald-600/20 transition transform hover:scale-105 flex items-center gap-2" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span class="hidden sm:inline">Diagnóstico Gratuito</span>
+          <span class="sm:hidden">Consultar</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="contador-menu-toggle" aria-label="Abrir Menu de Navegação" class="lg:hidden p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="contador-mobile-drawer" class="fixed inset-0 z-[100] bg-white/98 backdrop-blur-2xl transition-all duration-300 lg:hidden flex flex-col p-6 overflow-y-auto pointer-events-none opacity-0">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-200">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl overflow-hidden border border-emerald-600 shadow-sm shrink-0">
+          <img src="assets/contador-perfil.jpg" alt="Dr. Carlos Drummond" class="w-full h-full object-cover object-top" />
+        </div>
+        <div>
+          <span class="font-mono font-black text-lg text-slate-900 block">Dr. Carlos Drummond</span>
+          <span class="text-[10px] font-mono text-emerald-700 font-bold">CRC SP-084920/O</span>
+        </div>
+      </div>
+      <button id="contador-drawer-close" aria-label="Fechar Menu" class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div class="py-6 flex flex-col gap-4 text-base font-bold text-slate-800">
+      <a href="#sobre" class="contador-mobile-link flex items-center justify-between py-2.5 border-b border-slate-100 hover:text-emerald-700">
+        <span>O Contador Dr. Carlos Drummond</span>
+        <i class="fa-solid fa-chevron-right text-xs text-emerald-600"></i>
+      </a>
+      <a href="#simulador" class="contador-mobile-link flex items-center justify-between py-2.5 border-b border-slate-100 hover:text-emerald-700">
+        <span>Simulador de Economia de Impostos</span>
+        <i class="fa-solid fa-calculator text-xs text-emerald-600"></i>
+      </a>
+      <a href="#servicos" class="contador-mobile-link flex items-center justify-between py-2.5 border-b border-slate-100 hover:text-emerald-700">
+        <span>Soluções Contábeis & BPO</span>
+        <i class="fa-solid fa-chevron-right text-xs text-emerald-600"></i>
+      </a>
+      <a href="#planos" class="contador-mobile-link flex items-center justify-between py-2.5 border-b border-slate-100 hover:text-emerald-700">
+        <span>Planos Mensais Transparentes</span>
+        <i class="fa-solid fa-chevron-right text-xs text-emerald-600"></i>
+      </a>
+      <a href="#comparativo-originkit" class="contador-mobile-link flex items-center justify-between py-2.5 border-b border-slate-100 hover:text-emerald-700">
+        <span>Matriz Comparativa de Valor</span>
+        <i class="fa-solid fa-chevron-right text-xs text-emerald-600"></i>
+      </a>
+      <a href="#localizacao" class="contador-mobile-link flex items-center justify-between py-2.5 border-b border-slate-100 hover:text-emerald-700">
+        <span>Sede na Av. Paulista</span>
+        <i class="fa-solid fa-chevron-right text-xs text-emerald-600"></i>
+      </a>
+    </div>
+
+    <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+      <div class="text-xs text-slate-500 font-mono text-center">Atendimento Consultivo: (32) 99929-2311</div>
+      <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-emerald-600 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Falar no WhatsApp com o Dr. Carlos</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section (Clean White & Slate) -->
+  <section class="reveal relative py-16 md:py-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white to-slate-50">
+    <div class="absolute inset-0 pointer-events-none opacity-40">
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 -right-32 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column (Text & Value Prop) -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Atendimento Consultivo pelo WhatsApp • Dr. Carlos Drummond</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-6 font-mono">
+            Sua Empresa Pagando o <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Mínimo de Imposto Legal.</span>
+          </h1>
+
+          <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal">
+            Deixe no passado guias atrasadas e falta de resposta. Nós fazemos o enquadramento tributário cirúrgico (Fator R, Simples Nacional, Lucro Presumido) para sua empresa reter o lucro máximo todo mês com segurança jurídica absoluta.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="#simulador" class="shimmer-btn px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/25 text-center flex items-center justify-center gap-2 transition transform hover:scale-105">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Calcular Minha Economia de Impostos</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs uppercase tracking-wider border border-slate-300 shadow-sm text-center flex items-center justify-center gap-2 transition" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-emerald-600 text-base"></i>
+              <span>Falar com o Dr. Carlos</span>
+            </a>
+          </div>
+
+          <!-- Proof Badges -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 text-center sm:text-left">
+            <div>
+              <div class="font-mono font-bold text-2xl text-emerald-700">R$ 4.2M+</div>
+              <div class="text-[11px] text-slate-500 font-medium">Economizados em Impostos</div>
+            </div>
+            <div>
+              <div class="font-mono font-bold text-2xl text-slate-900">48h</div>
+              <div class="text-[11px] text-slate-500 font-medium">Prazo Médio Abertura CNPJ</div>
+            </div>
+            <div>
+              <div class="font-mono font-bold text-2xl text-teal-700 counter-up" data-target="99.4%">99.4%</div>
+              <div class="text-[11px] text-slate-500 font-medium">Empresas Satisfeitas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Quick Card / Feature Widget (Clean Light Style) -->
+        <div class="lg:col-span-5">
+          <div class="card-lift bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-xl relative">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+              <div class="flex items-center gap-2.5">
+                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="font-mono text-xs font-bold text-slate-800">Painel de Conformidade Vértice</span>
+              </div>
+              <span class="text-[10px] font-mono uppercase bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200 font-bold">Tempo Real</span>
+            </div>
+
+            <div class="space-y-3.5">
+              <!-- Item 1 -->
+              <div class="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/70 border border-slate-200/80 flex items-center justify-between transition">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold shadow-sm">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-900">Emissão de NF-e Automatizada</div>
+                    <div class="text-[10px] text-slate-500">Sem limite de notas fiscais por mês</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-emerald-700 font-mono bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Incluso</span>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/70 border border-slate-200/80 flex items-center justify-between transition">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-sm font-bold shadow-sm">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-900">Otimização Fator R (Anexo III)</div>
+                    <div class="text-[10px] text-slate-500">Alíquota cai de 15,5% para 6%</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-sky-700 font-mono bg-sky-50 px-2 py-0.5 rounded border border-sky-200">-61% Alíq.</span>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/70 border border-slate-200/80 flex items-center justify-between transition">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-sm font-bold shadow-sm">
+                    <i class="fa-solid fa-receipt"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-900">Controle de Guias & DARF</div>
+                    <div class="text-[10px] text-slate-500">Zero multas fiscais por atraso</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-emerald-700 font-mono bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">100% Seguro</span>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/70 border border-slate-200/80 flex items-center justify-between transition">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-sm font-bold shadow-sm">
+                    <i class="fa-solid fa-comments-dollar"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-900">Gerente de Conta Dedicado</div>
+                    <div class="text-[10px] text-slate-500">Atendimento direto pelo WhatsApp</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-slate-700 font-mono bg-purple-50 px-2 py-0.5 rounded border border-purple-200">&lt; 15 min</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs text-slate-500">Quer migrar sua contabilidade?</span>
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 hover:underline" rel="noopener noreferrer">
+                Migre em 3 Passos <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Animation Bar (Clean Light) -->
+  <div class="py-5 bg-white border-y border-slate-200 overflow-hidden shadow-xs">
+    <div class="flex gap-8 whitespace-nowrap animate-marquee">
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Abertura de Empresa CNPJ Grátis</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2"><i class="fa-solid fa-shield text-sky-600"></i> Planejamento Tributário Cirúrgico</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2"><i class="fa-solid fa-laptop-code text-emerald-600"></i> Especialistas em TI & Startups</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2"><i class="fa-solid fa-user-doctor text-sky-600"></i> Médicos, Clínicas & Saúde</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-emerald-600"></i> E-commerce & Infoprodutos</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-700 flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar text-sky-600"></i> BPO Financeiro & Conciliação Diária</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO APRESENTAÇÃO: DR. CARLOS DRUMMOND & FORMAÇÕES (PESSOA COM FORMAÇÕES) -->
+  <!-- ========================================================================= -->
+  <section id="sobre" class="py-20 md:py-28 bg-white border-b border-slate-200/90 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+          Responsável Técnico & Liderança
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4 font-mono">
+          Conheça Seu Contador & <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Conselheiro Tributário Estratégico</span>
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-4 max-w-2xl mx-auto">
+          Por trás de cada guia e estratégia tributária, existe um profissional de referência com sólida formação acadêmica, rigor técnico e foco no crescimento do seu patrimônio.
+        </p>
+      </div>
+
+      <!-- Side-by-Side Presentation Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Portrait & Highlights -->
+        <div class="lg:col-span-5">
+          <div class="relative group">
+            <!-- Glow background -->
+            <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500/20 to-sky-500/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
+            
+            <div class="relative bg-white p-3 rounded-3xl border border-slate-200/90 shadow-2xl overflow-hidden">
+              <div class="aspect-[4/5] rounded-2xl overflow-hidden relative bg-slate-100">
+                <img 
+                  src="assets/contador-perfil.jpg" 
+                  alt="Dr. Carlos Drummond - Contador Sênior e Especialista Tributário" 
+                  class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700" 
+                />
+                
+                <!-- Floating badge on image -->
+                <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-900 shadow-md flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>Dr. Carlos Drummond</span>
+                </div>
+
+                <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-white/10 text-white flex items-center justify-between shadow-xl">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-emerald-400 block tracking-wider font-mono">Registro Ativo</span>
+                    <span class="font-mono font-bold text-sm text-white">CRC SP-084920/O</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 font-bold text-[11px] font-mono">
+                    +15 Anos de Atuação
+                  </span>
+                </div>
+              </div>
+
+              <!-- Quick Sub-stats -->
+              <div class="grid grid-cols-2 gap-3 pt-3 text-center">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <span class="font-mono font-black text-xl text-slate-900 block">+1.200</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Empresas Assessoradas</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <span class="font-mono font-black text-xl text-emerald-700 block">R$ 4.2M+</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Economizados p/ Clientes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Biography & Academic Qualifications List -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold font-mono">
+              <i class="fa-solid fa-graduation-cap"></i> Currículo & Formações Oficiais
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight font-mono">
+              Dr. Carlos Drummond, B.Sc., MBA
+            </h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Com mais de 15 anos liderando estratégias de governança contábil, auditoria fiscal preventiva e elisão tributária para médias e pequenas empresas, Dr. Carlos alia precisão contábil e consultoria próxima para garantir segurança patrimonial aos sócios.
+            </p>
+          </div>
+
+          <!-- Academic & Professional Qualifications Cards -->
+          <div class="space-y-3 pt-2">
+            
+            <!-- Qualification 1 -->
+            <div class="p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 flex items-start gap-4 transition shadow-xs">
+              <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold shrink-0 mt-0.5">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-slate-900">Bacharelado em Ciências Contábeis</h4>
+                  <span class="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Graduação USP</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Formado com distinção acadêmica, com registro originário definitivo no Conselho Regional de Contabilidade (CRC SP-084920/O).
+                </p>
+              </div>
+            </div>
+
+            <!-- Qualification 2 -->
+            <div class="p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 flex items-start gap-4 transition shadow-xs">
+              <div class="w-11 h-11 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-lg font-bold shrink-0 mt-0.5">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-slate-900">Pós-Graduação em Direito & Planejamento Tributário</h4>
+                  <span class="text-[11px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">FGV Direito</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Especialização aplicada à redução legal da carga tributária corporativa (Elisão Fiscal, Simples Nacional, Lucro Presumido e Fator R).
+                </p>
+              </div>
+            </div>
+
+            <!-- Qualification 3 -->
+            <div class="p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 flex items-start gap-4 transition shadow-xs">
+              <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold shrink-0 mt-0.5">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-slate-900">MBA Executivo em Controladoria, Finanças & Auditoria</h4>
+                  <span class="text-[11px] font-mono font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Insper / Saint Paul</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Foco em inteligência de dados, fluxo de caixa avançado, BPO financeiro e valuation para tomada de decisão em negócios de alto crescimento.
+                </p>
+              </div>
+            </div>
+
+            <!-- Qualification 4 -->
+            <div class="p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/90 flex items-start gap-4 transition shadow-xs">
+              <div class="w-11 h-11 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-lg font-bold shrink-0 mt-0.5">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-slate-900">Certificações em SPED Digital & Compliance Fiscal</h4>
+                  <span class="text-[11px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">CFC / Ibracon</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Acreditação técnica contínua para cruzamento de dados com a Receita Federal e blindagem contra autuações e multas tributárias.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20conversar%20diretamente%20com%20o%20senhor%20sobre%20a%20contabilidade%20da%20minha%20empresa." target="_blank" class="shimmer-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/20 text-center flex items-center justify-center gap-2 transition transform hover:scale-105" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Agendar Reunião com o Dr. Carlos</span>
+            </a>
+            <span class="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5">
+              <i class="fa-solid fa-shield-check text-emerald-600"></i> Atendimento sigiloso sob rígido código de ética do CFC.
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Tax & Economy Simulator Section (Clean Light) -->
+  <section id="simulador" class="py-20 md:py-28 border-b border-slate-200/90 relative bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+          Simulador Dinâmico de Economia
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4 font-mono">
+          Descubra Quanto Você Pode <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Economizar em Impostos Todo Mês</span>
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-4">
+          Ajuste seu faturamento e atividade para ver uma estimativa real da redução de impostos com a estruturação tributária correta.
+        </p>
+      </div>
+
+      <!-- Simulator Box -->
+      <div class="card-lift bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Controls -->
+          <div class="space-y-6">
+            <!-- Segment Select -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                1. Qual é o seu segmento de atuação?
+              </label>
+              <select id="sim-segment" onchange="calculateTaxes()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-emerald-500 focus:bg-white focus:outline-none transition font-medium">
+                <option value="ti" selected>TI, Desenvolvedor & Negócios Digitais</option>
+                <option value="saude">Médicos, Dentistas & Saúde</option>
+                <option value="servicos">Engenharia, Consultoria & Serviços Gerais</option>
+                <option value="comercio">Comércio Físico ou E-commerce</option>
+                <option value="advocacia">Advogados & Escritórios Jurídicos</option>
+              </select>
+            </div>
+
+            <!-- Current Regime -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                2. Como você tributa atualmente?
+              </label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="setRegime('pf', this)" class="regime-btn py-2.5 px-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 hover:border-emerald-500 hover:bg-emerald-50/50 transition text-center" data-val="pf">
+                  Pessoa Física (Carnê Leão)
+                </button>
+                <button type="button" onclick="setRegime('simples_sem_fator', this)" class="regime-btn py-2.5 px-2 rounded-xl border-2 border-emerald-600 bg-emerald-50 text-xs font-bold text-emerald-800 transition text-center" data-val="simples_sem_fator">
+                  Simples (Sem Fator R)
+                </button>
+                <button type="button" onclick="setRegime('presumido', this)" class="regime-btn py-2.5 px-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold text-slate-700 hover:border-emerald-500 hover:bg-emerald-50/50 transition text-center" data-val="presumido">
+                  Lucro Presumido
+                </button>
+              </div>
+            </div>
+
+            <!-- Revenue Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  3. Faturamento Mensal Estimado:
+                </label>
+                <span id="slider-rev-display" class="font-mono font-bold text-base text-emerald-700">R$ 25.000 /mês</span>
+              </div>
+              <input type="range" id="sim-revenue" min="5000" max="150000" step="5000" value="25000" oninput="calculateTaxes()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600" />
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono mt-1 font-semibold">
+                <span>R$ 5.000</span>
+                <span>R$ 75.000</span>
+                <span>R$ 150.000+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Display -->
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 flex flex-col justify-between text-white shadow-lg">
+            <div class="text-center pb-6 border-b border-slate-800">
+              <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block mb-1">Economia Estimada por Mês:</span>
+              <div id="sim-economy-month" class="text-3xl sm:text-4xl font-mono font-black text-emerald-400">
+                R$ 2.375,00
+              </div>
+              <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-bold font-mono">
+                <i class="fa-solid fa-piggy-bank"></i>
+                <span id="sim-economy-year">Economia de R$ 28.500,00 por ano</span>
+              </div>
+            </div>
+
+            <div class="py-4 space-y-2 text-xs font-mono">
+              <div class="flex justify-between text-slate-400">
+                <span>Imposto Estimado Atual:</span>
+                <span id="sim-current-tax" class="text-rose-400 font-bold">R$ 3.875,00 (15,5%)</span>
+              </div>
+              <div class="flex justify-between text-slate-300">
+                <span>Com Planejamento Dr. Carlos:</span>
+                <span id="sim-vertice-tax" class="text-emerald-400 font-bold">R$ 1.500,00 (6,0%)</span>
+              </div>
+              <div class="flex justify-between text-slate-400 text-[11px] pt-1">
+                <span>Estratégia Recomendada:</span>
+                <span id="sim-strategy" class="text-white font-sans font-semibold">Simples Nacional c/ Fator R</span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800">
+              <a id="sim-whatsapp-btn" href="#" target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/30 text-center flex items-center justify-center gap-2 transition" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Garantir Essa Economia com Dr. Carlos</span>
+              </a>
+              <span class="block text-center text-[10px] text-slate-400 mt-2">Diagnóstico inicial gratuito e sem compromisso.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services / Solutions Section -->
+  
+  <!-- ========================================================================= -->
+  <!-- DASHBOARDS FISCAIS & AUDITORIA CORPORATIVA (CLEAN LIGHT DESIGN)           -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-white border-b border-slate-200/90 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="card-lift bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-lg">
+        <div class="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] border border-slate-200 shadow-md group">
+          <img 
+            src="assets/contador-escritorio.jpg" 
+            alt="Contador e diretor financeiro trabalhando em mesa executiva com monitores 4K exibindo dashboards fiscais e vista panorâmica da cidade" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            loading="lazy" 
+            decoding="async"
+          />
+          <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-900 shadow-sm">
+            <i class="fa-solid fa-chart-line mr-1.5 text-emerald-600"></i> Inteligência Tributária & Dashboards em Tempo Real
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-slate-200 text-slate-900 flex items-center justify-between text-xs shadow-md">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Redução Legal de Impostos (Elisão Fiscal)</span>
+              <span class="font-bold text-sm text-slate-900">Simples Nacional, Lucro Presumido & Real</span>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200">-32% Impostos</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider font-mono">
+            <i class="fa-solid fa-calculator"></i> Gestão Contábil Estratégica
+          </div>
+          <h2 class="font-mono font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-snug">
+            Chega de Pagar Imposto Indevido e Multas da Receita
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Auditamos sua folha de pagamento, notas fiscais e enquadramento tributário para encontrar créditos recuperáveis e migrar sua empresa para o regime mais econômico com segurança jurídica absoluta.
+          </p>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+              <div class="text-emerald-700 font-mono font-black text-2xl counter-up" data-target="+1.200">+1.200</div>
+              <div class="text-[11px] text-slate-500 font-medium mt-0.5">Empresas Atendidas</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+              <div class="text-teal-700 font-mono font-black text-2xl counter-up" data-target="100%">100%</div>
+              <div class="text-[11px] text-slate-500 font-medium mt-0.5">Zero Multas Fiscais</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+              <div class="text-slate-900 font-mono font-black text-2xl">R$ 0</div>
+              <div class="text-[11px] text-slate-500 font-medium mt-0.5">Troca de Contador</div>
+            </div>
+          </div>
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20fazer%20um%20diagn%C3%B3stico%20tribut%C3%A1rio%20gratuito." target="_blank" class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/20 transition transform hover:scale-105" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <span>Fazer Diagnóstico Tributário Gratuito</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Solutions Section (Clean Light) -->
+  <section id="servicos" class="py-20 md:py-28 bg-[#F8FAFC] border-b border-slate-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+          Serviços de Alto Nível
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4 font-mono">
+          Muito Mais do que Entregar Guias. <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Sua Estratégia de Crescimento.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-500 hover:shadow-lg transition group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition shadow-xs">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <h3 class="font-mono font-bold text-xl text-slate-900 mb-3">Contabilidade Completa & Consultiva</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Balancetes mensais explicados em linguagem simples, conciliação contábil, folhas de pagamento sem erro e cumprimento de todas as obrigações fiscais perante a Receita Federal.
+          </p>
+          <ul class="space-y-2.5 text-xs text-slate-700 font-medium">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Livro Razão e Diário Digital</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Relatórios DRE & Balanço Anual</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Assessoria para obtenção de crédito</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-lift bg-white p-8 rounded-3xl border-2 border-emerald-500 relative shadow-xl shadow-emerald-500/5 group">
+          <div class="absolute -top-3 right-6 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
+            Mais Procurado
+          </div>
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition shadow-xs">
+            <i class="fa-solid fa-sack-dollar"></i>
+          </div>
+          <h3 class="font-mono font-bold text-xl text-slate-900 mb-3">BPO Financeiro (Gestão Terceirizada)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Assumimos o contas a pagar, contas a receber, conciliação bancária diária e emissão de notas. Você economiza o custo de um funcionário interno e ganha precisão milimétrica.
+          </p>
+          <ul class="space-y-2.5 text-xs text-slate-700 font-medium">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Agendamento de pagamentos no banco</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Cobrança ativa de inadimplentes</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Fluxo de caixa semanal atualizado</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-500 hover:shadow-lg transition group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition shadow-xs">
+            <i class="fa-solid fa-building-circle-check"></i>
+          </div>
+          <h3 class="font-mono font-bold text-xl text-slate-900 mb-3">Abertura de Empresa & Alteração</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Abra seu CNPJ em até 48 horas úteis com contrato social blindado e escolha perfeita do CNAE para pagar a menor alíquota possível desde o primeiro dia.
+          </p>
+          <ul class="space-y-2.5 text-xs text-slate-700 font-medium">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600"></i> Honorários de abertura 100% grátis</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600"></i> Inscrição Municipal e Alvará</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600"></i> Certificado Digital e-CNPJ facilitado</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pricing Plans Section (Clean Light) -->
+  <section id="planos" class="py-20 md:py-28 border-b border-slate-200/90 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+          Transparência Total
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4 font-mono">
+          Planos Sem Taxas Ocultas. <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Escolha o Ideal para Seu Porte.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Plan 1 -->
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 flex flex-col justify-between shadow-xs">
+          <div>
+            <span class="text-xs font-mono font-bold text-slate-500 uppercase">Profissional & MEI</span>
+            <h3 class="font-mono font-bold text-2xl text-slate-900 mt-1 mb-3">Plano Start</h3>
+            <p class="text-slate-600 text-xs mb-6">Ideal para MEIs em transição para ME ou profissionais liberais autônomos.</p>
+            
+            <div class="mb-6 font-mono">
+              <span class="text-slate-500 text-xs font-medium">A partir de</span>
+              <div class="text-4xl font-black text-slate-900">R$ 149<span class="text-base text-slate-500 font-normal">/mês</span></div>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-700 border-t border-slate-200 pt-6 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Até 1 pró-labore incluso</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Emissão de DAS e declarações obrigatórias</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Emissor de Notas Fiscais gratuito</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Atendimento via WhatsApp e E-mail</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20contratar%20o%20Plano%20Start%20para%20minha%20empresa." target="_blank" class="w-full py-3.5 rounded-xl border border-slate-300 hover:border-emerald-600 bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs uppercase tracking-wider text-center block transition shadow-xs" rel="noopener noreferrer">
+            Contratar Plano Start
+          </a>
+        </div>
+
+        <!-- Plan 2 (Featured) -->
+        <div class="card-lift bg-white p-8 rounded-3xl border-2 border-emerald-600 relative flex flex-col justify-between shadow-xl shadow-emerald-500/10 scale-105 z-10">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-black uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
+            Mais Recomendado
+          </div>
+          <div>
+            <span class="text-xs font-mono font-bold text-emerald-700 uppercase">Simples Nacional & Lucro Presumido</span>
+            <h3 class="font-mono font-bold text-2xl text-slate-900 mt-1 mb-3">Plano Crescimento</h3>
+            <p class="text-slate-600 text-xs mb-6">Para empresas prestadoras de serviço e comércio que precisam de planejamento tributário ativo.</p>
+            
+            <div class="mb-6 font-mono">
+              <span class="text-slate-500 text-xs font-medium">A partir de</span>
+              <div class="text-4xl font-black text-emerald-700">R$ 389<span class="text-base text-slate-500 font-normal">/mês</span></div>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-700 border-t border-slate-200 pt-6 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Gestão do Fator R (Redução tributária)</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Até 3 sócios/pró-labore inclusos</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Balancetes trimestrais com análise consultiva</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Gestor de conta exclusivo pelo WhatsApp</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Abertura ou migração 100% gratuita</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20contratar%20o%20Plano%20Crescimento%20para%20minha%20empresa." target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider text-center block shadow-lg shadow-emerald-600/25 transition" rel="noopener noreferrer">
+            Contratar Plano Crescimento
+          </a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 flex flex-col justify-between shadow-xs">
+          <div>
+            <span class="text-xs font-mono font-bold text-sky-700 uppercase">Contabilidade + BPO Financeiro</span>
+            <h3 class="font-mono font-bold text-2xl text-slate-900 mt-1 mb-3">Plano Gestão Total</h3>
+            <p class="text-slate-600 text-xs mb-6">Terceirização completa do seu setor financeiro com relatórios de diretoria.</p>
+            
+            <div class="mb-6 font-mono">
+              <span class="text-slate-500 text-xs font-medium">A partir de</span>
+              <div class="text-4xl font-black text-slate-900">R$ 890<span class="text-base text-slate-500 font-normal">/mês</span></div>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-700 border-t border-slate-200 pt-6 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Tudo do Plano Crescimento</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Contas a pagar e receber operados pelo Dr. Carlos</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Conciliação bancária diária via ERP</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Reunião mensal de alinhamento com Diretoria</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20conhecer%20o%20Plano%20Gest%C3%A3o%20Total%20para%20minha%20empresa." target="_blank" class="w-full py-3.5 rounded-xl border border-slate-300 hover:border-sky-600 bg-white hover:bg-slate-50 text-slate-900 font-bold text-xs uppercase tracking-wider text-center block transition shadow-xs" rel="noopener noreferrer">
+            Conhecer Gestão Total
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Accordion (Clean Light) -->
+  <section id="faq" class="py-20 md:py-28 border-b border-slate-200/90 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+          Perguntas Frequentes
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-4 font-mono">
+          Tudo O Que Você Precisa Saber
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Item 1 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-xs [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer text-slate-900 font-bold text-sm sm:text-base">
+            <span>É difícil trocar de contador? Minha contabilidade atual vai criar problemas?</span>
+            <span class="transition group-open:rotate-180 text-emerald-600"><i class="fa-solid fa-chevron-down"></i></span>
+          </summary>
+          <p class="text-slate-600 text-xs sm:text-sm mt-4 leading-relaxed">
+            Não é difícil e você não precisa se desgastar. Nós cuidamos de toda a transição: solicitamos o distrato, recolhemos os arquivos fiscais e SPEDs com seu antigo contador e regularizamos qualquer pendência. Tudo é feito de forma 100% digital e sem custos de migração.
+          </p>
+        </details>
+
+        <!-- Item 2 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-xs [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer text-slate-900 font-bold text-sm sm:text-base">
+            <span>O que é o Fator R e como ele reduz meus impostos?</span>
+            <span class="transition group-open:rotate-180 text-emerald-600"><i class="fa-solid fa-chevron-down"></i></span>
+          </summary>
+          <p class="text-slate-600 text-xs sm:text-sm mt-4 leading-relaxed">
+            Para diversas atividades de serviços (TI, consultoria, médicos, publicidade), o imposto no Simples Nacional começa em 15,5% (Anexo V). Com o cálculo estratégico do Fator R (folha de pagamento / pró-labore representando 28% do faturamento), sua empresa é enquadrada no Anexo III, reduzindo a alíquota inicial para apenas 6%. Uma economia de mais de 60%!
+          </p>
+        </details>
+
+        <!-- Item 3 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-xs [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer text-slate-900 font-bold text-sm sm:text-base">
+            <span>Quanto tempo demora para abrir um CNPJ?</span>
+            <span class="transition group-open:rotate-180 text-emerald-600"><i class="fa-solid fa-chevron-down"></i></span>
+          </summary>
+          <p class="text-slate-600 text-xs sm:text-sm mt-4 leading-relaxed">
+            Com nosso processo digital na Junta Comercial e Receita Federal, o CNPJ costuma sair entre 24 e 48 horas úteis após a assinatura digital dos sócios. Nós cuidamos de todo o processo burocrático e inscrições municipais.
+          </p>
+        </details>
+
+        <!-- Item 4 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-xs [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer text-slate-900 font-bold text-sm sm:text-base">
+            <span>Como funciona o atendimento no dia a dia?</span>
+            <span class="transition group-open:rotate-180 text-emerald-600"><i class="fa-solid fa-chevron-down"></i></span>
+          </summary>
+          <p class="text-slate-600 text-xs sm:text-sm mt-4 leading-relaxed">
+            Você terá um canal direto de WhatsApp com o Dr. Carlos Drummond e equipe técnica fiscal. Não usamos robôs nem filas infinitas de tickets. O tempo médio de resposta é de até 15 minutos em horário comercial.
+          </p>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Hotline (Clean Light / Deep Slate Accent) -->
+  <section class="reveal py-20 bg-slate-900 text-white border-b border-slate-800 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-6">
+        <i class="fa-solid fa-comments-dollar"></i>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 font-mono">
+        Pronto para Pagar Menos Impostos?
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base mb-8 max-w-xl mx-auto">
+        Envie uma mensagem agora e receba uma prévia de diagnóstico tributário com Dr. Carlos Drummond sem custo algum.
+      </p>
+      <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20um%20diagn%C3%B3stico%20tribut%C3%A1rio%20sem%20custo%20para%20minha%20empresa." target="_blank" class="shimmer-btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-emerald-500/30 transition transform hover:scale-105" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span>Falar com Dr. Carlos pelo WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM (CLEAN LIGHT)                 -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-white text-slate-900 border-b border-slate-200/90 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Gestão Contábil Estratégica</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-2">Relatórios em tempo real, assessoria para Simples Nacional, Lucro Presumido e BPO Financeiro.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/contador-hero.jpg" alt="Planejamento Tributário Inteligente" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Planejamento Tributário Inteligente</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Análise da carga tributária para enquadramento na opção mais econômica e 100% legal.</p>
+          </div>
+        </div>
+
+        <div class="card-lift bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/contador-laptop.jpg" alt="Plataforma 100% Digital em Nuvem" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Plataforma 100% Digital em Nuvem</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Acesso a holerites, guias de impostos e DRE da sua empresa a um clique no smartphone.</p>
+          </div>
+        </div>
+
+        <div class="card-lift bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/contador-charts.jpg" alt="BPO Financeiro & Fluxo de Caixa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">BPO Financeiro & Fluxo de Caixa</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Terceirização das contas a pagar, receber e conciliação bancária diária sem erros.</p>
+          </div>
+        </div>
+
+        <div class="card-lift bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/contador-meeting.jpg" alt="Consultoria Consultiva com Especialistas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Consultoria Consultiva com Especialistas</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Reuniões mensais de alinhamento com contadores seniores para decisões de crescimento.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (CLEAN LIGHT THEME)                   -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-slate-50 text-slate-900 border-b border-slate-200/90 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 font-mono">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-mono">
+          Por Que Escolher a Assessoria do Dr. Carlos Drummond?
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+          Contabilidade consultiva que economiza tributos de verdade e orienta suas decisões de crescimento.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-800">Escritórios Tradicionais / Burocráticos</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dores de cabeça e multas</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Apenas geram guias de impostos sem analisar a melhor opção tributária</span></li>
+              <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Demora de dias para responder dúvidas simples sobre notas fiscais</span></li>
+              <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Multas por atraso na entrega de obrigações acessórias por desorganização</span></li>
+              <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de relatórios financeiros e ausência de reuniões com especialistas</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos fiscais recorrentes para a empresa.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-white border-2 border-emerald-600 shadow-xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-emerald-600 text-white font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+            Economia Tributária Real
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-100 border border-emerald-300 text-emerald-800 flex items-center justify-center font-bold text-lg shadow-xs">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-slate-900">Dr. Carlos Drummond & Vértice</h3>
+                <span class="text-[11px] text-emerald-700 font-bold font-mono">CRC SP-084920/O • Compromisso com Seu Lucro</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+              <li class="flex items-start gap-3 text-slate-800 font-medium"><span class="font-black text-emerald-600">✓</span> <span>Planejamento tributário estratégico que reduz impostos de forma 100% legal</span></li>
+              <li class="flex items-start gap-3 text-slate-800 font-medium"><span class="font-black text-emerald-600">✓</span> <span>Atendimento ágil com canal direto no WhatsApp do contador e analista</span></li>
+              <li class="flex items-start gap-3 text-slate-800 font-medium"><span class="font-black text-emerald-600">✓</span> <span>Plataforma digital em nuvem para emissão de notas e acesso a relatórios e DRE</span></li>
+              <li class="flex items-start gap-3 text-slate-800 font-medium"><span class="font-black text-emerald-600">✓</span> <span>Abertura de empresas ágil em até 48 horas úteis com contrato social blindado</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-emerald-700 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-emerald-600"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="text-slate-900 hover:text-emerald-700 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FAQ RÁPIDO & DEPOIMENTOS VERIFICADOS (CLEAN LIGHT THEME)                  -->
+  <!-- ========================================================================= -->
+  <section id="faq-depoimentos" class="py-20 bg-white text-slate-900 border-b border-slate-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Dúvidas Rápidas</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 font-mono">Perguntas & Respostas Frequentes</h2>
+            <p class="text-xs text-slate-500 mt-1">Clique para ver os detalhes sobre transição, abertura e rotina fiscal.</p>
+          </div>
+          <div class="space-y-3">
+            
+            <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition">
+              <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-900 hover:text-emerald-700 transition">
+                <span>Como migrar de contador sem complicações?</span>
+                <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-500 transition-transform duration-300 ml-3 shrink-0"></i>
+              </button>
+              <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-600 border-t border-slate-200 pt-3 leading-relaxed">
+                Cuidamos de 100% da transição com seu contador anterior sem que você precise se preocupar com burocracia ou constrangimentos.
+              </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition">
+              <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-900 hover:text-emerald-700 transition">
+                <span>Quanto tempo leva para abrir um CNPJ?</span>
+                <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-500 transition-transform duration-300 ml-3 shrink-0"></i>
+              </button>
+              <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-600 border-t border-slate-200 pt-3 leading-relaxed">
+                Em média abrimos sua empresa em até 24 a 48 horas úteis com todas as licenças, enquadramento correto e certidões ativas.
+              </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50 transition">
+              <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-slate-900 hover:text-emerald-700 transition">
+                <span>Vocês atendem MEI, ME, EPP e Médios Negócios?</span>
+                <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-500 transition-transform duration-300 ml-3 shrink-0"></i>
+              </button>
+              <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-600 border-t border-slate-200 pt-3 leading-relaxed">
+                Sim! Temos planos sob medida para prestadores de serviços, médicos, desenvolvedores de software, consultores, e-commerces e clínicas.
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg space-y-6">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-slate-900 mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+              <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-xs text-slate-900">Roberto Silveira</span>
+                  <span class="text-xs text-amber-500">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="text-xs text-slate-600 italic leading-relaxed">"Economizamos mais de R$ 40 mil no primeiro ano apenas com o reenquadramento tributário do Dr. Carlos."</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-xs text-slate-900">Dra. Vanessa Luz</span>
+                  <span class="text-xs text-amber-500">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="text-xs text-slate-600 italic leading-relaxed">"Gestão contábil impecável da minha clínica médica. Dr. Carlos e equipe sempre disponíveis pelo WhatsApp."</p>
+              </div>
+              
+            </div>
+            <div class="pt-2 border-t border-slate-200">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio%20para%20minha%20empresa." target="_blank" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md transition transform hover:scale-[1.02]" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/90 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold mb-3 font-mono">
+          <i class="fa-solid fa-location-dot text-emerald-600"></i>
+          <span>Sede Executiva na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-mono font-black text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde Estamos Localizados
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+          Escritório contábil consultivo especializado em redução legal de impostos, abertura rápida de empresas e BPO financeiro sob a liderança do Dr. Carlos Drummond.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card (Clean Light) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 text-slate-800 shadow-xl border border-slate-200 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shadow-sm border border-emerald-200">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <div>
+                <span class="font-mono font-black text-lg text-slate-900 block">Vértice Contabilidade Digital</span>
+                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 block">Dr. Carlos Drummond • CRC SP-084920/O</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-slate-900 block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-600">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-slate-900 block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-600">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-sky-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-slate-900 block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-600">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-600 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-slate-900 block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-600">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-500 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-slate-900 block font-bold">Horário de Atendimento:</strong>
+                  <span class="text-slate-600">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-slate-900 hover:bg-black text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20da%20sede." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-emerald-200">
+              <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Vértice Contabilidade - Dr. Carlos Drummond"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clean Light Footer -->
+  <footer class="py-12 bg-white border-t border-slate-200 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold border border-emerald-200">
+          <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <div>
+          <span class="text-slate-900 font-mono font-bold block">Dr. Carlos Drummond • CRC SP-084920/O</span>
+          <span class="text-[10px] text-slate-400">Vértice Contabilidade Digital & Inteligência Tributária</span>
+        </div>
+      </div>
+      <div class="text-slate-500 font-mono">
+        CRC SP-084920/O • Todos os direitos reservados.
+      </div>
+      <div class="flex items-center gap-4 text-slate-500">
+        <a href="#sobre" class="hover:text-emerald-700 transition">O Contador</a>
+        <span>•</span>
+        <a href="#simulador" class="hover:text-emerald-700 transition">Simulador</a>
+        <span>•</span>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." class="hover:text-emerald-700 transition font-bold">(32) 99929-2311</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Tax Simulator & Mobile Drawer Toggle -->
+  <script>
+    // Mobile Drawer Handlers
+    const menuToggle = document.getElementById('contador-menu-toggle');
+    const drawerClose = document.getElementById('contador-drawer-close');
+    const drawer = document.getElementById('contador-mobile-drawer');
+
+    function openDrawer() {
+      if (drawer) {
+        drawer.classList.remove('pointer-events-none', 'opacity-0');
+        drawer.classList.add('pointer-events-auto', 'opacity-100');
+        document.body.classList.add('overflow-hidden');
+      }
+    }
+
+    function closeDrawer() {
+      if (drawer) {
+        drawer.classList.add('pointer-events-none', 'opacity-0');
+        drawer.classList.remove('pointer-events-auto', 'opacity-100');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    if (menuToggle) menuToggle.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+
+    document.querySelectorAll('.contador-mobile-link').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    let currentRegime = 'simples_sem_fator';
+
+    function setRegime(regime, el) {
+      currentRegime = regime;
+      document.querySelectorAll('.regime-btn').forEach(btn => {
+        btn.classList.remove('border-2', 'border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
+        btn.classList.add('border', 'border-slate-200', 'bg-slate-50', 'text-slate-700');
+      });
+      el.classList.add('border-2', 'border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
+      el.classList.remove('border', 'border-slate-200', 'bg-slate-50', 'text-slate-700');
+      calculateTaxes();
+    }
+
+    function calculateTaxes() {
+      const revenue = parseFloat(document.getElementById('sim-revenue').value);
+      const segment = document.getElementById('sim-segment').value;
+      
+      document.getElementById('slider-rev-display').textContent = 'R$ ' + revenue.toLocaleString('pt-BR') + ' /mês';
+
+      let currentTaxRate = 0.155; // Default Simples Anexo V 15.5%
+      let currentTaxName = 'Simples Anexo V (15,5%)';
+
+      if (currentRegime === 'pf') {
+        currentTaxRate = 0.275; // Carnê Leão ~27.5%
+        currentTaxName = 'IRPF Carnê-Leão (27,5%)';
+      } else if (currentRegime === 'presumido') {
+        currentTaxRate = 0.1633; // PIS/COFINS/IRPJ/CSLL/ISS ~16.33%
+        currentTaxName = 'Lucro Presumido (16,3%)';
+      } else {
+        currentTaxRate = 0.155;
+        currentTaxName = 'Simples Nacional (15,5%)';
+      }
+
+      // Vertice Optimized Rate
+      let verticeRate = 0.06; // Default Simples Anexo III 6.0%
+      let strategyText = 'Simples Nacional c/ Fator R (Anexo III)';
+
+      if (segment === 'comercio') {
+        verticeRate = 0.04; // Anexo I do Simples 4.0%
+        strategyText = 'Simples Nacional Anexo I (Comércio)';
+        if (currentRegime === 'simples_sem_fator') {
+          currentTaxRate = 0.085;
+          currentTaxName = 'Simples Sem Segregação (8,5%)';
+        }
+      } else if (segment === 'saude') {
+        verticeRate = 0.06;
+        strategyText = 'Equiparação Hospitalar / Fator R';
+      }
+
+      const currentTaxAmount = revenue * currentTaxRate;
+      const verticeTaxAmount = revenue * verticeRate;
+      const monthEconomy = Math.max(0, currentTaxAmount - verticeTaxAmount);
+      const yearEconomy = monthEconomy * 12;
+
+      document.getElementById('sim-current-tax').textContent = `R$ ${currentTaxAmount.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (${(currentTaxRate*100).toFixed(1)}%)`;
+      document.getElementById('sim-vertice-tax').textContent = `R$ ${verticeTaxAmount.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} (${(verticeRate*100).toFixed(1)}%)`;
+      document.getElementById('sim-economy-month').textContent = `R$ ${monthEconomy.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('sim-economy-year').textContent = `Economia de R$ ${yearEconomy.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} por ano`;
+      document.getElementById('sim-strategy').textContent = strategyText;
+
+      const segName = document.getElementById('sim-segment').options[document.getElementById('sim-segment').selectedIndex].text;
+      const msg = `Olá Dr. Carlos! Fiz uma simulação tributária no site:\n- Atividade: ${segName}\n- Faturamento: R$ ${revenue.toLocaleString('pt-BR')}/mês\n- Economia estimada: R$ ${monthEconomy.toLocaleString('pt-BR', {minimumFractionDigits: 2})}/mês (R$ ${yearEconomy.toLocaleString('pt-BR', {minimumFractionDigits: 2})}/ano)\nGostaria de entender como aplicar esse enquadramento na minha empresa!`;
+      document.getElementById('sim-whatsapp-btn').href = 'https://wa.me/5532999292311?text=' + encodeURIComponent(msg);
+    }
+
+    calculateTaxes();
+  </script>
+
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- FAQ Toggle Helper -->
+  <script>
+    function toggleFaqItem(btn) {
+      const parent = btn.parentElement;
+      const content = parent.querySelector('.faq-content');
+      const icon = parent.querySelector('.faq-icon');
+      if (content) {
+        content.classList.toggle('hidden');
+      }
+      if (icon) {
+        icon.classList.toggle('rotate-180');
+      }
+    }
+  </script>
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CLEAN LIGHT THEME)                              -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 px-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full overflow-hidden border border-emerald-600 shrink-0">
+          <img src="assets/contador-perfil.jpg" alt="Dr. Carlos Drummond" class="w-full h-full object-cover object-top" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-[10px] uppercase font-mono font-bold text-slate-900 leading-tight">Dr. Carlos Drummond</span>
+          <span class="text-[10px] text-emerald-700 font-bold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Online agora</span>
+          </span>
+        </div>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Dr.%20Carlos!%20Gostaria%20de%20uma%20consultoria%20cont%C3%A1bil%20para%20minha%20empresa." target="_blank" class="shimmer-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-emerald-600/20 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-sm"></i>
+        <span>Consultar</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

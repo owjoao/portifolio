@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoop's Ice Cream — Handcrafted Ice Cream &amp; Desserts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fffdf9; }
+    .font-brand { font-family: 'Fredoka', cursive, sans-serif; }
+    .hero-bg {
+      background: radial-gradient(circle at 75% 40%, #e0f7f6 0%, #fff7f9 55%, #fffdf9 100%);
+    }
+    .wavy-border {
+      background-image: radial-gradient(circle at 10px -5px, transparent 12px, #26a69a 13px);
+      background-size: 20px 20px;
+    }
+    .scoop-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scoop-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(255, 107, 139, 0.2);
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    .floating-cone {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+  </style>
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Sorveteria_app",
+    "description": "Atendimento profissional especializado em Sorveteria_app com agendamento rápido via WhatsApp.",
+    "telephone": "+55-32-99929-2311",
+    "url": "https://nexusflow.digital/sorveteria_app/",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+
+</head>
+<body class="text-slate-800 antialiased selection:bg-pink-200 selection:text-pink-900">
+
+  <!-- ========================================== -->
+  <!-- 1. TOP ANNOUNCEMENT BAR                    -->
+  <!-- ========================================== -->
+  <div class="bg-[#ffdbe2] text-[#c23b5d] text-[11px] sm:text-xs font-semibold py-2 px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-1.5 border-b border-pink-200/60">
+    <div class="flex items-center gap-4 flex-wrap justify-center">
+      <span class="flex items-center gap-1.5">
+        <span>📍</span> 123 Sweet Street, Los Angeles, CA 90001
+      </span>
+      <span class="hidden md:inline text-pink-300">&bull;</span>
+      <span class="flex items-center gap-1.5">
+        <span>🕒</span> Mon - Sun: 12:00 PM - 10:00 PM
+      </span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span>Follow Us:</span>
+      <div class="flex items-center gap-2 text-xs">
+        <a href="#" class="hover:opacity-75 transition-opacity">f</a>
+        <a href="#" class="hover:opacity-75 transition-opacity">📸</a>
+        <a href="#" class="hover:opacity-75 transition-opacity">♪</a>
+        <a href="#" class="hover:opacity-75 transition-opacity">𝕏</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 2. NAVBAR                                  -->
+  <!-- ========================================== -->
+  <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 shadow-sm px-4 sm:px-8 py-3.5 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="#" class="flex items-center gap-2.5 group">
+      <div class="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+        🍦
+      </div>
+      <div>
+        <div class="font-brand text-2xl font-bold tracking-tight text-[#17323a] leading-none">
+          SCOOP'S
+        </div>
+        <div class="text-[9px] font-bold tracking-widest text-[#ff6088] uppercase">
+          Ice Cream
+        </div>
+      </div>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wide text-slate-700 uppercase font-brand">
+      <a href="#" class="text-[#ff6088] border-b-2 border-[#ff6088] pb-0.5">HOME</a>
+      <a href="#flavors" class="hover:text-[#ff6088] transition-colors">FLAVORS</a>
+      <a href="#shop" class="hover:text-[#ff6088] transition-colors">SHOP</a>
+      <a href="#about" class="hover:text-[#ff6088] transition-colors">ABOUT US</a>
+      <a href="#locations" class="hover:text-[#ff6088] transition-colors">LOCATIONS</a>
+      <a href="#catering" class="hover:text-[#ff6088] transition-colors">CATERING</a>
+      <a href="#contact" class="hover:text-[#ff6088] transition-colors">CONTACT</a>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-3">
+      <button onclick="toggleCart()" class="relative p-2 rounded-full hover:bg-slate-100 text-slate-700 transition-colors">
+        <span class="text-base">🛍️</span>
+        <span id="cart-counter" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#ff6088] text-white text-[9px] font-bold flex items-center justify-center">0</span>
+      </button>
+      <button onclick="orderOnlineModal()" class="px-5 py-2.5 rounded-full bg-[#ff6088] hover:bg-[#ee4e77] text-white font-brand text-xs font-bold tracking-wider uppercase shadow-md shadow-pink-500/25 hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer">
+        <span>ORDER ONLINE</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 3. HERO SECTION                            -->
+  <!-- ========================================== -->
+  <section class="hero-bg pt-12 pb-20 px-4 sm:px-8 lg:px-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      
+      <!-- Left Copy -->
+      <div class="space-y-6 text-center lg:text-left">
+        <div class="inline-block text-xs font-bold font-brand tracking-widest text-[#ff6088] uppercase">
+          MADE FRESH. MADE HAPPY.
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl font-brand font-bold text-[#14323b] leading-[1.08] tracking-tight">
+          SCOOPS OF<br />
+          <span class="text-[#ff6088]">HAPPINESS</span>
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-600 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed">
+          Handcrafted ice cream made with real ingredients for real ice cream lovers.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex items-center justify-center lg:justify-start gap-4 pt-2">
+          <button onclick="orderOnlineModal()" class="px-7 py-3 rounded-full bg-[#ff6088] hover:bg-[#ee4e77] text-white font-brand text-xs sm:text-sm font-bold tracking-wider uppercase shadow-lg shadow-pink-500/25 transition-all cursor-pointer">
+            ORDER ONLINE 🛍️
+          </button>
+          <a href="#flavors" class="px-7 py-3 rounded-full bg-[#a3e5e0] hover:bg-[#8ddcd6] text-[#0d4540] font-brand text-xs sm:text-sm font-bold tracking-wider uppercase transition-all">
+            OUR FLAVORS
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Visual Cone (High-res waffle stack mockup) -->
+      <div class="relative flex justify-center items-center">
+        <!-- Floating Sprinkles & Glow -->
+        <div class="w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-pink-200/50 via-teal-100/60 to-amber-100/40 absolute blur-3xl -z-10"></div>
+        
+        <!-- Big Cone Graphic -->
+        <div class="floating-cone relative max-w-[360px] sm:max-w-[420px]">
+          <!-- Artistic Vector / Canvas Waffle Cone -->
+          <svg viewBox="0 0 400 480" class="w-full h-auto drop-shadow-2xl">
+            <!-- Waffle pattern cone base -->
+            <defs>
+              <pattern id="waffle" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="20" height="20" fill="#e89852" />
+                <path d="M 0,0 L 20,0 M 0,0 L 0,20" stroke="#c97b37" stroke-width="2.5" />
+              </pattern>
+              <linearGradient id="coneGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#f3b372" />
+                <stop offset="100%" stopColor="#bd6d2e" />
+              </linearGradient>
+            </defs>
+
+            <!-- Waffle Cone polygon -->
+            <polygon points="120,290 280,290 200,470" fill="url(#waffle)" stroke="#a65d24" stroke-width="3" />
+            <polygon points="120,290 280,290 200,470" fill="url(#coneGrad)" opacity="0.3" />
+
+            <!-- Brand Cup Wrapper on Cone -->
+            <path d="M 140,330 L 260,330 L 235,410 L 165,410 Z" fill="#26a69a" />
+            <text x="200" y="375" font-family="'Fredoka', cursive" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">SCOOP'S</text>
+
+            <!-- 4 Scoops Stacked -->
+            <!-- Scoop 1 (Bottom Left - Chocolate Fudge) -->
+            <circle cx="165" cy="245" r="58" fill="#5c3826" />
+            <path d="M 125,260 Q 165,275 205,255" fill="none" stroke="#3d2316" stroke-width="8" stroke-linecap="round" />
+
+            <!-- Scoop 2 (Bottom Right - Vanilla Bean / Salted Caramel) -->
+            <circle cx="238" cy="240" r="56" fill="#fff8e7" />
+            <path d="M 205,225 Q 240,250 270,225" fill="none" stroke="#d48c3e" stroke-width="7" stroke-linecap="round" />
+
+            <!-- Scoop 3 (Middle Center - Strawberry Bliss) -->
+            <circle cx="195" cy="180" r="62" fill="#ff7f9d" />
+            <circle cx="195" cy="180" r="62" fill="none" stroke="#ff4777" stroke-width="4" stroke-dasharray="10 15" />
+            <!-- Strawberry syrup dripping -->
+            <path d="M 160,195 Q 170,230 185,210 Q 195,240 210,215 Q 225,235 235,190" fill="#d91a4d" opacity="0.85" />
+
+            <!-- Scoop 4 (Top - Mint Chocolate Chip with Sprinkles) -->
+            <circle cx="215" cy="115" r="50" fill="#a8e6cf" />
+            <!-- Choc chips -->
+            <circle cx="195" cy="95" r="4" fill="#3d2316" />
+            <circle cx="225" cy="110" r="5" fill="#3d2316" />
+            <circle cx="205" cy="130" r="4.5" fill="#3d2316" />
+            <circle cx="240" cy="85" r="4" fill="#3d2316" />
+
+            <!-- Multi-colored sprinkles on top -->
+            <rect x="180" y="160" width="8" height="3" rx="1.5" fill="#ffeb3b" transform="rotate(25 180 160)" />
+            <rect x="210" y="155" width="8" height="3" rx="1.5" fill="#00e5ff" transform="rotate(-35 210 155)" />
+            <rect x="220" y="175" width="8" height="3" rx="1.5" fill="#ffffff" transform="rotate(45 220 175)" />
+            <rect x="170" y="180" width="8" height="3" rx="1.5" fill="#ff4081" transform="rotate(-15 170 180)" />
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4 Feature Pills Row on Wave -->
+    <div class="mt-14 max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+      <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-teal-100 shadow-sm space-y-1">
+        <div class="text-2xl">🍃</div>
+        <div class="font-brand font-bold text-xs uppercase text-[#14323b]">Real Ingredients</div>
+        <div class="text-[11px] text-slate-500 leading-tight">We use real milk, cream, and natural flavors.</div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-pink-100 shadow-sm space-y-1">
+        <div class="text-2xl">🧁</div>
+        <div class="font-brand font-bold text-xs uppercase text-[#14323b]">Made Fresh Daily</div>
+        <div class="text-[11px] text-slate-500 leading-tight">Small batches made fresh every day.</div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-pink-100 shadow-sm space-y-1">
+        <div class="text-2xl">🤍</div>
+        <div class="font-brand font-bold text-xs uppercase text-[#14323b]">Made With Love</div>
+        <div class="text-[11px] text-slate-500 leading-tight">Crafted with passion in every scoop.</div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-teal-100 shadow-sm space-y-1">
+        <div class="text-2xl">🌱</div>
+        <div class="font-brand font-bold text-xs uppercase text-[#14323b]">Sustainable</div>
+        <div class="text-[11px] text-slate-500 leading-tight">Eco-friendly packaging for a sweeter planet.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. POPULAR FLAVORS - CUSTOMER FAVORITES     -->
+  <!-- ========================================== -->
+  <section id="flavors" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto space-y-12">
+    <div class="text-center space-y-2">
+      <div class="text-xs font-bold font-brand tracking-widest text-[#ff6088] uppercase">
+        POPULAR FLAVORS
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-brand font-bold text-[#14323b]">
+        Customer Favorites
+      </h2>
+      <div class="w-16 h-1 mx-auto bg-[#ff6088] rounded-full"></div>
+    </div>
+
+    <!-- 6 Flavor Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
+      
+      <!-- Flavor 1: Cookies & Cream -->
+      <div class="scoop-card bg-white rounded-2xl p-4 border border-slate-100 shadow-md flex flex-col justify-between text-center space-y-3">
+        <div class="w-24 h-24 mx-auto rounded-full bg-slate-100 flex items-center justify-center text-4xl shadow-inner border-2 border-slate-200">
+          🍪
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-xs uppercase text-[#14323b]">COOKIES &amp; CREAM</h3>
+          <p class="text-[11px] text-slate-500 mt-1 leading-snug">Creamy vanilla ice cream with chocolate cookies.</p>
+        </div>
+        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+          <span class="font-brand font-bold text-[#ff6088] text-sm">$4.75</span>
+          <button onclick="addToCart('Cookies & Cream', 4.75)" class="px-2.5 py-1 rounded-full bg-pink-50 hover:bg-pink-100 text-[#ff6088] text-[10px] font-bold font-brand transition-colors cursor-pointer">
+            + Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Flavor 2: Strawberry Bliss -->
+      <div class="scoop-card bg-white rounded-2xl p-4 border border-slate-100 shadow-md flex flex-col justify-between text-center space-y-3">
+        <div class="w-24 h-24 mx-auto rounded-full bg-pink-50 flex items-center justify-center text-4xl shadow-inner border-2 border-pink-200">
+          🍓
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-xs uppercase text-[#14323b]">STRAWBERRY BLISS</h3>
+          <p class="text-[11px] text-slate-500 mt-1 leading-snug">Sweet strawberry ice cream made with real berries.</p>
+        </div>
+        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+          <span class="font-brand font-bold text-[#ff6088] text-sm">$4.75</span>
+          <button onclick="addToCart('Strawberry Bliss', 4.75)" class="px-2.5 py-1 rounded-full bg-pink-50 hover:bg-pink-100 text-[#ff6088] text-[10px] font-bold font-brand transition-colors cursor-pointer">
+            + Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Flavor 3: Chocolate Fudge -->
+      <div class="scoop-card bg-white rounded-2xl p-4 border border-slate-100 shadow-md flex flex-col justify-between text-center space-y-3">
+        <div class="w-24 h-24 mx-auto rounded-full bg-amber-50 flex items-center justify-center text-4xl shadow-inner border-2 border-amber-200">
+          🍫
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-xs uppercase text-[#14323b]">CHOCOLATE FUDGE</h3>
+          <p class="text-[11px] text-slate-500 mt-1 leading-snug">Rich chocolate ice cream with fudge swirl.</p>
+        </div>
+        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+          <span class="font-brand font-bold text-[#ff6088] text-sm">$4.75</span>
+          <button onclick="addToCart('Chocolate Fudge', 4.75)" class="px-2.5 py-1 rounded-full bg-pink-50 hover:bg-pink-100 text-[#ff6088] text-[10px] font-bold font-brand transition-colors cursor-pointer">
+            + Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Flavor 4: Mint Chocolate Chip -->
+      <div class="scoop-card bg-white rounded-2xl p-4 border border-slate-100 shadow-md flex flex-col justify-between text-center space-y-3">
+        <div class="w-24 h-24 mx-auto rounded-full bg-teal-50 flex items-center justify-center text-4xl shadow-inner border-2 border-teal-200">
+          🌱
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-xs uppercase text-[#14323b]">MINT CHOCOLATE CHIP</h3>
+          <p class="text-[11px] text-slate-500 mt-1 leading-snug">Cool mint ice cream with chocolatey chips.</p>
+        </div>
+        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+          <span class="font-brand font-bold text-[#ff6088] text-sm">$4.75</span>
+          <button onclick="addToCart('Mint Chocolate Chip', 4.75)" class="px-2.5 py-1 rounded-full bg-pink-50 hover:bg-pink-100 text-[#ff6088] text-[10px] font-bold font-brand transition-colors cursor-pointer">
+            + Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Flavor 5: Salted Caramel -->
+      <div class="scoop-card bg-white rounded-2xl p-4 border border-slate-100 shadow-md flex flex-col justify-between text-center space-y-3">
+        <div class="w-24 h-24 mx-auto rounded-full bg-orange-50 flex items-center justify-center text-4xl shadow-inner border-2 border-orange-200">
+          🍮
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-xs uppercase text-[#14323b]">SALTED CARAMEL</h3>
+          <p class="text-[11px] text-slate-500 mt-1 leading-snug">Smooth caramel ice cream with a hint of sea salt.</p>
+        </div>
+        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+          <span class="font-brand font-bold text-[#ff6088] text-sm">$4.75</span>
+          <button onclick="addToCart('Salted Caramel', 4.75)" class="px-2.5 py-1 rounded-full bg-pink-50 hover:bg-pink-100 text-[#ff6088] text-[10px] font-bold font-brand transition-colors cursor-pointer">
+            + Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Flavor 6: Rainbow Sherbet -->
+      <div class="scoop-card bg-white rounded-2xl p-4 border border-slate-100 shadow-md flex flex-col justify-between text-center space-y-3">
+        <div class="w-24 h-24 mx-auto rounded-full bg-cyan-50 flex items-center justify-center text-4xl shadow-inner border-2 border-cyan-200">
+          🌈
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-xs uppercase text-[#14323b]">RAINBOW SHERBET</h3>
+          <p class="text-[11px] text-slate-500 mt-1 leading-snug">A fruity, colorful blend of happiness in every scoop.</p>
+        </div>
+        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+          <span class="font-brand font-bold text-[#ff6088] text-sm">$4.50</span>
+          <button onclick="addToCart('Rainbow Sherbet', 4.50)" class="px-2.5 py-1 rounded-full bg-pink-50 hover:bg-pink-100 text-[#ff6088] text-[10px] font-bold font-brand transition-colors cursor-pointer">
+            + Add
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- View All Flavors Button -->
+    <div class="text-center pt-4">
+      <button onclick="orderOnlineModal()" class="px-8 py-3 rounded-full bg-[#ff6088] hover:bg-[#ee4e77] text-white font-brand text-xs font-bold tracking-wider uppercase shadow-md shadow-pink-500/25 transition-all cursor-pointer">
+        VIEW ALL FLAVORS
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. OUR STORY - FROM OUR KITCHEN TO YOUR CONE -->
+  <!-- ========================================== -->
+  <section id="about" class="py-16 px-4 sm:px-8 bg-[#fff3f6] border-y border-pink-100">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left: 4 Cones on metal rack + Chalkboard -->
+      <div class="relative bg-white p-6 rounded-3xl shadow-lg border border-pink-100 flex flex-col items-center">
+        <!-- 4 Cones Display -->
+        <div class="grid grid-cols-4 gap-3 w-full max-w-sm py-4">
+          <div class="text-center">
+            <div class="text-3xl">🍓</div>
+            <div class="w-4 h-12 mx-auto bg-amber-400 rounded-b-full"></div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl">🍇</div>
+            <div class="w-4 h-12 mx-auto bg-amber-400 rounded-b-full"></div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl">🍪</div>
+            <div class="w-4 h-12 mx-auto bg-amber-400 rounded-b-full"></div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl">🍋</div>
+            <div class="w-4 h-12 mx-auto bg-amber-400 rounded-b-full"></div>
+          </div>
+        </div>
+
+        <!-- Chalkboard -->
+        <div class="mt-4 px-6 py-3 rounded-xl bg-[#262e3d] text-white text-center shadow-inner border border-slate-600">
+          <div class="text-[10px] font-mono tracking-widest text-pink-300 uppercase">Artisanal Creamery</div>
+          <div class="font-brand text-sm sm:text-base font-bold text-amber-200">
+            LIFE IS BETTER WITH ICE CREAM ♥
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Story Copy & Metrics -->
+      <div class="space-y-6">
+        <div class="space-y-1">
+          <div class="text-xs font-bold font-brand tracking-widest text-[#ff6088] uppercase">
+            OUR STORY
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-brand font-bold text-[#14323b]">
+            From Our Kitchen<br />To Your Cone
+          </h2>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+          At Scoop's, we believe ice cream brings people together. That's why every scoop is made with wholesome ingredients, handcrafted in small batches for the best flavor and quality.
+        </p>
+
+        <!-- Stats Badges -->
+        <div class="grid grid-cols-3 gap-4 pt-2">
+          <div class="p-3.5 rounded-2xl bg-white shadow-sm border border-pink-100 text-center space-y-0.5">
+            <div class="text-xl sm:text-2xl font-brand font-bold text-[#ff6088]">100+</div>
+            <div class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase font-brand">Delicious Flavors</div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-white shadow-sm border border-pink-100 text-center space-y-0.5">
+            <div class="text-xl sm:text-2xl font-brand font-bold text-[#ff6088]">10K+</div>
+            <div class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase font-brand">Happy Customers</div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-white shadow-sm border border-pink-100 text-center space-y-0.5">
+            <div class="text-xl sm:text-2xl font-brand font-bold text-[#ff6088]">15+</div>
+            <div class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase font-brand">Years of Joy</div>
+          </div>
+        </div>
+
+        <!-- Good Mood Doodle -->
+        <div class="pt-2 flex items-center gap-3 text-[#ff6088] font-brand font-bold text-sm">
+          <span>🍦</span>
+          <span>Good Mood In Every Scoop!</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. WHAT OUR CUSTOMERS SAY                  -->
+  <!-- ========================================== -->
+  <section class="py-20 px-4 sm:px-8 max-w-6xl mx-auto space-y-12">
+    <div class="text-center space-y-2">
+      <div class="text-xs font-bold font-brand tracking-widest text-[#ff6088] uppercase">
+        WHAT OUR CUSTOMERS SAY
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-brand font-bold text-[#14323b]">
+        Sweet Words from Sweet People
+      </h2>
+    </div>
+
+    <!-- Testimonials Row with 3 Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-md space-y-4">
+        <div class="text-amber-400 text-sm tracking-wider">★★★★★</div>
+        <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+          "The best ice cream I've ever had! Fresh, creamy, and bursting with flavor."
+        </p>
+        <div class="flex items-center gap-3 pt-2 border-t border-slate-50">
+          <div class="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center font-bold text-xs text-[#ff6088]">
+            JM
+          </div>
+          <div>
+            <div class="font-brand font-bold text-xs text-[#14323b]">Jessica M.</div>
+            <div class="text-[10px] text-slate-400">Los Angeles, CA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-md space-y-4">
+        <div class="text-amber-400 text-sm tracking-wider">★★★★★</div>
+        <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+          "Love the unique flavors and the friendly service. Highly recommend!"
+        </p>
+        <div class="flex items-center gap-3 pt-2 border-t border-slate-50">
+          <div class="w-9 h-9 rounded-full bg-teal-100 flex items-center justify-center font-bold text-xs text-teal-600">
+            RT
+          </div>
+          <div>
+            <div class="font-brand font-bold text-xs text-[#14323b]">Ryan T.</div>
+            <div class="text-[10px] text-slate-400">Burbank, CA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-md space-y-4">
+        <div class="text-amber-400 text-sm tracking-wider">★★★★★</div>
+        <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+          "Perfect spot for family outings. Everyone leaves happy!"
+        </p>
+        <div class="flex items-center gap-3 pt-2 border-t border-slate-50">
+          <div class="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center font-bold text-xs text-amber-600">
+            AK
+          </div>
+          <div>
+            <div class="font-brand font-bold text-xs text-[#14323b]">Amanda K.</div>
+            <div class="text-[10px] text-slate-400">Pasadena, CA</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. STAY IN THE LOOOP! (Newsletter Banner)  -->
+  <!-- ========================================== -->
+  <section class="bg-[#26a69a] text-white py-12 px-4 sm:px-8">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="font-brand text-2xl sm:text-3xl font-bold flex items-center justify-center md:justify-start gap-2">
+          <span>💌</span>
+          <span>STAY IN THE LOOOP!</span>
+        </div>
+        <p class="text-xs sm:text-sm text-teal-100 font-medium">
+          Subscribe for sweet updates, new flavors, special offers, and more.
+        </p>
+      </div>
+
+      <form onsubmit="handleNewsletter(event)" class="flex items-center gap-2 w-full md:w-auto max-w-md">
+        <input 
+          type="email" 
+          id="newsletter-email" 
+          required 
+          placeholder="Enter your email address" 
+          class="flex-1 md:w-64 px-4 py-3 rounded-full bg-white text-slate-800 text-xs outline-none placeholder-slate-400 shadow-inner"
+        />
+        <button type="submit" class="px-6 py-3 rounded-full bg-[#ff6088] hover:bg-[#ee4e77] text-white font-brand text-xs font-bold tracking-wider uppercase shadow-md transition-all cursor-pointer">
+          SUBSCRIBE
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. FOOTER                                  -->
+  <!-- ========================================== -->
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer id="contact" class="bg-[#141b24] text-slate-300 py-16 px-4 sm:px-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      
+      <!-- Column 1: Brand & Tagline -->
+      <div class="lg:col-span-1 space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🍦</span>
+          <span class="font-brand text-xl font-bold text-white">SCOOP'S</span>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Handcrafted ice cream made with love and the finest ingredients.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-pink-400">
+          <a href="#" class="hover:text-white">f</a>
+          <a href="#" class="hover:text-white">📸</a>
+          <a href="#" class="hover:text-white">♪</a>
+          <a href="#" class="hover:text-white">𝕏</a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="space-y-3">
+        <div class="font-brand font-bold text-xs uppercase text-white tracking-wider">QUICK LINKS</div>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Home</a></li>
+          <li><a href="#flavors" class="hover:text-pink-400 transition-colors">Flavors</a></li>
+          <li><a href="#shop" class="hover:text-pink-400 transition-colors">Shop</a></li>
+          <li><a href="#locations" class="hover:text-pink-400 transition-colors">Locations</a></li>
+          <li><a href="#catering" class="hover:text-pink-400 transition-colors">Catering</a></li>
+          <li><a href="#contact" class="hover:text-pink-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Shop -->
+      <div class="space-y-3">
+        <div class="font-brand font-bold text-xs uppercase text-white tracking-wider">SHOP</div>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Pints</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Gift Cards</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Merchandise</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Ice Cream Cakes</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Extras</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: About -->
+      <div class="space-y-3">
+        <div class="font-brand font-bold text-xs uppercase text-white tracking-wider">ABOUT</div>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#about" class="hover:text-pink-400 transition-colors">Our Story</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Ingredients</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Careers</a></li>
+          <li><a href="#" class="hover:text-pink-400 transition-colors">Franchise</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Contact Us -->
+      <div class="space-y-3">
+        <div class="font-brand font-bold text-xs uppercase text-white tracking-wider">CONTACT US</div>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li>📍 123 Sweet Street, Los Angeles, CA 90001</li>
+          <li>📞 (323) 555-1234</li>
+          <li>✉️ hello@scoopsicecream.com</li>
+          <li>🕒 Mon - Sun: 12:00 PM - 10:00 PM</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="mt-12 pt-6 border-t border-slate-800 text-center text-xs text-slate-500 font-mono">
+      &copy; 2026 Scoop's Ice Cream. All Rights Reserved. &bull; Handcrafted with DevHub AI OS
+    </div>
+  </footer>
+
+  <!-- Toast / Order Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-white text-slate-800 px-5 py-3 rounded-2xl shadow-2xl border border-pink-200 flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-sm">🍦</div>
+    <div>
+      <div id="toast-title" class="font-brand font-bold text-xs text-[#ff6088]">Added to Bag!</div>
+      <div id="toast-msg" class="text-[11px] text-slate-500">Delicious choice.</div>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function showToast(title, msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-title').innerText = title;
+      document.getElementById('toast-msg').innerText = msg;
+      t.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        t.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    function addToCart(flavor, price) {
+      cart.push({ flavor, price });
+      document.getElementById('cart-counter').innerText = cart.length;
+      showToast('Added to Order!', `${flavor} ($${price.toFixed(2)})`);
+    }
+
+    function orderOnlineModal() {
+      if (cart.length === 0) {
+        addToCart('Cookies & Cream', 4.75);
+      }
+      showToast('Order Online Opened', `${cart.length} item(s) in your basket.`);
+    }
+
+    function toggleCart() {
+      if (cart.length === 0) {
+        showToast('Your Cart is Empty', 'Pick a delicious flavor above!');
+      } else {
+        const total = cart.reduce((acc, cur) => acc + cur.price, 0);
+        showToast('Cart Total', `${cart.length} items &bull; $${total.toFixed(2)}`);
+      }
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletter-email').value;
+      showToast('Subscribed!', `Welcome to the Scoop Family, ${email}!`);
+      document.getElementById('newsletter-email').value = '';
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('section').forEach(sec => {
+          gsap.from(sec, {
+            opacity: 0.9,
+            y: 15,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 88%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM CONVERSION DOCK (CULT UI 1-CLICK CONVERSION)                -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-stone-900/95 backdrop-blur-md border-t border-stone-800 p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="shimmer-btn flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+      <i class="fa-brands fa-whatsapp text-sm"></i>
+      <span>Falar no WhatsApp</span>
+    </a>
+    <a href="#contato" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center border border-white/15">
+      <i class="fa-solid fa-calendar-check text-xs"></i>
+    </a>
+  </div>
+
+</body>
+</html>

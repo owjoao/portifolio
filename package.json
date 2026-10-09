@@ -1,0 +1,31 @@
+{
+  "name": "nexus-flow-portfolio",
+  "version": "1.0.0",
+  "description": "NEXUS FLOW — Portfólio Organizado de Engenharia Digital & Sistemas de Vendas",
+  "private": true,
+  "scripts": {
+    "build": "python scripts/build_clean_light_portal.py",
+    "build:niche-db": "python scripts/build_niche_db.py",
+    "build:all": "npm run build && npm run build:niche-db",
+    "dev": "npx vercel dev",
+    "deploy:preview": "npx vercel",
+    "deploy:prod": "npx vercel --prod",
+    "clean": "rm -rf portal/index.html && npm run build"
+  },
+  "keywords": [
+    "portfolio",
+    "landing-pages",
+    "crm",
+    "vercel",
+    "digital-sales"
+  ],
+  "author": "NEXUS FLOW",
+  "license": "Proprietary",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "python": ">=3.10.0"
+  }
+}

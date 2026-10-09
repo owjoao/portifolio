@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArtVista • Arte em Parede & Decoração 3D Premium</title>
+  <meta name="description" content="Quadros e esculturas de parede 3D que trazem vida, elegância e sofisticação aos seus interiores. Obras exclusivas com iluminação em LED e alto-relevo." />
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#111215',
+              card: '#181A20',
+              accent: '#D4AF37',
+              gold: '#C5A059',
+              goldLight: '#F3E5AB',
+              cream: '#FAF8F5',
+              surface: '#F4EFEA',
+              muted: '#71717A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Pro/Free Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #FAF8F5; }
+    ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #D4AF37 0%, #F59E0B 50%, #B8860B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+    }
+    .dark-glow {
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 25px rgba(212, 175, 55, 0.15);
+    }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.12);
+    }
+  </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ArtVista Arquitetura & Design",
+  "description": "Projetos arquitetônicos residenciais e comerciais de alto padrão com acompanhamento completo de obra.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/arquiteto/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  }
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+
+<body class="font-sans bg-[#FAF8F5] text-[#1E293B] antialiased selection:bg-[#D4AF37] selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <aside aria-label="Aviso Promocional" class="bg-[#111215] text-[#E2DDD5] text-xs py-2 px-4 border-b border-white/10 text-center font-medium">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="text-[#D4AF37]">✦</span>
+      <span><strong>Frete Grátis</strong> para todo o Brasil em pedidos acima de R$ 299</span>
+      <span class="hidden sm:inline text-white/30">•</span>
+      <span class="hidden sm:inline">Parcele em até <strong>10x sem juros</strong> no cartão</span>
+      <span class="text-[#D4AF37]">✦</span>
+    </div>
+  </aside>
+
+  <!-- STICKY HEADER -->
+  <header class="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8E2D9] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO: ArtVista -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-[#111215] text-[#D4AF37] border border-[#D4AF37]/40 flex items-center justify-center font-serif text-2xl font-bold group-hover:scale-105 transition-transform shadow-md">
+          A
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-tight text-[#111215] leading-none">ArtVista</span>
+          <span class="text-[9px] uppercase tracking-[0.25em] text-[#78716C] font-semibold">Wall Art & Decor</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#475569]">
+        <a href="#inicio" class="text-[#111215] font-semibold hover:text-[#D4AF37] transition-colors">Início</a>
+        <a href="#colecoes" class="hover:text-[#D4AF37] transition-colors">Coleções</a>
+        <a href="#mais-vendidos" class="hover:text-[#D4AF37] transition-colors">Mais Vendidos</a>
+        <a href="#inspiracao" class="hover:text-[#D4AF37] transition-colors">Inspiração</a>
+        <a href="#avaliacoes" class="hover:text-[#D4AF37] transition-colors">Depoimentos</a>
+        <a href="#contato" class="hover:text-[#D4AF37] transition-colors">Contato</a>
+      </nav>
+
+      <!-- HEADER ACTIONS: Search, Wishlist, Cart & CTA -->
+      <div class="flex items-center gap-4">
+        <!-- Search Trigger -->
+        <button onclick="openSearchModal()" title="Buscar obras" class="w-9 h-9 rounded-full hover:bg-[#EFEAE2] flex items-center justify-center text-slate-700 transition-colors">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        </button>
+
+        <!-- Wishlist -->
+        <button onclick="showWishlistToast()" title="Meus Favoritos" class="relative w-9 h-9 rounded-full hover:bg-[#EFEAE2] flex items-center justify-center text-slate-700 transition-colors">
+          <i class="fa-regular fa-heart text-sm"></i>
+          <span id="wishlist-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-[#D4AF37] text-white text-[9px] font-bold rounded-full flex items-center justify-center hidden">0</span>
+        </button>
+
+        <!-- Cart Drawer Trigger -->
+        <button onclick="openCartDrawer()" title="Abrir Carrinho" class="relative w-10 h-10 rounded-full bg-[#111215] text-white flex items-center justify-center hover:bg-[#27272A] transition-all shadow-sm">
+          <i class="fa-solid fa-bag-shopping text-sm text-[#D4AF37]"></i>
+          <span id="cart-counter" class="absolute -top-1 -right-1 w-5 h-5 bg-[#D4AF37] text-[#111215] text-[10px] font-black rounded-full flex items-center justify-center border-2 border-white shadow">0</span>
+        </button>
+
+        <!-- Primary CTA: WhatsApp -->
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#111215] hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider border border-[#D4AF37]/50 shadow-md hover:shadow-lg transition-all group">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+          <span>Fazer Orçamento</span>
+          <i class="fa-solid fa-arrow-right text-[10px] text-[#D4AF37] group-hover:translate-x-1 transition-transform"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-800">
+          <i class="fa-solid fa-bars text-base"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FAF8F5] border-b border-slate-200 px-6 py-5 space-y-4 shadow-lg">
+      <nav class="flex flex-col gap-3 font-medium text-slate-700">
+        <a href="#inicio" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Início</a>
+        <a href="#colecoes" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Coleções</a>
+        <a href="#mais-vendidos" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Mais Vendidos</a>
+        <a href="#inspiracao" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Inspiração</a>
+        <a href="#avaliacoes" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100">Depoimentos</a>
+        <a href="#contato" onclick="toggleMobileMenu()" class="py-2">Contato</a>
+      </nav>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-full bg-[#111215] text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> Fazer Orçamento no WhatsApp
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ==========================================
+       SECTION 1: HERO PRINCIPAL (Conforme Mockup)
+       ========================================== -->
+  <section id="inicio" class="relative bg-gradient-to-b from-[#181A20] via-[#131418] to-[#111215] text-white pt-12 pb-24 lg:pt-16 lg:pb-32 overflow-hidden">
+    
+    <!-- Warm Ambient Glow in Background -->
+    <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-10 left-10 w-[350px] h-[350px] bg-amber-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- HERO LEFT: Headline & Actions -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <!-- Category Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs text-[#E5C378] font-medium tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+            <span>Arte em Parede & Decoração 3D Premium</span>
+          </div>
+
+          <!-- Main Title (Playfair/Cormorant Serif Typography) -->
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight">
+            Arte Que <br class="hidden sm:inline" />
+            <span class="gold-gradient-text italic font-serif">Transforma</span> <br />
+            Seus Ambientes
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-slate-300 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+            Esculturas tridimensionais exclusivas e quadros com iluminação em LED suave, projetados para criar atmosfera de luxo, aconchego e exclusividade na sua casa.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#mais-vendidos" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:from-[#E5C378] hover:to-[#C5A059] text-[#111215] font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#D4AF37]/20 flex items-center gap-2.5 transition-all transform hover:scale-105 active:scale-95">
+              <span>Explorar Coleção</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+
+            <button onclick="openVideoModal()" class="px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold text-sm flex items-center gap-3 backdrop-blur-sm transition-all hover:border-[#D4AF37]/50">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs text-[#E5C378]">
+                <i class="fa-solid fa-play ml-0.5"></i>
+              </div>
+              <span>Assistir ao Vídeo</span>
+            </button>
+          </div>
+
+          <!-- Benefits Mini List -->
+          <div class="pt-6 border-t border-white/10 flex flex-wrap items-center gap-6 text-xs text-slate-300">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-[#D4AF37]"></i>
+              <span>Feito sob medida em SP</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-[#D4AF37]"></i>
+              <span>LED dimerizável quente</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-[#D4AF37]"></i>
+              <span>Instalação simplificada</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HERO RIGHT: Mockup Visual Composition (Sofa & Backlit 3D Wall Art) -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/15 group">
+            
+            <!-- Real High-Res Visual Asset -->
+            <img 
+              src="assets/hero-wall-art.jpg" 
+              alt="Sala de Estar de Alto Padrão com Escultura de Parede 3D Iluminada ArtVista" 
+              class="w-full h-[420px] sm:h-[480px] lg:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+            />
+
+            <!-- Subtle Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111215]/80 via-transparent to-transparent pointer-events-none"></div>
+
+            <!-- Floating Badge: Efeito 3D com LED -->
+            <div class="absolute top-4 left-4 bg-[#111215]/85 backdrop-blur-md border border-[#D4AF37]/40 px-4 py-2 rounded-2xl flex items-center gap-2.5 shadow-xl">
+              <div class="w-8 h-8 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] flex items-center justify-center">
+                <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Tecnologia Exclusiva</p>
+                <p class="text-xs font-bold text-white">Relevo 3D & LED Quente 2700K</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge: Coleção Destaque -->
+            <div class="absolute bottom-4 right-4 bg-[#111215]/90 backdrop-blur-md border border-white/15 px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-3">
+              <div class="text-right">
+                <p class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Obra Assinada</p>
+                <p class="text-xs font-bold text-white">Horizonte Dourado (Tree of Life)</p>
+              </div>
+              <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="w-8 h-8 rounded-full bg-[#D4AF37] text-[#111215] flex items-center justify-center hover:scale-110 transition-transform">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Organic Wave Divider to Trust Bar -->
+    <div class="absolute bottom-0 left-0 right-0 h-10 sm:h-14 overflow-hidden pointer-events-none">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-full text-[#FAF8F5] fill-current">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,60 L1200,120 L0,120 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 2: TRUST & BENEFITS BAR (5 Selos)
+       ========================================== -->
+  <section class="py-8 bg-[#FAF8F5] border-b border-[#EAE4DC] relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 items-center justify-between text-center lg:text-left">
+        
+        <!-- 1: 500+ Unique Designs -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start">
+          <div class="w-12 h-12 rounded-2xl bg-[#EFECE6] border border-[#DDD6C8] flex items-center justify-center shrink-0 text-[#B8860B]">
+            <i class="fa-solid fa-shapes text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-[#111215]">500+ Obras</h4>
+            <p class="text-xs text-slate-500">Design Autoral & Exclusivo</p>
+          </div>
+        </div>
+
+        <!-- 2: 98% Satisfaction -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start">
+          <div class="w-12 h-12 rounded-2xl bg-[#EFECE6] border border-[#DDD6C8] flex items-center justify-center shrink-0 text-[#B8860B]">
+            <i class="fa-solid fa-shield-heart text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-[#111215]">98% Satisfação</h4>
+            <p class="text-xs text-slate-500">Avaliações 5 Estrelas</p>
+          </div>
+        </div>
+
+        <!-- 3: 5 Years Warranty -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start">
+          <div class="w-12 h-12 rounded-2xl bg-[#EFECE6] border border-[#DDD6C8] flex items-center justify-center shrink-0 text-[#B8860B]">
+            <i class="fa-solid fa-award text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-[#111215]">5 Anos de Garantia</h4>
+            <p class="text-xs text-slate-500">Qualidade Certificada</p>
+          </div>
+        </div>
+
+        <!-- 4: Free Shipping -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start">
+          <div class="w-12 h-12 rounded-2xl bg-[#EFECE6] border border-[#DDD6C8] flex items-center justify-center shrink-0 text-[#B8860B]">
+            <i class="fa-solid fa-truck-fast text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-[#111215]">Frete Grátis</h4>
+            <p class="text-xs text-slate-500">Em compras acima de R$ 299</p>
+          </div>
+        </div>
+
+        <!-- 5: Secure Payment -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start col-span-2 md:col-span-1">
+          <div class="w-12 h-12 rounded-2xl bg-[#EFECE6] border border-[#DDD6C8] flex items-center justify-center shrink-0 text-[#B8860B]">
+            <i class="fa-solid fa-lock text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-[#111215]">Pagamento Seguro</h4>
+            <p class="text-xs text-slate-500">100% Criptografado & Pix</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 3: OUR COLLECTIONS (5 Categorias)
+       ========================================== -->
+  <section id="colecoes" class="py-20 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#B8860B]">Nossas Coleções</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111215]">
+            Encontre a Peça Perfeita Para o Seu Espaço
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base max-w-xl font-light">
+            Explore nossas coleções temáticas e descubra quadros e esculturas que combinam com seu estilo, paleta e arquitetura.
+          </p>
+        </div>
+
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#111215] hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-md group">
+          <span>Ver Todas as Coleções</span>
+          <i class="fa-solid fa-arrow-right text-[10px] text-[#D4AF37] group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- 5 Collection Cards Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        
+        <!-- Collection 1: Natureza -->
+        <a href="#mais-vendidos" class="card-hover group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E8E2D9] shadow-sm">
+          <div class="h-44 sm:h-52 overflow-hidden relative">
+            <img src="assets/col-nature.jpg" alt="Coleção Natureza ArtVista" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-black/60 text-white backdrop-blur-sm border border-white/20">Montanhas & Lagos</span>
+          </div>
+          <div class="p-4 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base text-[#111215] group-hover:text-[#B8860B] transition-colors">Natureza</h3>
+              <p class="text-xs text-slate-500">Paz & Serenidade</p>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#FAF8F5] group-hover:bg-[#D4AF37] text-slate-600 group-hover:text-white flex items-center justify-center text-xs transition-colors">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Collection 2: Abstrato -->
+        <a href="#mais-vendidos" class="card-hover group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E8E2D9] shadow-sm">
+          <div class="h-44 sm:h-52 overflow-hidden relative">
+            <img src="assets/col-abstract.jpg" alt="Coleção Abstrato ArtVista" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-black/60 text-white backdrop-blur-sm border border-white/20">Preto & Ouro</span>
+          </div>
+          <div class="p-4 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base text-[#111215] group-hover:text-[#B8860B] transition-colors">Abstrato</h3>
+              <p class="text-xs text-slate-500">Moderno & Ousado</p>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#FAF8F5] group-hover:bg-[#D4AF37] text-slate-600 group-hover:text-white flex items-center justify-center text-xs transition-colors">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Collection 3: Animais -->
+        <a href="#mais-vendidos" class="card-hover group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E8E2D9] shadow-sm">
+          <div class="h-44 sm:h-52 overflow-hidden relative">
+            <img src="assets/col-animals.jpg" alt="Coleção Animais ArtVista" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-black/60 text-white backdrop-blur-sm border border-white/20">Leão & Fauna</span>
+          </div>
+          <div class="p-4 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base text-[#111215] group-hover:text-[#B8860B] transition-colors">Animais</h3>
+              <p class="text-xs text-slate-500">Selvagem & Nobre</p>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#FAF8F5] group-hover:bg-[#D4AF37] text-slate-600 group-hover:text-white flex items-center justify-center text-xs transition-colors">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Collection 4: Cidades -->
+        <a href="#mais-vendidos" class="card-hover group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E8E2D9] shadow-sm">
+          <div class="h-44 sm:h-52 overflow-hidden relative">
+            <img src="assets/col-cities.jpg" alt="Coleção Cidades & Skylines ArtVista" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-black/60 text-white backdrop-blur-sm border border-white/20">Urbano & Cosmopolita</span>
+          </div>
+          <div class="p-4 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base text-[#111215] group-hover:text-[#B8860B] transition-colors">Cidades</h3>
+              <p class="text-xs text-slate-500">Urbano & Icônico</p>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#FAF8F5] group-hover:bg-[#D4AF37] text-slate-600 group-hover:text-white flex items-center justify-center text-xs transition-colors">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Collection 5: Arte 3D -->
+        <a href="#mais-vendidos" class="card-hover group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E8E2D9] shadow-sm col-span-2 sm:col-span-1">
+          <div class="h-44 sm:h-52 overflow-hidden relative">
+            <img src="assets/col-3d-art.jpg" alt="Coleção Esculturas 3D ArtVista" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-black/60 text-white backdrop-blur-sm border border-white/20">Relevo Arquitetônico</span>
+          </div>
+          <div class="p-4 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base text-[#111215] group-hover:text-[#B8860B] transition-colors">Arte 3D</h3>
+              <p class="text-xs text-slate-500">Profundidade & Realismo</p>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#FAF8F5] group-hover:bg-[#D4AF37] text-slate-600 group-hover:text-white flex items-center justify-center text-xs transition-colors">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 4: BEST SELLERS (4 Produtos em Destaque)
+       ========================================== -->
+  <section id="mais-vendidos" class="py-20 bg-[#F4EFEA] border-y border-[#E8E2D9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title & Carousel Arrows -->
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#B8860B]">Coleção em Destaque</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111215]">
+            Mais Vendidos
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="scrollProducts(-1)" aria-label="Anterior" class="w-10 h-10 rounded-full bg-white border border-[#D5CEC2] hover:border-[#111215] text-[#111215] flex items-center justify-center transition-colors shadow-sm">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button onclick="scrollProducts(1)" aria-label="Próximo" class="w-10 h-10 rounded-full bg-white border border-[#D5CEC2] hover:border-[#111215] text-[#111215] flex items-center justify-center transition-colors shadow-sm">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- PRODUCT 1: Golden Horizon -->
+        <div class="card-hover group bg-white rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-md flex flex-col justify-between">
+          <div>
+            <!-- Image & Badges -->
+            <div class="h-64 overflow-hidden relative bg-neutral-900">
+              <img src="assets/prod-golden-horizon.jpg" alt="Quadro 3D Horizonte Dourado ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <!-- Badges -->
+              <span class="absolute top-3 left-3 bg-[#111215] text-[#D4AF37] border border-[#D4AF37]/40 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                Mais Vendido
+              </span>
+
+              <!-- Wishlist Toggle -->
+              <button onclick="toggleWishlist(this, 'Horizonte Dourado')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-slate-700 hover:text-red-500 backdrop-blur-sm flex items-center justify-center transition-colors shadow">
+                <i class="fa-regular fa-heart text-xs"></i>
+              </button>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-1 text-amber-500 text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-slate-400 text-[11px] ml-1">(134 avaliações)</span>
+              </div>
+
+              <h3 class="font-serif text-xl font-bold text-[#111215] group-hover:text-[#B8860B] transition-colors">
+                Horizonte Dourado
+              </h3>
+              <p class="text-xs text-slate-500">Escultura em relevo 3D com iluminação em LED quente 2700K.</p>
+
+              <!-- Price -->
+              <div class="pt-2 flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-[#111215] font-serif">R$ 1.490</span>
+                <span class="text-xs text-slate-400 line-through">R$ 1.890</span>
+                <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">21% OFF</span>
+              </div>
+              <p class="text-[11px] text-slate-500">em até <strong>10x de R$ 149,00</strong> sem juros</p>
+            </div>
+          </div>
+
+          <!-- Add to Cart CTA -->
+          <div class="p-5 pt-0">
+            <button onclick="addToCart('Horizonte Dourado', 1490, 'assets/prod-golden-horizon.jpg')" class="w-full py-3.5 rounded-full bg-[#111215] hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow hover:shadow-lg active:scale-95 group/btn">
+              <i class="fa-solid fa-bag-shopping text-[#D4AF37] group-hover/btn:rotate-12 transition-transform"></i>
+              <span>Adicionar ao Carrinho</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2: Elegant Lion -->
+        <div class="card-hover group bg-white rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-md flex flex-col justify-between">
+          <div>
+            <!-- Image & Badges -->
+            <div class="h-64 overflow-hidden relative bg-neutral-900">
+              <img src="assets/prod-elegant-lion.jpg" alt="Escultura Leão Majestoso ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <button onclick="toggleWishlist(this, 'Leão Majestoso 3D')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-slate-700 hover:text-red-500 backdrop-blur-sm flex items-center justify-center transition-colors shadow">
+                <i class="fa-regular fa-heart text-xs"></i>
+              </button>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-1 text-amber-500 text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-slate-400 text-[11px] ml-1">(89 avaliações)</span>
+              </div>
+
+              <h3 class="font-serif text-xl font-bold text-[#111215] group-hover:text-[#B8860B] transition-colors">
+                Leão Majestoso 3D
+              </h3>
+              <p class="text-xs text-slate-500">Escultura imponente com acabamento em textura de bronze nobre.</p>
+
+              <!-- Price -->
+              <div class="pt-2 flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-[#111215] font-serif">R$ 1.250</span>
+                <span class="text-xs text-slate-400 line-through">R$ 1.590</span>
+                <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">21% OFF</span>
+              </div>
+              <p class="text-[11px] text-slate-500">em até <strong>10x de R$ 125,00</strong> sem juros</p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="addToCart('Leão Majestoso 3D', 1250, 'assets/prod-elegant-lion.jpg')" class="w-full py-3.5 rounded-full bg-[#111215] hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow hover:shadow-lg active:scale-95 group/btn">
+              <i class="fa-solid fa-bag-shopping text-[#D4AF37] group-hover/btn:rotate-12 transition-transform"></i>
+              <span>Adicionar ao Carrinho</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 3: Golden Lines -->
+        <div class="card-hover group bg-white rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-md flex flex-col justify-between">
+          <div>
+            <!-- Image & Badges -->
+            <div class="h-64 overflow-hidden relative bg-neutral-900">
+              <img src="assets/prod-golden-lines.jpg" alt="Triptych Linhas Douradas ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <button onclick="toggleWishlist(this, 'Linhas Douradas')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-slate-700 hover:text-red-500 backdrop-blur-sm flex items-center justify-center transition-colors shadow">
+                <i class="fa-regular fa-heart text-xs"></i>
+              </button>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-1 text-amber-500 text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-slate-400 text-[11px] ml-1">(76 avaliações)</span>
+              </div>
+
+              <h3 class="font-serif text-xl font-bold text-[#111215] group-hover:text-[#B8860B] transition-colors">
+                Linhas Douradas (Triptych)
+              </h3>
+              <p class="text-xs text-slate-500">Conjunto em 3 telas com folhas de ouro aplicadas artesanalmente.</p>
+
+              <!-- Price -->
+              <div class="pt-2 flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-[#111215] font-serif">R$ 990</span>
+                <span class="text-xs text-slate-400 line-through">R$ 1.390</span>
+                <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">28% OFF</span>
+              </div>
+              <p class="text-[11px] text-slate-500">em até <strong>10x de R$ 99,00</strong> sem juros</p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="addToCart('Linhas Douradas (Triptych)', 990, 'assets/prod-golden-lines.jpg')" class="w-full py-3.5 rounded-full bg-[#111215] hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow hover:shadow-lg active:scale-95 group/btn">
+              <i class="fa-solid fa-bag-shopping text-[#D4AF37] group-hover/btn:rotate-12 transition-transform"></i>
+              <span>Adicionar ao Carrinho</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 4: Mountain Escape -->
+        <div class="card-hover group bg-white rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-md flex flex-col justify-between">
+          <div>
+            <!-- Image & Badges -->
+            <div class="h-64 overflow-hidden relative bg-neutral-900">
+              <img src="assets/prod-mountain-escape.jpg" alt="Quadro Refúgio na Montanha ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <button onclick="toggleWishlist(this, 'Refúgio na Montanha')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-slate-700 hover:text-red-500 backdrop-blur-sm flex items-center justify-center transition-colors shadow">
+                <i class="fa-regular fa-heart text-xs"></i>
+              </button>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-1 text-amber-500 text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-slate-400 text-[11px] ml-1">(112 avaliações)</span>
+              </div>
+
+              <h3 class="font-serif text-xl font-bold text-[#111215] group-hover:text-[#B8860B] transition-colors">
+                Refúgio na Montanha
+              </h3>
+              <p class="text-xs text-slate-500">Impressão fotográfica museológica fine art com profundidade 3D.</p>
+
+              <!-- Price -->
+              <div class="pt-2 flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-[#111215] font-serif">R$ 1.390</span>
+                <span class="text-xs text-slate-400 line-through">R$ 1.790</span>
+                <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">22% OFF</span>
+              </div>
+              <p class="text-[11px] text-slate-500">em até <strong>10x de R$ 139,00</strong> sem juros</p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="addToCart('Refúgio na Montanha', 1390, 'assets/prod-mountain-escape.jpg')" class="w-full py-3.5 rounded-full bg-[#111215] hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow hover:shadow-lg active:scale-95 group/btn">
+              <i class="fa-solid fa-bag-shopping text-[#D4AF37] group-hover/btn:rotate-12 transition-transform"></i>
+              <span>Adicionar ao Carrinho</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 5: PROMOTIONAL BANNER (30% OFF)
+       ========================================== -->
+  <section class="py-16 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#181A20] via-[#111215] to-[#1A1815] text-white shadow-2xl border border-white/10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+          
+          <!-- Image Column: Luxury Bedroom with Wall Art -->
+          <div class="lg:col-span-6 relative h-[320px] sm:h-[400px] lg:h-[460px] overflow-hidden">
+            <img 
+              src="assets/promo-bedroom.jpg" 
+              alt="Quarto de Casal Moderno com Obra ArtVista e Iluminação Suave" 
+              class="w-full h-full object-cover object-center" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#111215] hidden lg:block"></div>
+            
+            <!-- Circular Badge: Up to 30% Off -->
+            <div class="absolute top-6 right-6 lg:right-auto lg:left-6 w-24 h-24 rounded-full bg-[#111215]/90 border-2 border-[#D4AF37] text-white flex flex-col items-center justify-center text-center shadow-2xl backdrop-blur-md">
+              <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold">ATÉ</span>
+              <span class="text-2xl font-black text-[#E5C378] leading-none">30%</span>
+              <span class="text-[9px] font-bold text-white tracking-widest">OFF</span>
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="lg:col-span-6 p-8 sm:p-12 lg:p-16 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-[11px] font-bold uppercase tracking-wider border border-white/15">
+              <i class="fa-regular fa-clock"></i>
+              <span>Oferta Por Tempo Limitado</span>
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+              Transforme <span class="gold-gradient-text italic font-serif">Seu Lar</span> com 30% de Desconto
+            </h2>
+
+            <p class="text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-lg">
+              Peças selecionadas com acabamento em relevo 3D, madeira maciça e iluminação em LED quente. Crie o refúgio dos seus sonhos com condições de pagamento imperdíveis.
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:from-[#E5C378] hover:to-[#C5A059] text-[#111215] font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#D4AF37]/20 transition-all flex items-center gap-2">
+                <span>Aproveitar Desconto</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+
+              <span class="text-xs text-slate-400">Cupom <strong>VISTA30</strong> aplicado automaticamente</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 6: REAL HOMES, REAL INSPIRATION (Galeria)
+       ========================================== -->
+  <section id="inspiracao" class="py-20 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#B8860B]">Inspiração</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111215]">
+            Ambientes Reais, Inspiração Real
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base max-w-xl font-light">
+            Veja como nossas obras de arte trazem vida, amplitude e aconchego para salas de estar, quartos e escritórios em todo o Brasil.
+          </p>
+        </div>
+
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#D5CEC2] hover:border-[#111215] text-[#111215] font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-sm">
+          <i class="fa-brands fa-instagram text-[#B8860B] text-sm"></i>
+          <span>Seguir no Instagram @artvista</span>
+        </a>
+      </div>
+
+      <!-- 4 Wide Interiors Photos Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- Ambience 1 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-neutral-900 h-64 sm:h-72 shadow-md">
+          <img src="assets/inspire-1.jpg" alt="Living contemporâneo com obra ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Apartamento Jardins • SP</span>
+            <p class="text-xs font-semibold">Living Integrado com Peça 3D</p>
+          </div>
+        </div>
+
+        <!-- Ambience 2 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-neutral-900 h-64 sm:h-72 shadow-md">
+          <img src="assets/inspire-2.jpg" alt="Suíte Master com triptych ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Suíte Master • RJ</span>
+            <p class="text-xs font-semibold">Linhas Douradas em Harmonia</p>
+          </div>
+        </div>
+
+        <!-- Ambience 3 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-neutral-900 h-64 sm:h-72 shadow-md">
+          <img src="assets/inspire-3.jpg" alt="Sala de Jantar com escultura ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Sala de Jantar • Curitiba</span>
+            <p class="text-xs font-semibold">Presença Nobre do Leão 3D</p>
+          </div>
+        </div>
+
+        <!-- Ambience 4 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-neutral-900 h-64 sm:h-72 shadow-md">
+          <img src="assets/inspire-4.jpg" alt="Penthouse de Luxo com obra ArtVista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Cobertura • Belo Horizonte</span>
+            <p class="text-xs font-semibold">Horizonte Dourado Iluminado</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 7: WHAT OUR CUSTOMERS SAY (Depoimentos)
+       ========================================== -->
+  <section id="avaliacoes" class="py-20 bg-[#F4EFEA] border-y border-[#E8E2D9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#B8860B]">Depoimentos Verificados</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111215]">
+            Confiado por Milhares de Lares
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base font-light">
+            Avaliações autênticas de clientes que transformaram seus lares com a ArtVista.
+          </p>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-2">
+          <div class="px-4 py-2 rounded-full bg-white border border-[#D5CEC2] text-xs font-bold text-[#111215] flex items-center gap-2 shadow-sm">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>4.9 / 5.0 (mais de 2.400 clientes)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Review Cards with Customer Avatar & Purchased Art Thumbnail -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- REVIEW 1: Mariana S. -->
+        <div class="card-hover bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <!-- Client Header -->
+            <div class="flex items-center gap-3">
+              <img src="assets/avatar-sarah.jpg" alt="Mariana S." class="w-12 h-12 rounded-full object-cover border-2 border-[#D4AF37]" />
+              <div>
+                <h4 class="font-bold text-sm text-[#111215]">Mariana S.</h4>
+                <p class="text-xs text-slate-500">São Paulo - SP</p>
+              </div>
+            </div>
+
+            <!-- Stars -->
+            <div class="flex text-amber-400 text-xs">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <!-- Comment -->
+            <p class="text-slate-700 text-sm leading-relaxed italic font-serif">
+              "Absolutamente deslumbrante! A qualidade do acabamento 3D e a iluminação em LED quente transformaram completamente minha sala de estar. Todos os convidados elogiam!"
+            </p>
+          </div>
+
+          <!-- Product Thumbnail in Home -->
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-600">Comprou: <strong>Horizonte Dourado</strong></span>
+            <img src="assets/prod-golden-horizon.jpg" alt="Horizonte Dourado" class="w-10 h-10 rounded-lg object-cover border border-slate-200" />
+          </div>
+        </div>
+
+        <!-- REVIEW 2: Carlos M. -->
+        <div class="card-hover bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/avatar-james.jpg" alt="Carlos M." class="w-12 h-12 rounded-full object-cover border-2 border-[#D4AF37]" />
+              <div>
+                <h4 class="font-bold text-sm text-[#111215]">Carlos M.</h4>
+                <p class="text-xs text-slate-500">Rio de Janeiro - RJ</p>
+              </div>
+            </div>
+
+            <div class="flex text-amber-400 text-xs">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <p class="text-slate-700 text-sm leading-relaxed italic font-serif">
+              "Entrega super rápida e embalagem reforçada de madeira. O atendimento pelo WhatsApp tirou todas as dúvidas sobre as medidas na parede. Não poderia estar mais satisfeito!"
+            </p>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-600">Comprou: <strong>Linhas Douradas (Triptych)</strong></span>
+            <img src="assets/prod-golden-lines.jpg" alt="Linhas Douradas" class="w-10 h-10 rounded-lg object-cover border border-slate-200" />
+          </div>
+        </div>
+
+        <!-- REVIEW 3: Camila R. -->
+        <div class="card-hover bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <img src="assets/avatar-emily.jpg" alt="Camila R." class="w-12 h-12 rounded-full object-cover border-2 border-[#D4AF37]" />
+              <div>
+                <h4 class="font-bold text-sm text-[#111215]">Camila R.</h4>
+                <p class="text-xs text-slate-500">Curitiba - PR</p>
+              </div>
+            </div>
+
+            <div class="flex text-amber-400 text-xs">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <p class="text-slate-700 text-sm leading-relaxed italic font-serif">
+              "O efeito 3D ao vivo é ainda mais impressionante do que nas fotos. A profundidade da escultura dá uma sensação de galeria de arte contemporânea para a minha casa."
+            </p>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-600">Comprou: <strong>Leão Majestoso 3D</strong></span>
+            <img src="assets/prod-elegant-lion.jpg" alt="Leão Majestoso" class="w-10 h-10 rounded-lg object-cover border border-slate-200" />
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 8: SIMULADOR 3D / WHATSAPP VIP
+       ========================================== -->
+  <section id="contato" class="py-16 bg-[#111215] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-gradient-to-r from-neutral-900 to-[#181A20] rounded-3xl p-8 sm:p-12 border border-[#D4AF37]/30 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <div class="space-y-3 max-w-2xl text-center lg:text-left">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">Consultoria de Design Gratuita</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold">
+            Dúvida de qual peça combina com a sua parede?
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base font-light">
+            Envie uma foto da sua parede no nosso WhatsApp oficial. Nossos arquitetos e designers preparam uma <strong>simulação 3D gratuita</strong> da obra no seu ambiente em até 30 minutos!
+          </p>
+        </div>
+
+        <div class="shrink-0 flex flex-col sm:flex-row items-center gap-4">
+          <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-3 shadow-lg shadow-emerald-500/25 transition-all transform hover:scale-105 active:scale-95">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Simular Minha Parede Grátis</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 9: FOOTER COMPLETO (Conforme Mockup)
+       ========================================== -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Investir em um Projeto com a ArtVista?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Arquitetura que une estética contemporânea, conforto térmico e valorização patrimonial.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Reformas sem Projeto Técnico</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Desperdício de até 30% em materiais de obra por falta de cálculo exato</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Ambientes mal iluminados com sensação de claustrofobia e calor</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Atrasos imprevisíveis e brigas com pedreiros sem cronograma formal</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Imóvel sem valorização imobiliária por falta de assinatura estética</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Arquitetura Autoral
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">ArtVista Arquitetura & Design</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Projetos 3D realistas com detalhamento milimétrico de marcenaria e iluminação</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Acompanhamento técnico da obra e gestão de fornecedores para evitar surpresas</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Economia em materiais com lista quantitativa exata e especificação inteligente</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Valorização patrimonial média de 25% a 40% na revenda ou locação do imóvel</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Studio de projetos de arquitetura e galeria de arte com esculturas em relevo 3D e iluminação inteligente na Av. Paulista.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">ArtVista Arquitetura</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Design de Interiores & Obras Exclusivas</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-[#D4AF37] hover:bg-[#E5C378] text-[#111215] text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(ArtVista Arquitetura)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização ArtVista Arquitetura em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="bg-[#0C0D10] text-[#A1A1AA] pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Grid: 4 Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#111215] text-[#D4AF37] border border-[#D4AF37]/40 flex items-center justify-center font-serif text-2xl font-bold shadow-md">
+              A
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-2xl font-bold tracking-tight text-white leading-none">ArtVista</span>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-[#A1A1AA] font-semibold">Wall Art & Decor</span>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-400 font-light max-w-sm leading-relaxed">
+            Mais que decoração. É um sentimento. Obras de arte tridimensionais, iluminação cênica e design autoral para transformar lares em refúgios inesquecíveis.
+          </p>
+
+          <div class="pt-2 text-xs text-slate-400 space-y-1">
+            <p><i class="fa-solid fa-location-dot text-[#D4AF37] mr-2"></i> Alameda Gabriel Monteiro da Silva, Jardins — São Paulo - SP</p>
+            <p><i class="fa-solid fa-phone text-[#D4AF37] mr-2"></i> WhatsApp: (32) 99929-2311</p>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white">Navegação</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
+            <li><a href="#colecoes" class="hover:text-white transition-colors">Coleções</a></li>
+            <li><a href="#mais-vendidos" class="hover:text-white transition-colors">Mais Vendidos</a></li>
+            <li><a href="#inspiracao" class="hover:text-white transition-colors">Ambientes Reais</a></li>
+            <li><a href="#avaliacoes" class="hover:text-white transition-colors">Depoimentos</a></li>
+            <li><a href="#contato" class="hover:text-white transition-colors">Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Shop / Coleções -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white">Coleções</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#mais-vendidos" class="hover:text-white transition-colors">Natureza & Montanhas</a></li>
+            <li><a href="#mais-vendidos" class="hover:text-white transition-colors">Abstrato Preto & Ouro</a></li>
+            <li><a href="#mais-vendidos" class="hover:text-white transition-colors">Fauna & Animais 3D</a></li>
+            <li><a href="#mais-vendidos" class="hover:text-white transition-colors">Cidades & Skylines</a></li>
+            <li><a href="#mais-vendidos" class="hover:text-white transition-colors">Esculturas de LED 3D</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white">Newsletter VIP</h4>
+          <p class="text-xs text-slate-400 font-light leading-relaxed">
+            Cadastre-se para receber novos lançamentos de coleções e ofertas exclusivas em primeira mão.
+          </p>
+
+          <form onsubmit="handleNewsletter(event)" class="space-y-2">
+            <div class="relative">
+              <input 
+                type="email" 
+                id="newsletter-email" 
+                required 
+                placeholder="Seu melhor e-mail" 
+                class="w-full px-4 py-2.5 rounded-full bg-white/5 border border-white/15 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all"
+              />
+              <button type="submit" class="absolute right-1 top-1 bottom-1 px-4 rounded-full bg-[#D4AF37] hover:bg-[#E5C378] text-[#111215] font-bold text-xs transition-colors">
+                Assinar
+              </button>
+            </div>
+            <p id="newsletter-msg" class="text-[10px] text-emerald-400 hidden">✓ Inscrito com sucesso! Verifique seu e-mail.</p>
+          </form>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3 pt-2 text-slate-400">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#111215] flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#111215] flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-pinterest text-xs"></i>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#111215] flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-youtube text-xs"></i>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#D4AF37] hover:text-[#111215] flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-tiktok text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Copyright & Payment Badges -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 ArtVista Wall Art & Decor. Todos os direitos reservados. Feito com paixão em São Paulo - SP.</p>
+        
+        <div class="flex items-center gap-3 text-slate-400">
+          <i class="fa-brands fa-cc-visa text-lg"></i>
+          <i class="fa-brands fa-cc-mastercard text-lg"></i>
+          <i class="fa-solid fa-qrcode text-lg text-emerald-400" title="Pix"></i>
+          <i class="fa-brands fa-apple-pay text-2xl"></i>
+          <i class="fa-brands fa-google-pay text-2xl"></i>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       INTERACTIVE CART DRAWER
+       ========================================== -->
+  <div id="cart-drawer-overlay" onclick="closeCartDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl flex flex-col translate-x-full transition-transform duration-300">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 flex items-center justify-between bg-[#FAF8F5]">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-bag-shopping text-[#D4AF37]"></i>
+        <h3 class="font-serif text-xl font-bold text-[#111215]">Meu Carrinho (<span id="drawer-count">0</span>)</h3>
+      </div>
+      <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center text-slate-700">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Bar -->
+    <div class="px-5 py-3 bg-[#111215] text-white text-xs border-b border-white/10 space-y-1.5">
+      <div class="flex justify-between items-center text-[11px]">
+        <span id="shipping-progress-text">Adicione produtos para Frete Grátis</span>
+        <span class="text-[#D4AF37] font-bold">Meta: R$ 299,00</span>
+      </div>
+      <div class="w-full bg-white/20 rounded-full h-1.5 overflow-hidden">
+        <div id="shipping-progress-bar" class="bg-gradient-to-r from-[#D4AF37] to-emerald-400 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Empty state -->
+      <div id="cart-empty" class="text-center py-16 space-y-3">
+        <div class="w-16 h-16 rounded-full bg-[#FAF8F5] text-slate-300 flex items-center justify-center mx-auto text-2xl">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <p class="text-slate-500 font-medium text-sm">Seu carrinho está vazio.</p>
+        <button onclick="closeCartDrawer()" class="px-6 py-2.5 rounded-full bg-[#111215] text-white text-xs font-bold uppercase tracking-wider">
+          Explorar Peças
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div id="cart-footer" class="p-5 border-t border-slate-200 bg-[#FAF8F5] space-y-3 hidden">
+      <div class="flex items-center justify-between text-xs text-slate-500">
+        <span>Subtotal</span>
+        <span id="cart-subtotal" class="font-bold text-slate-900 text-sm">R$ 0,00</span>
+      </div>
+      <div class="flex items-center justify-between text-xs text-slate-500">
+        <span>Frete</span>
+        <span id="cart-shipping-val" class="font-bold text-emerald-600">Calculando...</span>
+      </div>
+      <div class="pt-2 border-t border-slate-200 flex items-center justify-between">
+        <span class="font-bold text-base text-[#111215]">Total Estimado</span>
+        <span id="cart-total" class="font-serif text-2xl font-bold text-[#111215]">R$ 0,00</span>
+      </div>
+
+      <!-- Checkout CTA WhatsApp -->
+      <a id="checkout-wpp-btn" href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Finalizar Pedido no WhatsApp</span>
+      </a>
+      <p class="text-[10px] text-center text-slate-400">Atendimento humanizado imediato com especialista</p>
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+       MODAL: ASSISTIR AO VÍDEO / TOUR 3D
+       ========================================== -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-[#111215] text-white rounded-3xl max-w-2xl w-full border border-white/20 overflow-hidden shadow-2xl relative">
+      <div class="p-6 border-b border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-play text-[#D4AF37] text-sm"></i>
+          <h3 class="font-serif text-xl font-bold">Experiência ArtVista: Relevo 3D & LED</h3>
+        </div>
+        <button onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="aspect-video rounded-2xl overflow-hidden relative bg-black">
+          <img src="assets/hero-wall-art.jpg" alt="Preview Vídeo ArtVista" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-6 space-y-3">
+            <div class="w-16 h-16 rounded-full bg-[#D4AF37] text-[#111215] flex items-center justify-center text-2xl shadow-lg animate-pulse">
+              <i class="fa-solid fa-play ml-1"></i>
+            </div>
+            <p class="text-sm font-semibold text-white">Veja a iluminação dimerizável e o acabamento em camadas de relevo</p>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Cada peça ArtVista é confeccionada com corte de precisão a laser, folhas de acabamento metálico nobre e fita LED oculta com temperatura quente de 2700K para criar profundidade e aconchego.
+        </p>
+
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="w-full py-3.5 rounded-full bg-[#D4AF37] hover:bg-[#E5C378] text-[#111215] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Solicitar Demonstração em Vídeo no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       MODAL: BUSCA INTELIGENTE
+       ========================================== -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-start justify-center pt-24 p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="font-bold text-sm text-slate-800">Buscar Obras & Coleções</h3>
+        <button onclick="closeSearchModal()" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </button>
+      </div>
+
+      <div class="relative">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Ex: Horizonte Dourado, Leão, Abstrato, LED..." 
+          class="w-full pl-10 pr-4 py-3 rounded-full bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]" 
+        />
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+      </div>
+
+      <div>
+        <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Termos Mais Buscados:</p>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="fillSearch('Horizonte Dourado')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#D4AF37] hover:text-white text-xs font-medium text-slate-700 transition-colors">Horizonte Dourado</button>
+          <button onclick="fillSearch('Leão 3D')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#D4AF37] hover:text-white text-xs font-medium text-slate-700 transition-colors">Leão 3D</button>
+          <button onclick="fillSearch('Linhas Douradas')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#D4AF37] hover:text-white text-xs font-medium text-slate-700 transition-colors">Linhas Douradas</button>
+          <button onclick="fillSearch('Montanhas')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#D4AF37] hover:text-white text-xs font-medium text-slate-700 transition-colors">Montanhas</button>
+          <button onclick="fillSearch('Esculturas LED')" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#D4AF37] hover:text-white text-xs font-medium text-slate-700 transition-colors">Esculturas LED</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FLOATING WHATSAPP BUTTON (CANTO INFERIOR) -->
+  <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl shadow-emerald-500/30 hover:scale-110 active:scale-95 transition-all group" title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="absolute right-16 bg-[#111215] text-white text-[11px] font-bold py-1.5 px-3 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-white/10 pointer-events-none shadow-lg">
+      Orçamento no WhatsApp
+    </span>
+  </a>
+
+
+  <!-- ==========================================
+       JAVASCRIPT: INTERATIVIDADE DO E-COMMERCE
+       ========================================== -->
+  <script>
+    // State
+    let cart = [];
+    let wishlist = [];
+
+    // Open/Close Cart Drawer
+    function openCartDrawer() {
+      document.getElementById('cart-drawer-overlay').classList.remove('opacity-0', 'pointer-events-none');
+      document.getElementById('cart-drawer').classList.remove('translate-x-full');
+      updateCartUI();
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cart-drawer-overlay').classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('cart-drawer').classList.add('translate-x-full');
+    }
+
+    // Add to Cart Function
+    function addToCart(title, price, image) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ title, price, image, qty: 1 });
+      }
+      openCartDrawer();
+    }
+
+    // Change Quantity
+    function changeQty(index, delta) {
+      if (cart[index]) {
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1);
+        }
+      }
+      updateCartUI();
+    }
+
+    // Remove Item
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    // Update Cart UI
+    function updateCartUI() {
+      const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+      document.getElementById('cart-counter').innerText = totalCount;
+      document.getElementById('drawer-count').innerText = totalCount;
+
+      const container = document.getElementById('cart-items-list');
+      const emptyState = document.getElementById('cart-empty');
+      const footer = document.getElementById('cart-footer');
+
+      if (cart.length === 0) {
+        emptyState.classList.remove('hidden');
+        footer.classList.add('hidden');
+        // Clear items except empty state
+        const items = container.querySelectorAll('.cart-item');
+        items.forEach(el => el.remove());
+
+        document.getElementById('shipping-progress-bar').style.width = '0%';
+        document.getElementById('shipping-progress-text').innerText = 'Adicione produtos para Frete Grátis';
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      footer.classList.remove('hidden');
+
+      // Rebuild items
+      const existingItems = container.querySelectorAll('.cart-item');
+      existingItems.forEach(el => el.remove());
+
+      let subtotal = 0;
+
+      cart.forEach((item, idx) => {
+        subtotal += item.price * item.qty;
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item flex items-center gap-3 p-3 rounded-2xl bg-[#FAF8F5] border border-slate-200';
+        itemEl.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="w-16 h-16 rounded-xl object-cover shrink-0 border border-slate-200" />
+          <div class="flex-1 min-w-0">
+            <h4 class="font-bold text-xs text-[#111215] truncate">${item.title}</h4>
+            <p class="text-xs text-[#B8860B] font-bold">R$ ${item.price.toLocaleString('pt-BR')},00</p>
+            <div class="flex items-center gap-2 mt-2">
+              <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 rounded-full bg-white border border-slate-300 text-xs font-bold hover:bg-slate-100 flex items-center justify-center">-</button>
+              <span class="text-xs font-bold text-slate-800">${item.qty}</span>
+              <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 rounded-full bg-white border border-slate-300 text-xs font-bold hover:bg-slate-100 flex items-center justify-center">+</button>
+            </div>
+          </div>
+          <button onclick="removeItem(${idx})" title="Remover" class="w-7 h-7 rounded-full text-slate-400 hover:text-red-500 hover:bg-red-50 flex items-center justify-center">
+            <i class="fa-solid fa-trash-can text-xs"></i>
+          </button>
+        `;
+        container.appendChild(itemEl);
+      });
+
+      // Subtotal & Shipping calculation
+      document.getElementById('cart-subtotal').innerText = `R$ ${subtotal.toLocaleString('pt-BR')},00`;
+      
+      const shippingTarget = 299;
+      const progress = Math.min(100, Math.round((subtotal / shippingTarget) * 100));
+      document.getElementById('shipping-progress-bar').style.width = `${progress}%`;
+
+      if (subtotal >= shippingTarget) {
+        document.getElementById('shipping-progress-text').innerHTML = '🎉 Parabéns! Você ganhou <strong>Frete Grátis</strong>!';
+        document.getElementById('cart-shipping-val').innerText = 'GRÁTIS';
+        document.getElementById('cart-total').innerText = `R$ ${subtotal.toLocaleString('pt-BR')},00`;
+      } else {
+        const remaining = shippingTarget - subtotal;
+        document.getElementById('shipping-progress-text').innerText = `Faltam R$ ${remaining.toLocaleString('pt-BR')},00 para Frete Grátis!`;
+        document.getElementById('cart-shipping-val').innerText = 'R$ 35,00';
+        document.getElementById('cart-total').innerText = `R$ ${(subtotal + 35).toLocaleString('pt-BR')},00`;
+      }
+    }
+
+    // Wishlist Toggle
+    function toggleWishlist(btn, product) {
+      const heartIcon = btn.querySelector('i');
+      if (wishlist.includes(product)) {
+        wishlist = wishlist.filter(p => p !== product);
+        heartIcon.classList.remove('fa-solid', 'text-red-500');
+        heartIcon.classList.add('fa-regular');
+      } else {
+        wishlist.push(product);
+        heartIcon.classList.remove('fa-regular');
+        heartIcon.classList.add('fa-solid', 'text-red-500');
+      }
+      const badge = document.getElementById('wishlist-badge');
+      if (wishlist.length > 0) {
+        badge.classList.remove('hidden');
+        badge.innerText = wishlist.length;
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function showWishlistToast() {
+      if (wishlist.length === 0) {
+        alert('Sua lista de favoritos está vazia. Clique no coração para salvar uma peça!');
+      } else {
+        alert('Obras favoritas: ' + wishlist.join(', '));
+      }
+    }
+
+    // Video Modal
+    function openVideoModal() {
+      document.getElementById('video-modal').classList.remove('hidden');
+    }
+    function closeVideoModal() {
+      document.getElementById('video-modal').classList.add('hidden');
+    }
+
+    // Search Modal
+    function openSearchModal() {
+      document.getElementById('search-modal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('search-input').focus(), 100);
+    }
+    function closeSearchModal() {
+      document.getElementById('search-modal').classList.add('hidden');
+    }
+    function fillSearch(term) {
+      document.getElementById('search-input').value = term;
+      alert('Buscando por: ' + term);
+      closeSearchModal();
+      document.getElementById('mais-vendidos').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // Newsletter Handler
+    function handleNewsletter(e) {
+      e.preventDefault();
+      document.getElementById('newsletter-msg').classList.remove('hidden');
+      document.getElementById('newsletter-email').value = '';
+    }
+
+    // Product Horizontal Scroll
+    function scrollProducts(direction) {
+      const container = document.getElementById('products-container');
+      container.scrollBy({ left: direction * 320, behavior: 'smooth' });
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Ambientes Acolhedores que Elevam seu Bem-Estar e Qualidade de Vida
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Assista ao vídeo e inspire-se com lares e salas pensados para proporcionar relaxamento profundo, ergonomia e sofisticação visual.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(ArtVista Arquitetura)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Corte a laser de alta precisão, iluminação dimerizável 2700K e acabamento nobre</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(ArtVista Arquitetura)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('contato') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(ArtVista Arquitetura).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">ArtVista Arquitetura</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20projeto%20arquitetônico%20na%20ArtVista." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

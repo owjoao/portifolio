@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Harmonia • Escola de Música | Violão, Guitarra, Teclado & Canto</title>
+  <meta name="description" content="Aprenda a tocar suas músicas favoritas desde a primeira aula com metodologia prática anti-tédio. Aulas presenciais e online com gravação em 2 câmeras HD." />
+
+  <!-- Google Fonts: Playfair Display, Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            music: {
+              dark: '#0C0907',
+              card: '#18120C',
+              border: '#2C1F16',
+              amber: '#F59E0B',
+              orange: '#EA580C',
+              wood: '#D97706',
+              gold: '#FBBF24',
+              cream: '#FEF3C7'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Harmonia Instituto Musical",
+  "description": "Aulas práticas de Piano, Violão, Guitarra e Canto com metodologia moderna e repertório do aluno.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/professor-musica/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-music-dark text-slate-100 font-sans antialiased selection:bg-music-amber selection:text-black">
+
+  <!-- Top Strip -->
+  <aside class="bg-music-card border-b border-music-border py-2.5 px-4 text-xs font-semibold">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2.5 text-music-gold">
+        <i class="fa-solid fa-compact-disc animate-spin text-sm" style="animation-duration: 4s;"></i>
+        <span>Método Prático: Toque sua 1ª música completa em até 14 dias sem teoria maçante</span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Instituto%20Harmonia." target="_blank" class="text-white hover:text-music-gold transition flex items-center gap-1.5 font-bold">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> Aula Experimental Grátis
+      </a>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-music-dark/95 backdrop-blur-md border-b border-music-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-music-amber to-music-orange flex items-center justify-center text-black text-xl shadow-lg shadow-amber-500/20 font-black">
+          <i class="fa-solid fa-guitar"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-2xl text-white tracking-tight">STUDIO HARMONIA</span>
+          <span class="block text-[9px] font-mono tracking-widest uppercase text-music-gold font-bold -mt-1">Escola de Música & Prática</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-300">
+        <a href="#simulador" class="hover:text-music-gold transition text-music-gold flex items-center gap-1.5">
+          <i class="fa-solid fa-sliders"></i> Simulador de Aulas
+        </a>
+        <a href="#instrumentos" class="hover:text-music-gold transition">Instrumentos</a>
+        <a href="#metodologia" class="hover:text-music-gold transition">O Método</a>
+        <a href="#depoimentos" class="hover:text-music-gold transition">Resultados</a>
+      </nav>
+
+      <a href="#simulador" class="shimmer-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-music-amber to-music-orange text-black font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-105 transition transform">
+        Agendar Aula Grátis
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="reveal relative py-16 md:py-24 overflow-hidden border-b border-music-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-music-amber/10 border border-music-amber/30 text-music-gold text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-music"></i> Violão • Guitarra • Teclado • Canto
+          </div>
+
+          <h1 class="font-playfair text-4xl sm:text-6xl text-white font-bold tracking-tight leading-[1.15]">
+            Toque o que Você Ama. <span class="font-sans font-black text-transparent bg-clip-text bg-gradient-to-r from-music-gold via-music-amber to-orange-400">Sem Fórmulas Chatas.</span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+            Cansado de decorar escalas e partituras por meses antes de tocar sua primeira canção? No Studio Harmonia, a música que você quer tocar é a base do seu aprendizado prático desde o minuto zero.
+          </p>
+
+          <!-- Objection Breaker -->
+          <div class="p-4 rounded-2xl bg-music-card border border-music-border text-xs leading-relaxed text-slate-200">
+            <span class="text-music-gold font-bold uppercase tracking-wider block mb-1">
+              <i class="fa-solid fa-shield-check"></i> Você Não Precisa Ter Dom
+            </span>
+            A música é um hábito motor guiado. Alunos de 8 a 72 anos aprendem com nosso método de desconstrução de acordes simplificados e apoio com 2 câmeras em alta definição.
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#simulador" class="shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-music-amber to-music-orange text-black font-black text-xs uppercase tracking-wider shadow-xl shadow-amber-500/25 text-center hover:scale-105 transition transform">
+              Montar Meu Plano de Aula
+            </a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Instituto%20Harmonia." target="_blank" class="px-8 py-4 rounded-xl bg-music-card hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider border border-music-border text-center flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i> Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Card Visual -->
+        <div class="relative">
+          <div class="card-lift p-8 rounded-3xl bg-music-card border border-music-border shadow-2xl relative overflow-hidden space-y-5">
+            <div class="flex items-center justify-between border-b border-music-border pb-4">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Estrutura Profissional</span>
+                <h4 class="font-outfit text-lg font-bold text-white">Equipamentos & Metodologia</h4>
+              </div>
+              <span class="text-xs font-bold text-music-gold bg-music-amber/10 px-3 py-1 rounded-full border border-music-amber/30">
+                Studio Pro
+              </span>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300">
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-music-dark/70 border border-music-border">
+                <i class="fa-solid fa-video text-music-gold text-base"></i>
+                <span>Sistema Multi-Câmeras: visão focada na palheta e nas posições da escala.</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-music-dark/70 border border-music-border">
+                <i class="fa-solid fa-file-pdf text-emerald-400 text-base"></i>
+                <span>Tablaturas e Backing Tracks gravadas exclusivamente para você praticar em casa.</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-xl bg-music-dark/70 border border-music-border">
+                <i class="fa-solid fa-clock-rotate-left text-music-gold text-base"></i>
+                <span>Aulas gravadas na nuvem para você rever quantas vezes quiser.</span>
+              </div>
+            </div>
+
+            <div class="pt-2 text-center text-[11px] text-slate-400">
+              🎸 Instrumentos disponíveis no estúdio para você não precisar carregar o seu na aula presencial!
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FERRAMENTA INTERATIVA: SIMULADOR DE INSTRUMENTO & REPERTÓRIO -->
+  
+  <!-- ========================================================================= -->
+  <!-- ESTÚDIO ACÚSTICO & AMBIENTE DE ENSAIO (FLOW PHOTOREALISTIC ASSET)         -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#0E0B14] border-b border-purple-900/40 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="card-lift bg-[#161220] border border-purple-500/30 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+        <div class="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+          <img 
+            src="assets/estudio-musica.jpg" 
+            alt="Estúdio musical acústico com piano Steinway, violão clássico vintage e iluminação quente de lâmpadas Edison" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            loading="lazy" 
+            decoding="async"
+          />
+          <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-amber-300">
+            <i class="fa-solid fa-music mr-1.5"></i> Estúdio Harmonia Conceito
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-purple-300 text-black flex items-center justify-between text-xs">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-purple-700 block">Piano Steinway & Violões Acústicos</span>
+              <span class="font-bold font-serif text-sm text-slate-900">Isolamento Acústico Profissional</span>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-purple-950 text-purple-200 font-bold text-xs">Aulas VIP</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-guitar"></i> Prática Real desde a 1ª Aula
+          </div>
+          <h2 class="font-playfair font-black text-3xl sm:text-4xl text-white tracking-tight leading-snug">
+            Aprenda Seu Instrumento dos Sonhos no Ambiente Perfeito
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Nada de métodos chatos e anos só de teoria sem tocar nada. Aqui você toca suas músicas preferidas nas primeiras 4 semanas, com postura correta e ouvido musical refinado.
+          </p>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-amber-400 font-black text-2xl counter-up" data-target="60">60 Dias</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">1ª Apresentação</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-purple-400 font-black text-2xl counter-up" data-target="+450">+450</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Alunos Ativos</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-emerald-400 font-black text-2xl">Grátis</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Aula Experimental</div>
+            </div>
+          </div>
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Est%C3%BAdio%20Harmonia." target="_blank" class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-amber-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-purple-950/40 transition transform hover:scale-105">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Agendar Aula Experimental Gratuita</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulador" class="py-20 max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="card-lift p-8 sm:p-12 rounded-3xl bg-music-card border-2 border-music-amber/40 shadow-2xl space-y-8">
+      
+      <div class="text-center max-w-xl mx-auto">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-music-gold bg-music-amber/10 px-3.5 py-1.5 rounded-full border border-music-amber/30">
+          Personalizador Inteligente
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Simulador de Rota Musical (60 Dias)
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">
+          Selecione suas preferências e descubra exatamente o que você será capaz de tocar em 8 semanas:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Qual Instrumento Deseja Aprender?</label>
+          <select id="sim-inst" onchange="calcMusicRoute()" class="w-full bg-music-dark border border-music-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-music-amber">
+            <option value="violao">Violão Acústico (Nylon / Aço)</option>
+            <option value="guitarra">Guitarra Elétrica (Solos & Riffs)</option>
+            <option value="teclado">Teclado / Piano Popular</option>
+            <option value="canto">Técnica Vocal & Canto</option>
+            <option value="baixo">Contrabaixo Elétrico (Groove)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">2. Seu Estilo Musical Favorito:</label>
+          <select id="sim-style" onchange="calcMusicRoute()" class="w-full bg-music-dark border border-music-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-music-amber">
+            <option value="rock">Rock Clássico & Nacional</option>
+            <option value="mpb">MPB, Bossa Nova & Samba</option>
+            <option value="pop">Pop Internacional & Baladas</option>
+            <option value="worship">Gospel / Worship Contemporâneo</option>
+            <option value="sertanejo">Sertanejo & Fingerstyle</option>
+          </select>
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">3. Qual é o Seu Ponto de Partida?</label>
+          <div class="grid grid-cols-3 gap-3">
+            <button onclick="setLevel('zero')" id="lvl-zero" class="lvl-btn active p-3 rounded-xl border border-music-amber bg-music-amber/20 text-music-gold text-xs font-bold text-center">Zero Absoluto (Nunca peguei no instrumento)</button>
+            <button onclick="setLevel('basic')" id="lvl-basic" class="lvl-btn p-3 rounded-xl border border-music-border bg-music-dark text-slate-300 text-xs font-bold text-center">Básico (Sei 3 ou 4 acordes mas travo)</button>
+            <button onclick="setLevel('inter')" id="lvl-inter" class="lvl-btn p-3 rounded-xl border border-music-border bg-music-dark text-slate-300 text-xs font-bold text-center">Intermediário (Quero solar e improvisar)</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Caixa de Diagnóstico da Rota -->
+      <div class="p-6 rounded-2xl bg-music-dark border border-music-amber/40 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-music-gold flex items-center gap-1.5">
+            <i class="fa-solid fa-route"></i> Sua Rota Personalizada de 8 Semanas
+          </span>
+          <span class="text-xs font-bold text-emerald-400 bg-emerald-950 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+            Meta 100% Tangível
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="p-3 rounded-xl bg-music-card border border-music-border">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Músicas do seu Repertório Inicial:</span>
+            <p id="route-songs" class="font-bold text-white text-sm">Legião Urbana, Beatles & Coldplay</p>
+          </div>
+          <div class="p-3 rounded-xl bg-music-card border border-music-border">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Habilidade Desbloqueada em 60 Dias:</span>
+            <p id="route-skill" class="font-bold text-music-gold text-sm">Troca fluida de acordes sem pausas e batida constante no metrônomo</p>
+          </div>
+        </div>
+
+        <button onclick="sendMusicWhatsapp()" class="shimmer-btn w-full py-4 rounded-xl bg-gradient-to-r from-music-amber to-music-orange text-black font-black text-xs uppercase tracking-wider shadow-lg hover:scale-102 transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Agendar Minha Aula Experimental Gratuita</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Aprenda Tocando suas Músicas Favoritas</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Aulas dinâmicas que unem técnica instrumental, percepção auditiva e prática no instrumento.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/musica-hero.jpg" alt="Estúdio Acústico Equipado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Estúdio Acústico Equipado</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Instrumentos de alta performance, microfones profissionais e isolamento sonoro para sua prática.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/musica-piano.jpg" alt="Piano & Teclado para Todas as Idades" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Piano & Teclado para Todas as Idades</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Da postura correta à leitura rápida de partituras e cifras populares com harmonia moderna.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/musica-guitar.jpg" alt="Violão & Guitarra Acústica/Elétrica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Violão & Guitarra Acústica/Elétrica</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Técnicas de dedilhado, solos, batidas rítmicas e improvisação no seu estilo predileto.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/musica-studio.jpg" alt="Gravação de Áudio das Suas Apresentações" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Gravação de Áudio das Suas Apresentações</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Grave seus próprios covers e composições com qualidade profissional no estúdio da escola.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Aprender Música no Instituto Harmonia?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Metodologia prática que coloca você tocando suas canções preferidas desde a primeira aula.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Conservatórios & Escolas Rígidas</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Meses de teoria musical cansativa antes de sequer tocar no instrumento</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Repertório engessado imposto pelo professor sem conexão com seu gosto</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Ambientes barulhentos sem isolamento acústico adequado</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Turmas lotadas onde o professor não consegue corrigir a postura</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Aprenda Tocando
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Harmonia Instituto Musical</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Aulas práticas 1-on-1 focadas nas músicas e estilos que você ama</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Técnica instrumental e percepção auditiva ensinadas de forma natural e leve</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Estúdio com isolamento acústico, instrumentos profissionais e gravação de áudio</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Recitais semestrais em teatro para vivenciar a emoção do palco com segurança</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Instituto%20Harmonia." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Preciso ter meu próprio instrumento para começar?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Para as primeiras semanas você pode utilizar os instrumentos do nosso estúdio até escolher o seu.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Adultos sem experiência prévia conseguem aprender?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Com certeza! Mais de 60% dos nossos alunos começaram do absoluto zero na fase adulta.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Vocês realizam apresentações e recitais?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Sim, organizamos recitais semestrais em teatros para que os alunos vivenciem a emoção do palco.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Clara Duarte</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Sempre sonhei em tocar piano. Em 3 meses já consigo tocar minhas músicas favoritas!"</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Marcos Vinícius</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Professor nota mil! Didática leve, sem enrolação teórica chata."</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Estúdio acusticamente tratado para piano, violão, guitarra, técnica vocal e bateria para crianças, jovens e adultos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-music"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">Harmonia Escola</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Aulas de Música, Canto & Instrumentos</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(Harmonia Escola)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Harmonia Escola em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-music-border bg-black text-center text-xs text-slate-500 space-y-2">
+    <div class="font-outfit font-black text-lg text-white">STUDIO HARMONIA</div>
+    <p>Aulas Presenciais com Ar-Condicionado & Aulas Online em Alta Definição.</p>
+    <p>© 2026 Studio Harmonia. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    let currentLevel = 'zero';
+
+    function setLevel(lvl) {
+      currentLevel = lvl;
+      document.querySelectorAll('.lvl-btn').forEach(b => {
+        b.classList.remove('border-music-amber', 'bg-music-amber/20', 'text-music-gold');
+        b.classList.add('border-music-border', 'bg-music-dark', 'text-slate-300');
+      });
+      const activeBtn = document.getElementById('lvl-' + lvl);
+      activeBtn.classList.remove('border-music-border', 'bg-music-dark', 'text-slate-300');
+      activeBtn.classList.add('border-music-amber', 'bg-music-amber/20', 'text-music-gold');
+      calcMusicRoute();
+    }
+
+    function calcMusicRoute() {
+      const inst = document.getElementById('sim-inst').value;
+      const style = document.getElementById('sim-style').value;
+      const songsEl = document.getElementById('route-songs');
+      const skillEl = document.getElementById('route-skill');
+
+      if (style === 'rock') {
+        songsEl.textContent = 'Legião Urbana, Pink Floyd, Queen & Guns N Roses';
+      } else if (style === 'mpb') {
+        songsEl.textContent = 'Djavan, Caetano Veloso, Tom Jobim & Tim Maia';
+      } else if (style === 'pop') {
+        songsEl.textContent = 'Coldplay, Ed Sheeran, Adele & Bruno Mars';
+      } else if (style === 'worship') {
+        songsEl.textContent = 'Gabriela Rocha, Morada, Fernandinho & Casa Worship';
+      } else {
+        songsEl.textContent = 'Chitãozinho & Xororó, Almir Sater e clássicos da viola';
+      }
+
+      if (currentLevel === 'zero') {
+        skillEl.textContent = 'Postura correta das mãos, afinação independente e 4 músicas completas sem travar.';
+      } else if (currentLevel === 'basic') {
+        skillEl.textContent = 'Domínio da pestana sem dor, dedilhados limpos e introdução à pentatônica.';
+      } else {
+        skillEl.textContent = 'Improvisação sobre backing tracks, bends precisos e velocidade limpa.';
+      }
+    }
+
+    function sendMusicWhatsapp() {
+      const inst = document.getElementById('sim-inst').options[document.getElementById('sim-inst').selectedIndex].text;
+      const style = document.getElementById('sim-style').options[document.getElementById('sim-style').selectedIndex].text;
+      const songs = document.getElementById('route-songs').textContent;
+
+      const msg = `Olá Studio Harmonia! Fiz a simulação no site e gostaria de agendar minha aula experimental gratuita:%0A%0A• Instrumento: ${inst}%0A• Estilo: ${style}%0A• Repertório desejado: ${songs}%0A%0AQuais são os dias e horários livres nesta semana?`;
+      window.open(`https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Instituto%20Harmonia. '_blank');
+    }
+  </script>
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        A Música como Terapia e Expressão: Alegria e Bem-Estar em Tocar
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo como aprender a tocar suas músicas favoritas alivia a tensão da semana e estimula o foco e a sensibilidade.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(Harmonia Escola)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Didática leve e descontraída com repertório de acordo com o seu gosto musical</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(Harmonia Escola)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('contato') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(Harmonia Escola).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Harmonia Instituto Musical</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Instituto%20Harmonia." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

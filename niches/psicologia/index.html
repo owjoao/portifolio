@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Mente Serena | Psicologia Clínica & Psicoterapia em São Paulo</title>
+  <meta name="description" content="Espaço acolhedor de psicoterapia e saúde mental nos Jardins - SP e Online para todo o Brasil. Atendimento humanizado com TCC e Psicologia Baseada em Evidências.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#F0F5F2',
+              100: '#E1ECE6',
+              200: '#C2D9CD',
+              500: '#3D6D55',
+              600: '#2E5642',
+              700: '#244535',
+              800: '#1B3529',
+              900: '#12241C',
+            },
+            sand: {
+              50: '#FDFBF7',
+              100: '#F9F5EE',
+              200: '#F1E9DB',
+              300: '#E6D9C3',
+              400: '#D5C2A5',
+              500: '#B89F7D',
+            },
+            gold: {
+              300: '#EED68B',
+              400: '#E2C264',
+              500: '#CFA738',
+              600: '#B48D23',
+            },
+            warmgray: {
+              800: '#222B27',
+              600: '#55635C',
+              400: '#899991',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          boxShadow: {
+            'soft': '0 10px 40px -10px rgba(36, 69, 53, 0.08)',
+            'card': '0 15px 35px -5px rgba(27, 53, 41, 0.06), 0 5px 15px rgba(0, 0, 0, 0.03)',
+            'float': '0 20px 50px -10px rgba(27, 53, 41, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Vector Pulse & Subtle Micro Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(0.5deg); }
+    }
+    @keyframes breatheGlow {
+      0%, 100% { transform: scale(1); opacity: 0.35; }
+      50% { transform: scale(1.08); opacity: 0.65; }
+    }
+    @keyframes vectorLinePulse {
+      0% { stroke-dashoffset: 200; }
+      100% { stroke-dashoffset: 0; }
+    }
+    /* Vector Artwork Animations (Mental Health Showcase) */
+    @keyframes noteFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.85; }
+      50% { transform: translateY(-12px) rotate(6deg); opacity: 1; }
+    }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+    @keyframes petalDrift {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(6px, -10px) rotate(20deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    @keyframes flowerRotate {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(8deg) scale(1.06); }
+    }
+    @keyframes butterflyFlutter {
+      0%, 100% { transform: scaleX(1) translateY(0); }
+      50% { transform: scaleX(0.35) translateY(-6px); }
+    }
+    @keyframes auraPulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(1.08); }
+    }
+
+    .anim-note-1 { animation: noteFloat 3.2s ease-in-out infinite; }
+    .anim-note-2 { animation: noteFloat 4s ease-in-out 1.2s infinite; }
+    .anim-heart-1 { animation: heartBeat 2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .anim-heart-2 { animation: heartBeat 2.5s ease-in-out 0.8s infinite; transform-origin: center; transform-box: fill-box; }
+    .anim-petal-1 { animation: petalDrift 4.5s ease-in-out infinite; }
+    .anim-petal-2 { animation: petalDrift 5s ease-in-out 2s infinite; }
+    .anim-flower-1 { animation: flowerRotate 6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .anim-flower-2 { animation: flowerRotate 7s ease-in-out 3s infinite; transform-origin: center; transform-box: fill-box; }
+    .anim-butterfly { animation: butterflyFlutter 1.8s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .anim-aura { animation: auraPulse 4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+
+    /* Tree Pulsing Hotspots & Wind Breeze */
+    @keyframes radarRing {
+      0% { transform: scale(0.95); opacity: 0.85; }
+      50% { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(0.95); opacity: 0; }
+    }
+    @keyframes bubbleHoverFloat {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-4px) scale(1.04); }
+    }
+    @keyframes gentleBreeze {
+      0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.85; }
+      80% { opacity: 0.85; }
+      100% { transform: translate(160px, 35px) rotate(45deg); opacity: 0; }
+    }
+    .radar-pulse-1 { animation: radarRing 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; }
+    .radar-pulse-2 { animation: radarRing 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s infinite; }
+    .radar-pulse-3 { animation: radarRing 3.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.4s infinite; }
+    .bubble-idle { animation: bubbleHoverFloat 4s ease-in-out infinite; }
+    .wind-leaf-1 { animation: gentleBreeze 8s linear infinite; }
+    .wind-leaf-2 { animation: gentleBreeze 11s linear 3s infinite; }
+    .wind-leaf-3 { animation: gentleBreeze 9.5s linear 6s infinite; }
+
+    .animate-float {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: floatSlow 7s ease-in-out 2.5s infinite;
+    }
+    .animate-breathe {
+      animation: breatheGlow 5s ease-in-out infinite;
+    }
+    .hero-mask {
+      border-radius: 36px 36px 120px 36px;
+    }
+    .bg-pattern-organic {
+      background-image: radial-gradient(rgba(46, 86, 66, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Mente Serena • Clínica de Psicologia & Bem-Estar",
+  "description": "Atendimento psicológico clínico presencial e online baseado na Terapia Cognitivo-Comportamental.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/psicologia/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  }
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+
+<body class="bg-sand-50 text-warmgray-800 font-sans antialiased selection:bg-forest-600 selection:text-white relative">
+
+  <!-- Top Bar: Trust & Quick Contact -->
+  <aside aria-label="Informações de atendimento" class="bg-forest-900 text-sand-200 text-xs py-2.5 px-4 border-b border-forest-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center gap-4 flex-wrap justify-center">
+        <span class="inline-flex items-center gap-1.5 font-medium text-gold-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Consultas Presenciais & Online
+        </span>
+        <span class="hidden md:inline text-forest-700">|</span>
+        <span class="inline-flex items-center gap-1 text-sand-300">
+          <svg class="w-3.5 h-3.5 text-gold-400 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          Alameda Gabriel Monteiro da Silva, Jardins • SP
+        </span>
+        <span class="hidden md:inline text-forest-700">|</span>
+        <span class="text-sand-300">CRP 06/148920 • Dra. Helena Vasconcelos</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20saber%20sobre%20as%20consultas%20de%20psicologia" target="_blank" rel="noopener noreferrer" class="text-gold-300 hover:text-white transition flex items-center gap-1 font-medium">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.532 2.028.844 3.149.844 3.182 0 5.77-2.587 5.77-5.766.001-3.181-2.588-5.686-5.77-5.686zm3.376 8.204c-.149.418-.752.793-1.042.844-.28.049-.636.079-1.802-.404-1.397-.58-2.298-2.001-2.368-2.094-.07-.093-.574-.764-.574-1.458 0-.693.364-1.034.494-1.174.13-.14.285-.175.38-.175.095 0 .19.001.272.005.087.004.204-.033.319.243.119.286.408.995.444 1.069.036.073.06.158.012.254-.048.096-.072.156-.143.239-.071.083-.15.185-.214.249-.071.071-.145.148-.063.289.083.141.368.608.791.984.545.485 1.004.636 1.147.707.143.071.226.06.31-.036.084-.096.357-.417.452-.56.096-.143.19-.119.321-.071.131.048.833.393.976.464.143.071.238.107.273.167.036.059.036.345-.113.763z"/></svg>
+          Plantão WhatsApp (32) 99929-2311
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="sticky top-0 z-40 bg-sand-50/95 backdrop-blur-md border-b border-sand-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Vector Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-forest-700 text-gold-400 flex items-center justify-center shadow-md shadow-forest-900/10 group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+          <!-- Vector Neural Tree Motif -->
+          <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+            <path d="M32 54V28M32 28C26 22 18 20 12 24M32 28C38 22 46 20 52 24M32 38C24 34 16 36 12 42M32 38C40 34 48 36 52 42M32 18C28 12 20 10 16 14M32 18C36 12 44 10 48 14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="14" r="4" fill="#D4AF37" stroke="none"/>
+            <circle cx="12" cy="24" r="3" fill="#D4AF37" stroke="none"/>
+            <circle cx="52" cy="24" r="3" fill="#D4AF37" stroke="none"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-serif text-xl font-bold tracking-tight text-forest-900 leading-tight">Mente Serena</span>
+          <span class="block text-[11px] tracking-wider uppercase text-forest-600 font-semibold">Psicologia & Psicoterapia</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-warmgray-600">
+        <a href="#especialidades" class="hover:text-forest-700 transition">Especialidades</a>
+        <a href="#metodologia" class="hover:text-forest-700 transition">Como Funciona</a>
+        <a href="#sobre" class="hover:text-forest-700 transition">Sobre a Psicóloga</a>
+        <a href="#simulador" class="hover:text-forest-700 transition text-forest-700 font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-gold-500"></span> Triagem Rápida
+        </a>
+        <a href="#depoimentos" class="hover:text-forest-700 transition">Depoimentos</a>
+        <a href="#faq" class="hover:text-forest-700 transition">Dúvidas</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center gap-3">
+        <a href="#simulador" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-forest-800 bg-sand-200 hover:bg-sand-300 rounded-xl transition">
+          Fazer Triagem
+        </a>
+        <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicologia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-forest-700 hover:bg-forest-800 text-white text-sm font-semibold shadow-md shadow-forest-900/15 hover:shadow-lg transition-all transform active:scale-95">
+          <span>Agendar Sessão</span>
+          <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Inspired by Reference Design) -->
+  <section class="reveal relative pt-8 pb-20 md:py-24 overflow-hidden bg-pattern-organic">
+    <!-- Ambient Vector Decorative Gradients (Soft, eye-friendly, no weather effects) -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-forest-200/40 rounded-full blur-3xl pointer-events-none -z-10 animate-breathe"></div>
+    <div class="absolute -top-12 right-0 w-96 h-96 bg-sand-200/60 rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Content Column -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-100 border border-forest-200 text-forest-800 text-xs font-semibold tracking-wide uppercase">
+            <svg class="w-4 h-4 text-forest-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Cuidado Psicológico Baseado em Evidências
+          </div>
+
+          <!-- Headline -->
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-forest-900 tracking-tight leading-[1.15]">
+            Mente Serena.<br>
+            <span class="italic font-normal text-forest-600">Vida Plena & Significativa.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-base sm:text-lg text-warmgray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+            Um espaço confidencial e sem julgamentos para você superar a ansiedade, curar feridas emocionais e reencontrar clareza em suas decisões.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20agendar%20uma%20primeira%20sessão%20de%20psicoterapia" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-forest-700 hover:bg-forest-800 text-white font-semibold text-base shadow-xl shadow-forest-900/20 hover:shadow-2xl transition duration-300 transform hover:-translate-y-0.5">
+              <span>Agendar Primeira Consulta</span>
+              <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <a href="#simulador" class="card-lift w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white hover:bg-sand-100 text-forest-900 font-semibold text-base border border-sand-300 shadow-sm transition">
+              <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              <span>Qual terapia preciso?</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Under Buttons -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-warmgray-600">
+            <div class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full bg-forest-100 text-forest-700 flex items-center justify-center">✓</div>
+              <span>Sigilo Total (Código CFP)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full bg-forest-100 text-forest-700 flex items-center justify-center">✓</div>
+              <span>Recibo p/ Reembolso</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full bg-forest-100 text-forest-700 flex items-center justify-center">✓</div>
+              <span>Online no Brasil & Exterior</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Visual Showcase Column -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Geometric Vector Frame -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-forest-600/20 to-gold-400/20 rounded-[40px] transform rotate-2 blur-sm"></div>
+
+            <!-- Main Doctor Image Container -->
+            <div class="relative bg-forest-900 hero-mask overflow-hidden shadow-2xl border-4 border-white">
+              <img src="images/doctor.jpg" alt="Dra. Helena Vasconcelos Psicóloga Clínica" class="w-full h-[520px] object-cover object-top filter contrast-[1.02] brightness-95">
+              
+              <!-- Subtle bottom gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent"></div>
+              
+              <!-- Overlay Caption -->
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <p class="text-xs font-semibold uppercase tracking-widest text-gold-400">Diretora Clínica</p>
+                <p class="font-serif text-xl font-bold">Dra. Helena Vasconcelos</p>
+                <p class="text-xs text-sand-200 mt-0.5">Especialista em TCC & Terapia de Aceitação e Compromisso</p>
+              </div>
+            </div>
+
+            <!-- Floating Card 1: Patients & Rating (Top Left) -->
+            <div class="animate-float absolute -top-5 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-card border border-sand-200/90 max-w-[210px] hidden sm:block">
+              <div class="flex items-center gap-1 text-gold-500 mb-1">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                <span class="text-xs font-bold text-forest-900 ml-1">5.0</span>
+              </div>
+              <p class="text-xs font-bold text-forest-900">+2.500 pacientes</p>
+              <p class="text-[11px] text-warmgray-600 leading-tight">atendidos com transformação emocional comprovada</p>
+            </div>
+
+            <!-- Floating Card 2: Quick Specialty Tags (Right/Bottom) -->
+            <div class="animate-float-delayed absolute -bottom-6 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-card border border-sand-200/90 hidden sm:block">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-forest-700 mb-2">Principais Focos:</p>
+              <div class="flex flex-wrap gap-1.5 max-w-[220px]">
+                <span class="px-2 py-0.5 rounded-md bg-forest-50 text-forest-800 text-[11px] font-medium">Ansiedade</span>
+                <span class="px-2 py-0.5 rounded-md bg-forest-50 text-forest-800 text-[11px] font-medium">Síndrome do Pânico</span>
+                <span class="px-2 py-0.5 rounded-md bg-forest-50 text-forest-800 text-[11px] font-medium">Burnout</span>
+                <span class="px-2 py-0.5 rounded-md bg-forest-50 text-forest-800 text-[11px] font-medium">Casais</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Value Pillars Bar (Trust & Credentials) -->
+  <section class="reveal bg-forest-900 text-white py-10 border-y border-forest-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center lg:text-left">
+        
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div>
+            <h2 class="font-bold text-sm text-sand-100">Sigilo Absoluto</h2>
+            <p class="text-xs text-sand-300">Ambiente 100% protegido e ético pelo CFP.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div>
+            <h2 class="font-bold text-sm text-sand-100">Método Científico</h2>
+            <p class="text-xs text-sand-300">Terapia Cognitivo-Comportamental (TCC).</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <div>
+            <h2 class="font-bold text-sm text-sand-100">CRP Ativo & Verificado</h2>
+            <p class="text-xs text-sand-300">Profissional graduada e pós-graduada.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h2 class="font-bold text-sm text-sand-100">Horários Flexíveis</h2>
+            <p class="text-xs text-sand-300">Manhã, tarde, noite e sábados.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-3 col-span-2 md:col-span-1">
+          <div class="w-10 h-10 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"/></svg>
+          </div>
+          <div>
+            <h2 class="font-bold text-sm text-sand-100">Reembolso Fácil</h2>
+            <p class="text-xs text-sand-300">Recibo detalhado para seu convênio.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialties Section (Matching Reference Style) -->
+  <section id="especialidades" class="py-20 md:py-28 bg-sand-100 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-forest-700 bg-sand-200 px-3.5 py-1 rounded-full">Áreas de Atuação</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-900 mt-3 mb-4">
+          Como posso te ajudar hoje?
+        </h2>
+        <p class="text-warmgray-600 text-base">
+          Cada ser humano é único. Desenvolvo um plano terapêutico personalizado com metas claras e acolhimento contínuo.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Ansiedade e Estresse -->
+        <div class="bg-white rounded-3xl p-8 shadow-card hover:shadow-float border border-sand-200/80 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-50 text-forest-700 flex items-center justify-center mb-6 group-hover:bg-forest-700 group-hover:text-gold-400 transition-colors">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest-900 mb-3">Ansiedade & Pânico</h3>
+            <p class="text-warmgray-600 text-sm leading-relaxed mb-6">
+              Aprenda ferramentas práticas da TCC para desarmar pensamentos catastróficos, taquicardia, falta de ar e crises de pânico, recuperando o controle da sua rotina.
+            </p>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20ajuda%20para%20Ansiedade%20e%20Estresse" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-forest-700 group-hover:text-forest-900 transition">
+            <span>Iniciar tratamento</span>
+            <svg class="w-4 h-4 text-gold-500 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 2: Depressão e Desânimo -->
+        <div class="bg-white rounded-3xl p-8 shadow-card hover:shadow-float border border-sand-200/80 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-50 text-forest-700 flex items-center justify-center mb-6 group-hover:bg-forest-700 group-hover:text-gold-400 transition-colors">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest-900 mb-3">Depressão & Luto</h3>
+            <p class="text-warmgray-600 text-sm leading-relaxed mb-6">
+              Resgate o sentido da vida, a motivação diária e a vitalidade emocional por meio de ativação comportamental, autocompaixão e suporte contínuo.
+            </p>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20ajuda%20para%20Depressão%20e%20Luto" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-forest-700 group-hover:text-forest-900 transition">
+            <span>Iniciar tratamento</span>
+            <svg class="w-4 h-4 text-gold-500 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 3: Burnout & Carreira -->
+        <div class="bg-white rounded-3xl p-8 shadow-card hover:shadow-float border border-sand-200/80 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-50 text-forest-700 flex items-center justify-center mb-6 group-hover:bg-forest-700 group-hover:text-gold-400 transition-colors">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest-900 mb-3">Burnout & Carreira</h3>
+            <p class="text-warmgray-600 text-sm leading-relaxed mb-6">
+              Para executivos e profissionais sob alta pressão: estabeleça limites saudáveis, supere o esgotamento mental e equilibre alta performance com saúde psíquica.
+            </p>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20ajuda%20para%20Burnout%20e%20Carreira" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-forest-700 group-hover:text-forest-900 transition">
+            <span>Iniciar tratamento</span>
+            <svg class="w-4 h-4 text-gold-500 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 4: Terapia de Casal -->
+        <div class="bg-white rounded-3xl p-8 shadow-card hover:shadow-float border border-sand-200/80 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-50 text-forest-700 flex items-center justify-center mb-6 group-hover:bg-forest-700 group-hover:text-gold-400 transition-colors">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest-900 mb-3">Terapia de Casal</h3>
+            <p class="text-warmgray-600 text-sm leading-relaxed mb-6">
+              Restaure a comunicação afetiva, resolva conflitos repetitivos, cure feridas de quebra de confiança e fortaleça a cumplicidade do relacionamento.
+            </p>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20saber%20sobre%20a%20Terapia%20de%20Casal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-forest-700 group-hover:text-forest-900 transition">
+            <span>Iniciar tratamento</span>
+            <svg class="w-4 h-4 text-gold-500 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 5: Autoconhecimento & Autoestima -->
+        <div class="bg-white rounded-3xl p-8 shadow-card hover:shadow-float border border-sand-200/80 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-50 text-forest-700 flex items-center justify-center mb-6 group-hover:bg-forest-700 group-hover:text-gold-400 transition-colors">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest-900 mb-3">Autoestima & Insegurança</h3>
+            <p class="text-warmgray-600 text-sm leading-relaxed mb-6">
+              Liberte-se da autocrítica excessiva, da necessidade de validação e da síndrome do impostor para construir uma relação genuína e segura consigo mesmo.
+            </p>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20ajuda%20para%20Autoestima%20e%20Autoconhecimento" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-forest-700 group-hover:text-forest-900 transition">
+            <span>Iniciar tratamento</span>
+            <svg class="w-4 h-4 text-gold-500 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 6: Atendimento Online Especializado -->
+        <div class="bg-forest-800 text-white rounded-3xl p-8 shadow-card hover:shadow-float transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group relative overflow-hidden">
+          <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-forest-700/50 rounded-full blur-xl pointer-events-none"></div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-700 text-gold-400 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded bg-forest-900 text-gold-400 text-xs font-semibold mb-2">Sem Fronteiras</div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-3">Psicoterapia Online</h3>
+            <p class="text-sand-200 text-sm leading-relaxed mb-6">
+              Sessões com a mesma eficácia científica no conforto da sua casa ou trabalho. Perfeito para expatriados e brasileiros no exterior via plataforma criptografada.
+            </p>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20Online" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-gold-400 hover:text-white transition">
+            <span>Consultar disponibilidade</span>
+            <svg class="w-4 h-4 text-gold-400 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Triage Simulator (High Conversion Magnet) -->
+  <section id="simulador" class="py-20 bg-forest-900 text-white relative overflow-hidden">
+    <!-- Vector background curves -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,30 Q50,70 100,30 L100,100 L0,100 Z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-gold-400 bg-forest-800 px-3.5 py-1 rounded-full border border-forest-700">Triagem Online em 3 Passos</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
+          Descubra o formato ideal para você
+        </h2>
+        <p class="text-sand-200 text-sm sm:text-base max-w-xl mx-auto">
+          Responda a 3 perguntas rápidas para receber uma indicação direta da Dra. Helena no WhatsApp.
+        </p>
+      </div>
+
+      <!-- Simulator Card Box -->
+      <div class="card-lift bg-forest-800/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-forest-700 shadow-2xl">
+        
+        <!-- Step 1: Principal Objetivo -->
+        <div class="space-y-4 mb-8">
+          <label class="block text-sm font-semibold text-gold-300 uppercase tracking-wider">1. Qual o principal motivo que te traz aqui hoje?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="triage-objective">
+            <button type="button" onclick="selectTriage(this, 'motivo')" data-value="Ansiedade e Crises de Pânico" class="triage-btn text-left p-4 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition flex items-center justify-between">
+              <span class="text-sm font-medium">Ansiedade ou Crises de Pânico</span>
+              <span class="check-icon opacity-0 text-gold-400 font-bold">✓</span>
+            </button>
+            <button type="button" onclick="selectTriage(this, 'motivo')" data-value="Depressão e Falta de Motivação" class="triage-btn text-left p-4 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition flex items-center justify-between">
+              <span class="text-sm font-medium">Depressão e Falta de Ânimo</span>
+              <span class="check-icon opacity-0 text-gold-400 font-bold">✓</span>
+            </button>
+            <button type="button" onclick="selectTriage(this, 'motivo')" data-value="Burnout e Estresse Profissional" class="triage-btn text-left p-4 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition flex items-center justify-between">
+              <span class="text-sm font-medium">Burnout e Pressão no Trabalho</span>
+              <span class="check-icon opacity-0 text-gold-400 font-bold">✓</span>
+            </button>
+            <button type="button" onclick="selectTriage(this, 'motivo')" data-value="Relacionamento e Conflitos a Dois" class="triage-btn text-left p-4 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition flex items-center justify-between">
+              <span class="text-sm font-medium">Relacionamento / Terapia de Casal</span>
+              <span class="check-icon opacity-0 text-gold-400 font-bold">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Formato do Atendimento -->
+        <div class="space-y-4 mb-8">
+          <label class="block text-sm font-semibold text-gold-300 uppercase tracking-wider">2. Como você prefere ser atendido(a)?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="triage-format">
+            <button type="button" onclick="selectTriage(this, 'formato')" data-value="Online (Vídeo Criptografado)" class="triage-btn text-left p-4 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition flex items-center justify-between">
+              <div>
+                <span class="text-sm font-medium block">🌐 100% Online</span>
+                <span class="text-xs text-sand-300">Conforto da sua casa / Qualquer local</span>
+              </div>
+              <span class="check-icon opacity-0 text-gold-400 font-bold">✓</span>
+            </button>
+            <button type="button" onclick="selectTriage(this, 'formato')" data-value="Presencial (Jardins - São Paulo/SP)" class="triage-btn text-left p-4 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition flex items-center justify-between">
+              <div>
+                <span class="text-sm font-medium block">📍 Presencial (Jardins - SP)</span>
+                <span class="text-xs text-sand-300">Consultório acolhedor e privativo</span>
+              </div>
+              <span class="check-icon opacity-0 text-gold-400 font-bold">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Turno de Preferência -->
+        <div class="space-y-4 mb-8">
+          <label class="block text-sm font-semibold text-gold-300 uppercase tracking-wider">3. Qual período do dia é melhor para sua agenda?</label>
+          <div class="grid grid-cols-3 gap-3" id="triage-period">
+            <button type="button" onclick="selectTriage(this, 'turno')" data-value="Manhã (08h às 12h)" class="triage-btn text-center p-3 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition">
+              <span class="text-sm font-medium block">Manhã</span>
+              <span class="text-[11px] text-sand-300">08h - 12h</span>
+            </button>
+            <button type="button" onclick="selectTriage(this, 'turno')" data-value="Tarde (13h às 18h)" class="triage-btn text-center p-3 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition">
+              <span class="text-sm font-medium block">Tarde</span>
+              <span class="text-[11px] text-sand-300">13h - 18h</span>
+            </button>
+            <button type="button" onclick="selectTriage(this, 'turno')" data-value="Noite (18h às 21h)" class="triage-btn text-center p-3 rounded-2xl bg-forest-900/80 hover:bg-forest-700 border border-forest-600 transition">
+              <span class="text-sm font-medium block">Noite</span>
+              <span class="text-[11px] text-sand-300">18h - 21h</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 4: Descreva com suas palavras o que está sentindo (Área de Texto Acolhedora) -->
+        <div class="space-y-3 mb-8">
+          <div class="flex items-center justify-between">
+            <label for="triage-user-feelings" class="block text-sm font-semibold text-gold-300 uppercase tracking-wider">
+              4. Descreva com suas palavras o que você está sentindo:
+            </label>
+            <span class="text-[11px] text-sand-300 font-medium bg-forest-900/80 px-2.5 py-0.5 rounded-full border border-forest-700">
+              Opcional & Confidencial
+            </span>
+          </div>
+          <div class="relative">
+            <textarea id="triage-user-feelings" rows="3" placeholder="Ex: Sinto um aperto constante no peito, dificuldade para desacelerar a mente à noite e crises de ansiedade antes de decisões importantes..." class="w-full rounded-2xl bg-forest-900/90 border border-forest-600 text-white placeholder:text-sand-400/50 p-4 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition resize-none"></textarea>
+            <div class="absolute bottom-3 right-3 text-[11px] text-gold-400/80 flex items-center gap-1.5 pointer-events-none bg-forest-950/80 px-2 py-0.5 rounded-md border border-forest-700/50">
+              <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <span>100% Protegido por Sigilo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final WhatsApp Action Button -->
+        <div class="pt-2 text-center">
+          <button id="btn-final-triage" onclick="sendTriageToWhatsApp()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 rounded-2xl bg-gold-400 hover:bg-gold-500 text-forest-950 font-bold text-base shadow-xl transition transform hover:scale-[1.02] active:scale-95">
+            <svg class="w-5 h-5 text-forest-950" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.532 2.028.844 3.149.844 3.182 0 5.77-2.587 5.77-5.766.001-3.181-2.588-5.686-5.77-5.686zm3.376 8.204c-.149.418-.752.793-1.042.844-.28.049-.636.079-1.802-.404-1.397-.58-2.298-2.001-2.368-2.094-.07-.093-.574-.764-.574-1.458 0-.693.364-1.034.494-1.174.13-.14.285-.175.38-.175.095 0 .19.001.272.005.087.004.204-.033.319.243.119.286.408.995.444 1.069.036.073.06.158.012.254-.048.096-.072.156-.143.239-.071.083-.15.185-.214.249-.071.071-.145.148-.063.289.083.141.368.608.791.984.545.485 1.004.636 1.147.707.143.071.226.06.31-.036.084-.096.357-.417.452-.56.096-.143.19-.119.321-.071.131.048.833.393.976.464.143.071.238.107.273.167.036.059.036.345-.113.763z"/></svg>
+            <span>Ver Horários Disponíveis no WhatsApp</span>
+          </button>
+          <p class="text-xs text-sand-300 mt-3 flex items-center justify-center gap-1">
+            <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            Atendimento sigiloso. Resposta média em menos de 15 minutos.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section / Environment Showcase -->
+  <section id="sobre" class="py-20 md:py-28 bg-sand-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Image Duo -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="relative">
+            <!-- Consultorio Image -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <img src="assets/consultorio-zen.jpg" alt="Consultório de Psicologia Jardins São Paulo" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+            </div>
+            <!-- Session Badge -->
+            <div class="absolute -bottom-6 -right-4 sm:right-6 bg-forest-900 text-white p-4 rounded-2xl shadow-xl max-w-[240px] border border-forest-700">
+              <p class="text-gold-400 font-serif text-2xl font-bold">Ambiente Seguro</p>
+              <p class="text-xs text-sand-200 mt-1">Acústica projetada para total privacidade e poltronas ergonômicas relaxantes.</p>
+            </div>
+          </div>
+          <div class="pt-4 grid grid-cols-2 gap-4">
+            <div class="rounded-2xl overflow-hidden shadow-md border-2 border-white">
+              <img src="images/session.jpg" alt="Sessão acolhedora de psicoterapia" class="w-full h-40 object-cover" loading="lazy" decoding="async">
+            </div>
+            <div class="bg-sand-100 rounded-2xl p-5 border border-sand-200 flex flex-col justify-center">
+              <span class="font-serif text-3xl font-bold text-forest-900">10+ Anos</span>
+              <span class="text-xs text-warmgray-600 mt-1">de experiência clínica com psicoterapia individual e de casal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Professional Bio & Philosophy -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-200 text-forest-800 text-xs font-semibold uppercase">
+            Sobre a Especialista
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 leading-tight">
+            "Você merece um espaço onde sua dor seja ouvida com respeito e ciência."
+          </h2>
+
+          <p class="text-warmgray-600 leading-relaxed text-sm sm:text-base">
+            Sou a <strong>Dra. Helena Vasconcelos</strong> (CRP 06/148920), psicóloga clínica formada pela Universidade de São Paulo (USP) e especialista em <em>Terapia Cognitivo-Comportamental</em> e <em>Terapia Focada na Compaixão</em>.
+          </p>
+
+          <p class="text-warmgray-600 leading-relaxed text-sm sm:text-base">
+            Meu trabalho não é ditar como você deve viver, mas fornecer o mapa e as ferramentas científicas para que você enfrente seus medos, reconstrua sua autoestima e encontre paz mental.
+          </p>
+
+          <!-- Key Credentials -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0">🎓</div>
+              <div>
+                <h3 class="text-sm font-bold text-forest-900">Graduação USP</h3>
+                <p class="text-xs text-warmgray-600">Formação sólida em Psicologia</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0">📚</div>
+              <div>
+                <h3 class="text-sm font-bold text-forest-900">Especialização TCC</h3>
+                <p class="text-xs text-warmgray-600">Terapias de 3ª Geração (ACT/DBT)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0">🌿</div>
+              <div>
+                <h3 class="text-sm font-bold text-forest-900">Acolhimento Sem Julgamento</h3>
+                <p class="text-xs text-warmgray-600">Espaço inclusivo e seguro</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-700 flex items-center justify-center shrink-0">💻</div>
+              <div>
+                <h3 class="text-sm font-bold text-forest-900">Certificação e-Psi</h3>
+                <p class="text-xs text-warmgray-600">Autorizada para atendimento online</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="pt-4">
+            <a href="https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20agendar%20uma%20consulta" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-forest-700 hover:bg-forest-800 text-white font-semibold text-sm shadow-md transition">
+              <span>Conversar Diretamente com a Dra. Helena</span>
+              <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Árvore da Saúde Emocional / Mapeamento de Sintomas Interativo -->
+  <section id="metodologia" class="py-20 md:py-28 bg-[#FAF8F5] border-y border-sand-200/80 relative overflow-hidden">
+    <!-- Gentle Ambient Floating Wind Leaves -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Leaf 1 -->
+      <div class="absolute top-1/4 left-10 text-forest-500/40 wind-leaf-1">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>
+      </div>
+      <!-- Leaf 2 -->
+      <div class="absolute top-1/3 right-20 text-gold-600/30 wind-leaf-2">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>
+      </div>
+      <!-- Leaf 3 -->
+      <div class="absolute bottom-1/4 left-1/3 text-emerald-600/30 wind-leaf-3">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-forest-700 bg-forest-100 border border-forest-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Diagnóstico & Mapeamento Emocional
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-900 mt-3 mb-4">
+          Árvore da Saúde Emocional
+        </h2>
+        <p class="text-warmgray-600 text-sm sm:text-base">
+          Onde a dor está pesando na sua vida? <strong>Passe o mouse ou toque nas 5 bolhas pulsantes</strong> nos galhos para ver uma breve explicação de cada desafio e como a psicoterapia atua na raiz do problema.
+        </p>
+      </div>
+
+      <!-- Main Interactive Tree Showcase Container -->
+      <div class="bg-white rounded-[36px] p-4 sm:p-8 lg:p-12 shadow-xl border border-sand-200/80 relative overflow-hidden">
+        
+        <!-- Interactive Tree Canvas Box (Responsive Relative Container) -->
+        <div class="card-lift relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden min-h-[480px] sm:min-h-[580px] lg:min-h-[640px] flex items-center justify-center bg-gradient-to-b from-[#FAF8F5] via-white to-[#F4EFE6] border border-sand-200/60 shadow-inner">
+          
+          <!-- Tree Illustration Image -->
+          <img src="images/mental_health_tree.png" alt="Árvore da Mente Saudável - Clínica Mente Serena" class="w-full h-full max-h-[600px] object-contain object-bottom pointer-events-none select-none transition-transform duration-700" loading="lazy" decoding="async">
+
+          <!-- 5 INTERACTIVE PULSING HOTSPOT BUBBLES ALONG THE BRANCHES -->
+          
+          <!-- Hotspot 1: Burnout & Sobrecarga (Galho Superior Esquerdo) -->
+          <div class="absolute top-[26%] left-[22%] sm:left-[26%] lg:left-[28%] z-30" style="transform: translate(-50%, -50%);">
+            <button type="button" onclick="selectTreeHotspot(0)" onmouseenter="selectTreeHotspot(0)" class="tree-hotspot-btn group relative flex items-center justify-center focus:outline-none" aria-label="Burnout & Sobrecarga">
+              <!-- Pulsing Radar Waves -->
+              <span class="absolute w-12 h-12 rounded-full bg-amber-400/50 radar-pulse-1 pointer-events-none"></span>
+              <span class="absolute w-16 h-16 rounded-full bg-amber-400/30 radar-pulse-2 pointer-events-none"></span>
+              <!-- Core Bubble Button -->
+              <span class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border-2 border-amber-500 shadow-float text-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-50 transition-all duration-300">
+                💼
+              </span>
+              <!-- Pill Label on Desktop -->
+              <span class="hidden sm:inline-block absolute left-full ml-2.5 px-3 py-1 rounded-full bg-forest-900/90 text-amber-300 font-bold text-xs whitespace-nowrap shadow-md backdrop-blur-sm group-hover:bg-forest-950 transition">
+                Burnout
+              </span>
+            </button>
+          </div>
+
+          <!-- Hotspot 2: Ansiedade & Pânico (Galho Superior Central) -->
+          <div class="absolute top-[18%] left-[50%] sm:left-[48%] lg:left-[49%] z-30" style="transform: translate(-50%, -50%);">
+            <button type="button" onclick="selectTreeHotspot(1)" onmouseenter="selectTreeHotspot(1)" class="tree-hotspot-btn group relative flex items-center justify-center focus:outline-none" aria-label="Ansiedade & Pânico">
+              <span class="absolute w-12 h-12 rounded-full bg-rose-400/50 radar-pulse-2 pointer-events-none"></span>
+              <span class="absolute w-16 h-16 rounded-full bg-rose-400/30 radar-pulse-3 pointer-events-none"></span>
+              <span class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border-2 border-rose-500 shadow-float text-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-50 transition-all duration-300">
+                ⚡
+              </span>
+              <span class="hidden sm:inline-block absolute bottom-full mb-2 px-3 py-1 rounded-full bg-forest-900/90 text-rose-300 font-bold text-xs whitespace-nowrap shadow-md backdrop-blur-sm group-hover:bg-forest-950 transition">
+                Ansiedade
+              </span>
+            </button>
+          </div>
+
+          <!-- Hotspot 3: Depressão & Desânimo (Galho Superior Direito) -->
+          <div class="absolute top-[26%] left-[78%] sm:left-[74%] lg:left-[72%] z-30" style="transform: translate(-50%, -50%);">
+            <button type="button" onclick="selectTreeHotspot(2)" onmouseenter="selectTreeHotspot(2)" class="tree-hotspot-btn group relative flex items-center justify-center focus:outline-none" aria-label="Depressão & Desânimo">
+              <span class="absolute w-12 h-12 rounded-full bg-indigo-400/50 radar-pulse-3 pointer-events-none"></span>
+              <span class="absolute w-16 h-16 rounded-full bg-indigo-400/30 radar-pulse-1 pointer-events-none"></span>
+              <span class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border-2 border-indigo-500 shadow-float text-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-indigo-50 transition-all duration-300">
+                🌧️
+              </span>
+              <span class="hidden sm:inline-block absolute right-full mr-2.5 px-3 py-1 rounded-full bg-forest-900/90 text-indigo-200 font-bold text-xs whitespace-nowrap shadow-md backdrop-blur-sm group-hover:bg-forest-950 transition">
+                Depressão
+              </span>
+            </button>
+          </div>
+
+          <!-- Hotspot 4: Autoestima & Insegurança (Galho Médio Esquerdo) -->
+          <div class="absolute top-[48%] left-[26%] sm:left-[32%] lg:left-[34%] z-30" style="transform: translate(-50%, -50%);">
+            <button type="button" onclick="selectTreeHotspot(3)" onmouseenter="selectTreeHotspot(3)" class="tree-hotspot-btn group relative flex items-center justify-center focus:outline-none" aria-label="Autoestima & Insegurança">
+              <span class="absolute w-12 h-12 rounded-full bg-emerald-400/50 radar-pulse-1 pointer-events-none"></span>
+              <span class="absolute w-16 h-16 rounded-full bg-emerald-400/30 radar-pulse-2 pointer-events-none"></span>
+              <span class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border-2 border-emerald-500 shadow-float text-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-50 transition-all duration-300">
+                🪞
+              </span>
+              <span class="hidden sm:inline-block absolute right-full mr-2.5 px-3 py-1 rounded-full bg-forest-900/90 text-emerald-300 font-bold text-xs whitespace-nowrap shadow-md backdrop-blur-sm group-hover:bg-forest-950 transition">
+                Autoestima
+              </span>
+            </button>
+          </div>
+
+          <!-- Hotspot 5: Conflitos & Relacionamentos (Galho Médio Direito / Raízes) -->
+          <div class="absolute top-[52%] left-[74%] sm:left-[66%] lg:left-[65%] z-30" style="transform: translate(-50%, -50%);">
+            <button type="button" onclick="selectTreeHotspot(4)" onmouseenter="selectTreeHotspot(4)" class="tree-hotspot-btn group relative flex items-center justify-center focus:outline-none" aria-label="Conflitos & Relacionamentos">
+              <span class="absolute w-12 h-12 rounded-full bg-gold-400/50 radar-pulse-2 pointer-events-none"></span>
+              <span class="absolute w-16 h-16 rounded-full bg-gold-400/30 radar-pulse-3 pointer-events-none"></span>
+              <span class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border-2 border-gold-500 shadow-float text-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-gold-50 transition-all duration-300">
+                🤝
+              </span>
+              <span class="hidden sm:inline-block absolute left-full ml-2.5 px-3 py-1 rounded-full bg-forest-900/90 text-gold-300 font-bold text-xs whitespace-nowrap shadow-md backdrop-blur-sm group-hover:bg-forest-950 transition">
+                Relacionamentos
+              </span>
+            </button>
+          </div>
+
+          <!-- Bottom Floating Glassmorphism Explanation Card -->
+          <div class="absolute bottom-4 sm:bottom-6 inset-x-4 sm:inset-x-8 max-w-2xl mx-auto z-40">
+            <div id="tree-active-card" class="card-lift bg-forest-950/90 text-white backdrop-blur-md p-5 sm:p-6 rounded-3xl border border-forest-700/80 shadow-2xl transition-all duration-500">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <div class="flex items-center gap-2.5">
+                  <span id="tree-card-icon" class="text-2xl">💼</span>
+                  <div>
+                    <span id="tree-card-badge" class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                      Sintoma Emocional
+                    </span>
+                    <h3 id="tree-card-title" class="font-serif text-lg sm:text-xl font-bold text-white">
+                      Burnout & Esgotamento Profissional
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <p id="tree-card-desc" class="text-xs sm:text-sm text-sand-200 leading-relaxed mb-4">
+                Sensação constante de sobrecarga mental, esgotamento físico que não melhora com o descanso, insônia e distanciamento afetivo. Na psicoterapia, reestruturamos seus limites, fortalecemos sua autonomia e restabelecemos a regulação do estresse.
+              </p>
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-forest-800">
+                <span class="text-[11px] text-sand-300 italic">💡 Clique ou passe o mouse em qualquer bolha da árvore</span>
+                <a id="tree-card-cta" href="https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20ajuda%20para%20tratar%20Burnout%20e%20Esgotamento" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gold-400 hover:bg-gold-500 text-forest-950 font-bold text-xs shadow-md transition">
+                  <span>Tratar esse sintoma no WhatsApp</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mobile Quick Selector Buttons -->
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-2 lg:hidden">
+          <button type="button" onclick="selectTreeHotspot(0)" class="p-2.5 rounded-2xl bg-sand-100 hover:bg-forest-100 text-xs font-bold text-forest-900 text-center border border-sand-200 transition">
+            💼 Burnout
+          </button>
+          <button type="button" onclick="selectTreeHotspot(1)" class="p-2.5 rounded-2xl bg-sand-100 hover:bg-forest-100 text-xs font-bold text-forest-900 text-center border border-sand-200 transition">
+            ⚡ Ansiedade
+          </button>
+          <button type="button" onclick="selectTreeHotspot(2)" class="p-2.5 rounded-2xl bg-sand-100 hover:bg-forest-100 text-xs font-bold text-forest-900 text-center border border-sand-200 transition">
+            🌧️ Depressão
+          </button>
+          <button type="button" onclick="selectTreeHotspot(3)" class="p-2.5 rounded-2xl bg-sand-100 hover:bg-forest-100 text-xs font-bold text-forest-900 text-center border border-sand-200 transition">
+            🪞 Autoestima
+          </button>
+          <button type="button" onclick="selectTreeHotspot(4)" class="col-span-2 sm:col-span-1 p-2.5 rounded-2xl bg-sand-100 hover:bg-forest-100 text-xs font-bold text-forest-900 text-center border border-sand-200 transition">
+            🤝 Relacionamento
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="depoimentos" class="py-20 md:py-28 bg-sand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-forest-700 bg-sand-200 px-3.5 py-1 rounded-full">Histórias de Transformação</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-900 mt-3 mb-4">
+          O que dizem os pacientes
+        </h2>
+        <p class="text-warmgray-600 text-sm sm:text-base">
+          Relatos reais com nomes resguardados para respeitar rigorosamente o sigilo e a privacidade dos nossos pacientes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="bg-white rounded-3xl p-8 shadow-card border border-sand-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold-500 mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-warmgray-600 italic leading-relaxed mb-6">
+              "Cheguei à clínica no auge de crises de ansiedade que me impediam de dirigir e trabalhar. Em poucos meses de TCC com a Dra. Helena, aprendi a reconhecer os gatilhos e recuperei a tranquilidade que não sentia há anos."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-sand-200">
+            <div class="w-10 h-10 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center text-sm">M.S.</div>
+            <div>
+              <p class="text-sm font-bold text-forest-900">M. S. • 34 anos</p>
+              <p class="text-xs text-warmgray-600">Advogada • Atendimento Online</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white rounded-3xl p-8 shadow-card border border-sand-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold-500 mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-warmgray-600 italic leading-relaxed mb-6">
+              "A terapia de casal salvou nosso casamento. Não sabíamos mais conversar sem que virasse uma discussão. O consultório nos Jardins é extremamente acolhedor e a condução da Dra. Helena foi impecável e neutra."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-sand-200">
+            <div class="w-10 h-10 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center text-sm">R & C</div>
+            <div>
+              <p class="text-sm font-bold text-forest-900">R. & C. • Casados há 8 anos</p>
+              <p class="text-xs text-warmgray-600">Empresários • Atendimento Presencial</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white rounded-3xl p-8 shadow-card border border-sand-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-gold-500 mb-4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-warmgray-600 italic leading-relaxed mb-6">
+              "Moro no Canadá e precisava de uma psicóloga brasileira com abordagem moderna para tratar Burnout. A facilidade do atendimento online e a pontualidade impecável fizeram toda a diferença na minha recuperação."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-sand-200">
+            <div class="w-10 h-10 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center text-sm">G.L.</div>
+            <div>
+              <p class="text-sm font-bold text-forest-900">G. L. • 29 anos</p>
+              <p class="text-xs text-warmgray-600">Engenheiro de Software • Toronto/CA</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section id="faq" class="py-20 bg-sand-50 border-t border-sand-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-forest-700 bg-sand-200 px-3.5 py-1 rounded-full">Tire Suas Dúvidas</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-3 mb-3">
+          Perguntas Frequentes
+        </h2>
+        <p class="text-warmgray-600 text-sm">
+          Tudo o que você precisa saber antes de iniciar sua jornada psicoterapêutica.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faq-accordion">
+        
+        <!-- Question 1 -->
+        <details class="card-lift bg-white rounded-2xl border border-sand-200 p-6 group transition duration-200 open:shadow-md">
+          <summary class="font-serif text-lg font-bold text-forest-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Como funciona o reembolso pelo plano de saúde?</span>
+            <span class="w-6 h-6 rounded-full bg-forest-50 text-forest-800 flex items-center justify-center text-sm font-bold group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <div class="mt-4 text-sm text-warmgray-600 leading-relaxed pt-2 border-t border-sand-100">
+            Emitimos recibos e notas fiscais com todas as especificações legais exigidas pelos planos de saúde (Bradesco, SulAmérica, Amil, Care Plus, Porto Seguro, etc.) para que você solicite o reembolso integral ou parcial diretamente no aplicativo do seu convênio.
+          </div>
+        </details>
+
+        <!-- Question 2 -->
+        <details class="card-lift bg-white rounded-2xl border border-sand-200 p-6 group transition duration-200 open:shadow-md">
+          <summary class="font-serif text-lg font-bold text-forest-900 cursor-pointer list-none flex items-center justify-between">
+            <span>A psicoterapia online tem a mesma eficácia da presencial?</span>
+            <span class="w-6 h-6 rounded-full bg-forest-50 text-forest-800 flex items-center justify-center text-sm font-bold group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <div class="mt-4 text-sm text-warmgray-600 leading-relaxed pt-2 border-t border-sand-100">
+            Sim! Diversas pesquisas e diretrizes internacionais da APA e do CFP comprovam que a eficácia da TCC online é idêntica à presencial. As sessões ocorrem por videochamada criptografada em plataforma médica privativa.
+          </div>
+        </details>
+
+        <!-- Question 3 -->
+        <details class="card-lift bg-white rounded-2xl border border-sand-200 p-6 group transition duration-200 open:shadow-md">
+          <summary class="font-serif text-lg font-bold text-forest-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Qual a duração e frequência das sessões?</span>
+            <span class="w-6 h-6 rounded-full bg-forest-50 text-forest-800 flex items-center justify-center text-sm font-bold group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <div class="mt-4 text-sm text-warmgray-600 leading-relaxed pt-2 border-t border-sand-100">
+            Cada sessão tem duração de <strong>50 minutos</strong>. No início do tratamento, a frequência recomendada é semanal para consolidar o vínculo e os resultados. Conforme sua evolução, as sessões podem ser quinzenais.
+          </div>
+        </details>
+
+        <!-- Question 4 -->
+        <details class="card-lift bg-white rounded-2xl border border-sand-200 p-6 group transition duration-200 open:shadow-md">
+          <summary class="font-serif text-lg font-bold text-forest-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Como é a primeira consulta? O que preciso preparar?</span>
+            <span class="w-6 h-6 rounded-full bg-forest-50 text-forest-800 flex items-center justify-center text-sm font-bold group-open:rotate-180 transition-transform">↓</span>
+          </summary>
+          <div class="mt-4 text-sm text-warmgray-600 leading-relaxed pt-2 border-t border-sand-100">
+            Você não precisa se preparar de nenhuma forma especial. A primeira sessão é um momento de escuta acolhedora para você falar livremente sobre o que está sentindo e combinarmos os objetivos que você deseja alcançar.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA Callout -->
+  <section class="reveal py-16 md:py-24 bg-forest-900 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+      <div class="w-16 h-16 rounded-3xl bg-forest-800 text-gold-400 mx-auto flex items-center justify-center shadow-lg">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+        Dê o primeiro passo rumo à sua tranquilidade emocional.
+      </h2>
+
+      <p class="text-sand-200 text-base sm:text-lg max-w-2xl mx-auto font-light">
+        Agende uma conversa inicial e tire todas as suas dúvidas diretamente com a psicóloga sem nenhum compromisso.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20agendar%20minha%20primeira%20sessão%20de%20psicologia" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gold-400 hover:bg-gold-500 text-forest-950 font-bold text-base shadow-xl transition transform hover:scale-105">
+          <svg class="w-5 h-5 text-forest-950" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.532 2.028.844 3.149.844 3.182 0 5.77-2.587 5.77-5.766.001-3.181-2.588-5.686-5.77-5.686zm3.376 8.204c-.149.418-.752.793-1.042.844-.28.049-.636.079-1.802-.404-1.397-.58-2.298-2.001-2.368-2.094-.07-.093-.574-.764-.574-1.458 0-.693.364-1.034.494-1.174.13-.14.285-.175.38-.175.095 0 .19.001.272.005.087.004.204-.033.319.243.119.286.408.995.444 1.069.036.073.06.158.012.254-.048.096-.072.156-.143.239-.071.083-.15.185-.214.249-.071.071-.145.148-.063.289.083.141.368.608.791.984.545.485 1.004.636 1.147.707.143.071.226.06.31-.036.084-.096.357-.417.452-.56.096-.143.19-.119.321-.071.131.048.833.393.976.464.143.071.238.107.273.167.036.059.036.345-.113.763z"/></svg>
+          <span>Agendar no WhatsApp Agora</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Iniciar Sua Terapia na Mente Serena?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Ambiente acolhedor, sigilo ético absoluto e abordagem baseada em evidências científicas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Atendimentos Impessoais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Consultas frias sem plano terapêutico claro ou objetivos definidos</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Plataformas genéricas com profissionais rotativos a cada semana</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de acolhimento e sensação de não estar sendo verdadeiramente ouvido</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Dificuldade para flexibilizar horários e sessões de emergência</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Acolhimento & Ética
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Mente Serena Clínica</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Atendimento humanizado com psicólogos especialistas em Terapia Cognitivo-Comportamental</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Sigilo ético rigoroso pelo Conselho Federal de Psicologia em ambiente seguro</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Modalidade presencial em consultório acolhedor ou online com criptografia de ponta</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Desenvolvimento prático de ferramentas emocionais para ansiedade, estresse e autoestima</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20psicológica%20na%20Mente%20Serena." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Espaço terapêutico acolhedor e seguro com psicoterapia para ansiedade, estresse, autoconhecimento e desenvolvimento emocional.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">Serenity Psicologia</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Psicologia Clínica & Saúde Mental</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(Serenity Psicologia)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Serenity Psicologia em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-forest-950 text-sand-300 pt-16 pb-12 border-t border-forest-900 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-forest-900">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-forest-800 text-gold-400 flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                <path d="M32 54V28M32 28C26 22 18 20 12 24M32 28C38 22 46 20 52 24M32 38C24 34 16 36 12 42M32 38C40 34 48 36 52 42M32 18C28 12 20 10 16 14M32 18C36 12 44 10 48 14" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-serif text-lg font-bold text-white block">Clínica Mente Serena</span>
+              <span class="text-[11px] text-forest-400 font-semibold">Dra. Helena Vasconcelos • CRP 06/148920</span>
+            </div>
+          </div>
+          <p class="text-sand-400 max-w-md leading-relaxed text-xs">
+            Atendimento psicológico clínico com foco em acolhimento humanizado e abordagens baseadas em evidências. Consultas presenciais nos Jardins (São Paulo/SP) e online em todo o Brasil e exterior.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm tracking-wide">Links Rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#especialidades" class="hover:text-gold-400 transition">Especialidades</a></li>
+            <li><a href="#sobre" class="hover:text-gold-400 transition">Sobre a Psicóloga</a></li>
+            <li><a href="#simulador" class="hover:text-gold-400 transition">Triagem Online</a></li>
+            <li><a href="#faq" class="hover:text-gold-400 transition">Dúvidas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Location -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm tracking-wide">Atendimento</h4>
+          <p class="text-sand-300">Alameda Gabriel Monteiro da Silva, 1420 - Jardins, São Paulo - SP</p>
+          <p class="text-sand-300">WhatsApp: (32) 99929-2311</p>
+          <p class="text-sand-300">contato@menteserenapsico.com.br</p>
+          <p class="text-gold-400 font-medium pt-1">Segunda a Sexta: 08h às 21h • Sábado: 08h às 14h</p>
+        </div>
+
+      </div>
+
+      <!-- Legal & CFP Notice -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-[11px] text-sand-400">
+        <p>© 2026 Clínica Mente Serena Psicologia. Todos os direitos reservados.</p>
+        <p class="max-w-md text-amber-200/80">
+          ⚠️ <strong>Atenção:</strong> Este serviço não realiza atendimento de urgência ou emergência. Em caso de crise grave ou pensamentos de autoextermínio, ligue gratuitamente para o <strong>CVV (188)</strong> ou procure a UPA/Pronto-Socorro mais próximo.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Button with Pulse Indicator -->
+  <a href="https://wa.me/5532999292311?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicologia" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="shimmer-btn fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition duration-300 group">
+    <span class="relative flex h-3 w-3">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+    </span>
+    <span class="hidden sm:inline text-xs font-bold tracking-wide">Agendar Consulta</span>
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.532 2.028.844 3.149.844 3.182 0 5.77-2.587 5.77-5.766.001-3.181-2.588-5.686-5.77-5.686zm3.376 8.204c-.149.418-.752.793-1.042.844-.28.049-.636.079-1.802-.404-1.397-.58-2.298-2.001-2.368-2.094-.07-.093-.574-.764-.574-1.458 0-.693.364-1.034.494-1.174.13-.14.285-.175.38-.175.095 0 .19.001.272.005.087.004.204-.033.319.243.119.286.408.995.444 1.069.036.073.06.158.012.254-.048.096-.072.156-.143.239-.071.083-.15.185-.214.249-.071.071-.145.148-.063.289.083.141.368.608.791.984.545.485 1.004.636 1.147.707.143.071.226.06.31-.036.084-.096.357-.417.452-.56.096-.143.19-.119.321-.071.131.048.833.393.976.464.143.071.238.107.273.167.036.059.036.345-.113.763z"/></svg>
+  </a>
+
+  <!-- JavaScript for Interactive Step Representation & Triage -->
+  <script>
+    // --- Mental Health Representation Data & Animated Cosmic Floating Vectors ---
+    const stepRepresentations = [
+      {
+        badge: "Etapa 01 • O Acolhimento Inicial",
+        title: "PRIMEIRO CONTATO & ESCUTA",
+        desc: "O primeiro contato é o momento onde o peso da solidão emocional é compartilhado. Sem formulários burocráticos ou julgamentos: você nos conta o que está sentindo e nós cuidamos de alinhar o melhor formato e horário para você.",
+        bullets: [
+          "Atendimento humano e sigiloso pelo WhatsApp oficial.",
+          "Escolha entre formato presencial nos Jardins ou 100% online.",
+          "Orientações transparentes sobre valores e reembolso do plano de saúde."
+        ],
+        ctaText: "INICIAR PRIMEIRO CONTATO",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20iniciar%20meu%20Primeiro%20Contato%20(Etapa%2001)",
+        svgArt: `
+          <svg class="w-full h-full" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Animated Floating Musical Notes coming out of open mind -->
+            <g transform="translate(240, 160)" class="anim-note-1">
+              <path d="M10,25 L10,5 L35,-2 L35,18 M10,12 L35,5" stroke="#FEF08A" stroke-width="2.6" stroke-linecap="round"/>
+              <circle cx="6" cy="25" r="5" fill="#FEF08A"/>
+              <circle cx="31" cy="18" r="5" fill="#FEF08A"/>
+            </g>
+            <g transform="translate(380, 80)" class="anim-note-2">
+              <path d="M8,20 L8,5 L25,0 L25,15" stroke="#FDA4AF" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="5" cy="20" r="4" fill="#FDA4AF"/>
+              <circle cx="22" cy="15" r="4" fill="#FDA4AF"/>
+            </g>
+            <g transform="translate(850, 140)" class="anim-note-1">
+              <path d="M10,25 L10,5 L35,-2 L35,18 M10,12 L35,5" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="6" cy="25" r="4.5" fill="#FEF08A"/>
+              <circle cx="31" cy="18" r="4.5" fill="#FEF08A"/>
+            </g>
+
+            <!-- Animated Rotating Multi-Petal Flowers in Cosmos -->
+            <g transform="translate(320, 240)" class="anim-flower-1">
+              <circle cx="0" cy="0" r="8" fill="#E2C264"/>
+              <circle cx="-12" cy="0" r="7" fill="#F9F5EE"/>
+              <circle cx="12" cy="0" r="7" fill="#F9F5EE"/>
+              <circle cx="0" cy="-12" r="7" fill="#F9F5EE"/>
+              <circle cx="0" cy="12" r="7" fill="#F9F5EE"/>
+            </g>
+            <g transform="translate(760, 100)" class="anim-flower-2">
+              <circle cx="0" cy="0" r="9" fill="#F43F5E"/>
+              <circle cx="-12" cy="0" r="8" fill="#FDA4AF"/>
+              <circle cx="12" cy="0" r="8" fill="#FDA4AF"/>
+              <circle cx="0" cy="-12" r="8" fill="#FDA4AF"/>
+              <circle cx="0" cy="12" r="8" fill="#FDA4AF"/>
+            </g>
+
+            <!-- Animated Pulsing Cosmic Hearts -->
+            <g transform="translate(480, 70)" class="anim-heart-1">
+              <path d="M0,0 C0,-12 15,-12 15,0 C15,12 0,22 0,22 C0,22 -15,12 -15,0 C-15,-12 0,-12 0,0 Z" fill="#F43F5E"/>
+            </g>
+            <g transform="translate(900, 260)" class="anim-heart-2">
+              <path d="M0,0 C0,-9 11,-9 11,0 C11,9 0,16 0,16 C0,16 -11,9 -11,0 C-11,-9 0,-9 0,0 Z" fill="#F43F5E"/>
+            </g>
+
+            <!-- Floating Petals & Stardust in Wind -->
+            <g class="anim-petal-1">
+              <circle cx="280" cy="110" r="4.5" fill="#FDA4AF"/>
+              <circle cx="560" cy="140" r="5" fill="#FEF08A"/>
+              <circle cx="820" cy="200" r="4" fill="#FDA4AF"/>
+            </g>
+            <g class="anim-petal-2">
+              <circle cx="420" cy="180" r="4" fill="#FEF08A"/>
+              <circle cx="680" cy="80" r="4.5" fill="#FDA4AF"/>
+            </g>
+          </svg>
+        `
+      },
+      {
+        badge: "Etapa 02 • Mapeamento & Consciência",
+        title: "SESSÃO DE AVALIAÇÃO & CLAREZA",
+        desc: "Uma sessão estruturada de 50 minutos onde desemaranhamos os nós mentais. Identificamos padrões de pensamentos automáticos, gatilhos de ansiedade e criamos o mapa inicial do seu funcionamento psíquico.",
+        bullets: [
+          "Mapeamento detalhado dos gatilhos e crenças limitantes.",
+          "Definição de objetivos terapêuticos personalizados.",
+          "Primeiras estratégias de alívio e regulação emocional."
+        ],
+        ctaText: "AGENDAR SESSÃO DE AVALIAÇÃO",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20agendar%20minha%20Sessão%20de%20Avaliação%20(Etapa%2002)",
+        svgArt: `
+          <svg class="w-full h-full" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Golden Synaptic Waves spreading through cosmos -->
+            <path d="M220,100 Q400,30 600,70 T920,110" stroke="#E2C264" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <path d="M240,150 Q460,90 680,120 T940,190" stroke="#E2C264" stroke-width="2" stroke-linecap="round"/>
+
+            <!-- Fluttering Cosmic Butterflies -->
+            <g transform="translate(360, 100)" class="anim-butterfly">
+              <path d="M0,0 Q-12,-16 -24,-8 Q-24,14 0,0" fill="#E2C264"/>
+              <path d="M0,0 Q12,-16 24,-8 Q24,14 0,0" fill="#E2C264"/>
+              <circle cx="0" cy="0" r="3" fill="#13231B"/>
+            </g>
+            <g transform="translate(780, 90) scale(1.15)" class="anim-butterfly">
+              <path d="M0,0 Q-14,-18 -26,-10 Q-26,16 0,0" fill="#F472B6"/>
+              <path d="M0,0 Q14,-18 26,-10 Q26,16 0,0" fill="#F472B6"/>
+              <circle cx="0" cy="0" r="3" fill="#13231B"/>
+            </g>
+
+            <!-- Animated Flowers & Stars -->
+            <g transform="translate(520, 60)" class="anim-flower-1">
+              <circle cx="0" cy="0" r="7" fill="#F43F5E"/>
+              <circle cx="-10" cy="0" r="6" fill="#FDA4AF"/>
+              <circle cx="10" cy="0" r="6" fill="#FDA4AF"/>
+              <circle cx="0" cy="-10" r="6" fill="#FDA4AF"/>
+              <circle cx="0" cy="10" r="6" fill="#FDA4AF"/>
+            </g>
+            <g class="anim-petal-1">
+              <circle cx="300" cy="200" r="4.5" fill="#FEF08A"/>
+              <circle cx="850" cy="220" r="5" fill="#E2C264"/>
+              <circle cx="640" cy="150" r="4" fill="#FDA4AF"/>
+            </g>
+          </svg>
+        `
+      },
+      {
+        badge: "Etapa 03 • Ferramentas & Prática",
+        title: "PLANO DE AÇÃO & TRANSFORMAÇÃO",
+        desc: "A fase ativa onde você aplica as ferramentas práticas da Terapia Cognitivo-Comportamental no seu dia a dia. Com exercícios guiados, reestruturação cognitiva e ativação comportamental semanal.",
+        bullets: [
+          "Treinamento de respiração diafragmática e grounding.",
+          "Substituição de pensamentos automáticos destrutivos.",
+          "Acompanhamento contínuo da redução dos sintomas."
+        ],
+        ctaText: "CONHECER O PLANO TERAPÊUTICO",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20saber%20mais%20sobre%20o%20Plano%20de%20Ação%20(Etapa%2003)",
+        svgArt: `
+          <svg class="w-full h-full" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Blooming Botanical Constellation -->
+            <g transform="translate(300, 110)" class="anim-flower-1">
+              <circle cx="0" cy="0" r="9" fill="#E2C264"/>
+              <circle cx="-13" cy="0" r="9" fill="#FDA4AF"/>
+              <circle cx="13" cy="0" r="9" fill="#FDA4AF"/>
+              <circle cx="0" cy="-13" r="9" fill="#FDA4AF"/>
+              <circle cx="0" cy="13" r="9" fill="#FDA4AF"/>
+            </g>
+            <g transform="translate(740, 80)" class="anim-flower-2">
+              <circle cx="0" cy="0" r="9" fill="#F43F5E"/>
+              <circle cx="-12" cy="0" r="9" fill="#FEF08A"/>
+              <circle cx="12" cy="0" r="9" fill="#FEF08A"/>
+              <circle cx="0" cy="-12" r="9" fill="#FEF08A"/>
+              <circle cx="0" cy="12" r="9" fill="#FEF08A"/>
+            </g>
+
+            <!-- Floating Notes & Vines -->
+            <g transform="translate(450, 50)" class="anim-note-1">
+              <path d="M10,25 L10,5 L35,-2 L35,18 M10,12 L35,5" stroke="#FEF08A" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="6" cy="25" r="5" fill="#FEF08A"/>
+              <circle cx="31" cy="18" r="5" fill="#FEF08A"/>
+            </g>
+            <g class="anim-petal-1">
+              <circle cx="600" cy="120" r="5" fill="#FDA4AF"/>
+              <circle cx="860" cy="180" r="5" fill="#E2C264"/>
+            </g>
+          </svg>
+        `
+      },
+      {
+        badge: "Etapa 04 • Paz Mental & Plenitude",
+        title: "AUTONOMIA & AMOR PRÓPRIO",
+        desc: "A consagração do seu tratamento. Você desenvolve autocompaixão inabalável, aprende a ser seu próprio terapeuta e vive com liberdade emocional, paz de espírito e profunda conexão consigo mesmo.",
+        bullets: [
+          "Prevenção sólida de recaídas e manutenção dos ganhos.",
+          "Sensação diária de leveza, autoconfiança e harmonia.",
+          "Alta clínica comemorada e portas sempre abertas."
+        ],
+        ctaText: "EXPERIMENTAR ESSA TRANSFORMAÇÃO",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20quero%20iniciar%20minha%20jornada%20rumo%20à%20Autonomia%20e%20Paz%20Mental",
+        svgArt: `
+          <svg class="w-full h-full" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Full Animated Galaxy of Self Love: Flowers, Notes, Hearts, Butterflies, Stardust -->
+            <!-- Floating Musical Notes -->
+            <g transform="translate(260, 90)" class="anim-note-1">
+              <path d="M10,25 L10,5 L35,-2 L35,18 M10,12 L35,5" stroke="#FEF08A" stroke-width="2.6" stroke-linecap="round"/>
+              <circle cx="6" cy="25" r="5" fill="#FEF08A"/>
+              <circle cx="31" cy="18" r="5" fill="#FEF08A"/>
+            </g>
+            <g transform="translate(680, 50)" class="anim-note-2">
+              <path d="M10,25 L10,5 L35,-2 L35,18 M10,12 L35,5" stroke="#FEF08A" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="6" cy="25" r="4.5" fill="#FEF08A"/>
+              <circle cx="31" cy="18" r="4.5" fill="#FEF08A"/>
+            </g>
+
+            <!-- Pulsing Hearts in Nebula -->
+            <g transform="translate(420, 50)" class="anim-heart-1">
+              <path d="M0,0 C0,-10 13,-10 13,0 C13,10 0,19 0,19 C0,19 -13,10 -13,0 C-13,-10 0,-10 0,0 Z" fill="#F43F5E"/>
+            </g>
+    // --- Tree of Emotional Health (Árvore da Mente Saudável) Hotspots Logic ---
+    const treeHotspotsData = [
+      {
+        icon: "💼",
+        badge: "Sintoma: Galho da Produtividade",
+        title: "Burnout & Esgotamento Profissional",
+        desc: "Sensação crônica de exaustão mental, falta de energia para o trabalho, perda de entusiasmo e insônia. Na terapia, reconstruímos limites saudáveis, desarmamos a autocobrança desmedida e regulamos o sistema nervoso.",
+        ctaText: "Tratar Burnout no WhatsApp",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20ajuda%20para%20tratar%20Burnout%20e%20Esgotamento"
+      },
+      {
+        icon: "⚡",
+        badge: "Sintoma: Galho dos Pensamentos",
+        title: "Ansiedade, Medos & Crises de Pânico",
+        desc: "Mente acelerada que antecipa catástrofes, aperto no peito, falta de ar, taquicardia e preocupação constante. Com técnicas científicas da TCC, desativamos gatilhos de alerta e devolvemos o controle da sua rotina.",
+        ctaText: "Tratar Ansiedade no WhatsApp",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20ajuda%20para%20tratar%20Ansiedade%20e%20Pânico"
+      },
+      {
+        icon: "🌧️",
+        badge: "Sintoma: Galho do Sentido",
+        title: "Depressão, Luto & Falta de Ânimo",
+        desc: "Dificuldade para sair da cama, perda de prazer nas atividades que antes gostava, sensação de vazio e isolamento. Trabalhamos ativação comportamental e autocompaixão para resgatar a vitalidade e o sentido da vida.",
+        ctaText: "Tratar Depressão no WhatsApp",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20ajuda%20para%20tratar%20Depressão%20e%20Desânimo"
+      },
+      {
+        icon: "🪞",
+        badge: "Sintoma: Galho do Autocuidado",
+        title: "Insegurança, Autoestima & Autocrítica",
+        desc: "Necessidade excessiva de validação, síndrome do impostor, medo paralisante do erro e voz interna autocrítica. Fortalecemos o autoconceito e construímos uma relação de respeito e confiança consigo mesmo.",
+        ctaText: "Tratar Autoestima no WhatsApp",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20ajuda%20para%20Autoestima%20e%20Insegurança"
+      },
+      {
+        icon: "🤝",
+        badge: "Sintoma: Raízes dos Vínculos",
+        title: "Conflitos de Relacionamento & Família",
+        desc: "Dificuldades na comunicação afetiva, discussões frequentes, dependência emocional ou feridas de quebra de confiança. Desenvolvemos assertividade, resolução de conflitos e vínculos maduros e seguros.",
+        ctaText: "Tratar Relacionamentos no WhatsApp",
+        ctaLink: "https://wa.me/5532999292311?text=Olá%20Dra.%20Helena,%20gostaria%20de%20ajuda%20para%20Relacionamentos%20e%20Casal"
+      }
+    ];
+
+    let currentHotspot = 0;
+
+    function selectTreeHotspot(index) {
+      currentHotspot = index;
+      const item = treeHotspotsData[index];
+      const card = document.getElementById('tree-active-card');
+      const icon = document.getElementById('tree-card-icon');
+      const badge = document.getElementById('tree-card-badge');
+      const title = document.getElementById('tree-card-title');
+      const desc = document.getElementById('tree-card-desc');
+      const cta = document.getElementById('tree-card-cta');
+
+      if (!item) return;
+
+      if (card) {
+        card.style.opacity = '0.5';
+        card.style.transform = 'translateY(4px)';
+        setTimeout(() => {
+          if (icon) icon.textContent = item.icon;
+          if (badge) badge.textContent = item.badge;
+          if (title) title.textContent = item.title;
+          if (desc) desc.textContent = item.desc;
+          if (cta) {
+            cta.querySelector('span').textContent = item.ctaText;
+            cta.href = item.ctaLink;
+          }
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 120);
+      }
+    }
+
+    // --- Interactive Triage Simulator Logic ---
+    const triageData = {
+      motivo: "Ansiedade e Crises de Pânico",
+      formato: "Online (Vídeo Criptografado)",
+      turno: "Manhã (08h às 12h)"
+    };
+
+    function selectTriage(button, category) {
+      const parent = button.parentElement;
+      const allButtons = parent.querySelectorAll('.triage-btn');
+      
+      allButtons.forEach(btn => {
+        btn.classList.remove('bg-forest-700', 'border-gold-400', 'text-white');
+        btn.classList.add('bg-forest-900/80', 'border-forest-600');
+        const check = btn.querySelector('.check-icon');
+        if (check) check.classList.add('opacity-0');
+      });
+
+      button.classList.add('bg-forest-700', 'border-gold-400', 'text-white');
+      button.classList.remove('bg-forest-900/80', 'border-forest-600');
+      const currentCheck = button.querySelector('.check-icon');
+      if (currentCheck) currentCheck.classList.remove('opacity-0');
+
+      triageData[category] = button.getAttribute('data-value');
+    }
+
+    function sendTriageToWhatsApp() {
+      const phone = "5532999292311";
+      const feelingsInput = document.getElementById('triage-user-feelings');
+      const feelingsText = feelingsInput ? feelingsInput.value.trim() : "";
+
+      let message = `Olá Dra. Helena! Fiz a triagem no site da Clínica Mente Serena:%0A%0A` +
+        `• *Objetivo Principal:* ${encodeURIComponent(triageData.motivo)}%0A` +
+        `• *Formato Escolhido:* ${encodeURIComponent(triageData.formato)}%0A` +
+        `• *Turno de Preferência:* ${encodeURIComponent(triageData.turno)}`;
+
+      if (feelingsText) {
+        message += `%0A• *O que estou sentindo:* "${encodeURIComponent(feelingsText)}"`;
+      }
+
+      message += `%0A%0AGostaria de saber a disponibilidade de horários e valores.`;
+
+      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    }
+
+    // Initialize first options on load
+    document.addEventListener('DOMContentLoaded', () => {
+      selectTreeHotspot(0);
+
+      const firstMotivo = document.querySelector('#triage-objective button');
+      const firstFormato = document.querySelector('#triage-format button');
+      const firstPeriod = document.querySelector('#triage-period button');
+      if (firstMotivo) selectTriage(firstMotivo, 'motivo');
+      if (firstFormato) selectTriage(firstFormato, 'formato');
+      if (firstPeriod) selectTriage(firstPeriod, 'turno');
+    });
+  </script>
+
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Equilíbrio Emocional e Alívio da Ansiedade: Mais Leveza para Viver
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Entenda no vídeo como o suporte psicológico profissional oferece ferramentas práticas para desacelerar a mente e viver com paz interior.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(Serenity Psicologia)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Atendimento humanizado presencial e online com ética e sigilo rigoroso</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(Serenity Psicologia)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('agendamento') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(Serenity Psicologia).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Mente Serena Psicologia</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20psicológica%20na%20Mente%20Serena." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

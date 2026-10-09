@@ -1,0 +1,2638 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pawly | Tudo o que seu pet precisa, em um só lugar</title>
+  <meta name="description" content="Pawly - Petshop moderno e acolhedor em São Paulo. Rações premium, brinquedos, banho & tosa, veterinário, hotel e adoção responsável. Entrega rápida para todo o Brasil." />
+
+  <!-- Google Fonts: Plus Jakarta Sans / Outfit / Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            script: ['Caveat', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            pawly: {
+              cream: '#FAF7F2',
+              cardCream: '#FFFFFF',
+              navy: '#162032',
+              navyLight: '#2C3E55',
+              coral: '#F95B32',
+              coralHover: '#E4471E',
+              coralSoft: '#FFF0EB',
+              peach: '#FEE7DC',
+              border: '#EFE8DE',
+              footer: '#151C28',
+              muted: '#64748B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <style>
+    /* Suaves microinterações */
+    .paw-pill {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .paw-pill:hover {
+      transform: translateY(-3px);
+    }
+    .product-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(249, 91, 50, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+    }
+    /* Drawer Carrinho */
+    #cart-drawer {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #cart-drawer.translate-x-full {
+      transform: translateX(100%);
+    }
+    #cart-drawer.translate-x-0 {
+      transform: translateX(0);
+    }
+    /* Toast animado */
+    #toast-notification {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "name": "Pawly Petshop & Centro de Estética Animal",
+  "description": "Banho, tosa na tesoura, hidratação com ozonioterapia e cuidados veterinários carinhosos para cães e gatos.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/banho-e-tosa/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  }
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-pawly-cream text-pawly-navy font-sans antialiased selection:bg-pawly-coral selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HEADER (Moderno, Sticky, com Busca Inteligente e Carrinho)              -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-2xl bg-pawly-coral text-white flex items-center justify-center text-lg shadow-sm group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-2xl text-pawly-navy tracking-tight block leading-tight">Pawly</span>
+          <span class="block text-[8px] uppercase tracking-[0.2em] text-pawly-coral font-bold -mt-0.5">Pets Mais Felizes</span>
+        </div>
+      </a>
+
+      <!-- Menu Principal (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-pawly-navy/80">
+        <a href="#home" class="text-pawly-coral font-bold hover:text-pawly-coral transition">Home</a>
+        <a href="#categorias" class="hover:text-pawly-coral transition">Loja</a>
+        <a href="#adocao" class="hover:text-pawly-coral transition">Adoção</a>
+        <a href="#servicos" class="hover:text-pawly-coral transition">Serviços</a>
+        <a href="#sobre" class="hover:text-pawly-coral transition">Sobre</a>
+      </nav>
+
+      <!-- Ações do Header (Busca, Conta, Favoritos, Carrinho) -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        
+        <!-- Botão Busca Inteligente -->
+        <button onclick="toggleSearchModal()" aria-label="Buscar produtos" class="w-10 h-10 rounded-full hover:bg-pawly-peach/50 text-pawly-navy flex items-center justify-center transition text-sm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <!-- Botão Conta / WhatsApp -->
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" aria-label="Minha conta e atendimento" class="hidden sm:flex w-10 h-10 rounded-full hover:bg-pawly-peach/50 text-pawly-navy items-center justify-center transition text-sm" title="Atendimento WhatsApp: (32) 99929-2311">
+          <i class="fa-regular fa-user"></i>
+        </a>
+
+        <!-- Botão Favoritos -->
+        <button onclick="showToast('Você favoritou este catálogo! ❤️')" aria-label="Meus favoritos" class="hidden sm:flex w-10 h-10 rounded-full hover:bg-pawly-peach/50 text-pawly-navy items-center justify-center transition text-sm">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <!-- Botão Carrinho com Badge Dinâmico -->
+        <button onclick="toggleCart()" aria-label="Abrir carrinho" class="relative w-11 h-11 rounded-full bg-pawly-peach/70 hover:bg-pawly-coral hover:text-white text-pawly-navy flex items-center justify-center transition shadow-sm">
+          <i class="fa-solid fa-bag-shopping text-base"></i>
+          <span id="cart-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-pawly-coral text-white font-black text-[10px] flex items-center justify-center border-2 border-white shadow">
+            2
+          </span>
+        </button>
+
+        <!-- Botão Menu Mobile -->
+        <button onclick="toggleMobileMenu()" aria-label="Abrir menu mobile" class="md:hidden w-10 h-10 rounded-xl bg-slate-100 text-pawly-navy flex items-center justify-center text-base">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Dropdown Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 bg-white border-t border-pawly-border space-y-3">
+      <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-pawly-coral">Home</a>
+      <a href="#categorias" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-pawly-navy hover:text-pawly-coral">Loja & Categorias</a>
+      <a href="#produtos" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-pawly-navy hover:text-pawly-coral">Produtos Mais Vendidos</a>
+      <a href="#servicos" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-pawly-navy hover:text-pawly-coral">Serviços</a>
+      <a href="#adocao" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-pawly-navy hover:text-pawly-coral">Adoção Responsável</a>
+      <a href="#sobre" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-pawly-navy hover:text-pawly-coral">Sobre a Pawly</a>
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+        <span class="text-xs text-slate-500 font-medium">WhatsApp: (32) 99929-2311</span>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-pawly-coral text-white text-xs font-bold">Falar Conosco</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO PRINCIPAL (Idêntico à composição da referência visual)            -->
+  <!-- ========================================================================= -->
+  <section id="home" class="reveal relative overflow-hidden bg-gradient-to-b from-white via-pawly-cream to-pawly-cream pt-8 md:pt-14 pb-20 lg:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Lado Esquerdo: Textos, Título com Destaque Coral, CTAs & Benefícios -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <!-- Badge Superior -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pawly-peach/80 border border-pawly-coral/30 text-pawly-coral text-xs font-bold tracking-wide shadow-sm">
+            <span>🐾</span>
+            <span>Cuidado Melhor • Pets Mais Felizes</span>
+          </div>
+
+          <!-- Título Principal com destaque em coral -->
+          <h1 class="font-outfit font-black text-4xl sm:text-5xl lg:text-[56px] text-pawly-navy tracking-tight leading-[1.12]">
+            Tudo o que seu pet precisa, <br class="hidden sm:inline" />
+            <span class="text-pawly-coral">em um só lugar.</span>
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal">
+            Rações premium, acessórios, brinquedos, banho & tosa e muito mais. Aqui, cuidamos do seu pet com carinho, qualidade e segurança.
+          </p>
+
+          <!-- CTAs -->
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <a href="#produtos" class="shimmer-btn inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-pawly-coral hover:bg-pawly-coralHover text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-pawly-coral/25 transition transform hover:scale-105">
+              <span>Comprar agora</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+
+            <a href="#adocao" class="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white hover:bg-pawly-peach text-pawly-navy font-bold text-sm border-2 border-pawly-border hover:border-pawly-coral/50 transition-all shadow-sm">
+              <i class="fa-solid fa-heart text-pawly-coral text-sm"></i>
+              <span>Adotar um pet</span>
+            </a>
+          </div>
+
+          <!-- 3 Benefícios Oficiais da Dobra Hero -->
+          <div class="pt-6 border-t border-pawly-border/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold text-slate-700">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <span class="leading-tight">Entrega rápida para todo o Brasil</span>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs flex-shrink-0">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <span class="leading-tight">Pague em até 12x no cartão</span>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs flex-shrink-0">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <span class="leading-tight">Atendimento especializado</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Lado Direito: Fotografia Realista do Golden & Gato juntos + Elementos Manuscritos -->
+        <div class="lg:col-span-6 relative">
+          
+          <div class="relative mx-auto max-w-lg lg:max-w-none">
+            
+            <!-- Moldura Orgânica com a Foto Original da Referência -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
+              <img 
+                src="assets/hero-pets-clean.jpg" 
+                alt="Cachorro Golden Retriever e Gato rajado deitados juntos na cama como melhores amigos na Pawly" 
+                class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-700" 
+                loading="eager"
+              />
+
+              <!-- Overlay com Efeito Sutil de Patinhas -->
+              <div class="absolute bottom-3 left-4 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-pawly-border flex items-center gap-2.5">
+                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-bold text-pawly-navy">+15.000 pets atendidos com amor</span>
+              </div>
+            </div>
+
+            <!-- Card Flutuante 1: Best Friends Forever (Script Manuscrito) -->
+            <div class="absolute -top-4 -right-2 sm:-right-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-xl border border-pawly-border text-center rotate-3 hidden sm:block">
+              <span class="font-script text-2xl text-pawly-navy font-bold block leading-none">Best Friends Forever ♡</span>
+              <span class="text-[10px] text-pawly-coral font-bold tracking-wider uppercase block mt-1">Cão & Gato Amigos</span>
+            </div>
+
+            <!-- Card Flutuante 2: Selo WhatsApp Oficial com o Número -->
+            <div class="absolute -bottom-6 -left-2 sm:-left-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-xl border border-pawly-border flex items-center gap-3 max-w-[240px]">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-lg flex-shrink-0 shadow-sm">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-pawly-navy block leading-tight">Dúvidas rápidas?</span>
+                <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="text-pawly-coral font-black hover:underline block mt-0.5">
+                  (32) 99929-2311
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Transição Curva Orgânica Inferior do Hero -->
+    <div class="absolute bottom-0 left-0 right-0 h-10 bg-pawly-cream pointer-events-none"></div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. CATEGORIAS (Tudo para o seu melhor amigo - 8 Cards com Foto & Ícone)    -->
+  <!-- ========================================================================= -->
+  <section id="categorias" class="reveal py-16 md:py-24 bg-pawly-cream border-t border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="inline-flex items-center gap-1.5 text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          <i class="fa-solid fa-paw text-[10px]"></i> NOSSAS CATEGORIAS
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-pawly-navy tracking-tight">
+          Tudo para o seu melhor amigo
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Encontre os melhores produtos e serviços para o bem-estar e alegria do seu pet.
+        </p>
+      </div>
+
+      <!-- Grid de 8 Cards de Categorias -->
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- 1. Rações -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-amber-50/50 mb-4">
+            <img src="assets/cat-racoes.jpg" alt="Rações premium e tigela cerâmica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-bowl-food"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Rações</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Nutrição completa para todas as fases.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver produtos</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Brinquedos -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-blue-50/50 mb-4">
+            <img src="assets/cat-brinquedos.jpg" alt="Brinquedos mordedores e bolas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-bone"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Brinquedos</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Mais diversão e bem-estar físico.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver produtos</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Banho & Tosa -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-teal-50/50 mb-4">
+            <img src="assets/cat-banho.jpg" alt="Produtos de banho, tosa e cosmética pet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-scissors"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Banho & Tosa</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Higiene e cuidados com muito carinho.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#servicos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver serviços</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Acessórios -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-orange-50/50 mb-4">
+            <img src="assets/cat-acessorios.jpg" alt="Coleiras, guias e peitorais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-shield-dog"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Acessórios</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Estilo e conforto para o dia a dia.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver produtos</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Petiscos -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-amber-50/50 mb-4">
+            <img src="assets/prod-racao.jpg" alt="Petiscos saborosos e naturais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-cookie-bite"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Petiscos</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Pequenos momentos de felicidade.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver produtos</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Saúde -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-emerald-50/50 mb-4">
+            <img src="assets/serv-veterinario.jpg" alt="Cuidados de saúde e farmácia pet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Saúde</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Cuidados para uma vida mais longa e saudável.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#servicos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver cuidados</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Camas e Conforto -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-indigo-50/50 mb-4">
+            <img src="assets/prod-cama.jpg" alt="Camas ortopédicas e almofadas fofas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-couch"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Camas e conforto</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Um cantinho especial para descansar.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:translate-x-1 transition-transform">
+              <span>Ver produtos</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Adoção -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-rose-50/50 mb-4">
+            <img src="assets/cat-adocao.jpg" alt="Cão e gato esperando um lar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 text-rose-500 flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-pawly-navy group-hover:text-pawly-coral transition">Adoção</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Dê uma segunda chance a um grande amigo.</p>
+          </div>
+          <div class="pt-4">
+            <a href="#adocao" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-500 hover:translate-x-1 transition-transform">
+              <span>Conhecer pets</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. PRODUTOS MAIS VENDIDOS (Os queridinhos dos pets ❤️)                     -->
+  <!-- ========================================================================= -->
+  <section id="produtos" class="reveal py-16 md:py-24 bg-white border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho com link ver todos -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div class="space-y-2">
+          <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+            DESTAQUES DA SEMANA
+          </span>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-pawly-navy tracking-tight">
+            Os queridinhos dos pets ❤️
+          </h2>
+          <p class="text-slate-500 text-sm">
+            Itens mais bem avaliados por quem mais entende de carinho.
+          </p>
+        </div>
+
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-pawly-coral hover:underline">
+          <span>Ver catálogo completo no WhatsApp</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Grid de Produtos com Adicionar ao Carrinho Interativo -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Produto 1: Ração Premium -->
+        <div class="product-card bg-pawly-cream/50 rounded-3xl p-4 border border-pawly-border flex flex-col justify-between relative group">
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-white mb-4">
+            <img src="assets/prod-racao.jpg" alt="Ração Premium para Cães Adultos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <!-- Selo Desconto -->
+            <span class="absolute top-3 left-3 bg-pawly-coral text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-full shadow">
+              -15% OFF
+            </span>
+            <!-- Botão Favorito -->
+            <button onclick="toggleFavorite(this)" aria-label="Favoritar" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 text-slate-400 hover:text-pawly-coral flex items-center justify-center text-xs shadow transition">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 text-amber-400 text-xs mb-1">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <span class="text-slate-400 text-[11px] font-semibold ml-1">(128)</span>
+            </div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy leading-snug">Ração Premium para Cães Adultos</h3>
+            <p class="text-xs text-slate-500 mt-1">Carne & Vegetais Selecionados • 15kg</p>
+            <div class="mt-3">
+              <span class="text-xs text-slate-400 line-through">R$ 219,90</span>
+              <div class="flex items-baseline gap-2">
+                <span class="font-outfit font-black text-2xl text-pawly-coral">R$ 186,90</span>
+                <span class="text-[11px] text-slate-500 font-medium">em até 6x sem juros</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <button onclick="addToCart('Ração Premium Cães Adultos', 186.90, 'assets/prod-racao.jpg')" class="w-full py-3 rounded-2xl bg-pawly-navy hover:bg-pawly-coral text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Adicionar ao carrinho</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Produto 2: Brinquedo Mordedor -->
+        <div class="product-card bg-pawly-cream/50 rounded-3xl p-4 border border-pawly-border flex flex-col justify-between relative group">
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-white mb-4">
+            <img src="assets/prod-brinquedo.jpg" alt="Brinquedo Mordedor Resistente" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <!-- Selo Mais Vendido -->
+            <span class="absolute top-3 left-3 bg-amber-500 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-full shadow">
+              Mais Vendido
+            </span>
+            <button onclick="toggleFavorite(this)" aria-label="Favoritar" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 text-slate-400 hover:text-pawly-coral flex items-center justify-center text-xs shadow transition">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 text-amber-400 text-xs mb-1">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <span class="text-slate-400 text-[11px] font-semibold ml-1">(96)</span>
+            </div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy leading-snug">Brinquedo Mordedor Resistente</h3>
+            <p class="text-xs text-slate-500 mt-1">Borracha Atóxica e Corda Reforçada</p>
+            <div class="mt-3">
+              <span class="text-xs text-slate-400 line-through">R$ 59,90</span>
+              <div class="flex items-baseline gap-2">
+                <span class="font-outfit font-black text-2xl text-pawly-coral">R$ 44,90</span>
+                <span class="text-[11px] text-slate-500 font-medium">3x de R$ 14,96</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <button onclick="addToCart('Brinquedo Mordedor Resistente', 44.90, 'assets/prod-brinquedo.jpg')" class="w-full py-3 rounded-2xl bg-pawly-navy hover:bg-pawly-coral text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Adicionar ao carrinho</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Produto 3: Cama Pet Confort Premium -->
+        <div class="product-card bg-pawly-cream/50 rounded-3xl p-4 border border-pawly-border flex flex-col justify-between relative group">
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-white mb-4">
+            <img src="assets/prod-cama.jpg" alt="Cama Pet Confort Premium" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-pawly-coral text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-full shadow">
+              -20% OFF
+            </span>
+            <button onclick="toggleFavorite(this)" aria-label="Favoritar" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 text-slate-400 hover:text-pawly-coral flex items-center justify-center text-xs shadow transition">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 text-amber-400 text-xs mb-1">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="text-slate-400 text-[11px] font-semibold ml-1">(214)</span>
+            </div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy leading-snug">Cama Pet Confort Premium</h3>
+            <p class="text-xs text-slate-500 mt-1">Espuma Ortopédica e Tecido Lavável</p>
+            <div class="mt-3">
+              <span class="text-xs text-slate-400 line-through">R$ 199,90</span>
+              <div class="flex items-baseline gap-2">
+                <span class="font-outfit font-black text-2xl text-pawly-coral">R$ 159,90</span>
+                <span class="text-[11px] text-slate-500 font-medium">em até 5x sem juros</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <button onclick="addToCart('Cama Pet Confort Premium', 159.90, 'assets/prod-cama.jpg')" class="w-full py-3 rounded-2xl bg-pawly-navy hover:bg-pawly-coral text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Adicionar ao carrinho</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Produto 4: Kit de Higiene para Pets -->
+        <div class="product-card bg-pawly-cream/50 rounded-3xl p-4 border border-pawly-border flex flex-col justify-between relative group">
+          <div class="relative rounded-2xl overflow-hidden aspect-square bg-white mb-4">
+            <img src="assets/prod-higiene.jpg" alt="Kit de Higiene para Pets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-emerald-500 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-full shadow">
+              Vegano & Hipoalergênico
+            </span>
+            <button onclick="toggleFavorite(this)" aria-label="Favoritar" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 text-slate-400 hover:text-pawly-coral flex items-center justify-center text-xs shadow transition">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 text-amber-400 text-xs mb-1">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <span class="text-slate-400 text-[11px] font-semibold ml-1">(81)</span>
+            </div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy leading-snug">Kit de Higiene para Pets</h3>
+            <p class="text-xs text-slate-500 mt-1">Shampoo, Condicionador e Pente Suave</p>
+            <div class="mt-3">
+              <span class="text-xs text-slate-400 line-through">R$ 119,90</span>
+              <div class="flex items-baseline gap-2">
+                <span class="font-outfit font-black text-2xl text-pawly-coral">R$ 89,90</span>
+                <span class="text-[11px] text-slate-500 font-medium">3x de R$ 29,96</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <button onclick="addToCart('Kit de Higiene para Pets', 89.90, 'assets/prod-higiene.jpg')" class="w-full py-3 rounded-2xl bg-pawly-navy hover:bg-pawly-coral text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Adicionar ao carrinho</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. BANNER PROMOCIONAL (Seu pet merece um mimo - 30% OFF)                  -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-12 md:py-16 bg-pawly-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-pawly-coral via-[#FF6A43] to-amber-500 text-white p-8 sm:p-12 lg:p-16 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <!-- Padrão Sutil de Patinhas no Fundo -->
+        <div class="absolute -right-8 -bottom-8 text-white/10 text-[160px] pointer-events-none">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <div class="absolute left-1/3 top-2 text-white/10 text-[90px] pointer-events-none">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+
+        <div class="space-y-4 max-w-xl relative z-10 text-center md:text-left">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-bold uppercase tracking-wider">
+            🎉 OFERTA EXCLUSIVA DO MÊS
+          </span>
+          <h2 class="font-outfit font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            Seu pet merece um mimo.
+          </h2>
+          <p class="text-white/90 text-sm sm:text-base leading-relaxed">
+            Aproveite <strong>até 30% OFF</strong> em produtos selecionados para deixar a rotina do seu amigo ainda mais feliz e saborosa.
+          </p>
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-pawly-coral font-black text-xs uppercase tracking-wider shadow-lg hover:bg-pawly-peach transition transform hover:scale-105">
+              <span>Aproveitar oferta no WhatsApp</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Foto Emocionante do Pet Feliz -->
+        <div class="relative z-10 w-64 sm:w-72 lg:w-80 flex-shrink-0">
+          <div class="rounded-2xl overflow-hidden border-4 border-white/40 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 bg-white">
+            <img src="assets/insta-2.jpg" alt="Cachorrinho feliz aproveitando o presente na Pawly" class="w-full h-auto object-cover">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. SERVIÇOS (Muito mais que uma loja. Cuidamos de quem você ama.)          -->
+  <!-- ========================================================================= -->
+  <section id="servicos" class="reveal py-16 md:py-24 bg-white border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          SERVIÇOS PROFISSIONAIS & SPA
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-pawly-navy tracking-tight leading-tight">
+          Muito mais que uma loja.<br />Cuidamos de quem você ama.
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Infraestrutura completa com carinho veterinário, transporte seguro e bem-estar animal em São Paulo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        
+        <!-- Serviço 1: Banho & Tosa -->
+        <div class="bg-pawly-cream/60 rounded-3xl p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-teal-100 mb-4">
+            <img src="assets/cat-banho.jpg" alt="Banho e tosa carinhoso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-shower"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy">Banho & Tosa</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Banho, higiene, hidratação e tosa da raça com muito carinho.</p>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-white border border-pawly-border text-pawly-navy hover:bg-pawly-coral hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+              <span>Agendar serviço</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Serviço 2: Consulta Veterinária -->
+        <div class="bg-pawly-cream/60 rounded-3xl p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-blue-100 mb-4">
+            <img src="assets/serv-veterinario.jpg" alt="Consulta veterinária profissional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy">Consulta Veterinária</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Cuidados profissionais, vacinas e check-ups preventivos.</p>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-white border border-pawly-border text-pawly-navy hover:bg-pawly-coral hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+              <span>Agendar serviço</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Serviço 3: Taxi Pet -->
+        <div class="bg-pawly-cream/60 rounded-3xl p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-amber-100 mb-4">
+            <img src="assets/serv-taxipet.jpg" alt="Taxi pet seguro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-car-side"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy">Taxi Pet</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Buscamos e levamos seu pet com cinto e ar-condicionado.</p>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-white border border-pawly-border text-pawly-navy hover:bg-pawly-coral hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+              <span>Agendar serviço</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Serviço 4: Hotel para Pets -->
+        <div class="bg-pawly-cream/60 rounded-3xl p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-purple-100 mb-4">
+            <img src="assets/serv-hotel.jpg" alt="Hotel e hospedagem para pets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-hotel"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy">Hotel para Pets</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Espaço aconchegante com recreação quando você for viajar.</p>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-white border border-pawly-border text-pawly-navy hover:bg-pawly-coral hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+              <span>Agendar serviço</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Serviço 5: Adestramento -->
+        <div class="bg-pawly-cream/60 rounded-3xl p-5 border border-pawly-border shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-rose-100 mb-4">
+            <img src="assets/serv-adestramento.jpg" alt="Adestramento positivo de cães" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white text-pawly-coral flex items-center justify-center text-xs shadow-sm">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-outfit font-bold text-base text-pawly-navy">Adestramento</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Mais equilíbrio, socialização e convivência harmônica.</p>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-white border border-pawly-border text-pawly-navy hover:bg-pawly-coral hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5">
+              <span>Agendar serviço</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. ADOÇÃO (Um lar pode mudar uma vida.)                                   -->
+  <!-- ========================================================================= -->
+  <section id="adocao" class="reveal py-16 md:py-24 bg-pawly-cream border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="inline-flex items-center gap-1.5 text-xs font-outfit font-extrabold uppercase tracking-widest text-rose-500">
+          <i class="fa-solid fa-heart"></i> ADOÇÃO RESPONSÁVEL
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-pawly-navy tracking-tight">
+          Um lar pode mudar uma vida.
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Talvez o seu novo melhor amigo esteja esperando por você. Todos os animais são vacinados, castrados e vermifugados.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Pet 1: Thor -->
+        <div class="bg-white rounded-3xl p-5 border border-pawly-border shadow-md hover:shadow-xl transition-all group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 mb-4">
+              <img src="assets/pet-thor.jpg" alt="Thor esperando adoção" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-blue-500 text-white font-bold text-[11px] px-3 py-1 rounded-full shadow">
+                Macho • Porte Médio
+              </span>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-between">
+                <h3 class="font-outfit font-black text-2xl text-pawly-navy">Thor</h3>
+                <span class="text-xs font-bold text-slate-500">2 anos</span>
+              </div>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-pawly-coral"></i> São Paulo - SP (Capital)
+              </p>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Brincalhão, adora correr ao ar livre e se dá muito bem com outros cães e crianças.
+              </p>
+            </div>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-heart"></i>
+              <span>Quero adotar o Thor ❤️</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pet 2: Luna -->
+        <div class="bg-white rounded-3xl p-5 border border-pawly-border shadow-md hover:shadow-xl transition-all group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 mb-4">
+              <img src="assets/pet-luna.jpg" alt="Luna esperando adoção" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-purple-500 text-white font-bold text-[11px] px-3 py-1 rounded-full shadow">
+                Fêmea • Gatinha
+              </span>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-between">
+                <h3 class="font-outfit font-black text-2xl text-pawly-navy">Luna</h3>
+                <span class="text-xs font-bold text-slate-500">1 ano</span>
+              </div>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-pawly-coral"></i> São Paulo - SP (Capital)
+              </p>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Dócil, adora ronronar no colo e ficar perto de janelas teladas tomando solzinho.
+              </p>
+            </div>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-heart"></i>
+              <span>Quero adotar a Luna ❤️</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pet 3: Mel -->
+        <div class="bg-white rounded-3xl p-5 border border-pawly-border shadow-md hover:shadow-xl transition-all group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 mb-4">
+              <img src="assets/pet-mel.jpg" alt="Mel filhotinha esperando adoção" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-amber-500 text-white font-bold text-[11px] px-3 py-1 rounded-full shadow">
+                Fêmea • Filhote
+              </span>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-between">
+                <h3 class="font-outfit font-black text-2xl text-pawly-navy">Mel</h3>
+                <span class="text-xs font-bold text-slate-500">4 meses</span>
+              </div>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-pawly-coral"></i> São Paulo - SP (Capital)
+              </p>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Carinhosa e cheia de energia para brincar. Já começou o ciclo básico de vacinas.
+              </p>
+            </div>
+          </div>
+          <div class="pt-5">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-heart"></i>
+              <span>Quero adotar a Mel ❤️</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-pawly-navy text-pawly-navy hover:bg-pawly-navy hover:text-white font-bold text-xs uppercase tracking-wider transition-all">
+          <span>Ver todos os pets disponíveis no WhatsApp</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. COMO FUNCIONA (01 Escolha, 02 Compre, 03 Receba)                       -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 bg-white border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral block mb-2">
+          SIMPLES, RÁPIDO & SEGURO
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-pawly-navy tracking-tight">
+          Como funciona a Pawly
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative max-w-4xl mx-auto">
+        
+        <!-- Linha visual conectando as etapas no desktop -->
+        <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-pawly-coral/20 via-pawly-coral to-pawly-coral/20 z-0"></div>
+
+        <!-- Etapa 01 -->
+        <div class="relative z-10 text-center space-y-3 bg-white p-4">
+          <div class="w-16 h-16 rounded-2xl bg-pawly-peach text-pawly-coral font-black text-xl flex items-center justify-center mx-auto shadow-md border border-pawly-coral/30">
+            01
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-pawly-navy">Escolha</h3>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Encontre tudo o que seu pet precisa em nosso catálogo premium.
+          </p>
+        </div>
+
+        <!-- Etapa 02 -->
+        <div class="relative z-10 text-center space-y-3 bg-white p-4">
+          <div class="w-16 h-16 rounded-2xl bg-pawly-peach text-pawly-coral font-black text-xl flex items-center justify-center mx-auto shadow-md border border-pawly-coral/30">
+            02
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-pawly-navy">Compre</h3>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Pagamento rápido, parcelado e seguro via Pix ou cartões de crédito.
+          </p>
+        </div>
+
+        <!-- Etapa 03 -->
+        <div class="relative z-10 text-center space-y-3 bg-white p-4">
+          <div class="w-16 h-16 rounded-2xl bg-pawly-peach text-pawly-coral font-black text-xl flex items-center justify-center mx-auto shadow-md border border-pawly-coral/30">
+            03
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-pawly-navy">Receba</h3>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Entregamos na sua casa com todo cuidado e embalagem ecológica.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. PRODUTOS POR FASE DA VIDA (Filhotes, Adultos, Sênior, Gatos)           -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 md:py-24 bg-pawly-cream border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          CUIDADO PERSONALIZADO
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-pawly-navy tracking-tight">
+          Cuidados para cada fase da vida
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          As necessidades do seu amigo mudam com o tempo. Oferecemos o suporte certo para cada momento.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Fase 1: Filhotes -->
+        <div class="group relative rounded-3xl overflow-hidden bg-white border border-pawly-border shadow-md hover:shadow-xl transition-all">
+          <div class="aspect-[3/4] overflow-hidden bg-amber-50 relative">
+            <img src="assets/fase-filhotes.jpg" alt="Filhotinho de cachorro com olhar meigo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-pawly-navy via-pawly-navy/30 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <span class="text-xs font-bold text-pawly-coral uppercase tracking-wider block">🐾 FILHOTES</span>
+              <h3 class="font-outfit font-black text-2xl mt-0.5 leading-tight">Tudo para começar bem</h3>
+              <p class="text-xs text-white/80 mt-1 leading-snug">Rações de crescimento, mordedores de alívio e tapetes higiênicos.</p>
+              <div class="pt-3">
+                <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-pawly-coral hover:underline">
+                  <span>Explorar itens →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fase 2: Adultos -->
+        <div class="group relative rounded-3xl overflow-hidden bg-white border border-pawly-border shadow-md hover:shadow-xl transition-all">
+          <div class="aspect-[3/4] overflow-hidden bg-blue-50 relative">
+            <img src="assets/fase-adultos.jpg" alt="Cachorro adulto ativo e saudável" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-pawly-navy via-pawly-navy/30 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">🐕 ADULTOS</span>
+              <h3 class="font-outfit font-black text-2xl mt-0.5 leading-tight">Nutrição e diversão</h3>
+              <p class="text-xs text-white/80 mt-1 leading-snug">Alimentos funcionais, petiscos saudáveis e brinquedos inteligentes.</p>
+              <div class="pt-3">
+                <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 hover:underline">
+                  <span>Explorar itens →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fase 3: Sênior -->
+        <div class="group relative rounded-3xl overflow-hidden bg-white border border-pawly-border shadow-md hover:shadow-xl transition-all">
+          <div class="aspect-[3/4] overflow-hidden bg-purple-50 relative">
+            <img src="assets/fase-senior.jpg" alt="Cachorro idoso com focinho branco descansando com amor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-pawly-navy via-pawly-navy/30 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">🐶 SÊNIOR</span>
+              <h3 class="font-outfit font-black text-2xl mt-0.5 leading-tight">Conforto e cuidados</h3>
+              <p class="text-xs text-white/80 mt-1 leading-snug">Suplementação articular, camas ortopédicas e rações especiais.</p>
+              <div class="pt-3">
+                <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300 hover:underline">
+                  <span>Explorar itens →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fase 4: Gatos -->
+        <div class="group relative rounded-3xl overflow-hidden bg-white border border-pawly-border shadow-md hover:shadow-xl transition-all">
+          <div class="aspect-[3/4] overflow-hidden bg-teal-50 relative">
+            <img src="assets/fase-gatos.jpg" alt="Gato charmoso olhando para cima" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-pawly-navy via-pawly-navy/30 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block">🐈 GATOS</span>
+              <h3 class="font-outfit font-black text-2xl mt-0.5 leading-tight">Universo felino</h3>
+              <p class="text-xs text-white/80 mt-1 leading-snug">Arranhadores, areias higiênicas, sachês nobres e fontes de água.</p>
+              <div class="pt-3">
+                <a href="#produtos" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 hover:underline">
+                  <span>Explorar itens →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. POR QUE ESCOLHER A PAWLY? (Mais que um petshop, somos uma família)    -->
+  <!-- ========================================================================= -->
+  <section id="sobre" class="reveal py-16 md:py-24 bg-white border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Lado Esquerdo: Textos & 4 Benefícios com Ícones -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="inline-flex items-center gap-1.5 text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+            <i class="fa-solid fa-paw text-[10px]"></i> POR QUE ESCOLHER A PAWLY?
+          </span>
+
+          <h2 class="font-outfit font-black text-3xl sm:text-5xl text-pawly-navy tracking-tight leading-[1.12]">
+            Mais que um petshop, <br />
+            <span class="text-pawly-coral">somos uma família.</span>
+          </h2>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Sabemos que seu pet é parte essencial da sua família. Por isso, oferecemos produtos, serviços e atendimento pensados para proporcionar mais saúde, conforto e felicidade em cada detalhe.
+          </p>
+
+          <!-- 4 Benefícios Oficiais do Mockup -->
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            
+            <div class="flex items-start gap-3 p-3 rounded-2xl bg-pawly-cream/80 border border-pawly-border">
+              <div class="w-10 h-10 rounded-xl bg-white text-rose-500 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-xs sm:text-sm text-pawly-navy">Produtos de qualidade</h4>
+                <p class="text-[11px] text-slate-500 mt-0.5">Marcas selecionadas e seguras</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-2xl bg-pawly-cream/80 border border-pawly-border">
+              <div class="w-10 h-10 rounded-xl bg-white text-pawly-coral flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-xs sm:text-sm text-pawly-navy">Atendimento especializado</h4>
+                <p class="text-[11px] text-slate-500 mt-0.5">Equipe apaixonada por pets</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-2xl bg-pawly-cream/80 border border-pawly-border">
+              <div class="w-10 h-10 rounded-xl bg-white text-amber-500 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-xs sm:text-sm text-pawly-navy">Entrega rápida e segura</h4>
+                <p class="text-[11px] text-slate-500 mt-0.5">Envio ágil para todo Brasil</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-2xl bg-pawly-cream/80 border border-pawly-border">
+              <div class="w-10 h-10 rounded-xl bg-white text-emerald-500 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-xs sm:text-sm text-pawly-navy">Clientes satisfeitos</h4>
+                <p class="text-[11px] text-slate-500 mt-0.5">Nota 4.9 em avaliações</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-4">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="shimmer-btn inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-pawly-coral hover:bg-pawly-coralHover text-white font-black text-xs uppercase tracking-wider shadow-md transition transform hover:scale-105">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Fale com a nossa equipe no WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Lado Direito: Fotografia do Golden Feliz da Referência com Anotação Manuscrita -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative max-w-md mx-auto">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
+              <img 
+                src="assets/dog-familia.jpg" 
+                alt="Cachorro Golden Retriever sorrindo feliz na Pawly" 
+                class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+
+            <!-- Balão manuscrito idêntico ao mockup -->
+            <div class="absolute -top-4 -right-2 sm:-right-6 bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-xl border border-pawly-border text-center rotate-6">
+              <span class="font-script text-2xl text-pawly-navy font-bold block leading-tight">Pets felizes tornam a vida mais leve! ♡</span>
+              <span class="text-[10px] text-pawly-coral font-bold block mt-0.5">🐾 Família Pawly</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 11. AVALIAÇÕES (Histórias reais de quem confia na Pawly)                   -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 md:py-24 bg-pawly-cream border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-xl mx-auto space-y-3 mb-14">
+        <span class="inline-flex items-center gap-1.5 text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          <i class="fa-solid fa-paw text-[10px]"></i> O QUE NOSSOS CLIENTES DIZEM
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-pawly-navy tracking-tight">
+          Histórias reais de quem confia na Pawly
+        </h2>
+      </div>
+
+      <!-- Grid com os 3 Cards de Depoimentos Exatos do Mockup -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Avaliação 1: Mariana S. -->
+        <div class="bg-white rounded-3xl p-6 border border-pawly-border shadow-md hover:shadow-xl transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-pawly-coral flex-shrink-0 shadow-sm">
+                <img src="assets/avatar-mariana.jpg" alt="Mariana S. com seu golden retriever" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-base text-pawly-navy">Mariana S.</h4>
+                <span class="text-xs text-slate-400 block font-medium">São Paulo - SP</span>
+                <div class="flex text-amber-400 text-xs mt-1">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "Atendimento incrível! Meu golden ama os produtos e o banho e tosa ficou perfeito. Super recomendo!"
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center gap-1 text-[11px] text-emerald-600 font-bold">
+            <i class="fa-solid fa-circle-check text-[10px]"></i>
+            <span>Compra e Banho Verificados</span>
+          </div>
+        </div>
+
+        <!-- Avaliação 2: Carlos M. -->
+        <div class="bg-white rounded-3xl p-6 border border-pawly-border shadow-md hover:shadow-xl transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-pawly-coral flex-shrink-0 shadow-sm">
+                <img src="assets/avatar-carlos.jpg" alt="Carlos M. com seu gato" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-base text-pawly-navy">Carlos M.</h4>
+                <span class="text-xs text-slate-400 block font-medium">Rio de Janeiro - RJ</span>
+                <div class="flex text-amber-400 text-xs mt-1">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "Comprei a ração e chegou super rápido. Qualidade excelente e preço muito bom. Já sou cliente fixo!"
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center gap-1 text-[11px] text-emerald-600 font-bold">
+            <i class="fa-solid fa-circle-check text-[10px]"></i>
+            <span>Cliente Assinante Pawly</span>
+          </div>
+        </div>
+
+        <!-- Avaliação 3: Fernanda L. -->
+        <div class="bg-white rounded-3xl p-6 border border-pawly-border shadow-md hover:shadow-xl transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-pawly-coral flex-shrink-0 shadow-sm">
+                <img src="assets/avatar-fernanda.jpg" alt="Fernanda L. com seu pet adotado" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-base text-pawly-navy">Fernanda L.</h4>
+                <span class="text-xs text-slate-400 block font-medium">Belo Horizonte - MG</span>
+                <div class="flex text-amber-400 text-xs mt-1">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "Adotei minha gatinha na Pawly e foi a melhor decisão da minha vida! A equipe é sensacional e muito atenciosa."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center gap-1 text-[11px] text-rose-500 font-bold">
+            <i class="fa-solid fa-heart text-[10px]"></i>
+            <span>Adoção Concluída com Amor</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 12. CLUBE PAWLY (Programa de Fidelidade Exclusivo)                         -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 md:py-24 bg-pawly-navy text-white relative overflow-hidden">
+    <!-- Padrão gráfico de patinhas sutis -->
+    <div class="absolute -right-10 -bottom-10 text-white/5 text-[220px] pointer-events-none">
+      <i class="fa-solid fa-paw"></i>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pawly-coral/20 text-pawly-coral text-xs font-bold uppercase tracking-wider border border-pawly-coral/30">
+            <span>🐾 PROGRAMA DE FIDELIDADE</span>
+          </div>
+
+          <h2 class="font-outfit font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            Clube Pawly 🐾<br />
+            <span class="text-pawly-coral">Quanto mais cuida, mais você ganha.</span>
+          </h2>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+            Faça parte do clube que valoriza seu amor pelos pets. Acumule pontos em compras e serviços para trocar por mimos, descontos e experiências especiais.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">🎁</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Descontos exclusivos em todo o site</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl">🚚</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Benefícios especiais e frete reduzido</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl">🎂</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Presente surpresa no aniversário do pet</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl">⭐</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Pontos por compras que viram cashback</span>
+            </div>
+            <div class="flex items-center gap-3 sm:col-span-2">
+              <span class="text-xl">💰</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200">Cupons exclusivos para assinantes mensais</span>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="shimmer-btn inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-pawly-coral hover:bg-pawly-coralHover text-white font-black text-xs uppercase tracking-wider shadow-lg transition transform hover:scale-105">
+              <span>Entrar para o Clube no WhatsApp</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card Visual do Cartão VIP do Clube -->
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl p-8 bg-gradient-to-br from-pawly-navyLight to-slate-900 border border-white/20 shadow-2xl relative overflow-hidden text-white">
+            <div class="flex items-center justify-between mb-8">
+              <span class="font-outfit font-black text-2xl tracking-wide flex items-center gap-2">
+                <i class="fa-solid fa-paw text-pawly-coral"></i> Pawly VIP
+              </span>
+              <span class="text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-pawly-coral/30 text-pawly-coral font-bold border border-pawly-coral/40">
+                MEMBRO PREMIUM
+              </span>
+            </div>
+            <div class="space-y-4 my-8">
+              <div class="text-xs text-slate-400">Titular & Amigo</div>
+              <div class="text-xl font-bold font-mono tracking-wider">MARIANA S. • GOLDEN THOR</div>
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/10">
+                <span>Saldo de Pontos: <strong class="text-pawly-coral text-sm">2.450 pts</strong></span>
+                <span>Nível: Ouro 🐾</span>
+              </div>
+            </div>
+            <div class="pt-2 flex items-center justify-between text-[11px] text-slate-400">
+              <span>São Paulo - SP</span>
+              <span>(32) 99929-2311</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 13. QUIZ DO PET (Interativo: Descubra o que seu pet precisa)              -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 md:py-24 bg-white border-b border-pawly-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center space-y-3 mb-10">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          EXPERIÊNCIA INTERATIVA
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-pawly-navy tracking-tight">
+          Descubra o que seu pet precisa 🐾
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Responda a 4 perguntinhas rápidas e encontre produtos e cuidados selecionados para o seu amigo.
+        </p>
+      </div>
+
+      <!-- Container do Quiz Interativo com JS -->
+      <div id="quiz-container" class="bg-pawly-cream rounded-3xl p-6 sm:p-10 border border-pawly-border shadow-xl">
+        
+        <!-- Step 1: Espécie -->
+        <div id="quiz-step-1" class="quiz-step space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-pawly-coral uppercase">Pergunta 1 de 4</span>
+            <span class="text-xs font-bold text-slate-400">Passo Inicial</span>
+          </div>
+          <h3 class="font-outfit font-bold text-xl sm:text-2xl text-pawly-navy">1. Qual é o seu pet?</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerQuiz(1, 'Cachorro')" class="p-6 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border shadow-sm text-center transition group">
+              <span class="text-4xl block mb-2">🐶</span>
+              <span class="font-outfit font-bold text-base">Cachorro</span>
+            </button>
+            <button onclick="answerQuiz(1, 'Gato')" class="p-6 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border shadow-sm text-center transition group">
+              <span class="text-4xl block mb-2">🐱</span>
+              <span class="font-outfit font-bold text-base">Gato</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Idade -->
+        <div id="quiz-step-2" class="quiz-step hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-pawly-coral uppercase">Pergunta 2 de 4</span>
+            <button onclick="prevQuiz(1)" class="text-xs text-slate-400 hover:text-pawly-navy">← Voltar</button>
+          </div>
+          <h3 class="font-outfit font-bold text-xl sm:text-2xl text-pawly-navy">2. Qual é a fase da vida dele?</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <button onclick="answerQuiz(2, 'Filhote')" class="p-4 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition">
+              <span class="text-2xl block mb-1">🍼</span>
+              <span class="font-bold text-sm">Filhote</span>
+            </button>
+            <button onclick="answerQuiz(2, 'Adulto')" class="p-4 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition">
+              <span class="text-2xl block mb-1">🎾</span>
+              <span class="font-bold text-sm">Adulto</span>
+            </button>
+            <button onclick="answerQuiz(2, 'Sênior')" class="p-4 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition">
+              <span class="text-2xl block mb-1">🛋️</span>
+              <span class="font-bold text-sm">Sênior</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Porte -->
+        <div id="quiz-step-3" class="quiz-step hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-pawly-coral uppercase">Pergunta 3 de 4</span>
+            <button onclick="prevQuiz(2)" class="text-xs text-slate-400 hover:text-pawly-navy">← Voltar</button>
+          </div>
+          <h3 class="font-outfit font-bold text-xl sm:text-2xl text-pawly-navy">3. Qual é o porte do seu pet?</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <button onclick="answerQuiz(3, 'Pequeno')" class="p-4 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition">
+              <span class="font-bold text-sm block">Pequeno</span>
+              <span class="text-[11px] text-slate-400 mt-1 block">Até 10kg</span>
+            </button>
+            <button onclick="answerQuiz(3, 'Médio')" class="p-4 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition">
+              <span class="font-bold text-sm block">Médio</span>
+              <span class="text-[11px] text-slate-400 mt-1 block">11kg a 25kg</span>
+            </button>
+            <button onclick="answerQuiz(3, 'Grande')" class="p-4 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition">
+              <span class="font-bold text-sm block">Grande</span>
+              <span class="text-[11px] text-slate-400 mt-1 block">Mais de 25kg</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 4: O que procura -->
+        <div id="quiz-step-4" class="quiz-step hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-pawly-coral uppercase">Pergunta 4 de 4</span>
+            <button onclick="prevQuiz(3)" class="text-xs text-slate-400 hover:text-pawly-navy">← Voltar</button>
+          </div>
+          <h3 class="font-outfit font-bold text-xl sm:text-2xl text-pawly-navy">4. O que você procura hoje?</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <button onclick="finishQuiz('Alimentação')" class="p-3.5 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition font-bold text-xs">
+              🥣 Alimentação
+            </button>
+            <button onclick="finishQuiz('Brinquedos')" class="p-3.5 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition font-bold text-xs">
+              🎾 Brinquedos
+            </button>
+            <button onclick="finishQuiz('Acessórios')" class="p-3.5 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition font-bold text-xs">
+              🦮 Acessórios
+            </button>
+            <button onclick="finishQuiz('Cuidados & Banho')" class="p-3.5 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition font-bold text-xs">
+              🛁 Cuidados & Banho
+            </button>
+            <button onclick="finishQuiz('Saúde & Vitaminas')" class="p-3.5 rounded-2xl bg-white hover:bg-pawly-coral hover:text-white border border-pawly-border text-center transition font-bold text-xs sm:col-span-2">
+              💊 Saúde & Vitaminas
+            </button>
+          </div>
+        </div>
+
+        <!-- Resultado Final do Quiz -->
+        <div id="quiz-result" class="quiz-step hidden text-center space-y-6 py-4">
+          <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto shadow-sm">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div>
+            <h3 class="font-outfit font-black text-2xl sm:text-3xl text-pawly-navy">Preparamos uma seleção especial para o seu pet ❤️</h3>
+            <p id="quiz-summary-text" class="text-slate-600 text-sm mt-2 max-w-md mx-auto"></p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white border border-pawly-border max-w-md mx-auto text-left flex items-center gap-4">
+            <img src="assets/prod-racao.jpg" alt="Produto recomendado" class="w-16 h-16 rounded-xl object-cover">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-pawly-coral">Recomendação Personalizada</span>
+              <h4 class="font-outfit font-bold text-sm text-pawly-navy">Combo Premium Nutrição & Conforto</h4>
+              <span class="text-xs text-slate-500">Com 15% OFF na primeira compra</span>
+            </div>
+          </div>
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <a id="quiz-whatsapp-btn" href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full bg-pawly-coral hover:bg-pawly-coralHover text-white font-black text-xs uppercase tracking-wider shadow-md transition transform hover:scale-105">
+              <span>Receber kit no WhatsApp</span>
+              <i class="fa-brands fa-whatsapp text-sm ml-1"></i>
+            </a>
+            <button onclick="resetQuiz()" class="px-6 py-3.5 rounded-full bg-white border border-pawly-border text-pawly-navy font-bold text-xs">
+              Refazer Quiz
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 14. INSTAGRAM / COMUNIDADE (A família Pawly 🐾 - Marque @pawlypetshop)   -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 md:py-24 bg-pawly-cream border-b border-pawly-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-xl mx-auto space-y-2 mb-12">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          COMUNIDADE & REDES SOCIAIS
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-pawly-navy tracking-tight">
+          A família Pawly 🐾
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Seu pet também pode aparecer aqui! Marque <strong>@pawlypetshop</strong> no Instagram.
+        </p>
+      </div>
+
+      <!-- Grid 6 Fotos Instagram -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-sm">
+          <img src="assets/insta-1.jpg" alt="Pet da comunidade Pawly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-pawly-coral/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xl">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-sm">
+          <img src="assets/insta-2.jpg" alt="Pet da comunidade Pawly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-pawly-coral/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xl">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-sm">
+          <img src="assets/insta-3.jpg" alt="Pet da comunidade Pawly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-pawly-coral/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xl">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-sm">
+          <img src="assets/insta-4.jpg" alt="Pet da comunidade Pawly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-pawly-coral/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xl">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-sm">
+          <img src="assets/insta-5.jpg" alt="Pet da comunidade Pawly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-pawly-coral/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xl">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-sm">
+          <img src="assets/insta-6.jpg" alt="Pet da comunidade Pawly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-pawly-coral/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xl">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white border border-pawly-border text-pawly-navy hover:text-pawly-coral hover:border-pawly-coral/40 font-bold text-xs uppercase tracking-wider transition shadow-sm">
+          <i class="fa-brands fa-instagram text-sm text-pawly-coral"></i>
+          <span>Seguir @pawlypetshop no Instagram</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 15. WHATSAPP / CAPTURA DE CONVERSÃO (Desconto na 1ª compra)              -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 bg-white border-b border-pawly-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-gradient-to-br from-pawly-peach/80 via-white to-pawly-peach/50 rounded-3xl p-8 sm:p-12 border-2 border-pawly-coral/20 shadow-xl text-center space-y-6">
+        
+        <div class="w-14 h-14 rounded-2xl bg-pawly-coral text-white flex items-center justify-center text-2xl mx-auto shadow-md">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div class="space-y-2 max-w-lg mx-auto">
+          <h2 class="font-outfit font-black text-2xl sm:text-4xl text-pawly-navy tracking-tight">
+            Quer receber ofertas para o seu pet? 🐶
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm">
+            Cadastre seu WhatsApp e receba novidades em primeira mão, promoções relâmpago e um <strong>cupom de 10% OFF</strong> na primeira compra.
+          </p>
+        </div>
+
+        <!-- Formulário de Captura WhatsApp -->
+        <form onsubmit="handleWppCapture(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+          <input 
+            type="tel" 
+            id="capture-wpp" 
+            required 
+            placeholder="Digite seu WhatsApp com DDD" 
+            class="flex-1 px-5 py-3.5 rounded-2xl bg-white border border-pawly-border text-slate-800 text-sm focus:border-pawly-coral outline-none shadow-inner"
+          />
+          <button 
+            type="submit" 
+            class="shimmer-btn px-6 py-3.5 rounded-2xl bg-pawly-coral hover:bg-pawly-coralHover text-white font-black text-xs uppercase tracking-wider transition-all shadow-md flex-shrink-0"
+          >
+            Quero meu desconto →
+          </button>
+        </form>
+
+        <p class="text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-lock text-[10px]"></i>
+          <span>Respeitamos sua privacidade. Nada de spam, apenas carinho e ofertas.</span>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 19. FAQ (Dúvidas? A gente ajuda. - Accordion Interativo)                  -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 md:py-24 bg-pawly-cream border-b border-pawly-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center space-y-2 mb-12">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-pawly-coral">
+          PERGUNTAS FREQUENTES
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-pawly-navy tracking-tight">
+          Dúvidas? A gente ajuda.
+        </h2>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Qual o prazo de entrega?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            Para a capital de São Paulo - SP e região metropolitana, realizamos entregas expressas em até 24h a 48h úteis. Para as demais regiões do Brasil, o prazo varia de 3 a 7 dias úteis com código de rastreamento em tempo real.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Quais as formas de pagamento aceitas?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            Aceitamos Pix com aprovação imediata e 5% de desconto extra, além de todos os cartões de crédito (Visa, Mastercard, Elo, Hipercard) em até 12x (sendo até 6x sem juros).
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Posso trocar um produto se o tamanho não der certo?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            Sim! Garantimos a primeira troca gratuita em até 30 dias após o recebimento para roupinhas, peitorais, coleiras e camas que não serviram perfeitamente no seu pet.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Como funciona a adoção responsável?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            O processo é amoroso e transparente: você escolhe o animalzinho, preenche uma breve ficha de perfil no WhatsApp com nossa equipe e agendamos uma visita ou videochamada para conhecer seu futuro amigo. Todos os pets são entregues vacinados e castrados.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Como agendar banho e tosa ou consulta veterinária?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            Basta clicar em "Agendar serviço" em qualquer card da página ou chamar nossa equipe no WhatsApp <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" class="text-pawly-coral font-bold hover:underline">(32) 99929-2311</a>. Você escolhe o melhor dia, horário e se deseja o serviço de Taxi Pet leva-e-traz.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Vocês entregam em todo o Brasil?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            Sim! Enviamos produtos para todas as cidades do Brasil através de transportadoras parceiras e Correios, com seguro total contra extravio ou danos.
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item bg-white rounded-2xl border border-pawly-border overflow-hidden transition-all">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex items-center justify-between font-outfit font-bold text-sm sm:text-base text-pawly-navy hover:text-pawly-coral transition">
+            <span>Como acompanhar o status do meu pedido?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3">
+            Assim que seu pedido for despachado, enviamos automaticamente o código de rastreio com link direto no seu WhatsApp e e-mail.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 20. FOOTER (Completo, Institucional, Selos e Redes Sociais)                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Seu Pet Merece o Pawly Pet Spa?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Higiene, carinho e produtos premium com segurança e tranquilidade para seu melhor amigo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Petshops Convencionais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Pets estressados em gaiolas apertadas esperando horas pelo banho</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Uso de produtos fortes que causam alergias e coceiras na pele</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de cuidado na tosa na tesoura gerando falhas e cortes</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Sem acompanhamento veterinário em caso de imprevistos</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Cuidado com Amor
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Pawly Pet Spa & Hotel</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Atendimento agendado sem estresse com água morninha e toalhas higienizadas</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Linha de cosméticos veganos e hipoalergênicos e ozonioterapia relaxante</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Tosa higiênica e tosa da raça na tesoura realizada por profissionais certificados</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Táxi dog climatizado para buscar e entregar seu pet com total conforto</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Centro de estética pet com toalhas esterilizadas, água morna climatizada, cromoterapia e produtos hipoalergênicos premium.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-paw"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">PetVip Spa & Estética</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Estética Animal & Bem-Estar Pet</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(PetVip Spa & Estética)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização PetVip Spa & Estética em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-pawly-footer text-white pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Topo do Footer: Logo, Slogan e Redes Sociais -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        
+        <!-- Coluna Marca -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-2xl bg-pawly-coral text-white flex items-center justify-center text-lg shadow-sm">
+              <i class="fa-solid fa-paw"></i>
+            </div>
+            <div>
+              <span class="font-outfit font-black text-2xl text-white tracking-tight block leading-tight">Pawly</span>
+              <span class="block text-[8px] uppercase tracking-[0.2em] text-pawly-coral font-bold">Pets mais felizes, sempre!</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
+            O petshop digital completo para quem considera o pet como parte da família. Qualidade, carinho veterinário e entrega para todo o Brasil.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-pawly-coral text-white flex items-center justify-center text-sm transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-pawly-coral text-white flex items-center justify-center text-sm transition" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-pawly-coral text-white flex items-center justify-center text-sm transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-pawly-coral text-white flex items-center justify-center text-sm transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center text-sm transition" title="WhatsApp Oficial"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Coluna 1: Comprar -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-xs uppercase tracking-widest text-pawly-coral">Comprar</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#produtos" class="hover:text-white transition">Rações Premium</a></li>
+            <li><a href="#produtos" class="hover:text-white transition">Brinquedos & Mordedores</a></li>
+            <li><a href="#produtos" class="hover:text-white transition">Acessórios & Guias</a></li>
+            <li><a href="#produtos" class="hover:text-white transition">Petiscos Naturais</a></li>
+            <li><a href="#produtos" class="hover:text-white transition">Camas & Conforto</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 2: Serviços -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-xs uppercase tracking-widest text-pawly-coral">Serviços</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#servicos" class="hover:text-white transition">Banho & Tosa</a></li>
+            <li><a href="#servicos" class="hover:text-white transition">Consulta Veterinária</a></li>
+            <li><a href="#servicos" class="hover:text-white transition">Taxi Pet Seguro</a></li>
+            <li><a href="#servicos" class="hover:text-white transition">Hotel para Pets</a></li>
+            <li><a href="#servicos" class="hover:text-white transition">Adestramento Positivo</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Institucional & Ajuda -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-xs uppercase tracking-widest text-pawly-coral">Ajuda & Contato</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#sobre" class="hover:text-white transition">Sobre a Pawly</a></li>
+            <li><a href="#adocao" class="hover:text-white transition">Programa de Adoção</a></li>
+            <li><a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" class="hover:text-white transition">WhatsApp: (32) 99929-2311</a></li>
+            <li><span class="block text-slate-500">São Paulo - SP (Capital)</span></li>
+            <li><span class="block text-slate-500">Seg a Sáb: 08h às 20h</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Base do Footer: Bandeiras, Segurança e Copyright -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center gap-1 text-slate-400"><i class="fa-solid fa-lock text-emerald-400"></i> Compra 100% Segura</span>
+          <span>•</span>
+          <span>Pix</span>
+          <span>•</span>
+          <span>Visa / Mastercard / Elo</span>
+        </div>
+
+        <p class="text-center md:text-right">
+          © 2026 Pawly Petshop. Todos os direitos reservados.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 17. CARRINHO LATERAL (Drawer com Barra Dinâmica de Frete Grátis)           -->
+  <!-- ========================================================================= -->
+  <div id="cart-drawer-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity"></div>
+  
+  <aside id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[420px] bg-white z-50 shadow-2xl flex flex-col justify-between translate-x-full">
+    
+    <!-- Topo do Carrinho -->
+    <div class="p-6 border-b border-pawly-border">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bag-shopping text-pawly-coral text-lg"></i>
+          <h3 class="font-outfit font-black text-xl text-pawly-navy">Meu Carrinho</h3>
+          <span id="cart-items-count-badge" class="px-2 py-0.5 rounded-full bg-pawly-peach text-pawly-coral text-xs font-bold">2 itens</span>
+        </div>
+        <button onclick="toggleCart()" aria-label="Fechar carrinho" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-pawly-navy flex items-center justify-center text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- 16. BARRA DINÂMICA DE FRETE GRÁTIS -->
+      <div class="mt-4 p-3 rounded-2xl bg-pawly-cream border border-pawly-border">
+        <div class="flex items-center justify-between text-xs font-bold text-pawly-navy mb-1.5">
+          <span id="shipping-bar-text">🚚 Faltam R$ 37,10 para FRETE GRÁTIS!</span>
+          <span id="shipping-bar-pct" class="text-pawly-coral">81%</span>
+        </div>
+        <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+          <div id="shipping-progress" class="h-full bg-gradient-to-r from-amber-400 to-pawly-coral rounded-full transition-all duration-500" style="width: 81%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista de Itens no Carrinho -->
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Item 1 -->
+      <div class="flex items-center gap-3.5 p-3 rounded-2xl border border-pawly-border bg-slate-50/50">
+        <img src="assets/prod-racao.jpg" alt="Ração" class="w-16 h-16 rounded-xl object-cover border border-slate-100">
+        <div class="flex-1">
+          <h4 class="font-outfit font-bold text-xs text-pawly-navy leading-tight">Ração Premium para Cães</h4>
+          <span class="text-xs text-pawly-coral font-black block mt-0.5">R$ 186,90</span>
+          <div class="flex items-center gap-2 mt-1.5">
+            <button onclick="changeQty(0, -1)" class="w-6 h-6 rounded bg-white border border-slate-200 text-xs font-bold">-</button>
+            <span class="text-xs font-bold px-1.5">1</span>
+            <button onclick="changeQty(0, 1)" class="w-6 h-6 rounded bg-white border border-slate-200 text-xs font-bold">+</button>
+          </div>
+        </div>
+        <button onclick="removeItem(0)" class="text-slate-400 hover:text-rose-500 text-xs p-1">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="flex items-center gap-3.5 p-3 rounded-2xl border border-pawly-border bg-slate-50/50">
+        <img src="assets/prod-brinquedo.jpg" alt="Brinquedo" class="w-16 h-16 rounded-xl object-cover border border-slate-100">
+        <div class="flex-1">
+          <h4 class="font-outfit font-bold text-xs text-pawly-navy leading-tight">Brinquedo Mordedor Resistente</h4>
+          <span class="text-xs text-pawly-coral font-black block mt-0.5">R$ 44,90</span>
+          <div class="flex items-center gap-2 mt-1.5">
+            <button onclick="changeQty(1, -1)" class="w-6 h-6 rounded bg-white border border-slate-200 text-xs font-bold">-</button>
+            <span class="text-xs font-bold px-1.5">1</span>
+            <button onclick="changeQty(1, 1)" class="w-6 h-6 rounded bg-white border border-slate-200 text-xs font-bold">+</button>
+          </div>
+        </div>
+        <button onclick="removeItem(1)" class="text-slate-400 hover:text-rose-500 text-xs p-1">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Seção 'Você Também Pode Gostar' no Carrinho -->
+    <div class="px-6 py-3 bg-pawly-cream/60 border-t border-pawly-border">
+      <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Você também pode gostar:</span>
+      <div class="flex items-center justify-between bg-white p-2.5 rounded-xl border border-pawly-border text-xs">
+        <div class="flex items-center gap-2">
+          <img src="assets/prod-higiene.jpg" alt="Kit Higiene" class="w-10 h-10 rounded-lg object-cover">
+          <div>
+            <span class="font-bold text-pawly-navy block leading-tight">Kit Higiene Pet</span>
+            <span class="text-pawly-coral font-bold">R$ 89,90</span>
+          </div>
+        </div>
+        <button onclick="addToCart('Kit Higiene Pet', 89.90, 'assets/prod-higiene.jpg')" class="px-3 py-1.5 rounded-lg bg-pawly-navy text-white text-[11px] font-bold hover:bg-pawly-coral transition">
+          + Adicionar
+        </button>
+      </div>
+    </div>
+
+    <!-- Base do Carrinho com Totais e Botão Checkout WhatsApp -->
+    <div class="p-6 border-t border-pawly-border bg-white space-y-3">
+      <div class="space-y-1.5 text-xs text-slate-500">
+        <div class="flex justify-between">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal" class="font-bold text-pawly-navy">R$ 231,80</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Frete:</span>
+          <span id="cart-shipping" class="font-bold text-emerald-600">GRÁTIS 🎉</span>
+        </div>
+        <div class="flex justify-between text-sm font-bold text-pawly-navy pt-1.5 border-t border-slate-100">
+          <span>Total:</span>
+          <span id="cart-total" class="font-outfit font-black text-xl text-pawly-coral">R$ 231,80</span>
+        </div>
+      </div>
+
+      <a id="cart-checkout-btn" href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer" class="shimmer-btn w-full py-4 rounded-2xl bg-pawly-coral hover:bg-pawly-coralHover text-white font-black text-xs uppercase tracking-wider shadow-lg transition-all flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Finalizar compra no WhatsApp</span>
+      </a>
+      <span class="block text-center text-[10px] text-slate-400">Atendimento e finalização direta pelo WhatsApp oficial</span>
+    </div>
+
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- 18. MODAL DE BUSCA INTELIGENTE                                            -->
+  <!-- ========================================================================= -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-start justify-center pt-20 px-4">
+    <div class="bg-white rounded-3xl w-full max-w-xl p-6 shadow-2xl border border-pawly-border space-y-5">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold uppercase tracking-wider text-pawly-coral">Busca Inteligente</span>
+        <button onclick="toggleSearchModal()" aria-label="Fechar busca" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-pawly-navy flex items-center justify-center text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="relative">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="O que seu pet precisa hoje? 🔍" 
+          class="w-full px-5 py-4 pl-12 rounded-2xl bg-pawly-cream border border-pawly-border text-slate-800 text-base focus:border-pawly-coral outline-none"
+        />
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-5 text-slate-400"></i>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Sugestões Populares:</span>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="applySearchTag('Ração para cachorro')" class="px-3.5 py-1.5 rounded-full bg-pawly-cream hover:bg-pawly-peach text-slate-700 font-medium text-xs border border-pawly-border transition">Ração para cachorro</button>
+          <button onclick="applySearchTag('Brinquedos para gato')" class="px-3.5 py-1.5 rounded-full bg-pawly-cream hover:bg-pawly-peach text-slate-700 font-medium text-xs border border-pawly-border transition">Brinquedos para gato</button>
+          <button onclick="applySearchTag('Petiscos')" class="px-3.5 py-1.5 rounded-full bg-pawly-cream hover:bg-pawly-peach text-slate-700 font-medium text-xs border border-pawly-border transition">Petiscos</button>
+          <button onclick="applySearchTag('Cama')" class="px-3.5 py-1.5 rounded-full bg-pawly-cream hover:bg-pawly-peach text-slate-700 font-medium text-xs border border-pawly-border transition">Cama</button>
+          <button onclick="applySearchTag('Produtos para filhotes')" class="px-3.5 py-1.5 rounded-full bg-pawly-cream hover:bg-pawly-peach text-slate-700 font-medium text-xs border border-pawly-border transition">Produtos para filhotes</button>
+          <button onclick="applySearchTag('Produtos em promoção')" class="px-3.5 py-1.5 rounded-full bg-pawly-coral/10 hover:bg-pawly-coral hover:text-white text-pawly-coral font-bold text-xs border border-pawly-coral/20 transition">Produtos em promoção 🔥</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-pawly-navy text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 opacity-0 pointer-events-none translate-y-4">
+    <div class="w-8 h-8 rounded-full bg-pawly-coral text-white flex items-center justify-center text-xs">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <span id="toast-text" class="text-xs sm:text-sm font-bold">Produto adicionado ao carrinho!</span>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SCRIPTS INTERATIVOS & MOTOR DE E-COMMERCE                                  -->
+  <!-- ========================================================================= -->
+  <script>
+    // Estado do Carrinho
+    let cart = [
+      { name: 'Ração Premium para Cães', price: 186.90, img: 'assets/prod-racao.jpg', qty: 1 },
+      { name: 'Brinquedo Mordedor Resistente', price: 44.90, img: 'assets/prod-brinquedo.jpg', qty: 1 }
+    ];
+
+    function renderCart() {
+      const listEl = document.getElementById('cart-items-list');
+      const countBadge = document.getElementById('cart-badge');
+      const drawerCount = document.getElementById('cart-items-count-badge');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const totalEl = document.getElementById('cart-total');
+      const shippingBarText = document.getElementById('shipping-bar-text');
+      const shippingBarPct = document.getElementById('shipping-bar-pct');
+      const shippingProgress = document.getElementById('shipping-progress');
+      const shippingEl = document.getElementById('cart-shipping');
+      const checkoutBtn = document.getElementById('cart-checkout-btn');
+
+      let subtotal = 0;
+      let totalQty = 0;
+
+      listEl.innerHTML = '';
+
+      if (cart.length === 0) {
+        listEl.innerHTML = `
+          <div class="text-center py-16 space-y-3">
+            <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-2xl mx-auto">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+            <p class="text-sm font-bold text-pawly-navy">Seu carrinho está vazio</p>
+            <p class="text-xs text-slate-400">Adicione itens dos nossos queridinhos!</p>
+          </div>
+        `;
+      } else {
+        cart.forEach((item, index) => {
+          subtotal += item.price * item.qty;
+          totalQty += item.qty;
+
+          listEl.innerHTML += `
+            <div class="flex items-center gap-3.5 p-3 rounded-2xl border border-pawly-border bg-slate-50/50">
+              <img src="${item.img}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover border border-slate-100">
+              <div class="flex-1">
+                <h4 class="font-outfit font-bold text-xs text-pawly-navy leading-tight">${item.name}</h4>
+                <span class="text-xs text-pawly-coral font-black block mt-0.5">R$ ${(item.price).toFixed(2).replace('.', ',')}</span>
+                <div class="flex items-center gap-2 mt-1.5">
+                  <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded bg-white border border-slate-200 text-xs font-bold hover:bg-slate-100">-</button>
+                  <span class="text-xs font-bold px-1.5">${item.qty}</span>
+                  <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded bg-white border border-slate-200 text-xs font-bold hover:bg-slate-100">+</button>
+                </div>
+              </div>
+              <button onclick="removeItem(${index})" class="text-slate-400 hover:text-rose-500 text-xs p-1" title="Remover item">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          `;
+        });
+      }
+
+      countBadge.innerText = totalQty;
+      drawerCount.innerText = `${totalQty} ${totalQty === 1 ? 'item' : 'itens'}`;
+      subtotalEl.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      totalEl.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+
+      // 16. BARRA DE FRETE GRÁTIS DINÂMICA (Meta: R$ 199,00)
+      const freeShippingGoal = 199.0;
+      if (subtotal >= freeShippingGoal) {
+        shippingBarText.innerHTML = '🎉 Parabéns! Você ganhou FRETE GRÁTIS!';
+        shippingBarPct.innerText = '100%';
+        shippingProgress.style.width = '100%';
+        shippingProgress.className = 'h-full bg-emerald-500 rounded-full transition-all duration-500';
+        shippingEl.innerText = 'GRÁTIS 🎉';
+        shippingEl.className = 'font-bold text-emerald-600';
+      } else {
+        const remaining = (freeShippingGoal - subtotal).toFixed(2).replace('.', ',');
+        const pct = Math.min(100, Math.round((subtotal / freeShippingGoal) * 100));
+        shippingBarText.innerHTML = `🚚 Faltam R$ ${remaining} para FRETE GRÁTIS!`;
+        shippingBarPct.innerText = `${pct}%`;
+        shippingProgress.style.width = `${pct}%`;
+        shippingProgress.className = 'h-full bg-gradient-to-r from-amber-400 to-pawly-coral rounded-full transition-all duration-500';
+        shippingEl.innerText = 'R$ 14,90';
+        shippingEl.className = 'font-bold text-slate-600';
+      }
+
+      // Atualiza link de finalização via WhatsApp com a mensagem padrão obrigatória
+      const defaultMsg = "gostei desse site, qual o valor?";
+      checkoutBtn.href = `https://wa.me/5532999292311?text=${encodeURIComponent(defaultMsg)}`;
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+
+      if (drawer.classList.contains('translate-x-full')) {
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+        overlay.classList.remove('hidden');
+        setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        drawer.classList.remove('translate-x-0');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 350);
+      }
+    }
+
+    function addToCart(name, price, img) {
+      const existing = cart.find(i => i.name === name);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`"${name}" adicionado ao carrinho! 🛒`);
+      // Abre o carrinho suavemente
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer.classList.contains('translate-x-full')) {
+        toggleCart();
+      }
+    }
+
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function removeItem(index) {
+      if (!cart[index]) return;
+      cart.splice(index, 1);
+      renderCart();
+      showToast('Item removido do carrinho.');
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast-notification');
+      const toastText = document.getElementById('toast-text');
+      toastText.innerText = text;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      }, 3000);
+    }
+
+    function toggleFavorite(btn) {
+      const icon = btn.querySelector('i');
+      if (icon.classList.contains('fa-regular')) {
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid', 'text-pawly-coral');
+        showToast('Adicionado aos seus favoritos! ❤️');
+      } else {
+        icon.classList.remove('fa-solid', 'text-pawly-coral');
+        icon.classList.add('fa-regular');
+        showToast('Removido dos favoritos.');
+      }
+    }
+
+    // Busca Inteligente
+    function toggleSearchModal() {
+      const modal = document.getElementById('search-modal');
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => document.getElementById('search-input').focus(), 100);
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function applySearchTag(tag) {
+      document.getElementById('search-input').value = tag;
+      toggleSearchModal();
+      showToast(`Buscando por: "${tag}" 🐾`);
+      const prodSection = document.getElementById('produtos');
+      if (prodSection) prodSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Menu Mobile
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Accordion FAQ
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      const isHidden = answer.classList.contains('hidden');
+
+      // Fecha todos os outros
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-item i').forEach(i => i.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        answer.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // Quiz Interativo
+    let quizAnswers = {};
+    function answerQuiz(step, value) {
+      quizAnswers['step' + step] = value;
+      document.getElementById('quiz-step-' + step).classList.add('hidden');
+      document.getElementById('quiz-step-' + (step + 1)).classList.remove('hidden');
+    }
+
+    function prevQuiz(targetStep) {
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById('quiz-step-' + targetStep).classList.remove('hidden');
+    }
+
+    function finishQuiz(interest) {
+      quizAnswers['interest'] = interest;
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+      const resultEl = document.getElementById('quiz-result');
+      const summaryText = document.getElementById('quiz-summary-text');
+      resultEl.classList.remove('hidden');
+
+      summaryText.innerText = `Para o seu ${quizAnswers.step1} (${quizAnswers.step2}, porte ${quizAnswers.step3}) com foco em ${interest}, recomendamos produtos de alta palatabilidade e bem-estar.`;
+    }
+
+    function resetQuiz() {
+      quizAnswers = {};
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById('quiz-step-1').classList.remove('hidden');
+    }
+
+    // Captura WhatsApp
+    function handleWppCapture(e) {
+      e.preventDefault();
+      const num = document.getElementById('capture-wpp').value.trim();
+      const msg = "gostei desse site, qual o valor?";
+      window.open(`https://wa.me/5532999292311?text=${encodeURIComponent(msg)}`, '_blank');
+      showToast("Cupom gerado com sucesso! Redirecionando para o WhatsApp...");
+    }
+
+    // Render inicial
+    renderCart();
+  </script>
+
+  <!-- Core Motion & Interactive Engine -->
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Seu Pet Saudável, Cheiroso e Feliz: Tranquilidade para a Família
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Assista ao vídeo do nosso banho relaxante com cromoterapia e tosa na tesoura, feito com carinho e sem gaiolas estressantes.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(PetVip Spa & Estética)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Ambiente higienizado com vidro panorâmico para você acompanhar o cuidado com seu pet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(PetVip Spa & Estética)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('agendamento') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(PetVip Spa & Estética).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Pawly Pet Spa</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20o%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

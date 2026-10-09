@@ -1,0 +1,16 @@
+{
+  "name": "lumina-os-secure-server",
+  "version": "1.0.0",
+  "description": "Lumina OS - Secure Server-Side API Gateway with JWT Auth and Supabase Isolation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}

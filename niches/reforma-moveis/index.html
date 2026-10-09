@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renova Móveis | Ateliê de Restauração & Marcenaria Fina em São Paulo - SP</title>
+  <meta name="description" content="Ateliê especializado em reforma e restauração de móveis em São Paulo - SP. Marcenaria fina, tapeçaria de luxo com linho e veludo, coleta e entrega especializada na Grande SP." />
+
+  <!-- Google Fonts: Plus Jakarta Sans / Outfit / Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            script: ['Caveat', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            renova: {
+              amber: '#DF9843',
+              amberHover: '#C98232',
+              amberLight: '#FBF3E8',
+              darkWood: '#14110E',
+              charcoal: '#1C1814',
+              cardDark: '#231E1A',
+              cardLight: '#FFFFFF',
+              bgLight: '#FAF7F2',
+              bgWarm: '#F4EFEA',
+              border: '#E8E1D7',
+              borderDark: '#362E27',
+              muted: '#7A726A'
+            }
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(20, 17, 14, 0.05)',
+            'premium': '0 20px 40px -15px rgba(20, 17, 14, 0.1)',
+            'amberGlow': '0 10px 25px -5px rgba(223, 152, 67, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Estilos Cult UI & Microinterações */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 80%
+      );
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+
+    /* Slider Antes & Depois (Skiper UI) */
+    .ba-slider-container {
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .ba-slider-after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #DF9843;
+      cursor: ew-resize;
+      z-index: 30;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    }
+    .ba-handle-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      background: #DF9843;
+      color: #14110E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      border: 3px solid #FFFFFF;
+      cursor: grab;
+      transition: transform 0.2s ease;
+    }
+    .ba-handle-btn:active {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Animação suave para acordeão */
+    .faq-answer {
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+  </style>
+
+  <!-- Schema.org SEO & GEO Data Local SP -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Ateliê Renova Móveis & Restauração",
+    "description": "Ateliê especializado em reforma e restauração de móveis finos, marcenaria artesanal e tapeçaria com linho nobre em São Paulo - SP.",
+    "telephone": "+55-32-99929-2311",
+    "url": "https://nexusflow.digital/reforma-moveis/",
+    "priceRange": "$$",
+    "areaServed": {
+      "@type": "City",
+      "name": "São Paulo"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Paulista, 1000",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01310-100",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+</head>
+<body class="bg-renova-bgLight text-slate-800 font-sans antialiased selection:bg-renova-amber selection:text-white pb-16 sm:pb-0">
+
+  <!-- ========================================================================= -->
+  <!-- TOP BANNER DE CONVENIÊNCIA & STATUS DE COLETA EM SÃO PAULO                -->
+  <!-- ========================================================================= -->
+  <div class="bg-renova-charcoal text-white text-[11px] py-2 px-4 border-b border-renova-borderDark/60 hidden sm:block">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 text-renova-amber font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Ateliê Aberto em São Paulo
+        </span>
+        <span class="text-white/40">|</span>
+        <span class="text-white/80">Coleta e devolução com transporte acolchoado e seguro em toda a Capital e Grande SP</span>
+      </div>
+      <div class="flex items-center gap-4 text-white/70">
+        <span><i class="fa-solid fa-medal text-renova-amber mr-1"></i> Garantia Documentada de 1 Ano</span>
+        <span><i class="fa-brands fa-whatsapp text-emerald-400 mr-1"></i> (32) 99929-2311</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- HEADER & NAVEGAÇÃO PRINCIPAL                                              -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-renova-darkWood/95 backdrop-blur-md border-b border-renova-borderDark/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-renova-amber/20 border border-renova-amber/40 text-renova-amber flex items-center justify-center text-xl group-hover:scale-105 transition-transform duration-300 shadow-inner">
+          <i class="fa-solid fa-chair"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-xl text-white tracking-wider block leading-tight">RENOVA MÓVEIS</span>
+          <span class="block text-[8px] uppercase tracking-[0.25em] text-renova-amber font-bold">Ateliê & Marcenaria Fina • SP</span>
+        </div>
+      </a>
+
+      <!-- Menu Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold text-white/80">
+        <a href="#antes-depois" class="hover:text-renova-amber transition">Antes & Depois</a>
+        <a href="#servicos" class="hover:text-renova-amber transition">Especialidades</a>
+        <a href="#comparativo" class="hover:text-renova-amber transition">Restaurar vs Novo</a>
+        <a href="#processo" class="hover:text-renova-amber transition">Como Funciona</a>
+        <a href="#depoimentos" class="hover:text-renova-amber transition">Avaliações</a>
+        <a href="#faq" class="hover:text-renova-amber transition">Dúvidas</a>
+        <a href="#contato" class="hover:text-renova-amber transition">Ateliê em SP</a>
+      </nav>
+
+      <!-- CTA Button Topo -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20restaura%C3%A7%C3%A3o%20de%20m%C3%B3vel." target="_blank" class="shimmer-btn px-5 sm:px-6 py-2.5 rounded-full bg-renova-amber hover:bg-renova-amberHover text-renova-darkWood font-black text-xs uppercase tracking-wider shadow-amberGlow transition transform hover:scale-105 flex items-center gap-2" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-sm text-renova-darkWood"></i>
+          <span>Orçamento no WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION (BESPOKE IDENTITY • EDITORIAL LUXURY)                        -->
+  <!-- ========================================================================= -->
+  <section id="inicio" class="relative min-h-[640px] md:min-h-[720px] flex items-center overflow-hidden bg-renova-darkWood">
+    <!-- Imagem de Fundo (Ambiente com Móvel de Madeira Maciça Restaurada) -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="assets/credenza-clean.jpg" 
+        alt="Ambiente acolhedor com móvel restaurado de madeira nobre polida à mão" 
+        class="w-full h-full object-cover object-right md:object-center opacity-85 scale-105 transition-transform duration-1000 ease-out"
+        loading="eager"
+      />
+      <!-- Gradiente escuro lateral para legibilidade impecável (Refero Styles) -->
+      <div class="absolute inset-0 bg-gradient-to-r from-renova-darkWood via-renova-darkWood/90 to-transparent md:to-renova-darkWood/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-renova-darkWood via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Conteúdo Hero -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 py-16 md:py-24">
+      <div class="max-w-2xl space-y-6">
+        
+        <!-- Badge de Categoria -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-renova-amber/15 border border-renova-amber/30 text-renova-amber text-[11px] font-outfit font-extrabold uppercase tracking-widest">
+          <i class="fa-solid fa-gem text-xs"></i>
+          <span>Restauração Artesanal & Tapeçaria Nobre</span>
+        </div>
+
+        <!-- Título Principal com Assinatura em Script -->
+        <h1 class="font-outfit font-black text-4xl sm:text-6xl text-white tracking-tight leading-[1.08]">
+          Seu móvel favorito pronto para viver uma <br class="hidden sm:inline">
+          <span class="font-script text-renova-amber font-normal text-5xl sm:text-7xl block sm:inline mt-1 sm:mt-0 drop-shadow-md">nova história de luxo.</span>
+        </h1>
+
+        <!-- Descrição Concisa (Regra Imagem > Texto) -->
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
+          Deixamos seu mobiliário de madeira e estofados com acabamento de ateliê internacional. Marcenaria fina, troca de tecidos por linhos nobres e coleta cuidadosa em toda a capital de <strong>São Paulo - SP</strong>.
+        </p>
+
+        <!-- 3 Badges de Valor Visuais Rápidos -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+            <i class="fa-solid fa-tree text-renova-amber text-sm"></i>
+            <span class="text-white/90 text-xs font-semibold">Madeira de Lei Tratada</span>
+          </div>
+          <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+            <i class="fa-solid fa-layer-group text-renova-amber text-sm"></i>
+            <span class="text-white/90 text-xs font-semibold">Linhos & Veludos Nobres</span>
+          </div>
+          <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+            <i class="fa-solid fa-truck-ramp-box text-renova-amber text-sm"></i>
+            <span class="text-white/90 text-xs font-semibold">Coleta Acolchoada em SP</span>
+          </div>
+        </div>
+
+        <!-- CTA Principal & Confiança -->
+        <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20tenho%20uma%20pe%C3%A7a%20para%20restaurar%20e%20gostaria%20de%20um%20or%C3%A7amento%20por%20foto." target="_blank" class="shimmer-btn inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-renova-amber hover:bg-renova-amberHover text-renova-darkWood font-black text-xs uppercase tracking-wider shadow-amberGlow transition transform hover:scale-105" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Orçamento Rápido por Foto</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+          <a href="#antes-depois" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-bold text-xs uppercase tracking-wider border border-white/15 transition">
+            <i class="fa-solid fa-sliders text-renova-amber text-xs"></i>
+            <span>Ver Antes e Depois</span>
+          </a>
+        </div>
+
+        <!-- Selo de Confiança Social -->
+        <div class="flex items-center gap-3 text-white/70 text-xs pt-1 font-medium">
+          <div class="flex text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span><strong>4.9/5 no Google</strong> • Mais de 500 móveis de família transformados</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4 PILARES DE VALOR (Faixa de Confiança • OriginKit Style)                 -->
+  <!-- ========================================================================= -->
+  <section class="bg-white border-y border-renova-border py-10 shadow-subtle relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Pilar 1 -->
+        <div class="flex items-start gap-4 p-2">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber border border-amber-200/60 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <div>
+            <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Sustentabilidade Nobre</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Preserve madeiras maciças raras e evite o descarte de peças insubstituíveis.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="flex items-start gap-4 p-2 sm:border-l sm:border-renova-border sm:pl-8">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber border border-amber-200/60 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <div>
+            <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Economia Inteligente</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Custa até 60% menos do que comprar um móvel novo com a mesma densidade e nobreza.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="flex items-start gap-4 p-2 lg:border-l lg:border-renova-border lg:pl-8">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber border border-amber-200/60 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-couch"></i>
+          </div>
+          <div>
+            <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Espumas Anatômicas D33/D45</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Conforto ortopédico restaurado com espumas certificadas de alta durabilidade.</p>
+          </div>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div class="flex items-start gap-4 p-2 lg:border-l lg:border-renova-border lg:pl-8">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber border border-amber-200/60 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <div>
+            <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Garantia de 1 Ano</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Certificado de garantia estrutural, imunização contra cupins e costuras reforçadas.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- NOVO: SLIDER INTERATIVO ANTES & DEPOIS (SKIPER UI SPECIFICATION)          -->
+  <!-- ========================================================================= -->
+  <section id="antes-depois" class="py-16 md:py-24 bg-renova-bgWarm border-b border-renova-border relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-renova-amber">
+          TRANSFORMAÇÃO REAL • SKIPER UI COMPONENT
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-5xl text-slate-900 tracking-tight mt-2">
+          Veja a mágica do restauro na prática.
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Arraste a barra central para comparar o móvel danificado com a peça após o trabalho no ateliê. Madeira lixada, selada e novo estofamento artesanal.
+        </p>
+
+        <!-- Botões de Troca Rápida de Visualização -->
+        <div class="inline-flex items-center gap-2 p-1.5 rounded-full bg-white border border-renova-border shadow-sm mt-6">
+          <button onclick="setSliderPercent(0)" class="px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-renova-darkWood transition">
+            Ver Danificado (Antes)
+          </button>
+          <button onclick="setSliderPercent(50)" class="px-4 py-1.5 rounded-full bg-renova-amber text-renova-darkWood text-xs font-black shadow-sm">
+            Meio a Meio (Arrastar)
+          </button>
+          <button onclick="setSliderPercent(100)" class="px-4 py-1.5 rounded-full text-xs font-bold text-slate-600 hover:text-renova-darkWood transition">
+            Ver Restaurado (Depois)
+          </button>
+        </div>
+      </div>
+
+      <!-- Container do Slider Comparativo -->
+      <div class="max-w-4xl mx-auto bg-white p-3 sm:p-5 rounded-3xl border border-renova-border shadow-premium">
+        
+        <div id="ba-slider" class="ba-slider-container rounded-2xl aspect-[16/9] w-full bg-slate-900 shadow-inner">
+          
+          <!-- Imagem ANTES (Fundo) -->
+          <img 
+            src="assets/poltrona_antes_restauro_2k.png" 
+            alt="Poltrona clássica antes da restauração: madeira desgastada e tecido desbotado" 
+            class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            loading="lazy"
+          />
+
+          <!-- Badge do ANTES -->
+          <div class="absolute top-4 left-4 z-20 bg-black/80 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-xl border border-white/10 shadow-lg">
+            <i class="fa-solid fa-clock-rotate-left text-rose-400 mr-1.5"></i> Antes: Desgaste & Pátina
+          </div>
+
+          <!-- Imagem DEPOIS (Sobreposta com Clip) -->
+          <div id="ba-after-layer" class="ba-slider-after z-10" style="clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);">
+            <img 
+              src="assets/poltrona_restaurada_master_2k.png" 
+              alt="Poltrona restaurada com acabamento acetinado nobre e linho bouclé bege" 
+              class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+              loading="lazy"
+            />
+            
+            <!-- Badge do DEPOIS -->
+            <div class="absolute top-4 right-4 z-20 bg-renova-darkWood/90 backdrop-blur-md text-white text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-xl border border-renova-amber/30 shadow-lg">
+              <i class="fa-solid fa-sparkles text-renova-amber mr-1.5"></i> Depois: Padrão Ateliê Renova
+            </div>
+          </div>
+
+          <!-- Handle Central com Ícone de Arraste -->
+          <div id="ba-handle" class="ba-handle" style="left: 50%;">
+            <div class="ba-handle-btn" title="Arraste para comparar">
+              <i class="fa-solid fa-arrows-left-right text-sm"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Legenda Inferior com Detalhes da Transformação -->
+        <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 px-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span class="font-semibold text-slate-700">Trabalho Executado:</span>
+            <span>Remoção de verniz danificado, tratamento profilático de madeira e tapeçaria com linho bouclé importado.</span>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20vi%20o%20Antes%20e%20Depois%20da%20poltrona%20e%20quero%20um%20or%C3%A7amento%20para%20o%20meu%20m%C3%B3vel." target="_blank" class="font-bold text-renova-amber hover:text-renova-amberHover flex items-center gap-1.5 shrink-0">
+            <span>Quero restaurar peça similar</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- VITRINE DE ESPECIALIDADES COM ABAS INTERATIVAS (CULT UI STYLE)            -->
+  <!-- ========================================================================= -->
+  <section id="servicos" class="py-16 md:py-24 bg-white border-b border-renova-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho & Abas -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-renova-amber">
+            PORTFÓLIO DE ESPECIALIDADES
+          </span>
+          <h2 class="font-outfit font-black text-3xl sm:text-5xl text-slate-900 tracking-tight mt-1">
+            Mobiliário tratado com perfeição.
+          </h2>
+          <p class="text-slate-500 text-sm mt-2 max-w-lg">
+            Do clássico colonial à marcenaria moderna dos anos 50 a 70. Escolha a categoria e veja nossos acabamentos.
+          </p>
+        </div>
+
+        <!-- Abas Filtráveis Cult UI -->
+        <div class="flex flex-wrap items-center gap-2 p-1.5 bg-renova-bgLight rounded-2xl border border-renova-border">
+          <button onclick="filterGallery('todos', this)" class="gallery-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-renova-darkWood text-white shadow-sm transition">
+            Todos os Móveis
+          </button>
+          <button onclick="filterGallery('poltronas', this)" class="gallery-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+            Poltronas & Cadeiras
+          </button>
+          <button onclick="filterGallery('sofas', this)" class="gallery-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+            Sofás & Chaises
+          </button>
+          <button onclick="filterGallery('mesas', this)" class="gallery-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition">
+            Aparadores & Mesas
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid de Cards de Alta Resolução -->
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Poltrona Mid-Century -->
+        <div class="gallery-item poltronas bg-renova-bgLight rounded-3xl p-4 border border-renova-border shadow-subtle hover:shadow-premium transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+              <img 
+                src="assets/poltrona-vintage-madeira.jpg" 
+                alt="Poltrona vintage de madeira maciça tratada" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-renova-darkWood/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-lg border border-white/10">
+                Marcenaria Fina
+              </span>
+            </div>
+            <div class="p-3">
+              <h3 class="font-outfit font-black text-lg text-slate-900 mt-2">Poltrona Mid-Century em Imbuia</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Reforço de espigas, lixamento artesanal gradativo e acabamento em verniz acetinado marítimo com toque aveludado.
+              </p>
+              <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-600 font-semibold">
+                <span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md">Imbuia Maciça</span>
+                <span class="bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">Verniz Acetinado</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 pt-0">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20restaura%C3%A7%C3%A3o%20de%20poltrona%20similar%20%C3%A0%20Mid-Century." target="_blank" class="w-full py-2.5 rounded-xl bg-white hover:bg-renova-amber text-slate-800 hover:text-renova-darkWood border border-renova-border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Orçar Peça Similar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Sofá Clássico em Veludo -->
+        <div class="gallery-item sofas bg-renova-bgLight rounded-3xl p-4 border border-renova-border shadow-subtle hover:shadow-premium transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+              <img 
+                src="assets/sofa-veludo-verde.jpg" 
+                alt="Sofá clássico com estofamento em veludo verde nobre" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-renova-darkWood/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-lg border border-white/10">
+                Tapeçaria de Alto Padrão
+              </span>
+            </div>
+            <div class="p-3">
+              <h3 class="font-outfit font-black text-lg text-slate-900 mt-2">Sofá Chesterfield & Clássico</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Troca total de percintas elásticas italianas, enchimento com espuma D33 selada e veludo nobre com capitonê artesanal.
+              </p>
+              <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-600 font-semibold">
+                <span class="bg-emerald-100 text-emerald-900 px-2.5 py-1 rounded-md">Veludo Importado</span>
+                <span class="bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">Espuma D33 Selada</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 pt-0">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20reforma%20de%20sof%C3%A1%20estofado." target="_blank" class="w-full py-2.5 rounded-xl bg-white hover:bg-renova-amber text-slate-800 hover:text-renova-darkWood border border-renova-border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Orçar Peça Similar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Cadeiras de Jantar -->
+        <div class="gallery-item poltronas bg-renova-bgLight rounded-3xl p-4 border border-renova-border shadow-subtle hover:shadow-premium transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+              <img 
+                src="assets/cadeira-madeira-fina.jpg" 
+                alt="Conjunto de cadeiras de jantar restauradas em madeira maciça" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-renova-darkWood/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-lg border border-white/10">
+                Imunização & Estrutura
+              </span>
+            </div>
+            <div class="p-3">
+              <h3 class="font-outfit font-black text-lg text-slate-900 mt-2">Conjunto de Cadeiras de Jantar</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Colagem sob pressão com prensa pneumática, eliminação de rangidos e estofamento em linho impermeabilizado.
+              </p>
+              <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-600 font-semibold">
+                <span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md">Anti-Cupim</span>
+                <span class="bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">Linho Hidrorrepelente</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 pt-0">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20tenho%20cadeiras%20de%20jantar%20para%20restaurar%2C%20qual%20o%20valor%3F" target="_blank" class="w-full py-2.5 rounded-xl bg-white hover:bg-renova-amber text-slate-800 hover:text-renova-darkWood border border-renova-border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Orçar Peça Similar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Aparadores & Cômodas -->
+        <div class="gallery-item mesas bg-renova-bgLight rounded-3xl p-4 border border-renova-border shadow-subtle hover:shadow-premium transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+              <img 
+                src="assets/movel-madeira-decor.jpg" 
+                alt="Aparador de madeira com acabamento laqueado acetinado e ferragens restauradas" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-renova-darkWood/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-lg border border-white/10">
+                Pintura & Laqueamento
+              </span>
+            </div>
+            <div class="p-3">
+              <h3 class="font-outfit font-black text-lg text-slate-900 mt-2">Aparadores, Buffets & Cômodas</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Restauração de gavetas emperradas, recuperação de puxadores de bronze e laqueação automotiva com cabine climatizada.
+              </p>
+              <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-600 font-semibold">
+                <span class="bg-blue-100 text-blue-900 px-2.5 py-1 rounded-md">Laqueação Premium</span>
+                <span class="bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">Ferragens Polidas</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 pt-0">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20tenho%20um%20aparador%20ou%20c%C3%B4moda%20para%20restaurar." target="_blank" class="w-full py-2.5 rounded-xl bg-white hover:bg-renova-amber text-slate-800 hover:text-renova-darkWood border border-renova-border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Orçar Peça Similar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: Sala Completa Restaurada -->
+        <div class="gallery-item mesas sofas bg-renova-bgLight rounded-3xl p-4 border border-renova-border shadow-subtle hover:shadow-premium transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+              <img 
+                src="assets/sala-restaurada.jpg" 
+                alt="Ambiente com conjunto de living restaurado pelo ateliê" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-renova-darkWood/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-lg border border-white/10">
+                Projetos Residenciais
+              </span>
+            </div>
+            <div class="p-3">
+              <h3 class="font-outfit font-black text-lg text-slate-900 mt-2">Mobiliário de Living Completo</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Harmonização tonal entre mesas, cadeiras e sofás para arquitetos e clientes residenciais em São Paulo.
+              </p>
+              <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-600 font-semibold">
+                <span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md">Atendimento VIP</span>
+                <span class="bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">São Paulo Capital</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 pt-0">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20tenho%20um%20conjunto%20de%20m%C3%B3veis%20para%20restaurar%20no%20meu%20living." target="_blank" class="w-full py-2.5 rounded-xl bg-white hover:bg-renova-amber text-slate-800 hover:text-renova-darkWood border border-renova-border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Orçar Conjunto Completo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 6: Artesão & Marcenaria Tradicional -->
+        <div class="gallery-item todos bg-renova-bgLight rounded-3xl p-4 border border-renova-border shadow-subtle hover:shadow-premium transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+              <img 
+                src="assets/artesao-madeira.jpg" 
+                alt="Mestre artesão trabalhando com ferramentas tradicionais de marcenaria" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-renova-darkWood/90 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-lg border border-white/10">
+                Oficina Própria
+              </span>
+            </div>
+            <div class="p-3">
+              <h3 class="font-outfit font-black text-lg text-slate-900 mt-2">Mestres com Mais de 20 Anos de Ofício</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Técnicas manuais de respigamento, plainamento e lustração que não agridem as fibras originais das madeiras nobres.
+              </p>
+              <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-600 font-semibold">
+                <span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md">Tradição & Respeito</span>
+                <span class="bg-slate-200 text-slate-800 px-2.5 py-1 rounded-md">100% Artesanal</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 pt-0">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20mais%20sobre%20o%20trabalho%20artesanal%20da%20Renova." target="_blank" class="w-full py-2.5 rounded-xl bg-white hover:bg-renova-amber text-slate-800 hover:text-renova-darkWood border border-renova-border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Falar com o Artesão</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- NOVO: COMPARATIVO "RESTAURAR vs COMPRAR MÓVEL NOVO" (QUEBRA DE OBJEÇÃO)  -->
+  <!-- ========================================================================= -->
+  <section id="comparativo" class="py-16 md:py-24 bg-renova-charcoal text-white relative overflow-hidden">
+    <!-- Efeito de iluminação suave de fundo -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-renova-amber/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-renova-amber">
+          DECISÃO INTELIGENTE & SUSTENTÁVEL
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-5xl text-white tracking-tight mt-1">
+          Vale a pena restaurar ou comprar um novo?
+        </h2>
+        <p class="text-white/70 text-sm sm:text-base mt-3 leading-relaxed">
+          Compare lado a lado o que você realmente recebe ao adquirir um móvel moderno de mercado contra a valorização do seu móvel autêntico.
+        </p>
+      </div>
+
+      <!-- Tabela / Cards Comparativos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+        
+        <!-- Cartão 1: Comprar Móvel Novo Comercial (Desvantagens) -->
+        <div class="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-wider mb-3">
+              <i class="fa-solid fa-circle-xmark"></i> Móveis Comerciais Modernos
+            </div>
+            <h3 class="font-outfit font-black text-2xl text-white mb-6">Móveis de Loja Tradicional</h3>
+
+            <ul class="space-y-4 text-xs sm:text-sm text-white/75">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Material Frágil:</strong> Fabricados em MDP/MDF prensado que esfarela com umidade e quebra com impacto leve.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Espumas Descartáveis:</strong> Densidades baixas (D20/D23) que afundam permanentemente em 6 a 12 meses.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Custo Elevado:</strong> Peças de alta qualidade em lojas de design custam mais de R$ 8.000 a R$ 20.000.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Zero Valor Emocional:</strong> Produto de massa, sem história, idêntico a milhares de outros no mercado.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-white/10 text-[11px] text-white/50">
+            Vida útil média estimada: apenas 2 a 3 anos antes de apresentar defeitos.
+          </div>
+        </div>
+
+        <!-- Cartão 2: Restaurar no Ateliê Renova (Vantagens) -->
+        <div class="p-8 rounded-3xl bg-renova-darkWood border-2 border-renova-amber shadow-amberGlow relative flex flex-col justify-between">
+          <!-- Tag de Destaque -->
+          <div class="absolute -top-3.5 right-6 bg-renova-amber text-renova-darkWood text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
+            Melhor Custo x Benefício
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 text-renova-amber text-xs font-bold uppercase tracking-wider mb-3">
+              <i class="fa-solid fa-circle-check"></i> Padrão Ateliê Renova Móveis
+            </div>
+            <h3 class="font-outfit font-black text-2xl text-white mb-6">Restauração de Alto Padrão</h3>
+
+            <ul class="space-y-4 text-xs sm:text-sm text-white/90">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-renova-amber mt-1"></i>
+                <span><strong>Madeira Maciça Nobre:</strong> Preservação de peroba, jacarandá, imbuia e cedro que duram por gerações.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-renova-amber mt-1"></i>
+                <span><strong>Espumas Certificadas D33/D45:</strong> Alta resiliência com retorno elástico perfeito e toque anatômico.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-renova-amber mt-1"></i>
+                <span><strong>Economia Real:</strong> Custa até 60% menos do que comprar um móvel de luxo de madeira verdadeira novo.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-renova-amber mt-1"></i>
+                <span><strong>Memória & Exclusividade:</strong> Uma obra de arte afetiva com tecidos exclusivos escolhidos por você.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs font-bold text-renova-amber">Garantia de 1 Ano Documentada</span>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20restaurar%20meu%20m%C3%B3vel%20e%20economizar%20com%20qualidade." target="_blank" class="shimmer-btn px-5 py-2.5 rounded-full bg-renova-amber hover:bg-renova-amberHover text-renova-darkWood font-black text-xs uppercase tracking-wider shadow-md">
+              Restaurar Meu Móvel
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- O PROCESSO EM 4 ETAPAS SIMPLES (TRANSPARÊNCIA TOTAL)                     -->
+  <!-- ========================================================================= -->
+  <section id="processo" class="py-16 md:py-24 bg-renova-bgLight border-b border-renova-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-renova-amber">
+          TRANSPARÊNCIA & CONFORTO
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-5xl text-slate-900 tracking-tight mt-1">
+          Como funciona o atendimento
+        </h2>
+        <p class="text-slate-500 text-sm sm:text-base mt-2">
+          Você não precisa se preocupar com transporte pesado nem carregar nada. Nós cuidamos de tudo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Passo 1 -->
+        <div class="bg-white p-6 rounded-3xl border border-renova-border shadow-subtle hover:shadow-premium transition group relative">
+          <span class="font-outfit font-black text-4xl text-amber-500/20 absolute top-4 right-6 group-hover:text-renova-amber/40 transition">01</span>
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber flex items-center justify-center text-xl mb-5 shadow-sm">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-base text-slate-900">Envio das Fotos</h4>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+            Mande fotos do móvel pelo WhatsApp. Avaliamos a estrutura, opções de tecido e passamos o orçamento prévio em minutos.
+          </p>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="bg-white p-6 rounded-3xl border border-renova-border shadow-subtle hover:shadow-premium transition group relative">
+          <span class="font-outfit font-black text-4xl text-amber-500/20 absolute top-4 right-6 group-hover:text-renova-amber/40 transition">02</span>
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber flex items-center justify-center text-xl mb-5 shadow-sm">
+            <i class="fa-solid fa-truck-moving"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-base text-slate-900">Coleta com Cuidado</h4>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+            Agendamos a retirada na sua casa com mantas protetoras acolchoadas e equipe experiente em manuseio de móveis finos.
+          </p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="bg-white p-6 rounded-3xl border border-renova-border shadow-subtle hover:shadow-premium transition group relative">
+          <span class="font-outfit font-black text-4xl text-amber-500/20 absolute top-4 right-6 group-hover:text-renova-amber/40 transition">03</span>
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber flex items-center justify-center text-xl mb-5 shadow-sm">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-base text-slate-900">Trabalho de Ateliê</h4>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+            Desmontagem cuidadosa, colagem estrutural, tratamento anti-praga, corte sob medida de espumas e costura de alta precisão.
+          </p>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="bg-white p-6 rounded-3xl border border-renova-border shadow-subtle hover:shadow-premium transition group relative">
+          <span class="font-outfit font-black text-4xl text-amber-500/20 absolute top-4 right-6 group-hover:text-renova-amber/40 transition">04</span>
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-renova-amber flex items-center justify-center text-xl mb-5 shadow-sm">
+            <i class="fa-solid fa-house-circle-check"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-base text-slate-900">Entrega & Encanto</h4>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+            Devolvemos a peça renovada, perfumada e protegida, com termo de garantia e orientações de conservação do artesão.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Banner de Ação Central -->
+      <div class="mt-12 text-center">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20enviar%20fotos%20do%20meu%20m%C3%B3vel%20para%20avalia%C3%A7%C3%A3o." target="_blank" class="shimmer-btn inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-renova-amber hover:bg-renova-amberHover text-renova-darkWood font-black text-xs uppercase tracking-wider shadow-amberGlow transition transform hover:scale-105">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Enviar Fotos pelo WhatsApp Agora</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DEPOIMENTOS REAIS DE SÃO PAULO (PROVA SOCIAL CONVINCENTE)           -->
+  <!-- ========================================================================= -->
+  <section id="depoimentos" class="py-16 md:py-24 bg-white border-b border-renova-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-renova-amber">
+          OPINIÃO DOS NOSSOS CLIENTES
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-slate-900 tracking-tight mt-1">
+          Quem já reformou, recomenda!
+        </h2>
+        <div class="flex items-center justify-center gap-2 mt-2 text-xs text-slate-500 font-medium">
+          <div class="flex text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span>Nota 4.9 baseada em 180+ avaliações verificadas</span>
+        </div>
+      </div>
+
+      <!-- 3 Cards de Depoimento -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Depoimento 1: Camila Souza (Jardins) -->
+        <div class="p-8 rounded-3xl bg-renova-bgLight border border-renova-border shadow-subtle flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-renova-amber flex-shrink-0 bg-slate-200">
+                <img src="assets/avatar-1.jpg" alt="Foto de Camila Souza" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Camila Souza</h4>
+                <span class="text-[10px] text-slate-500 block">Jardins, São Paulo • Cômoda de Família</span>
+                <div class="flex text-amber-400 text-xs mt-0.5">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "A cômoda era da minha avó e estava com a madeira riscada e gavetas travando. O trabalho da equipe foi surreal! Devolveram a peça brilhando, com toque sedoso e funcionando como nova. Valeu cada centavo!"
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-2 text-[11px] text-emerald-700 font-semibold">
+            <i class="fa-solid fa-check-circle"></i> Cliente Verificada em SP
+          </div>
+        </div>
+
+        <!-- Depoimento 2: Rafael Lima (Pinheiros) -->
+        <div class="p-8 rounded-3xl bg-renova-bgLight border border-renova-border shadow-subtle flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-renova-amber flex-shrink-0 bg-slate-200">
+                <img src="assets/avatar-2.jpg" alt="Foto de Rafael Lima" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Rafael Lima</h4>
+                <span class="text-[10px] text-slate-500 block">Pinheiros, São Paulo • Sofá 3 Lugares</span>
+                <div class="flex text-amber-400 text-xs mt-0.5">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "Além do ótimo atendimento no WhatsApp, a pontualidade na coleta e na entrega me surpreendeu. O sofá ficou mais confortável do que quando compramos novo. Recomendo de olhos fechados!"
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-2 text-[11px] text-emerald-700 font-semibold">
+            <i class="fa-solid fa-check-circle"></i> Cliente Verificado em SP
+          </div>
+        </div>
+
+        <!-- Depoimento 3: Juliana Alves (Moema) -->
+        <div class="p-8 rounded-3xl bg-renova-bgLight border border-renova-border shadow-subtle flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-renova-amber flex-shrink-0 bg-slate-200">
+                <img src="assets/avatar-3.jpg" alt="Foto de Juliana Alves" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-outfit font-bold text-sm text-slate-900 leading-tight">Juliana Alves</h4>
+                <span class="text-[10px] text-slate-500 block">Moema, São Paulo • Jogo de 6 Cadeiras</span>
+                <div class="flex text-amber-400 text-xs mt-0.5">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "Fiz o restauro de 6 cadeiras de jantar em jacarandá com troca para linho cru impermeável. Ficou digno de revista de decoração. Muito profissionais e atenciosos do início ao fim."
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-2 text-[11px] text-emerald-700 font-semibold">
+            <i class="fa-solid fa-check-circle"></i> Cliente Verificada em SP
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- NOVO: FAQ INTERATIVO EM ACCORDION (QUEBRA DE TODAS AS DÚVIDAS)            -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-24 bg-renova-bgWarm border-b border-renova-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-renova-amber">
+          DÚVIDAS FREQUENTES
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-slate-900 tracking-tight mt-1">
+          Tudo o que você precisa saber
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2">
+          Respostas diretas sobre prazos, coleta, tecidos e pagamentos.
+        </p>
+      </div>
+
+      <!-- Itens do Accordion -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-white rounded-2xl border border-renova-border overflow-hidden shadow-subtle">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-slate-900 text-sm sm:text-base hover:text-renova-amber transition">
+            <span>Como funciona a coleta e entrega na Capital de São Paulo?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-renova-amber transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden px-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="pb-5 pt-1">
+              Nossa equipe própria realiza a retirada diretamente na sua residência ou apartamento com agendamento prévio. Utilizamos mantas acolchoadas protetoras e embalagens especiais para que o móvel não sofra qualquer atrito durante o deslocamento. Atendemos todos os bairros da capital (Jardins, Pinheiros, Moema, Itaim, Perdizes, Tatuapé, Morumbi, etc.) e região metropolitana.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white rounded-2xl border border-renova-border overflow-hidden shadow-subtle">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-slate-900 text-sm sm:text-base hover:text-renova-amber transition">
+            <span>Posso escolher o tipo de tecido e a cor antes de fechar?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-renova-amber transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden px-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="pb-5 pt-1">
+              Sim! Disponibilizamos catálogo completo com amostras de linho belga, bouclé, veludo italiano, camurça, couro natural e tecidos impermeabilizados (ideais para quem tem crianças ou pets). Enviamos fotos de alta fidelidade no WhatsApp ou apresentamos as amostras físicas no momento da coleta.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white rounded-2xl border border-renova-border overflow-hidden shadow-subtle">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-slate-900 text-sm sm:text-base hover:text-renova-amber transition">
+            <span>Qual o prazo médio de execução do restauro?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-renova-amber transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden px-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="pb-5 pt-1">
+              O prazo médio varia entre 7 e 15 dias úteis, dependendo do estado da madeira e da complexidade da tapeçaria. Como fazemos cura correta de vernizes e colagens sob prensa, respeitamos rigorosamente o tempo técnico para garantir que a peça dure por décadas.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-white rounded-2xl border border-renova-border overflow-hidden shadow-subtle">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-slate-900 text-sm sm:text-base hover:text-renova-amber transition">
+            <span>Vocês oferecem garantia documental?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-renova-amber transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden px-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="pb-5 pt-1">
+              Sim. Todos os nossos serviços acompanham certificado de garantia de 1 ano cobrindo estrutura da madeira, colagens, espumas e costuras. Trabalhamos exclusivamente com insumos industriais de primeira linha.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-white rounded-2xl border border-renova-border overflow-hidden shadow-subtle">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-outfit font-bold text-slate-900 text-sm sm:text-base hover:text-renova-amber transition">
+            <span>Como faço para receber o orçamento do meu móvel?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-renova-amber transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden px-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="pb-5 pt-1">
+              Basta clicar no botão do WhatsApp e enviar uma foto da peça inteira e, se possível, um detalhe da parte danificada (ex: tecido rasgado ou verniz riscado). Nosso especialista responde rapidamente com a estimativa de valor e opções de acabamento sem nenhum compromisso.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO ONDE ESTAMOS & FORMULÁRIO DE ORÇAMENTO (SÃO PAULO - SP)             -->
+  <!-- ========================================================================= -->
+  <section id="contato" class="py-16 md:py-24 bg-renova-bgLight relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Card Esquerda: Informações & Bairros em São Paulo -->
+        <div class="lg:col-span-7 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-between shadow-premium relative overflow-hidden bg-cover bg-center border border-renova-borderDark" style="background-image: linear-gradient(to right, rgba(20, 17, 14, 0.95) 0%, rgba(20, 17, 14, 0.88) 60%, rgba(20, 17, 14, 0.75) 100%), url('assets/credenza-clean.jpg');">
+          
+          <div class="space-y-6 relative z-10">
+            <div>
+              <span class="text-[11px] font-outfit font-extrabold uppercase tracking-widest text-renova-amber block">
+                ATENDIMENTO EM TODA A CAPITAL DE SÃO PAULO
+              </span>
+              <h2 class="font-outfit font-black text-2xl sm:text-4xl text-white tracking-tight mt-1">
+                Levamos o ateliê até a sua casa.
+              </h2>
+              <p class="text-white/80 text-xs sm:text-sm mt-2 leading-relaxed">
+                Coleta com caminhão acolchoado próprio nos principais bairros de São Paulo: <strong>Jardins, Pinheiros, Itaim Bibi, Moema, Vila Mariana, Perdizes, Higienópolis, Morumbi, Tatuapé, Santana e Grande SP</strong>.
+              </p>
+            </div>
+
+            <!-- Bairros em Chips -->
+            <div class="flex flex-wrap gap-2 pt-1 text-[11px]">
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Jardins</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Pinheiros</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Itaim Bibi</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Moema</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Perdizes</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Vila Mariana</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Morumbi</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Tatuapé</span>
+              <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/15 text-white/90">Santana</span>
+            </div>
+
+            <!-- Dados de Contato Direto -->
+            <div class="space-y-3 pt-3 border-t border-white/15 text-xs text-white/90">
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-location-dot text-renova-amber text-sm w-4"></i>
+                <span>Av. Paulista, 1000 - Bela Vista / Cerqueira César, São Paulo - SP</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-sm w-4"></i>
+                <span>Atendimento WhatsApp: (32) 99929-2311</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-regular fa-clock text-renova-amber text-sm w-4"></i>
+                <span>Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20coleta%20no%20meu%20bairro." target="_blank" class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-renova-amber hover:bg-renova-amberHover text-renova-darkWood font-black text-xs uppercase tracking-wider transition transform hover:scale-105 shadow-md">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Consultar Coleta no Meu Bairro</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card Direita: Formulário Rápido com Disparo no WhatsApp -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-8 sm:p-10 border border-renova-border shadow-premium flex flex-col justify-between">
+          
+          <div>
+            <h3 class="font-outfit font-black text-2xl sm:text-3xl text-slate-900 tracking-tight mb-1">
+              Solicite seu orçamento
+            </h3>
+            <p class="text-xs text-slate-500 mb-6">
+              Envie os dados básicos e retornaremos pelo WhatsApp com a estimativa do projeto.
+            </p>
+
+            <form id="form-orcamento" onsubmit="enviarOrcamento(event)" class="space-y-4">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">Seu Nome</label>
+                <input 
+                  type="text" 
+                  id="form-nome" 
+                  required 
+                  placeholder="Ex: Carlos Eduardo" 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-renova-border text-slate-800 text-sm focus:border-renova-amber outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">WhatsApp com DDD</label>
+                <input 
+                  type="tel" 
+                  id="form-whatsapp" 
+                  required 
+                  placeholder="Ex: (11) 98765-4321" 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-renova-border text-slate-800 text-sm focus:border-renova-amber outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">Bairro / Região em SP</label>
+                <input 
+                  type="text" 
+                  id="form-bairro" 
+                  placeholder="Ex: Jardins, Moema, Pinheiros..." 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-renova-border text-slate-800 text-sm focus:border-renova-amber outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Móvel / Serviço</label>
+                <select 
+                  id="form-servico" 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-renova-border text-slate-700 text-sm focus:border-renova-amber outline-none transition"
+                >
+                  <option value="Poltrona ou Cadeira">Poltrona ou Conjunto de Cadeiras</option>
+                  <option value="Sofá ou Chaise">Sofá Completo (Reforma & Tecido)</option>
+                  <option value="Mesa ou Aparador">Mesa, Buffet ou Cômoda de Madeira</option>
+                  <option value="Restauração de Madeira Nobre">Restauração de Madeira Antiga / Imbuia</option>
+                  <option value="Laqueamento ou Pintura">Laqueação / Verniz Especial</option>
+                </select>
+              </div>
+
+              <div class="pt-2">
+                <button 
+                  type="submit" 
+                  class="shimmer-btn w-full py-4 rounded-xl bg-renova-amber hover:bg-renova-amberHover text-renova-darkWood font-black text-xs uppercase tracking-wider shadow-amberGlow transition transform hover:scale-[1.02] flex items-center justify-center gap-2"
+                >
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>Enviar Solicitação no WhatsApp</span>
+                </button>
+              </div>
+
+              <div class="text-center pt-1">
+                <span class="text-[10px] text-slate-400 flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-lock text-slate-400"></i> Seus dados são protegidos e confidenciais.
+                </span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER PREMIUM                                                            -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Restaurar Seus Móveis no Ateliê Renova?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Marcenaria fina tradicional, restauração de madeira maciça e tapeçaria com tecidos nobres.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Reformas Rápidas / Pinturas Comuns</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Camadas de tinta plástica que cobrem os veios nobres da madeira natural</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Uso de grampos e espumas baratas que cedem em menos de 6 meses de uso</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Marceneiros que não respeitam a estrutura original de peças antigas</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de contrato formal e risco de danos irreversíveis à relíquia</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Marcenaria de Arte
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Ateliê Renova Móveis & Restauração</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Remoção química e lixamento manual artesanal revelando os veios originais da madeira</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Acabamentos nobres em verniz PU fosco, cera de abelha ou laca acetinada</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Tapeçaria com espumas de alta densidade D-33 e tecidos nobres (linho, bouclé e veludo)</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Coleta e entrega seguras com embalagem acolchoada e garantia de restauro</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20enviar%20fotos%20do%20meu%20móvel%20para%20um%20orçamento%20de%20restauração." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-renova-darkWood text-white/70 py-12 border-t border-renova-borderDark text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-renova-amber/20 border border-renova-amber/40 text-renova-amber flex items-center justify-center text-sm">
+          <i class="fa-solid fa-chair"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-base text-white tracking-wider block leading-none">RENOVA MÓVEIS</span>
+          <span class="block text-[7px] uppercase tracking-[0.2em] text-renova-amber font-bold mt-0.5">Ateliê & Marcenaria Fina • SP</span>
+        </div>
+      </a>
+
+      <!-- Menu Rodapé -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-white/80">
+        <a href="#antes-depois" class="hover:text-renova-amber transition">Antes & Depois</a>
+        <a href="#servicos" class="hover:text-renova-amber transition">Especialidades</a>
+        <a href="#comparativo" class="hover:text-renova-amber transition">Restaurar vs Novo</a>
+        <a href="#processo" class="hover:text-renova-amber transition">Como Funciona</a>
+        <a href="#depoimentos" class="hover:text-renova-amber transition">Avaliações</a>
+        <a href="#faq" class="hover:text-renova-amber transition">FAQ</a>
+      </div>
+
+      <!-- Social & Direitos -->
+      <div class="flex items-center gap-4 text-white/80 text-base">
+        <a href="https://wa.me/5532999292311" target="_blank" class="hover:text-renova-amber transition" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://instagram.com" target="_blank" class="hover:text-renova-amber transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 mt-8 border-t border-white/5 text-center text-[11px] text-white/40">
+      <p>© 2026 Ateliê Renova Móveis São Paulo. Todos os direitos reservados. Marcenaria fina e restauração artesanal de alto padrão.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM DOCK (ALTA CONVERSÃO EM 1 CLIQUE)                           -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-renova-darkWood/95 backdrop-blur-md border-t border-renova-borderDark p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20por%20foto%20para%20restaura%C3%A7%C3%A3o%20de%20m%C3%B3vel." target="_blank" rel="noopener noreferrer" class="shimmer-btn flex-1 py-3 rounded-full bg-renova-amber text-renova-darkWood font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-amberGlow">
+      <i class="fa-brands fa-whatsapp text-sm text-renova-darkWood"></i>
+      <span>Orçamento por Foto</span>
+    </a>
+    <a href="#contato" class="py-3 px-4 rounded-full bg-white/10 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center border border-white/15">
+      <i class="fa-solid fa-envelope text-xs"></i>
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SCRIPTS INTERATIVOS & MOTIONS (CULT UI + SKIPER UI + ACCORDION)           -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. SKIPER UI: SLIDER ANTES E DEPOIS INTERATIVO (DRAG & TOUCH)
+    // -------------------------------------------------------------------------
+    const sliderContainer = document.getElementById('ba-slider');
+    const afterLayer = document.getElementById('ba-after-layer');
+    const handle = document.getElementById('ba-handle');
+    let isDragging = false;
+
+    function updateSlider(clientX) {
+      if (!sliderContainer || !afterLayer || !handle) return;
+      const rect = sliderContainer.getBoundingClientRect();
+      let pos = (clientX - rect.left) / rect.width;
+      if (pos < 0.02) pos = 0.02;
+      if (pos > 0.98) pos = 0.98;
+
+      const pct = (pos * 100).toFixed(2);
+      handle.style.left = `${pct}%`;
+      afterLayer.style.clipPath = `polygon(${pct}% 0%, 100% 0%, 100% 100%, ${pct}% 100%)`;
+    }
+
+    function setSliderPercent(pct) {
+      if (!afterLayer || !handle) return;
+      if (pct <= 0) {
+        handle.style.left = '0%';
+        afterLayer.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)';
+      } else if (pct >= 100) {
+        handle.style.left = '100%';
+        afterLayer.style.clipPath = 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)';
+      } else {
+        handle.style.left = `${pct}%`;
+        afterLayer.style.clipPath = `polygon(${pct}% 0%, 100% 0%, 100% 100%, ${pct}% 100%)`;
+      }
+    }
+
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateSlider(e.clientX);
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.clientX);
+      });
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Suporte a Touch no Mobile
+      sliderContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        if (e.touches[0]) updateSlider(e.touches[0].clientX);
+      }, { passive: true });
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging || !e.touches[0]) return;
+        updateSlider(e.touches[0].clientX);
+      }, { passive: true });
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. CULT UI: FILTRO DINÂMICO DE GALERIA POR ABAS
+    // -------------------------------------------------------------------------
+    function filterGallery(category, btnElement) {
+      const buttons = document.querySelectorAll('.gallery-tab-btn');
+      buttons.forEach(b => {
+        b.classList.remove('bg-renova-darkWood', 'text-white', 'shadow-sm');
+        b.classList.add('text-slate-600');
+      });
+      if (btnElement) {
+        btnElement.classList.add('bg-renova-darkWood', 'text-white', 'shadow-sm');
+        btnElement.classList.remove('text-slate-600');
+      }
+
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'todos' || item.classList.contains(category)) {
+          item.style.display = 'flex';
+          item.classList.add('animate-fade-in');
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. ACCORDION FAQ DINÂMICO
+    // -------------------------------------------------------------------------
+    function toggleFaq(button) {
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('i');
+      const allAnswers = document.querySelectorAll('.faq-answer');
+      const allIcons = document.querySelectorAll('#faq button i');
+
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+      // Fecha todos
+      allAnswers.forEach(a => a.style.maxHeight = '0px');
+      allIcons.forEach(i => i.classList.remove('rotate-180'));
+
+      // Abre o clicado caso estivesse fechado
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 24 + 'px';
+        if (icon) icon.classList.add('rotate-180');
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. DISPARO DO FORMULÁRIO COM LEAD FORMATADO PARA WHATSAPP
+    // -------------------------------------------------------------------------
+    function enviarOrcamento(e) {
+      e.preventDefault();
+      const nome = document.getElementById('form-nome').value.trim();
+      const whatsapp = document.getElementById('form-whatsapp').value.trim();
+      const bairro = document.getElementById('form-bairro').value.trim() || 'São Paulo - SP';
+      const servico = document.getElementById('form-servico').value;
+
+      const msg = `Olá! Gostaria de um orçamento para restauração de móvel.\n\n` +
+                  `👤 Nome: ${nome}\n` +
+                  `📱 WhatsApp: ${whatsapp}\n` +
+                  `📍 Bairro/Região: ${bairro}\n` +
+                  `🪵 Tipo de Móvel / Serviço: ${servico}\n\n` +
+                  `Poderiam me informar valores e prazos?`;
+
+      const url = `https://wa.me/5532999292311?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. MOTION COM GSAP SCROLLTRIGGER (SUAVE & SEM 3D)
+    // -------------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in suave nas seções
+        gsap.utils.toArray('section').forEach(sec => {
+          gsap.from(sec, {
+            opacity: 0.85,
+            y: 20,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Ateliê Renova Móveis</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20enviar%20fotos%20do%20meu%20móvel%20para%20um%20orçamento%20de%20restauração." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>
+

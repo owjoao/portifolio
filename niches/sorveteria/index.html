@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCOOPÉRA — Criando Felicidade | Sorveteria Artesanal & Gelateria</title>
+  <meta name="description" content="Delicie-se com sorvetes cremosos, irresistíveis e artesanais, feitos com amor e os melhores ingredientes na SCOOPÉRA. Picolés gourmet, sundaes e sabores exclusivos." />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍨</text></svg>" />
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Caveat & Yellowtail -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#eb477e',
+              pinkHover: '#d8336c',
+              pinkLight: '#fde8ef',
+              pinkSoft: '#fff0f5',
+              caramel: '#c86d1b',
+              gold: '#d9822b',
+              dark: '#1f1a1c',
+              muted: '#6f5d64',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            script: ['"Yellowtail"', '"Caveat"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Smooth Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fdf2f6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f48fb1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #eb477e;
+    }
+
+    /* Floating Keyframes */
+    @keyframes floatGentle {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(1.2deg);
+      }
+    }
+    @keyframes floatAlt {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-8px) scale(1.02);
+      }
+    }
+    @keyframes pulseSoft {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .animate-float {
+      animation: floatGentle 5s ease-in-out infinite;
+    }
+    .animate-float-alt {
+      animation: floatAlt 4s ease-in-out infinite;
+    }
+    .animate-pulse-soft {
+      animation: pulseSoft 3s ease-in-out infinite;
+    }
+
+    /* Scalloped Wavy Divider */
+    .scallop-divider {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      background: radial-gradient(circle at 25px -10px, transparent 28px, #ffffff 29px);
+      background-size: 50px 60px;
+    }
+
+    .scallop-divider-pink {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      background: radial-gradient(circle at 25px -10px, transparent 28px, #eb477e 29px);
+      background-size: 50px 60px;
+    }
+
+    /* Soft Glass Effect */
+    .glass-header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "IceCreamShop",
+  "name": "SCOOPÉRA Gelateria & Sorvetes Artesanais",
+  "description": "Sorvetes artesanais cremosos, picolés gourmet de frutas e taças especiais sem conservantes artificiais.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/sorveteria/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  }
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+
+<body class="bg-white text-brand-dark font-sans selection:bg-brand-pink selection:text-white antialiased overflow-x-hidden">
+
+  <!-- ========================================================================= -->
+  <!-- 1. NAVBAR / HEADER                                                        -->
+  <!-- ========================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 glass-header border-b border-pink-100/60 shadow-[0_4px_20px_rgba(235,71,126,0.05)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex flex-col group focus:outline-none">
+        <div class="flex items-center gap-1.5">
+          <span class="font-display font-extrabold text-2xl sm:text-3xl tracking-tight text-brand-pink group-hover:scale-105 transition-transform duration-300 flex items-center">
+            SCOOP<span class="relative inline-block text-brand-pink">E<span class="absolute -top-1.5 right-0.5 text-xs">🍨</span></span>RA
+          </span>
+        </div>
+        <span class="text-[9px] font-bold tracking-[0.25em] uppercase text-brand-muted/80 pl-0.5">
+          Criando Felicidade
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links (PT-BR) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-brand-muted">
+        <a href="#home" class="text-brand-pink font-bold hover:text-brand-pinkHover transition-colors">Início</a>
+        <a href="#flavours" class="hover:text-brand-pink transition-colors">Sabores</a>
+        <a href="#menu" class="hover:text-brand-pink transition-colors">Cardápio</a>
+        <a href="#about" class="hover:text-brand-pink transition-colors">Nossa História</a>
+        <a href="#offers" class="hover:text-brand-pink transition-colors">Promoções</a>
+        <a href="#contact" class="hover:text-brand-pink transition-colors">Contato</a>
+      </nav>
+
+      <!-- Right Utility Actions -->
+      <div class="flex items-center gap-3.5">
+        <!-- Search Trigger -->
+        <button onclick="toggleSearch()" aria-label="Pesquisar Sabores" class="w-9 h-9 rounded-full flex items-center justify-center text-brand-dark/70 hover:text-brand-pink hover:bg-pink-50 transition-all" title="Buscar Sabores">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        </button>
+
+        <!-- Shopping Cart Trigger -->
+        <button onclick="toggleCart()" aria-label="Carrinho de Pedidos" class="relative w-9 h-9 rounded-full flex items-center justify-center text-brand-dark/70 hover:text-brand-pink hover:bg-pink-50 transition-all" title="Meu Carrinho">
+          <i class="fa-solid fa-basket-shopping text-sm"></i>
+          <span id="cart-counter" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-brand-pink text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+            0
+          </span>
+        </button>
+
+        <!-- Order Now Button -->
+        <a href="#menu" onclick="triggerOrderWhatsApp()" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs sm:text-sm shadow-[0_4px_14px_rgba(235,71,126,0.35)] hover:shadow-[0_6px_20px_rgba(235,71,126,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+          Pedir Agora 🍦
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Abrir Menu" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-brand-dark bg-pink-50 hover:bg-pink-100 transition-colors">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer (PT-BR) -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-6 bg-white/95 backdrop-blur-xl border-t border-pink-100 flex flex-col gap-4 text-sm font-semibold">
+      <a href="#home" onclick="toggleMobileMenu()" class="text-brand-pink py-1">Início</a>
+      <a href="#flavours" onclick="toggleMobileMenu()" class="hover:text-brand-pink py-1">Sabores</a>
+      <a href="#menu" onclick="toggleMobileMenu()" class="hover:text-brand-pink py-1">Cardápio</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="hover:text-brand-pink py-1">Nossa História</a>
+      <a href="#offers" onclick="toggleMobileMenu()" class="hover:text-brand-pink py-1">Promoções</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-brand-pink py-1">Contato</a>
+      <button onclick="triggerOrderWhatsApp()" class="w-full mt-2 py-3 rounded-full bg-brand-pink text-white font-bold text-sm shadow-md text-center">
+        Pedir Agora no WhatsApp 🍨
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION                                                           -->
+  <!-- ========================================================================= -->
+  <section id="home" class="relative pt-28 sm:pt-36 pb-20 bg-gradient-to-br from-[#ffece6] via-[#fff3f0] to-[#fce4ec] overflow-hidden">
+    
+    <!-- Floating Decorative Background Blobs & Sweet Particles -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-pink-200/40 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-[30rem] h-[30rem] rounded-full bg-amber-100/60 blur-3xl pointer-events-none"></div>
+    
+    <!-- Hero Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left pt-4">
+          
+          <!-- Script Handwritten Eyebrow -->
+          <div class="hero-anim">
+            <span class="font-script text-3xl sm:text-4xl text-brand-caramel inline-block tracking-wide">
+              Bolas de Pura Felicidade.
+            </span>
+          </div>
+
+          <!-- Main Bold Headline (PT-BR) -->
+          <h1 class="hero-anim text-4xl sm:text-6xl xl:text-7xl font-display font-extrabold tracking-tight leading-[1.08] text-brand-dark">
+            FEITO PARA <br />
+            <span class="text-brand-pink inline-block relative">
+              VOCÊ!
+              <!-- Cute sparkle SVG -->
+              <span class="absolute -top-3 -right-8 text-2xl animate-spin" style="animation-duration: 8s;">✨</span>
+            </span>
+          </h1>
+
+          <!-- Body Text (PT-BR) -->
+          <p class="hero-anim text-base sm:text-lg text-brand-muted max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal">
+            Delicie-se com sorvetes cremosos, dos sonhos e irresistíveis, preparados artesanalmente com amor e ingredientes nobres selecionados.
+          </p>
+
+          <!-- Action Buttons (PT-BR) -->
+          <div class="hero-anim flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <!-- Explore Flavours Pill -->
+            <a href="#flavours" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-sm sm:text-base shadow-[0_6px_20px_rgba(235,71,126,0.35)] hover:shadow-[0_8px_25px_rgba(235,71,126,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+              <span>Explorar Sabores</span>
+              <span class="text-base">🍦</span>
+            </a>
+
+            <!-- Order Now Pill with Outline -->
+            <button onclick="triggerOrderWhatsApp()" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white hover:bg-pink-50 text-brand-pink border-2 border-brand-pink font-bold text-sm sm:text-base shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+              <span>Pedir Agora</span>
+              <span class="text-base">🍨</span>
+            </button>
+          </div>
+
+          <!-- 3 Feature Badges in Pill Containers (PT-BR) -->
+          <div class="hero-anim grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 max-w-xl mx-auto lg:mx-0">
+            
+            <!-- Badge 1 -->
+            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/70 backdrop-blur-md border border-pink-100/80 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink shrink-0">
+                <i class="fa-solid fa-ice-cream text-xs"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[11px] font-bold text-brand-dark leading-tight">Feito com</p>
+                <p class="text-[10px] text-brand-muted">Ingredientes Reais</p>
+              </div>
+            </div>
+
+            <!-- Badge 2 -->
+            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/70 backdrop-blur-md border border-pink-100/80 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                <i class="fa-solid fa-certificate text-xs"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[11px] font-bold text-brand-dark leading-tight">100%</p>
+                <p class="text-[10px] text-brand-muted">Puro & Fresco</p>
+              </div>
+            </div>
+
+            <!-- Badge 3 -->
+            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/70 backdrop-blur-md border border-pink-100/80 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 shrink-0">
+                <i class="fa-solid fa-shield-heart text-xs"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[11px] font-bold text-brand-dark leading-tight">Higiênico</p>
+                <p class="text-[10px] text-brand-muted">& Seguro</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual: 3D Ice Cream Explosion -->
+        <div class="lg:col-span-6 relative flex items-center justify-center">
+          
+          <!-- Backing Halo / Glow -->
+          <div class="absolute w-[28rem] h-[28rem] rounded-full bg-gradient-to-tr from-pink-300/30 via-orange-200/40 to-pink-200/30 blur-2xl animate-pulse-soft"></div>
+
+          <!-- Main Explosion Visual with Floating Keyframe Animation -->
+          <div class="relative w-full max-w-lg lg:max-w-xl animate-float">
+            <img 
+              src="assets/hero_icecream_explosion.jpg" 
+              alt="SCOOPÉRA Explosão Gourmet de Sorvetes Artesanais" 
+              class="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(235,71,126,0.22)] select-none pointer-events-none rounded-3xl"
+            />
+
+            <!-- Floating Badge Chip Overlay (Interactivity) -->
+            <div class="absolute -bottom-4 right-4 sm:right-8 bg-white/90 backdrop-blur-md border border-pink-200 shadow-xl rounded-full px-4 py-2 flex items-center gap-2 animate-float-alt">
+              <span class="w-3 h-3 rounded-full bg-brand-pink animate-ping"></span>
+              <span class="text-xs font-bold text-brand-dark">Produzido Fresco Todo Dia</span>
+              <span class="text-sm">🍓</span>
+            </div>
+
+            <!-- Small Floating Cone Badge -->
+            <div class="absolute top-6 left-2 sm:-left-4 bg-white/90 backdrop-blur-md border border-pink-200 shadow-lg rounded-2xl p-2.5 flex items-center gap-2 animate-float">
+              <span class="text-2xl">🍦</span>
+              <div>
+                <p class="text-[10px] font-extrabold uppercase text-brand-pink tracking-wider">Sorvete Artesanal</p>
+                <p class="text-xs font-bold text-brand-dark">Mais de 24 Sabores</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Creamy Scalloped Wave Divider at the Bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-10 sm:h-14 overflow-hidden pointer-events-none">
+      <svg class="w-full h-full text-white fill-current preserve-3d" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z"></path>
+      </svg>
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. OUR SIGNATURE FLAVOURS SECTION                                         -->
+  <!-- ========================================================================= -->
+  <section id="flavours" class="py-20 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Section Header (PT-BR) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-center sm:text-left">
+          <span class="font-script text-2xl sm:text-3xl text-brand-caramel block">Sinta a Magia</span>
+          <h2 class="text-2xl sm:text-4xl font-display font-extrabold text-brand-dark flex items-center justify-center sm:justify-start gap-2">
+            NOSSOS SABORES EXCLUSIVOS <span class="text-2xl">🍦</span>
+          </h2>
+        </div>
+
+        <!-- View All Flavours Outline Button -->
+        <a href="#menu" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm">
+          <span>Ver Todos os Sabores</span>
+          <span>🍨</span>
+        </a>
+      </div>
+
+      <!-- 5 Flavour Cards Grid (PT-BR) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        
+        <!-- CARD 1: Belgian Chocolate -->
+        <div class="group rounded-3xl bg-[#fbf0ea] p-5 border border-amber-100 hover:border-amber-300 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(200,109,27,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between text-center relative overflow-hidden">
+          <div class="space-y-4">
+            <!-- Scoop Image Container with Overflow & Hover Zoom -->
+            <div class="w-36 h-36 mx-auto relative rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-500">
+              <img src="assets/flavour_chocolate.jpg" alt="Sorvete de Chocolate Belga Artesanal" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-dark group-hover:text-brand-caramel transition-colors">
+                Chocolate Belga
+              </h3>
+              <p class="text-xs font-medium text-brand-muted pt-0.5">Intenso & Aveludado</p>
+            </div>
+          </div>
+          <!-- Quick Action -->
+          <div class="pt-4 border-t border-amber-200/50 mt-4 flex items-center justify-between">
+            <span class="text-xs font-bold text-brand-dark">R$ 16,00</span>
+            <button onclick="addToCart('Chocolate Belga', 16)" class="w-8 h-8 rounded-full bg-white text-brand-pink hover:bg-brand-pink hover:text-white flex items-center justify-center text-xs shadow transition-colors" title="Adicionar ao pedido">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 2: Strawberry Bliss -->
+        <div class="group rounded-3xl bg-[#fdedf2] p-5 border border-pink-100 hover:border-pink-300 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(235,71,126,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between text-center relative overflow-hidden">
+          <div class="space-y-4">
+            <div class="w-36 h-36 mx-auto relative rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-500">
+              <img src="assets/flavour_strawberry.jpg" alt="Sorvete de Morango Silvestre" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-dark group-hover:text-brand-pink transition-colors">
+                Morango Silvestre
+              </h3>
+              <p class="text-xs font-medium text-brand-muted pt-0.5">Frutado & Refrescante</p>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-pink-200/50 mt-4 flex items-center justify-between">
+            <span class="text-xs font-bold text-brand-dark">R$ 16,00</span>
+            <button onclick="addToCart('Morango Silvestre', 16)" class="w-8 h-8 rounded-full bg-white text-brand-pink hover:bg-brand-pink hover:text-white flex items-center justify-center text-xs shadow transition-colors" title="Adicionar ao pedido">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3: Cookie Craze -->
+        <div class="group rounded-3xl bg-[#f4f4f6] p-5 border border-slate-200 hover:border-slate-300 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between text-center relative overflow-hidden">
+          <div class="space-y-4">
+            <div class="w-36 h-36 mx-auto relative rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-500">
+              <img src="assets/flavour_cookie.jpg" alt="Sorvete Cookies & Cream" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-dark group-hover:text-slate-800 transition-colors">
+                Cookies & Cream
+              </h3>
+              <p class="text-xs font-medium text-brand-muted pt-0.5">Cremoso & Crocante</p>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 mt-4 flex items-center justify-between">
+            <span class="text-xs font-bold text-brand-dark">R$ 18,00</span>
+            <button onclick="addToCart('Cookies & Cream', 18)" class="w-8 h-8 rounded-full bg-white text-brand-pink hover:bg-brand-pink hover:text-white flex items-center justify-center text-xs shadow transition-colors" title="Adicionar ao pedido">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 4: Mango Delight -->
+        <div class="group rounded-3xl bg-[#fef6e4] p-5 border border-amber-100 hover:border-amber-300 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(217,130,43,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between text-center relative overflow-hidden">
+          <div class="space-y-4">
+            <div class="w-36 h-36 mx-auto relative rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-500">
+              <img src="assets/flavour_mango.jpg" alt="Sorbet de Manga Tropical" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-dark group-hover:text-amber-600 transition-colors">
+                Manga Tropical
+              </h3>
+              <p class="text-xs font-medium text-brand-muted pt-0.5">Refrescante & Suculento</p>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-amber-200/50 mt-4 flex items-center justify-between">
+            <span class="text-xs font-bold text-brand-dark">R$ 16,00</span>
+            <button onclick="addToCart('Manga Tropical', 16)" class="w-8 h-8 rounded-full bg-white text-brand-pink hover:bg-brand-pink hover:text-white flex items-center justify-center text-xs shadow transition-colors" title="Adicionar ao pedido">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 5: Cotton Candy -->
+        <div class="group rounded-3xl bg-[#eef5fb] p-5 border border-sky-100 hover:border-sky-300 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_30px_rgba(56,189,248,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between text-center relative overflow-hidden">
+          <div class="space-y-4">
+            <div class="w-36 h-36 mx-auto relative rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-500">
+              <img src="assets/flavour_cotton_candy.jpg" alt="Sorvete Algodão Doce" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-brand-dark group-hover:text-sky-600 transition-colors">
+                Algodão Doce
+              </h3>
+              <p class="text-xs font-medium text-brand-muted pt-0.5">Doce & Aveludado</p>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-sky-200 mt-4 flex items-center justify-between">
+            <span class="text-xs font-bold text-brand-dark">R$ 18,00</span>
+            <button onclick="addToCart('Algodão Doce', 18)" class="w-8 h-8 rounded-full bg-white text-brand-pink hover:bg-brand-pink hover:text-white flex items-center justify-center text-xs shadow transition-colors" title="Adicionar ao pedido">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. OUR STORY & LIMITED TIME OFFER DUAL SECTION                             -->
+  <!-- ========================================================================= -->
+  <section id="about" class="py-16 bg-gradient-to-b from-white to-[#fff5f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- LEFT CARD: Our Story (PT-BR) -->
+        <div class="lg:col-span-7 rounded-3xl bg-[#fff2f5] p-8 sm:p-10 border border-pink-200 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            
+            <div class="md:col-span-7 space-y-4">
+              <span class="font-script text-2xl sm:text-3xl text-brand-caramel block">Nossa História</span>
+              <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-dark leading-tight">
+                PREPARADO COM AMOR, <br />
+                <span class="text-brand-pink">SERVIDO COM SORRISO</span>
+              </h2>
+              <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
+                Na SCOOPÉRA, cada bola é uma celebração de alegria. Escolhemos rigorosamente os ingredientes mais nobres para criar sabores irresistíveis que transformam qualquer momento em pura felicidade.
+              </p>
+              <div class="pt-2">
+                <a href="#about" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs sm:text-sm shadow-md transition-all duration-300">
+                  <span>Conheça Nossa História</span>
+                  <span>🍨</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Spotlight Cup Visual -->
+            <div class="md:col-span-5 relative flex items-center justify-center">
+              <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-white p-3 shadow-lg border border-pink-200/80 flex items-center justify-center relative animate-float">
+                <img src="assets/story_cup.jpg" alt="Taça de Sundae Artesanal SCOOPÉRA" class="w-full h-full object-cover rounded-full" />
+                <div class="absolute -bottom-2 -left-2 bg-brand-pink text-white text-[10px] font-bold px-3 py-1 rounded-full shadow">
+                  100% Artesanal
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT CARD: Limited Time Offer (COMPRE 1 LEVE 2 GRÁTIS) -->
+        <div class="lg:col-span-5 rounded-3xl bg-[#fef4f0] p-8 sm:p-10 border border-amber-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          
+          <div class="flex flex-col sm:flex-row items-center gap-6 justify-between h-full">
+            
+            <div class="space-y-4 text-center sm:text-left">
+              <span class="font-script text-2xl sm:text-3xl text-brand-caramel block">Oferta por Tempo Limitado</span>
+              <div>
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-dark leading-none">
+                  COMPRE 1 LEVE 2
+                </h3>
+                <h3 class="font-display font-black text-4xl sm:text-5xl text-brand-pink tracking-tight leading-none pt-1">
+                  GRÁTIS
+                </h3>
+              </div>
+              <p class="text-xs font-bold text-brand-muted">
+                Em Todas as Taças & Casquinhas Especiais
+              </p>
+              <div>
+                <button onclick="triggerOrderWhatsApp()" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs sm:text-sm shadow-md transition-all duration-300">
+                  <span>Aproveitar Oferta</span>
+                  <span>🍦</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Cone Visual -->
+            <div class="w-36 h-48 sm:w-44 sm:h-56 relative shrink-0">
+              <img src="assets/offer_cone.jpg" alt="Casquinha Artesanal com Sorvete Mesclado de Morango e Baunilha" class="w-full h-full object-cover rounded-2xl shadow-md animate-float-alt" />
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. WHAT OUR ICE CREAM LOVERS SAY (TESTIMONIALS)                            -->
+  <!-- ========================================================================= -->
+  <section id="reviews" class="py-20 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <!-- Section Header (PT-BR) -->
+      <div class="text-center space-y-1">
+        <span class="font-script text-2xl sm:text-3xl text-brand-caramel block">Clientes Encantados</span>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold text-brand-dark flex items-center justify-center gap-2">
+          O QUE DIZEM NOSSOS CLIENTES <span class="text-2xl">🍦</span>
+        </h2>
+      </div>
+
+      <!-- Testimonials Grid with Navigation Carousel Controls -->
+      <div class="relative">
+        
+        <!-- Carousel Nav Buttons -->
+        <button onclick="prevTestimonial()" aria-label="Anterior" class="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-brand-pink border border-pink-200 shadow-md hover:bg-brand-pink hover:text-white flex items-center justify-center transition-all" title="Depoimento Anterior">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="nextTestimonial()" aria-label="Próximo" class="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-brand-pink border border-pink-200 shadow-md hover:bg-brand-pink hover:text-white flex items-center justify-center transition-all" title="Próximo Depoimento">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+
+        <!-- Testimonial Cards Layout (PT-BR) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          
+          <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-6" id="testimonial-container">
+            
+            <!-- REVIEW 1: Ananya S. -->
+            <div class="p-6 rounded-3xl bg-[#fff8fa] border border-pink-100 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+              <div class="space-y-3">
+                <span class="text-3xl text-brand-pink/60 font-serif leading-none">“</span>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  A SCOOPÉRA nunca decepciona! Os sabores são surpreendentes, únicos e com um frescor incomparável.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-pink-200/50 space-y-2">
+                <div class="text-amber-400 text-xs flex gap-1">
+                  ★★★★★
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-pink-200 flex items-center justify-center font-bold text-xs text-brand-pink">
+                    AS
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-brand-dark">Ananya S.</p>
+                    <p class="text-[10px] text-brand-muted">Cliente Frequente</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REVIEW 2: Roberto M. -->
+            <div class="p-6 rounded-3xl bg-[#fff8fa] border border-pink-100 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+              <div class="space-y-3">
+                <span class="text-3xl text-brand-pink/60 font-serif leading-none">“</span>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  O melhor sorvete que já provei na vida! O de Chocolate Belga com raspas é o meu favorito absoluto.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-pink-200/50 space-y-2">
+                <div class="text-amber-400 text-xs flex gap-1">
+                  ★★★★★
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-amber-200 flex items-center justify-center font-bold text-xs text-brand-caramel">
+                    RM
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-brand-dark">Roberto M.</p>
+                    <p class="text-[10px] text-brand-muted">Apaixonado por Chocolate</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REVIEW 3: Priscila K. -->
+            <div class="p-6 rounded-3xl bg-[#fff8fa] border border-pink-100 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
+              <div class="space-y-3">
+                <span class="text-3xl text-brand-pink/60 font-serif leading-none">“</span>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  Qualidade impecável, textura aveludada e um sabor marcante. Recomendo para toda a família!
+                </p>
+              </div>
+              <div class="pt-3 border-t border-pink-200/50 space-y-2">
+                <div class="text-amber-400 text-xs flex gap-1">
+                  ★★★★★
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-rose-200 flex items-center justify-center font-bold text-xs text-rose-600">
+                    PK
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-brand-dark">Priscila K.</p>
+                    <p class="text-[10px] text-brand-muted">Fã de Gelatos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Decorative Floating Cup on Right -->
+          <div class="md:col-span-3 flex items-center justify-center relative">
+            <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl bg-pink-50 p-2 shadow-lg border border-pink-200 animate-float-alt">
+              <img src="assets/testimonial_cup.jpg" alt="Taça de Gelato Especial SCOOPÉRA" class="w-full h-full object-cover rounded-2xl" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 6. FOOTER SECTION                                                         -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que os Gelatos SCOOPÉRA São Incomparáveis?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Cremosidade autêntica italiana, frutas frescas de verdade e zero gordura hidrogenada.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Sorvetes Industriais de Massa</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Mais de 50% de ar injetado com gordura vegetal e emulsificantes artificiais</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Sabores químicos idênticos ao natural com corantes e conservantes fortes</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Casquinhas murchas e industrializadas sem crocância</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Sorvetes excessivamente doces que mascaram a falta de fruta real</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Gelato Artesanal Puro
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">SCOOPÉRA Gelato & Sorvetes</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Produção artesanal diária com leite fresco integral e frutas selecionadas da estação</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Zero gordura hidrogenada, zero conservantes químicos e textura aveludada pura</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Casquinhas de waffle assadas na hora crocantes e perfumadas</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Sabores exclusivos gourmet como Pistache da Sicília, Doce de Leite Puro e Frutas Vermelhas</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20gelatos%20artesanais%20na%20SCOOPÉRA." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact" class="relative bg-brand-pink text-white pt-20 pb-10 overflow-hidden">
+    
+    <!-- Top Scalloped Creamy Divider Transition -->
+    <div class="absolute top-0 left-0 right-0 h-10 sm:h-14 overflow-hidden pointer-events-none">
+      <svg class="w-full h-full text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 L1200,0 L1200,40 C1050,110 850,-10 700,50 C550,110 350,10 0,60 Z"></path>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 relative z-10">
+      
+      <!-- Footer 5 Columns Grid (PT-BR) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-8 lg:gap-6">
+        
+        <!-- Col 1: Brand & Social (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-black text-2xl tracking-tight text-white flex items-center">
+              SCOOP<span class="relative inline-block text-white">E<span class="absolute -top-1 right-0 text-xs">🍨</span></span>RA
+            </span>
+          </div>
+          <p class="text-xs text-white/85 leading-relaxed max-w-xs">
+            Criamos felicidade em cada bola de sorvete, utilizando apenas ingredientes nobres para adoçar os melhores momentos da sua vida.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-brand-pink flex items-center justify-center text-xs transition-all">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-brand-pink flex items-center justify-center text-xs transition-all">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-brand-pink flex items-center justify-center text-xs transition-all">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="#" aria-label="YouTube" class="w-8 h-8 rounded-full border border-white/40 hover:border-white hover:bg-white hover:text-brand-pink flex items-center justify-center text-xs transition-all">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-sm font-bold text-white tracking-wide uppercase">Links Rápidos</h4>
+          <ul class="space-y-2 text-xs text-white/80">
+            <li><a href="#home" class="hover:text-white transition-colors">Início</a></li>
+            <li><a href="#flavours" class="hover:text-white transition-colors">Sabores</a></li>
+            <li><a href="#menu" class="hover:text-white transition-colors">Cardápio</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">Sobre Nós</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Help & Support (2 cols) -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-sm font-bold text-white tracking-wide uppercase">Ajuda & Suporte</h4>
+          <ul class="space-y-2 text-xs text-white/80">
+            <li><a href="#" class="hover:text-white transition-colors">Dúvidas Frequentes</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Entregas & Delivery</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Políticas de Troca</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacidade</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Termos de Uso</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Us (2 cols) -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-sm font-bold text-white tracking-wide uppercase">Contato</h4>
+          <ul class="space-y-2 text-xs text-white/80">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-[10px]"></i>
+              <a href="https://wa.me/5532999292311" target="_blank" class="hover:text-white font-mono font-bold">(32) 99929-2311</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-[10px]"></i>
+              <span class="truncate">contato@scoopera.com.br</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-location-dot text-[10px] pt-1"></i>
+              <span>Rua dos Gelatos, 122 — Centro</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Newsletter (3 cols) -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-sm font-bold text-white tracking-wide uppercase">Novidades</h4>
+          <p class="text-xs text-white/80">
+            Assine para receber promoções e lançamentos exclusivos em primeira mão
+          </p>
+          <form onsubmit="handleNewsletter(event)" class="relative flex items-center pt-1">
+            <input 
+              type="email" 
+              required
+              placeholder="Digite seu e-mail" 
+              class="w-full py-2.5 pl-4 pr-11 rounded-full text-xs text-brand-dark bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-white/80 shadow-md"
+            />
+            <button type="submit" aria-label="Enviar" class="absolute right-1 w-8 h-8 rounded-full bg-brand-pink text-white flex items-center justify-center text-xs hover:bg-brand-pinkHover transition-colors shadow">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Copyright Subfooter -->
+      <div class="pt-8 border-t border-white/20 text-center text-xs text-white/80 flex items-center justify-center gap-2">
+        <span>© 2026 SCOOPÉRA. Todos os Direitos Reservados.</span>
+        <span>🍦</span>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- SHOPPING CART & WHATSAPP CHECKOUT MODAL                                   -->
+  <!-- ========================================================================= -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
+    <!-- Backdrop -->
+    <div onclick="toggleCart()" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+    <!-- Right Drawer Content -->
+    <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-panel">
+      
+      <div class="space-y-4">
+        <div class="flex items-center justify-between pb-4 border-b border-pink-100">
+          <h3 class="font-display font-extrabold text-lg text-brand-dark flex items-center gap-2">
+            <i class="fa-solid fa-basket-shopping text-brand-pink"></i> Seu Pedido
+          </h3>
+          <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-pink-50 text-brand-dark hover:bg-pink-100 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Items List -->
+        <div id="cart-items" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
+          <div class="text-center py-8 text-brand-muted text-xs">
+            Seu carrinho está vazio.<br />Adicione um sabor delicioso para começar! 🍨
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Checkout -->
+      <div class="pt-4 border-t border-pink-100 space-y-3">
+        <div class="flex items-center justify-between font-bold text-sm text-brand-dark">
+          <span>Total:</span>
+          <span id="cart-total" class="text-brand-pink text-base">R$ 0,00</span>
+        </div>
+        <button onclick="checkoutWhatsApp()" class="w-full py-3.5 rounded-full bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-sm shadow-lg flex items-center justify-center gap-2 transition-all">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Fechar Pedido via WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: ANIMAÇÕES, CARROSSEL E INTERATIVIDADE                         -->
+  <!-- ========================================================================= -->
+  <script>
+    // Cart state
+    let cart = [];
+
+    function addToCart(title, price) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ title, price, qty: 1 });
+      }
+      updateCartUI();
+
+      // Sweet confetti blast
+      confetti({
+        particleCount: 25,
+        spread: 60,
+        origin: { y: 0.8 },
+        colors: ['#eb477e', '#ffd1dc', '#f9c5d1', '#fbd561']
+      });
+    }
+
+    function updateCartUI() {
+      const counter = document.getElementById('cart-counter');
+      const itemsContainer = document.getElementById('cart-items');
+      const totalContainer = document.getElementById('cart-total');
+
+      const totalQty = cart.reduce((acc, cur) => acc + cur.qty, 0);
+      counter.innerText = totalQty;
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <div class="text-center py-8 text-brand-muted text-xs">
+            Seu carrinho está vazio.<br />Adicione um sabor delicioso para começar! 🍨
+          </div>
+        `;
+        totalContainer.innerText = 'R$ 0,00';
+        return;
+      }
+
+      let total = 0;
+      itemsContainer.innerHTML = cart.map((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        return `
+          <div class="p-3 rounded-2xl bg-pink-50/60 border border-pink-100 flex items-center justify-between text-xs">
+            <div>
+              <p class="font-bold text-brand-dark">${item.title}</p>
+              <p class="text-brand-muted">R$ ${item.price.toFixed(2)} un.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-full bg-white text-brand-dark border border-pink-200 flex items-center justify-center font-bold text-[10px]">-</button>
+              <span class="font-bold w-4 text-center">${item.qty}</span>
+              <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-full bg-white text-brand-dark border border-pink-200 flex items-center justify-center font-bold text-[10px]">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalContainer.innerText = `R$ ${total.toFixed(2)}`;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cart-drawer');
+      const panel = document.getElementById('cart-panel');
+      const isOpen = !drawer.classList.contains('pointer-events-none');
+
+      if (isOpen) {
+        drawer.classList.add('opacity-0', 'pointer-events-none');
+        panel.classList.add('translate-x-full');
+      } else {
+        drawer.classList.remove('opacity-0', 'pointer-events-none');
+        panel.classList.remove('translate-x-full');
+      }
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function triggerOrderWhatsApp() {
+      const message = encodeURIComponent('Olá SCOOPÉRA! 🍨 Gostaria de fazer um pedido de sorvetes artesanais.');
+      window.open(`https://wa.me/5532999292311?text=${message}`, '_blank');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        triggerOrderWhatsApp();
+        return;
+      }
+      let orderText = 'Olá SCOOPÉRA! 🍨 Gostaria de fazer o seguinte pedido:%0A';
+      let total = 0;
+      cart.forEach(item => {
+        orderText += `• ${item.qty}x ${item.title} (R$ ${(item.price * item.qty).toFixed(2)})%0A`;
+        total += item.price * item.qty;
+      });
+      orderText += `%0ATotal: R$ ${total.toFixed(2)}%0A%0AComo posso agendar a entrega / retirada?`;
+      window.open(`https://wa.me/5532999292311?text=${orderText}`, '_blank');
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      alert('Obrigado por se inscrever na SCOOPÉRA! Você receberá promoções exclusivas no seu e-mail. 🍨✨');
+      e.target.reset();
+    }
+
+    function toggleSearch() {
+      const query = prompt('Qual sabor delicioso você procura? (ex: chocolate, morango, manga, cookies, algodão doce)');
+      if (query) {
+        document.getElementById('flavours').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Testimonial Carousel Controls
+    function nextTestimonial() {
+      const container = document.getElementById('testimonial-container');
+      container.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+    function prevTestimonial() {
+      const container = document.getElementById('testimonial-container');
+      container.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+
+    // GSAP Entrance Animations
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.from('.hero-anim', {
+          y: 35,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.15,
+          ease: 'power3.out'
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM CONVERSION DOCK (CULT UI 1-CLICK CONVERSION)                -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-stone-900/95 backdrop-blur-md border-t border-stone-800 p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="shimmer-btn flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+      <i class="fa-brands fa-whatsapp text-sm"></i>
+      <span>Falar no WhatsApp</span>
+    </a>
+    <a href="#contato" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center border border-white/15">
+      <i class="fa-solid fa-calendar-check text-xs"></i>
+    </a>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">SCOOPÉRA Gelato Artesanal</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20gelatos%20artesanais%20na%20SCOOPÉRA." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

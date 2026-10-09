@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fumaça Motos | Oficina Especializada, Revisão e Manutenção de Motos em Palhoça - SC</title>
+  <meta name="description" content="Fumaça Motos em Bela Vista, Palhoça - SC. Oficina especializada em revisão, manutenção preventiva, diagnóstico computadorizado, injeção eletrônica, peças e acessórios para motos de todas as cilindradas." />
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:title" content="Fumaça Motos | Revisão, Manutenção e Diagnóstico em Palhoça - SC" />
+  <meta property="og:description" content="Cuidado profissional para sua moto. Mecânica especializada, diagnóstico por scanner, troca de óleo, freios, injeção e peças originais no Bela Vista - Palhoça/SC." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts: Montserrat, Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800;1,900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            fumaca: {
+              red: '#E11D48',         // Racing Crimson Red
+              flame: '#FF3B30',       // Vibrant Moto Flame
+              orange: '#FF6B00',      // Hot Mechanical Amber
+              dark: '#0B0F17',        // Pitch Black Garage
+              surface: '#F8FAFC',     // Clean Off-White Surface
+              card: '#FFFFFF',        // Pure Crisp White
+              border: '#E2E8F0',      // Clean Border
+              slate: '#475569'        // Technical Muted Gray
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+            syne: ['Syne', 'sans-serif']
+          },
+          boxShadow: {
+            'fumaca-glow': '0 10px 25px -5px rgba(225, 29, 72, 0.4)',
+            'fumaca-card': '0 20px 40px -15px rgba(0, 0, 0, 0.07)',
+            'fumaca-hover': '0 25px 50px -12px rgba(225, 29, 72, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFFFF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E11D48;
+      border-radius: 4px;
+    }
+
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #E11D48, #FF3B30, #FF6B00, #E11D48);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Clean Vector Grid Background */
+    .hero-vector-grid {
+      background-color: #FFFFFF;
+      background-size: 38px 38px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+
+    /* Giant Dynamic Typographic Watermark (Depth Behind Motorcycle) */
+    .hero-giant-watermark {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Montserrat', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: clamp(4.5rem, 15vw, 16rem);
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      text-transform: uppercase;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      color: rgba(11, 15, 23, 0.035);
+      -webkit-text-stroke: 1.5px rgba(225, 29, 72, 0.14);
+      z-index: 5;
+      transition: opacity 0.5s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    /* Motorcycle Stage */
+    .bike-stage-hero {
+      position: relative;
+      width: 100%;
+      min-height: 380px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .bike-hero-render {
+      position: absolute;
+      width: 100%;
+      max-width: 820px;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+                  opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.18));
+      user-select: none;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    /* Floating Badges Animation */
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-float-badge {
+      animation: float-badge 3.5s ease-in-out infinite;
+    }
+
+    /* Floor Reflection */
+    .floor-reflection-arc {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(225, 29, 72, 0.18) 0%, rgba(11, 15, 23, 0.05) 50%, transparent 80%);
+      filter: blur(14px);
+      pointer-events: none;
+      z-index: 6;
+      transition: background 0.6s ease;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Fumaça Motos • Oficina Especializada & Multimarcas",
+  "description": "Manutenção preventiva, preparação de motores, injeção eletrônica e socorro para motocicletas.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/fumaca-motos/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  }
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-fumaca-red selection:text-white overflow-x-hidden">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- ========================================================================= -->
+  <!-- TOP ANNOUNCEMENT BAR (LOCALIZAÇÃO & AGENDAMENTO DIRETO)                   -->
+  <!-- ========================================================================= -->
+  <div class="bg-fumaca-dark text-white text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-3">
+    <span class="inline-flex items-center gap-1.5 bg-fumaca-red/20 text-fumaca-flame px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider text-[10px] border border-fumaca-red/40">
+      <span class="w-1.5 h-1.5 rounded-full bg-fumaca-flame animate-ping"></span>
+      OFICINA ABERTA EM PALHOÇA - SC
+    </span>
+    <span class="text-slate-200 hidden sm:inline">Revisão, Diagnóstico por Scanner e Peças com Agendamento Rápido no <strong>Bela Vista</strong>.</span>
+    <a href="https://wa.me/5532999292311" target="_blank" class="text-fumaca-flame hover:text-white font-bold underline transition-colors flex items-center gap-1" rel="noopener noreferrer">
+      Agendar Agora <i class="fa-solid fa-arrow-right text-[10px]"></i>
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- HEADER / NAVBAR (LOGO OFICIAL FUMAÇA MOTOS & NAVEGAÇÃO)                  -->
+  <!-- ========================================================================= -->
+  <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-fumaca-border transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo Fumaça Motos -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 rounded-xl bg-fumaca-dark p-1 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex items-center justify-center">
+            <img src="images/logo.png" alt="Fumaça Motos Logo" class="w-full h-full object-contain rounded-lg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-montserrat font-black text-2xl tracking-tighter text-fumaca-dark leading-none">
+              FUMAÇA<span class="text-fumaca-red">MOTOS</span>
+            </span>
+            <span class="text-[9px] font-bold tracking-[0.2em] text-slate-500 uppercase leading-tight mt-0.5">
+              Revisão • Manutenção • Diagnóstico
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-8 font-outfit text-sm font-semibold text-slate-700">
+          <a href="#inicio" class="hover:text-fumaca-red transition-colors py-2 border-b-2 border-transparent hover:border-fumaca-red">Início</a>
+          <a href="#servicos" class="hover:text-fumaca-red transition-colors py-2 border-b-2 border-transparent hover:border-fumaca-red">Serviços & Revisão</a>
+          <a href="#cilindradas" class="hover:text-fumaca-red transition-colors py-2 border-b-2 border-transparent hover:border-fumaca-red">Motos Atendidas</a>
+          <a href="#orcamento" class="hover:text-fumaca-red transition-colors py-2 border-b-2 border-transparent hover:border-fumaca-red">Orçamento Rápido</a>
+          <a href="#diferenciais" class="hover:text-fumaca-red transition-colors py-2 border-b-2 border-transparent hover:border-fumaca-red">Por Que Escolher</a>
+          <a href="#localizacao" class="hover:text-fumaca-red transition-colors py-2 border-b-2 border-transparent hover:border-fumaca-red">Onde Estamos</a>
+        </nav>
+
+        <!-- Right CTA & WhatsApp Link -->
+        <div class="flex items-center gap-4">
+          <a href="https://wa.me/5532999292311" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm px-6 py-2.5 rounded-full shadow-md hover:shadow-fumaca-glow hover:scale-105 active:scale-95 transition-all duration-300" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-base text-green-400"></i>
+            <span>Agendar Manutenção</span>
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button id="mobile-menu-btn" class="lg:hidden text-fumaca-dark hover:text-fumaca-red p-2 focus:outline-none" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars-staggered text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-fumaca-border px-6 py-6 space-y-4 shadow-xl">
+      <a href="#inicio" class="mobile-link block font-outfit font-bold text-lg text-slate-900 hover:text-fumaca-red">Início</a>
+      <a href="#servicos" class="mobile-link block font-outfit font-bold text-lg text-slate-900 hover:text-fumaca-red">Serviços & Revisão</a>
+      <a href="#cilindradas" class="mobile-link block font-outfit font-bold text-lg text-slate-900 hover:text-fumaca-red">Motos Atendidas</a>
+      <a href="#orcamento" class="mobile-link block font-outfit font-bold text-lg text-slate-900 hover:text-fumaca-red">Simular Orçamento</a>
+      <a href="#diferenciais" class="mobile-link block font-outfit font-bold text-lg text-slate-900 hover:text-fumaca-red">Diferenciais da Oficina</a>
+      <a href="#localizacao" class="mobile-link block font-outfit font-bold text-lg text-slate-900 hover:text-fumaca-red">Onde Estamos</a>
+      <div class="pt-4 border-t border-fumaca-border">
+        <a href="https://wa.me/5532999292311" target="_blank" class="w-full flex items-center justify-center gap-2 bg-fumaca-red text-white font-bold py-3 rounded-xl shadow-fumaca-glow" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Chamar no WhatsApp Oficial</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION: MANUTENÇÃO & REVISÃO DE MOTOS EM PALHOÇA - SC               -->
+  <!-- ========================================================================= -->
+  <section id="inicio" class="relative pt-6 pb-16 lg:pt-10 lg:pb-24 hero-vector-grid overflow-hidden">
+    
+    <!-- Background Animated Vector Laser Lines Canvas -->
+    <canvas id="hero-vector-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- Giant Dynamic Typography Watermark Behind Bike -->
+    <div id="hero-giant-watermark" class="hero-giant-watermark">
+      FUMAÇA MOTOS
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-fumaca-border shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-fumaca-red animate-ping"></span>
+          <span class="text-xs font-bold text-fumaca-dark font-outfit tracking-wider uppercase">
+            📍 Bela Vista • Palhoça - SC
+          </span>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-2 text-xs text-slate-600 font-semibold bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200">
+          <i class="fa-solid fa-wrench text-fumaca-red"></i>
+          <span>Mecânicos Especializados • Diagnóstico Computadorizado</span>
+        </div>
+      </div>
+
+      <!-- Main Headline & Subtitle -->
+      <div class="text-center max-w-3xl mx-auto mb-6">
+        <h1 class="font-montserrat font-black text-4xl sm:text-6xl lg:text-7xl text-fumaca-dark tracking-tight uppercase leading-[1.05]">
+          A Manutenção Que <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-fumaca-red via-fumaca-flame to-fumaca-orange">
+            Sua Moto Merece.
+          </span>
+        </h1>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
+          Revisão preventiva completa, diagnóstico eletrônico, regulagem de motor, suspensão, freios, peças e acessórios com o mais alto padrão de precisão mecânica.
+        </p>
+      </div>
+
+      <!-- INTERACTIVE MOTORCYCLE SHOWCASE STAGE -->
+      <div class="relative w-full max-w-5xl mx-auto mt-2 mb-10">
+        
+        <!-- Floor Reflection Arc -->
+        <div id="floor-reflection" class="floor-reflection-arc"></div>
+
+        <!-- Telemetry Badge (Top Left) -->
+        <div class="absolute -top-4 left-2 sm:left-6 z-30 bg-white/95 backdrop-blur-md border border-fumaca-border p-3.5 rounded-2xl shadow-fumaca-card animate-float-badge hidden md:block">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-fumaca-red/15 border border-fumaca-red/30 flex items-center justify-center text-fumaca-red">
+              <i class="fa-solid fa-laptop-code text-lg"></i>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Diagnóstico por Scanner</span>
+              <span id="hero-stat-scan" class="font-montserrat font-black text-xl text-fumaca-dark">100% Preciso</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry Badge (Top Right) -->
+        <div class="absolute -top-4 right-2 sm:right-6 z-30 bg-white/95 backdrop-blur-md border border-fumaca-border p-3.5 rounded-2xl shadow-fumaca-card animate-float-badge hidden md:block">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-fumaca-dark text-fumaca-red flex items-center justify-center">
+              <i class="fa-solid fa-shield-halved text-lg"></i>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Garantia em Serviços</span>
+              <span id="hero-stat-garantia" class="font-montserrat font-black text-xl text-fumaca-red">Peças & Mão de Obra</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Motorcycle Stage Render -->
+        <div id="bike-stage" class="bike-stage-hero">
+          <img 
+            id="hero-bike-render" 
+            src="images/cb650r_clean.png" 
+            alt="CB 650R Manutenção Fumaça Motos" 
+            class="bike-hero-render"
+          / loading="lazy" decoding="async">
+        </div>
+
+        <!-- Interactive Motorcycle Selector Pills -->
+        <div class="flex items-center justify-center gap-3 sm:gap-4 mt-2 relative z-30 flex-wrap">
+          
+          <!-- Moto 1: Naked 650cc -->
+          <button 
+            class="bike-selector-btn active px-4 sm:px-6 py-2.5 rounded-full font-outfit font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 border bg-fumaca-dark text-white border-fumaca-dark shadow-md"
+            data-title="CB 650R NAKED"
+            data-img="images/cb650r_clean.png"
+            data-type="Alta Cilindrada"
+            data-scan="Injeção PGM-FI"
+            data-rev="Revisão 30+ Itens"
+          >
+            <span class="w-2 h-2 rounded-full bg-fumaca-red animate-pulse"></span>
+            <span>Média & Alta Cilindrada</span>
+          </button>
+
+          <!-- Moto 2: Twister / Street -->
+          <button 
+            class="bike-selector-btn px-4 sm:px-6 py-2.5 rounded-full font-outfit font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 border bg-white text-slate-700 border-fumaca-border hover:border-fumaca-red hover:text-fumaca-dark"
+            data-title="CB 300F TWISTER"
+            data-img="images/cb300f_clean.png"
+            data-type="Média Cilindrada"
+            data-scan="Scanner FlexOne"
+            data-rev="Preventiva & Óleo"
+          >
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+            <span>Street & Uso Diário</span>
+          </button>
+
+          <!-- Moto 3: Scooter PCX -->
+          <button 
+            class="bike-selector-btn px-4 sm:px-6 py-2.5 rounded-full font-outfit font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 border bg-white text-slate-700 border-fumaca-border hover:border-fumaca-red hover:text-fumaca-dark"
+            data-title="PCX 160 SCOOTER"
+            data-img="images/pcx160_clean.png"
+            data-type="Scooters & Automáticas"
+            data-scan="CVT & Correia"
+            data-rev="Revisão de Roletes"
+          >
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+            <span>Scooters & CVT</span>
+          </button>
+
+          <!-- Moto 4: Trail Sahara 300 -->
+          <button 
+            class="bike-selector-btn px-4 sm:px-6 py-2.5 rounded-full font-outfit font-bold text-xs sm:text-sm transition-all duration-300 flex items-center gap-2 border bg-white text-slate-700 border-fumaca-border hover:border-fumaca-red hover:text-fumaca-dark"
+            data-title="SAHARA 300 TRAIL"
+            data-img="images/sahara300_clean.png"
+            data-type="Trail & Aventura"
+            data-scan="Suspensão & Rodas"
+            data-rev="Revisão Pro-Link"
+          >
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+            <span>Trail & Off-Road</span>
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Hero Call-to-Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a href="https://wa.me/5532999292311" target="_blank" class="w-full sm:w-auto text-center bg-fumaca-red hover:bg-fumaca-flame text-white font-montserrat font-black text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-fumaca-glow hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2.5" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Agendar no WhatsApp</span>
+        </a>
+
+        <a href="#servicos" class="w-full sm:w-auto text-center bg-fumaca-dark hover:bg-slate-800 text-white font-montserrat font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-2.5">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Ver Tabela de Serviços</span>
+        </a>
+
+        <a href="#orcamento" class="w-full sm:w-auto text-center bg-white hover:bg-slate-50 border border-fumaca-border text-slate-800 font-outfit font-bold text-sm px-6 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-sm">
+          <i class="fa-solid fa-calculator text-fumaca-red"></i>
+          <span>Calcular Orçamento</span>
+        </a>
+      </div>
+
+      <!-- Telemetry / Highlights Bar -->
+      <div class="card-lift mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-white border border-fumaca-border shadow-fumaca-card">
+        
+        <div class="flex items-center gap-3.5 border-r border-fumaca-border pr-4">
+          <div class="w-11 h-11 rounded-xl bg-fumaca-red/15 flex items-center justify-center text-fumaca-red text-xl font-bold">
+            <i class="fa-solid fa-stethoscope"></i>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block">Diagnóstico</span>
+            <span class="font-montserrat font-extrabold text-base sm:text-lg text-fumaca-dark">Scanner Eletrônico</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5 border-r border-fumaca-border pr-4">
+          <div class="w-11 h-11 rounded-xl bg-fumaca-dark flex items-center justify-center text-fumaca-flame text-xl font-bold">
+            <i class="fa-solid fa-oil-can"></i>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block">Fluidos & Filtros</span>
+            <span class="font-montserrat font-extrabold text-base sm:text-lg text-fumaca-dark">Motul / Yamalube</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5 border-r border-fumaca-border pr-4">
+          <div class="w-11 h-11 rounded-xl bg-fumaca-red/15 flex items-center justify-center text-fumaca-red text-xl font-bold">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block">Peças & Acessórios</span>
+            <span class="font-montserrat font-extrabold text-base sm:text-lg text-fumaca-dark">Originais e Linha A</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xl font-bold">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block">Localização</span>
+            <span class="font-montserrat font-extrabold text-base sm:text-lg text-fumaca-dark">Palhoça - SC</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: SERVIÇOS & REVISÃO MECÂNICA ESPECIALIZADA                        -->
+  <!-- ========================================================================= -->
+  <section id="servicos" class="py-20 bg-fumaca-surface relative border-t border-fumaca-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-fumaca-border text-fumaca-red text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Especialidades Fumaça Motos
+        </div>
+        <h2 class="font-montserrat font-black text-3xl sm:text-4xl text-fumaca-dark tracking-tight uppercase">
+          Serviços de Manutenção <span class="text-fumaca-red">& Performance</span>
+        </h2>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+          Trabalhamos com equipamentos de ponta para garantir a segurança, durabilidade e desempenho ideal da sua motocicleta.
+        </p>
+      </div>
+
+      <!-- Services Grid (Cards com Alto Contraste 70% White / 30% Dark + Red Flame) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Serviço 1: Revisão Geral Completa -->
+        <div class="card-lift bg-white rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 p-7 shadow-fumaca-card hover:shadow-fumaca-hover transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fumaca-red/10 border border-fumaca-red/20 flex items-center justify-center text-fumaca-red text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <span class="text-xs font-bold text-fumaca-red uppercase tracking-wider block mb-1">Mais Solicitado</span>
+            <h3 class="font-montserrat font-bold text-xl text-fumaca-dark mb-3">Revisão Geral Preventiva (30+ Itens)</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Desmontagem de rodas, lubrificação de balança e caixa de direção, aperto de chassi com torquímetro, regulagem de cabos, freios e teste dinâmico.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Limpeza e regulagem de bicos/carburador</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Verificação completa de suspensão e relação</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Ajuste e lubrificação de rolamentos</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Fuma%C3%A7a%20Motos!%20Gostaria%20de%20agendar%20uma%20Revis%C3%A3o%20Geral%20na%20minha%20moto." target="_blank" class="w-full bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm py-3 rounded-xl text-center shadow-md hover:shadow-fumaca-glow transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            <span>Agendar Revisão Geral</span>
+          </a>
+        </div>
+
+        <!-- Serviço 2: Diagnóstico por Scanner & Injeção -->
+        <div class="card-lift bg-white rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 p-7 shadow-fumaca-card hover:shadow-fumaca-hover transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fumaca-dark flex items-center justify-center text-fumaca-flame text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Tecnologia Eletrônica</span>
+            <h3 class="font-montserrat font-bold text-xl text-fumaca-dark mb-3">Diagnóstico por Scanner & Injeção</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Rastreamento de falhas e leituras de parâmetros eletrônicos da ECU em tempo real para motos nacionais e importadas.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Limpeza de bicos injetores por ultrassom</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Resete de TPS, sensor de O2 e atuadores</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Diagnóstico de consumo e perda de potência</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Fuma%C3%A7a%20Motos!%20Minha%20moto%20est%C3%A1%20com%20falha%20e%20preciso%20de%20um%20Diagn%C3%B3stico%20por%20Scanner." target="_blank" class="w-full bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm py-3 rounded-xl text-center shadow-md hover:shadow-fumaca-glow transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            <span>Agendar Diagnóstico</span>
+          </a>
+        </div>
+
+        <!-- Serviço 3: Motor & Câmbio de Precisão -->
+        <div class="card-lift bg-white rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 p-7 shadow-fumaca-card hover:shadow-fumaca-hover transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fumaca-red/10 border border-fumaca-red/20 flex items-center justify-center text-fumaca-red text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-engine"></i>
+            </div>
+            <span class="text-xs font-bold text-fumaca-orange uppercase tracking-wider block mb-1">Mecânica Pesada</span>
+            <h3 class="font-montserrat font-bold text-xl text-fumaca-dark mb-3">Retífica & Regulagem de Motor</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Reconstrução de cabeçote, assentamento e pastilhamento de válvulas, substituição de pistão/anéis e reparo de embreagem.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Troca de corrente de comando e esticador</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Substituição de discos e molas de embreagem</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Eliminação de vazamentos e ruídos internos</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Fuma%C3%A7a%20Motos!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20manuten%C3%A7%C3%A3o%20de%20motor/c%C3%A2mbio." target="_blank" class="w-full bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm py-3 rounded-xl text-center shadow-md hover:shadow-fumaca-glow transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            <span>Orçamento de Motor</span>
+          </a>
+        </div>
+
+        <!-- Serviço 4: Freios, Fluidos & Suspensão -->
+        <div class="card-lift bg-white rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 p-7 shadow-fumaca-card hover:shadow-fumaca-hover transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fumaca-dark flex items-center justify-center text-fumaca-flame text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-ring"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Segurança em Primeiro Lugar</span>
+            <h3 class="font-montserrat font-bold text-xl text-fumaca-dark mb-3">Freios ABS, Discos & Suspensão</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Sangria e troca de fluido de freio DOT 4/5.1, pastilhas sinterizadas/orgânicas, troca de retentores e óleo das bengalas.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Revisão de pinças e flexíveis de freio</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Troca de retentores de bengala e óleo Motul Fork</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Regulagem de pré-carga do amortecedor traseiro</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Fuma%C3%A7a%20Motos!%20Preciso%20de%20revis%C3%A3o%20de%20freios%20ou%20suspens%C3%A3o." target="_blank" class="w-full bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm py-3 rounded-xl text-center shadow-md hover:shadow-fumaca-glow transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            <span>Revisar Freios & Suspensão</span>
+          </a>
+        </div>
+
+        <!-- Serviço 5: Troca de Transmissão, Pneus & Rodas -->
+        <div class="card-lift bg-white rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 p-7 shadow-fumaca-card hover:shadow-fumaca-hover transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fumaca-red/10 border border-fumaca-red/20 flex items-center justify-center text-fumaca-red text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-dharmachakra"></i>
+            </div>
+            <span class="text-xs font-bold text-fumaca-red uppercase tracking-wider block mb-1">Tração & Aderência</span>
+            <h3 class="font-montserrat font-bold text-xl text-fumaca-dark mb-3">Kit Relação, Pneus & Rolamentos</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Instalação de kit transmissão com e sem retentor (DID, KMC, Vaz), troca e alinhamento de pneus, raiação e balanceamento.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Pneus Michelin, Pirelli, Maggion e Levorin</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Ajuste milimétrico de tensão e alinhamento de corrente</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Lubrificação profissional de alta aderência</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Fuma%C3%A7a%20Motos!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20troca%20de%20pneus/rela%C3%A7%C3%A3o." target="_blank" class="w-full bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm py-3 rounded-xl text-center shadow-md hover:shadow-fumaca-glow transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            <span>Trocar Relação ou Pneus</span>
+          </a>
+        </div>
+
+        <!-- Serviço 6: Peças, Acessórios & Elétrica -->
+        <div class="card-lift bg-white rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 p-7 shadow-fumaca-card hover:shadow-fumaca-hover transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fumaca-dark flex items-center justify-center text-fumaca-flame text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-battery-bolt"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Elétrica & Acessórios</span>
+            <h3 class="font-montserrat font-bold text-xl text-fumaca-dark mb-3">Elétrica, Baterias & Acessórios</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Diagnóstico de estator e retificador de voltagem, teste de fuga de corrente, baterias Heliar/Moura, iluminação LED e instalação de acessórios.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Baterias seladas com garantia de fábrica</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Faróis e setas em LED de alta eficiência</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-fumaca-red"></i> Instalação de sliders, protetores de carenagem e baús</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Fuma%C3%A7a%20Motos!%20Preciso%20de%20pe%C3%A7as,%20bateria%20ou%20servi%C3%A7o%20el%C3%A9trico." target="_blank" class="w-full bg-fumaca-dark hover:bg-fumaca-red text-white font-outfit font-bold text-sm py-3 rounded-xl text-center shadow-md hover:shadow-fumaca-glow transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp text-green-400"></i>
+            <span>Consultar Peças & Elétrica</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: CALCULADORA / SIMULADOR RÁPIDO DE ORÇAMENTO & AGENDAMENTO        -->
+  <!-- ========================================================================= -->
+  <section id="orcamento" class="py-20 bg-white relative border-t border-fumaca-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copy & Urgência -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fumaca-red/10 border border-fumaca-red/30 text-fumaca-red text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-calculator"></i> Orçamento Instantâneo
+          </div>
+
+          <h2 class="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl text-fumaca-dark tracking-tight uppercase leading-tight">
+            Calcule o Serviço e <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-fumaca-red to-fumaca-orange">
+              Agende Sua Moto.
+            </span>
+          </h2>
+
+          <p class="text-slate-600 text-base leading-relaxed">
+            Selecione o modelo da sua moto e o serviço desejado para receber um atendimento prioritário direto no WhatsApp da nossa equipe mecânica.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex items-center gap-3 text-sm text-slate-700 font-semibold">
+              <i class="fa-solid fa-clock text-fumaca-red text-lg"></i>
+              <span>Atendimento ágil sem deixar sua moto parada dias na oficina</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-slate-700 font-semibold">
+              <i class="fa-solid fa-camera text-fumaca-red text-lg"></i>
+              <span>Fotos e vídeos no WhatsApp comprovando todas as peças trocadas</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-slate-700 font-semibold">
+              <i class="fa-solid fa-shield-check text-fumaca-red text-lg"></i>
+              <span>Garantia de serviço e satisfação no Bela Vista, Palhoça/SC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Service Selector Box -->
+        <div class="lg:col-span-7">
+          <div class="card-lift bg-fumaca-surface rounded-3xl p-6 sm:p-8 border border-fumaca-border shadow-fumaca-card">
+            
+            <!-- Step 1: Motorcycle Category -->
+            <div class="mb-6">
+              <label class="font-outfit font-bold text-sm text-slate-900 block mb-2">1. Selecione a Categoria / Cilindrada:</label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <button class="orc-cat-btn active bg-fumaca-dark text-white font-bold py-2.5 px-3 rounded-xl text-xs sm:text-sm border border-fumaca-dark shadow-sm text-center" data-cat="Street / Baixa Cilindrada (100cc a 160cc)">
+                  Street 125-160cc
+                </button>
+                <button class="orc-cat-btn bg-white text-slate-700 hover:text-fumaca-dark font-bold py-2.5 px-3 rounded-xl text-xs sm:text-sm border border-fumaca-border text-center" data-cat="Scooter / Automática (PCX, NMAX, Elite, Biz)">
+                  Scooters / Biz
+                </button>
+                <button class="orc-cat-btn bg-white text-slate-700 hover:text-fumaca-dark font-bold py-2.5 px-3 rounded-xl text-xs sm:text-sm border border-fumaca-border text-center" data-cat="Média Cilindrada (250cc a 500cc)">
+                  Média 250-500cc
+                </button>
+                <button class="orc-cat-btn bg-white text-slate-700 hover:text-fumaca-dark font-bold py-2.5 px-3 rounded-xl text-xs sm:text-sm border border-fumaca-border text-center" data-cat="Alta Cilindrada / 600cc a 1000cc+">
+                  Alta 600-1000cc+
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Main Service Type -->
+            <div class="mb-6">
+              <label class="font-outfit font-bold text-sm text-slate-900 block mb-2">2. Selecione o Serviço Principal:</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button class="orc-srv-btn active bg-fumaca-red text-white font-bold py-3 px-4 rounded-xl text-xs sm:text-sm border border-fumaca-red shadow-sm text-left flex items-center justify-between" data-srv="Revisão Geral Preventiva (30 Itens)">
+                  <span>Revisão Geral Preventiva</span>
+                  <i class="fa-solid fa-check"></i>
+                </button>
+                <button class="orc-srv-btn bg-white text-slate-700 hover:text-fumaca-dark font-bold py-3 px-4 rounded-xl text-xs sm:text-sm border border-fumaca-border text-left flex items-center justify-between" data-srv="Diagnóstico por Scanner & Injeção">
+                  <span>Diagnóstico por Scanner</span>
+                  <i class="fa-solid fa-microchip"></i>
+                </button>
+                <button class="orc-srv-btn bg-white text-slate-700 hover:text-fumaca-dark font-bold py-3 px-4 rounded-xl text-xs sm:text-sm border border-fumaca-border text-left flex items-center justify-between" data-srv="Troca de Óleo, Filtros & Pastilhas de Freio">
+                  <span>Óleo, Filtros & Freios</span>
+                  <i class="fa-solid fa-oil-can"></i>
+                </button>
+                <button class="orc-srv-btn bg-white text-slate-700 hover:text-fumaca-dark font-bold py-3 px-4 rounded-xl text-xs sm:text-sm border border-fumaca-border text-left flex items-center justify-between" data-srv="Kit Relação, Pneus ou Suspensão">
+                  <span>Kit Relação & Pneus</span>
+                  <i class="fa-solid fa-gears"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Model Input (Optional) -->
+            <div class="mb-6">
+              <label class="font-outfit font-bold text-sm text-slate-900 block mb-1.5">3. Modelo da Sua Moto & Ano (Opcional):</label>
+              <input type="text" id="orc-moto-input" placeholder="Ex: Honda CG 160 Fan 2022 ou Yamaha MT-07 2023" class="w-full bg-white border border-fumaca-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-fumaca-red" />
+            </div>
+
+            <!-- Submit CTA -->
+            <a id="orc-whatsapp-btn" href="https://wa.me/5532999292311" target="_blank" class="w-full bg-fumaca-red hover:bg-fumaca-flame text-white font-montserrat font-black text-sm uppercase tracking-wider py-4 rounded-xl shadow-fumaca-glow hover:scale-[1.02] active:scale-98 transition-all duration-300 flex items-center justify-center gap-2.5" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>Enviar e Agendar Manutenção no WhatsApp</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: DIFERENCIAIS DA OFICINA FUMAÇA MOTOS                             -->
+  <!-- ========================================================================= -->
+  <section id="diferenciais" class="py-20 bg-fumaca-surface relative border-t border-fumaca-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-fumaca-red font-outfit font-bold text-xs uppercase tracking-widest block mb-2">Por que confiar sua moto na Fumaça Motos?</span>
+        <h2 class="font-montserrat font-black text-3xl sm:text-4xl text-fumaca-dark tracking-tight uppercase">
+          Compromisso com <span class="text-fumaca-red">Sua Segurança</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Feature 1 -->
+        <div class="card-lift bg-white p-6 rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 transition-all duration-300 group shadow-fumaca-card">
+          <div class="w-12 h-12 rounded-xl bg-fumaca-red/15 flex items-center justify-center text-fumaca-red text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-user-check"></i>
+          </div>
+          <h3 class="font-montserrat font-bold text-lg text-fumaca-dark mb-2">Mão de Obra Qualificada</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Mecânicos experientes em motos de baixa, média e alta cilindrada nacionais e importadas.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="card-lift bg-white p-6 rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 transition-all duration-300 group shadow-fumaca-card">
+          <div class="w-12 h-12 rounded-xl bg-fumaca-dark flex items-center justify-center text-fumaca-flame text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-laptop-medical"></i>
+          </div>
+          <h3 class="font-montserrat font-bold text-lg text-fumaca-dark mb-2">Scanner Atualizado</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Tecnologia de diagnóstico computadorizado para identificar e solucionar falhas com precisão.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="card-lift bg-white p-6 rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 transition-all duration-300 group shadow-fumaca-card">
+          <div class="w-12 h-12 rounded-xl bg-fumaca-red/15 flex items-center justify-center text-fumaca-red text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-boxes-stacked"></i>
+          </div>
+          <h3 class="font-montserrat font-bold text-lg text-fumaca-dark mb-2">Peças & Óleos Premium</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Estoque completo de óleos recomendados pelas montadoras, pastilhas, filtros e baterias originais.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="card-lift bg-white p-6 rounded-2xl border border-fumaca-border hover:border-fumaca-red/60 transition-all duration-300 group shadow-fumaca-card">
+          <div class="w-12 h-12 rounded-xl bg-fumaca-dark flex items-center justify-center text-fumaca-orange text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-hand-holding-hand"></i>
+          </div>
+          <h3 class="font-montserrat font-bold text-lg text-fumaca-dark mb-2">Transparência Total</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Orçamento claro sem surpresas. Nenhum serviço é realizado sem sua aprovação prévia.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: LOCALIZAÇÃO & ATENDIMENTO (BELA VISTA | PALHOÇA - SC)            -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Confiar Sua Moto na Oficina Fumaça Motos?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Diagnóstico eletrônico computadorizado, mecânicos experientes e garantia de serviço.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Oficinas Mecânicas Informais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Troca de peças desnecessárias sem explicação técnica transparente</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Gambiarras elétricas que provocam panes repentinas na rodovia</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de ferramentas de scanner para injeção eletrônica moderna</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Sem nota fiscal e sem garantia formal da mão de obra</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Mecânica de Precisão
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Fumaça Motos Especializada</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Scanner computadorizado oficial para diagnóstico exato de injeção e falhas</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Peças de reposição genuínas ou de primeira linha com garantia por escrito</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Revisão preventiva de segurança de mais de 30 itens essenciais</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Fotos e vídeos do serviço enviados pelo WhatsApp durante a manutenção</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão%20para%20a%20minha%20moto%20na%20Fumaça%20Motos." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="localizacao" class="py-20 bg-white relative border-t border-fumaca-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="card-lift bg-gradient-to-r from-slate-900 via-fumaca-dark to-slate-900 text-white rounded-3xl p-8 sm:p-14 border border-slate-800 shadow-2xl relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-fumaca-red/20 text-fumaca-flame text-xs font-bold uppercase tracking-wider border border-fumaca-red/40">
+              <i class="fa-solid fa-location-dot"></i> Oficina em Palhoça - SC
+            </span>
+            <h2 class="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-tight">
+              Venha Conhecer a <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-fumaca-red to-fumaca-orange">
+                Fumaça Motos no Bela Vista.
+              </span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Traga sua moto para uma avaliação ou agende seu horário online pelo WhatsApp. Cuidamos da sua moto com agilidade e dedicação de quem ama duas rodas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-2 text-xs text-slate-300">
+              <span class="flex items-center gap-2"><i class="fa-solid fa-location-arrow text-fumaca-flame"></i> Bela Vista | Palhoça - SC</span>
+              <span class="flex items-center gap-2"><i class="fa-brands fa-instagram text-pink-400"></i> @fumacamotos</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col gap-3">
+            <a href="https://wa.me/5532999292311" target="_blank" class="w-full bg-fumaca-red hover:bg-fumaca-flame text-white font-montserrat font-black text-sm uppercase py-4 px-6 rounded-xl text-center shadow-fumaca-glow hover:scale-105 transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>Falar no WhatsApp (Agendamentos)</span>
+            </a>
+            <a href="https://instagram.com/fumacamotos" target="_blank" class="w-full bg-white/10 hover:bg-white/20 text-white font-montserrat font-bold text-sm uppercase py-3.5 px-6 rounded-xl text-center border border-white/20 transition-all flex items-center justify-center gap-2" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram text-lg"></i>
+              <span>Seguir no Instagram @fumacamotos</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER (NOBLE DARK & INFORMAÇÕES COMPLETAS)                               -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="bg-fumaca-dark text-slate-400 text-xs py-14 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Brand Summary -->
+        <div class="space-y-4">
+          <a href="#inicio" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-fumaca-dark p-0.5 border border-fumaca-red/40 overflow-hidden">
+              <img src="images/logo.png" alt="Fumaça Motos Logo" class="w-full h-full object-contain" / loading="lazy" decoding="async">
+            </div>
+            <span class="font-montserrat font-black text-xl text-white">
+              FUMAÇA<span class="text-fumaca-red">MOTOS</span>
+            </span>
+          </a>
+          <p class="text-slate-400 text-sm">
+            Oficina mecânica especializada em revisão, diagnóstico eletrônico, manutenção preventiva e peças para motocicletas em Palhoça - SC.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider">Navegação</h4>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="hover:text-fumaca-red transition-colors">Início</a></li>
+            <li><a href="#servicos" class="hover:text-fumaca-red transition-colors">Serviços & Revisão</a></li>
+            <li><a href="#orcamento" class="hover:text-fumaca-red transition-colors">Simulador de Orçamento</a></li>
+            <li><a href="#diferenciais" class="hover:text-fumaca-red transition-colors">Diferenciais</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider">Serviços</h4>
+          <ul class="space-y-2">
+            <li><a href="#servicos" class="hover:text-fumaca-red transition-colors">Revisão Geral 30 Itens</a></li>
+            <li><a href="#servicos" class="hover:text-fumaca-red transition-colors">Diagnóstico por Scanner</a></li>
+            <li><a href="#servicos" class="hover:text-fumaca-red transition-colors">Troca de Óleo & Freios</a></li>
+            <li><a href="#servicos" class="hover:text-fumaca-red transition-colors">Kit Relação & Pneus</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Location -->
+        <div class="space-y-3">
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider">Oficina & Atendimento</h4>
+          <p class="text-slate-300">
+            <i class="fa-solid fa-location-dot text-fumaca-red mr-1.5"></i> Bela Vista | Palhoça - SC
+          </p>
+          <p class="text-slate-300">
+            <i class="fa-brands fa-whatsapp text-green-400 mr-1.5"></i> Agendamentos via WhatsApp
+          </p>
+          <p class="text-slate-400 text-[11px]">
+            Instagram Oficial: @fumacamotos / fumacamotoss_
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <p>&copy; 2026 Fumaça Motos. Todos os direitos reservados. Palhoça - SC.</p>
+        <p>Especialistas em Revisão, Manutenção e Diagnóstico de Motos.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING WHATSAPP & INSTAGRAM BUTTONS                                     -->
+  <!-- ========================================================================= -->
+  <a 
+    href="https://wa.me/5532999292311" 
+    target="_blank" 
+    class="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group"
+    aria-label="Agendar no WhatsApp"
+   rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-outfit font-bold text-sm px-0 group-hover:px-2">
+      Agendar Manutenção
+    </span>
+    <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-fumaca-red animate-ping"></span>
+    <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-fumaca-red border-2 border-white"></span>
+  </a>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: VECTOR CANVAS HUD, BIKE SWITCHER & CALCULATOR LOGIC           -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const prog = document.getElementById('scroll-progress');
+      if (prog) prog.style.width = scrolled + '%';
+    });
+
+    // 2. Animated Vector Laser Lines Canvas
+    function initVectorCanvas() {
+      const canvas = document.getElementById('hero-vector-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = 0, height = 0;
+
+      function resize() {
+        width = canvas.parentElement.clientWidth;
+        height = canvas.parentElement.clientHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.scale(dpr, dpr);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const particles = [];
+      for (let i = 0; i < 22; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          length: 35 + Math.random() * 75,
+          speed: 1.6 + Math.random() * 3.2,
+          alpha: 0.08 + Math.random() * 0.22,
+          color: Math.random() > 0.4 ? 'rgba(225, 29, 72, ' : 'rgba(255, 107, 0, '
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.lineWidth = 1.0;
+
+        particles.forEach(p => {
+          p.x += p.speed;
+          if (p.x > width + p.length) {
+            p.x = -p.length;
+            p.y = Math.random() * height;
+          }
+
+          const grad = ctx.createLinearGradient(p.x - p.length, p.y, p.x, p.y);
+          grad.addColorStop(0, `${p.color}0)`);
+          grad.addColorStop(0.8, `${p.color}${p.alpha})`);
+          grad.addColorStop(1, `${p.color}0)`);
+
+          ctx.strokeStyle = grad;
+          ctx.beginPath();
+          ctx.moveTo(p.x - p.length, p.y);
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+        });
+
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // 3. Interactive Hero Motorcycle Selector
+    function initBikeSelector() {
+      const buttons = document.querySelectorAll('.bike-selector-btn');
+      const renderImg = document.getElementById('hero-bike-render');
+      const watermark = document.getElementById('hero-giant-watermark');
+      const statScan = document.getElementById('hero-stat-scan');
+      const statGarantia = document.getElementById('hero-stat-garantia');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => {
+            b.classList.remove('active', 'bg-fumaca-dark', 'text-white', 'border-fumaca-dark', 'shadow-md');
+            b.classList.add('bg-white', 'text-slate-700', 'border-fumaca-border');
+          });
+
+          btn.classList.add('active', 'bg-fumaca-dark', 'text-white', 'border-fumaca-dark', 'shadow-md');
+          btn.classList.remove('bg-white', 'text-slate-700', 'border-fumaca-border');
+
+          const title = btn.getAttribute('data-title');
+          const imgSrc = btn.getAttribute('data-img');
+          const scan = btn.getAttribute('data-scan');
+          const rev = btn.getAttribute('data-rev');
+
+          if (renderImg) {
+            renderImg.style.transform = 'scale(0.96) translateY(10px)';
+            renderImg.style.opacity = '0';
+            setTimeout(() => {
+              renderImg.src = imgSrc;
+              renderImg.style.transform = 'scale(1) translateY(0px)';
+              renderImg.style.opacity = '1';
+            }, 250);
+          }
+
+          if (watermark) watermark.textContent = title;
+          if (statScan) statScan.textContent = scan;
+          if (statGarantia) statGarantia.textContent = rev;
+        });
+      });
+    }
+
+    // 4. Interactive Budget / Service Selector Logic
+    function initBudgetCalculator() {
+      const catButtons = document.querySelectorAll('.orc-cat-btn');
+      const srvButtons = document.querySelectorAll('.orc-srv-btn');
+      const motoInput = document.getElementById('orc-moto-input');
+      const submitBtn = document.getElementById('orc-whatsapp-btn');
+
+      let selectedCat = 'Street / Baixa Cilindrada (100cc a 160cc)';
+      let selectedSrv = 'Revisão Geral Preventiva (30 Itens)';
+
+      function updateWhatsAppLink() {
+        const motoModel = motoInput.value.trim() || 'Minha Moto';
+        const msg = encodeURIComponent(`Olá Fumaça Motos! Gostaria de agendar um serviço:\n\n🏍️ Modelo: ${motoModel}\n📌 Categoria: ${selectedCat}\n⚙️ Serviço: ${selectedSrv}\n📍 Unidade: Bela Vista, Palhoça - SC`);
+        submitBtn.href = `https://wa.me/5532999292311?text=${msg}`;
+      }
+
+      catButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catButtons.forEach(b => {
+            b.classList.remove('active', 'bg-fumaca-dark', 'text-white', 'border-fumaca-dark', 'shadow-sm');
+            b.classList.add('bg-white', 'text-slate-700', 'border-fumaca-border');
+          });
+          btn.classList.add('active', 'bg-fumaca-dark', 'text-white', 'border-fumaca-dark', 'shadow-sm');
+          btn.classList.remove('bg-white', 'text-slate-700', 'border-fumaca-border');
+          selectedCat = btn.getAttribute('data-cat');
+          updateWhatsAppLink();
+        });
+      });
+
+      srvButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          srvButtons.forEach(b => {
+            b.classList.remove('active', 'bg-fumaca-red', 'text-white', 'border-fumaca-red', 'shadow-sm');
+            b.classList.add('bg-white', 'text-slate-700', 'border-fumaca-border');
+          });
+          btn.classList.add('active', 'bg-fumaca-red', 'text-white', 'border-fumaca-red', 'shadow-sm');
+          btn.classList.remove('bg-white', 'text-slate-700', 'border-fumaca-border');
+          selectedSrv = btn.getAttribute('data-srv');
+          updateWhatsAppLink();
+        });
+      });
+
+      if (motoInput) {
+        motoInput.addEventListener('input', updateWhatsAppLink);
+      }
+
+      updateWhatsAppLink();
+    }
+
+    // 5. Mobile Drawer Menu Toggle
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if (btn && menu) {
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+      }
+    }
+
+    // DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      initVectorCanvas();
+      initBikeSelector();
+      initBudgetCalculator();
+      initMobileMenu();
+    });
+  </script>
+
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Sua Moto Segura e Perfeita para Você Rodar Sem Preocupações
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo nosso diagnóstico computadorizado e a precisão do alinhamento a laser para garantir sua segurança em duas rodas.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(Fumaça Motos)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Garantia de serviço em peças genuínas e entrega rápida sem enrolação</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(Fumaça Motos)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('contato') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(Fumaça Motos).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Fumaça Motos</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão%20para%20a%20minha%20moto%20na%20Fumaça%20Motos." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

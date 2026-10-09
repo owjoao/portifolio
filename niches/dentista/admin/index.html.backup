@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina OS | Painel de Gestão & CRM Clínico</title>
+  
+  <!-- Tailwind CSS CDN with class-based Dark Mode -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    // Procedures & Prices Configuration (Editable by Admin)
+    const DEFAULT_PROCEDURES = [
+      { id: 'proc-1', name: 'Lentes de Contato E-Max', price: 'R$ 16.000', priceNum: 16000, duration: 90, desc: 'Planejamento e facetas em porcelana ultrafina alemã' },
+      { id: 'proc-2', name: 'Alinhadores Invisíveis', price: 'R$ 12.500', priceNum: 12500, duration: 45, desc: 'Planejamento digital ClinCheck e alinhadores ortodônticos' },
+      { id: 'proc-3', name: 'Clareamento Dental Laser Office', price: 'R$ 1.800', priceNum: 1800, duration: 60, desc: 'Sessão clínica a laser em consultório + kit touch-up' },
+      { id: 'proc-4', name: 'Avaliação Geral & Profilaxia', price: 'R$ 450', priceNum: 450, duration: 30, desc: 'Checkup preventivo, raio-X digital e profilaxia profunda' }
+    ];
+
+    // Inventory Products Database (Supports kg, mg, g, unidades, etc.)
+    const DEFAULT_INVENTORY = [
+      { id: 'inv-1', name: 'Resina Composta Filtek Z350 XT', qty: 15, unit: 'unidades', minQty: 5, category: 'Dentística' },
+      { id: 'inv-2', name: 'Pastilha Dissilicato E-Max CAD', qty: 28, unit: 'unidades', minQty: 10, category: 'Prótese' },
+      { id: 'inv-3', name: 'Gel Clareador Peróxido Hidrogênio 35%', qty: 8, unit: 'frascos', minQty: 3, category: 'Estética' },
+      { id: 'inv-4', name: 'Alginato Jeltrate Dustless', qty: 4.5, unit: 'kg', minQty: 2, category: 'Moldagem' },
+      { id: 'inv-5', name: 'Anestésico Articaína 4% c/ Epinefrina', qty: 120, unit: 'tubetes', minQty: 30, category: 'Anestesia' },
+      { id: 'inv-6', name: 'Gesso Especial Tipo IV Pedra', qty: 12, unit: 'kg', minQty: 5, category: 'Laboratório' },
+      { id: 'inv-7', name: 'Ácido Fosfórico 37% Gel', qty: 350, unit: 'mg', minQty: 100, category: 'Adesão' }
+    ];
+
+    // Initial Leads Database (Nair included at index 0)
+    const DEFAULT_LEADS = [
+      {
+        id: 'lead-nair',
+        name: 'Nair',
+        phone: '2023912313',
+        proc: 'Lentes de Contato E-Max',
+        day: '01/10/2026',
+        date: '2026-10-01',
+        time: '10:00',
+        val: 'R$ 16.000',
+        stage: 'new',
+        origin: 'Cadastro Manual',
+        createdAt: '01/10/2026'
+      },
+      {
+        id: 'lead-1',
+        name: 'Carolina Silveira',
+        phone: '(11) 98765-4321',
+        proc: 'Lentes de Contato E-Max',
+        day: 'Hoje',
+        date: '2026-09-28',
+        time: '12:00',
+        val: 'R$ 16.000',
+        stage: 'new',
+        origin: 'Site 24h',
+        createdAt: '10:30'
+      },
+      {
+        id: 'lead-2',
+        name: 'Gabriel Nogueira',
+        phone: '(11) 97654-3210',
+        proc: 'Clareamento Dental Laser Office',
+        day: 'Hoje',
+        date: '2026-09-28',
+        time: '14:30',
+        val: 'R$ 1.800',
+        stage: 'new',
+        origin: 'WhatsApp Bot',
+        createdAt: '11:15'
+      },
+      {
+        id: 'lead-3',
+        name: 'Mariana Sampaio',
+        phone: '(11) 99123-4567',
+        proc: 'Lentes de Contato E-Max',
+        day: 'Hoje',
+        date: '2026-09-28',
+        time: '12:00',
+        val: 'R$ 16.000',
+        stage: 'eval',
+        origin: 'Site 24h',
+        createdAt: 'Ontem'
+      },
+      {
+        id: 'lead-4',
+        name: 'Rodrigo Ramos',
+        phone: '(11) 98456-7890',
+        proc: 'Alinhadores Invisíveis',
+        day: 'Amanhã',
+        date: '2026-09-29',
+        time: '10:00',
+        val: 'R$ 12.500',
+        stage: 'eval',
+        origin: 'Indicação',
+        createdAt: '2 dias atrás'
+      },
+      {
+        id: 'lead-5',
+        name: 'Beatriz Lima',
+        phone: '(11) 99555-1234',
+        proc: 'Lentes de Contato E-Max',
+        day: 'Proposta Enviada',
+        date: '2026-09-27',
+        time: '18:00',
+        val: 'R$ 16.000',
+        stage: 'proposal',
+        origin: 'Site 24h',
+        createdAt: '3 dias atrás'
+      },
+      {
+        id: 'lead-6',
+        name: 'Lucas Andrade',
+        phone: '(11) 97333-8899',
+        proc: 'Alinhadores Invisíveis',
+        day: 'Aguardando Pagamento',
+        date: '2026-09-27',
+        time: '11:00',
+        val: 'R$ 12.500',
+        stage: 'proposal',
+        origin: 'Site 24h',
+        createdAt: '3 dias atrás'
+      },
+      {
+        id: 'lead-7',
+        name: 'Felipe Duarte',
+        phone: '(11) 99888-2211',
+        proc: 'Lentes de Contato E-Max',
+        day: 'Contrato Assinado',
+        date: '2026-09-25',
+        time: '14:00',
+        val: 'R$ 16.000',
+        stage: 'closed',
+        origin: 'Google Ads',
+        createdAt: 'Esta Semana'
+      },
+      {
+        id: 'lead-8',
+        name: 'Camila Mendonça',
+        phone: '(11) 98111-9944',
+        proc: 'Lentes de Contato E-Max',
+        day: 'Pago em 10x',
+        date: '2026-09-24',
+        time: '09:00',
+        val: 'R$ 16.000',
+        stage: 'closed',
+        origin: 'Site 24h',
+        createdAt: 'Esta Semana'
+      }
+    ];
+
+    let leads = [];
+    let procedures = [];
+    let inventory = [];
+    let currentFilter = '';
+    let selectedTemplateType = 'reminder_today';
+    let currentCalendarDayFilter = 'Todos';
+
+    // Theme Mode Controller (Dark / Light)
+    function initTheme() {
+      const savedTheme = localStorage.getItem('lumina_theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        updateThemeUI(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        updateThemeUI(false);
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('lumina_theme', isDark ? 'dark' : 'light');
+      updateThemeUI(isDark);
+    }
+
+    function updateThemeUI(isDark) {
+      const icon = document.getElementById('theme-toggle-icon');
+      const label = document.getElementById('profile-theme-label');
+      const sidebarBadge = document.getElementById('sidebar-theme-badge');
+      const settingsLabel = document.getElementById('settings-theme-btn-label');
+
+      if (icon) {
+        if (isDark) {
+          icon.className = 'fa-solid fa-sun text-amber-400';
+        } else {
+          icon.className = 'fa-solid fa-moon text-slate-600';
+        }
+      }
+      if (label) {
+        label.textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
+      }
+      if (sidebarBadge) {
+        sidebarBadge.textContent = isDark ? 'Escuro' : 'Claro';
+      }
+      if (settingsLabel) {
+        settingsLabel.textContent = isDark ? 'Ativar Modo Claro' : 'Ativar Modo Escuro';
+      }
+    }
+
+    function toggleProfileDropdown() {
+      const dd = document.getElementById('profile-dropdown');
+      if (dd) dd.classList.toggle('hidden');
+    }
+
+    // Modal Manager
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        if (id === 'services-modal') {
+          renderProceduresConfig();
+        } else if (id === 'inventory-modal') {
+          renderInventory();
+        } else if (id === 'calendar-modal') {
+          renderCalendarModal(currentCalendarDayFilter);
+          updateCalAddAutoVal();
+        } else if (id === 'new-lead-modal') {
+          updateManualProcAutoDisplay();
+          checkManualSlotConflict();
+        }
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function scrollToFinancial() {
+      const el = document.getElementById('financial-kpis');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        el.classList.add('ring-2', 'ring-brand-gold', 'rounded-2xl');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-brand-gold'), 1500);
+      }
+    }
+
+    function switchView(view) {
+      const input = document.getElementById('search-input');
+      if (input) {
+        input.value = '';
+        handleSearch('');
+      }
+    }
+
+    function toggleQRCode() {
+      const qr = document.getElementById('qr-code-box');
+      if (qr) qr.classList.toggle('hidden');
+    }
+
+    // Date and Format Utilities
+    function formatDateBR(dateStr) {
+      if (!dateStr) return 'Hoje';
+      if (dateStr.indexOf('/') !== -1) return dateStr;
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        return parts[2] + '/' + parts[1] + '/' + parts[0];
+      }
+      return dateStr;
+    }
+
+    // =========================================================================
+    // PROCEDURES & AUTOMATIC PRICES
+    // =========================================================================
+    function initProcedures() {
+      const stored = localStorage.getItem('lumina_procedures_config');
+      if (stored) {
+        try {
+          procedures = JSON.parse(stored);
+        } catch (e) {
+          procedures = [...DEFAULT_PROCEDURES];
+        }
+      } else {
+        procedures = [...DEFAULT_PROCEDURES];
+      }
+    }
+
+    function saveProcedures() {
+      localStorage.setItem('lumina_procedures_config', JSON.stringify(procedures));
+    }
+
+    function getProcedurePrice(procName) {
+      const match = procedures.find(p => p.name === procName || procName.includes(p.name) || p.name.includes(procName));
+      return match ? match.price : 'R$ 16.000';
+    }
+
+    function getProcedureDuration(procName) {
+      const match = procedures.find(p => p.name === procName || procName.includes(p.name) || p.name.includes(procName));
+      return match ? match.duration : 60;
+    }
+
+    function updateManualProcAutoDisplay() {
+      const procSelect = document.getElementById('manual-proc');
+      const valBadge = document.getElementById('manual-auto-val');
+      if (procSelect && valBadge) {
+        valBadge.textContent = getProcedurePrice(procSelect.value);
+      }
+    }
+
+    function updateCalAddAutoVal() {
+      const procSelect = document.getElementById('cal-add-proc');
+      const priceBadge = document.getElementById('cal-add-auto-price');
+      if (procSelect && priceBadge) {
+        priceBadge.textContent = getProcedurePrice(procSelect.value);
+      }
+    }
+
+    function renderProceduresConfig() {
+      const container = document.getElementById('procedures-config-list');
+      if (!container) return;
+
+      container.innerHTML = procedures.map(proc => `
+        <div class="p-3.5 bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-dark-border rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex-1">
+            <span class="font-bold text-sm text-slate-900 dark:text-white block">${proc.name}</span>
+            <span class="text-[11px] text-slate-400 block">${proc.desc}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div>
+              <label class="block text-[9px] uppercase font-bold text-slate-400 mb-0.5">Preço (R$)</label>
+              <input type="text" data-proc-id="${proc.id}" data-field="price" value="${proc.price}" class="w-28 px-2.5 py-1.5 rounded-lg bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 focus:outline-none focus:border-brand-gold" />
+            </div>
+            <div>
+              <label class="block text-[9px] uppercase font-bold text-slate-400 mb-0.5">Duração (min)</label>
+              <input type="number" step="5" data-proc-id="${proc.id}" data-field="duration" value="${proc.duration}" class="w-20 px-2.5 py-1.5 rounded-lg bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border text-xs font-mono font-bold text-slate-800 dark:text-white focus:outline-none focus:border-brand-gold" />
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function handleSaveProceduresConfig(e) {
+      e.preventDefault();
+      const priceInputs = document.querySelectorAll('input[data-proc-id][data-field="price"]');
+      const durationInputs = document.querySelectorAll('input[data-proc-id][data-field="duration"]');
+
+      priceInputs.forEach(input => {
+        const id = input.getAttribute('data-proc-id');
+        const p = procedures.find(item => item.id === id);
+        if (p) p.price = input.value.trim();
+      });
+
+      durationInputs.forEach(input => {
+        const id = input.getAttribute('data-proc-id');
+        const p = procedures.find(item => item.id === id);
+        if (p) p.duration = parseInt(input.value) || 60;
+      });
+
+      saveProcedures();
+      updateManualProcAutoDisplay();
+      updateCalAddAutoVal();
+      closeModal('services-modal');
+      alert('Tabela de preços e durações atualizada com sucesso!');
+    }
+
+    // =========================================================================
+    // INVENTORY / ESTOQUE MANAGEMENT (kg, mg, g, unidades, etc.)
+    // =========================================================================
+    function initInventory() {
+      const stored = localStorage.getItem('lumina_inventory');
+      if (stored) {
+        try {
+          inventory = JSON.parse(stored);
+        } catch (e) {
+          inventory = [...DEFAULT_INVENTORY];
+        }
+      } else {
+        inventory = [...DEFAULT_INVENTORY];
+      }
+      updateInventoryBadges();
+    }
+
+    function saveInventory() {
+      localStorage.setItem('lumina_inventory', JSON.stringify(inventory));
+      updateInventoryBadges();
+    }
+
+    function updateInventoryBadges() {
+      const badge = document.getElementById('inventory-sidebar-badge');
+      if (badge) badge.textContent = inventory.length;
+
+      const summary = document.getElementById('inventory-status-summary');
+      if (summary) {
+        const lowStock = inventory.filter(i => i.qty <= (i.minQty || 0)).length;
+        summary.innerHTML = `Total: <strong class="text-slate-800 dark:text-white">${inventory.length} itens</strong> ${lowStock > 0 ? `• <span class="text-amber-600 font-bold">${lowStock} com estoque baixo</span>` : ''}`;
+      }
+    }
+
+    function toggleAddProductForm() {
+      const box = document.getElementById('inventory-add-box');
+      if (box) box.classList.toggle('hidden');
+    }
+
+    function renderInventory() {
+      const container = document.getElementById('inventory-items-container');
+      if (!container) return;
+
+      if (inventory.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-400 text-xs">
+            Nenhum produto cadastrado no estoque ainda. Clique em "Novo Item" acima para começar.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = inventory.map(item => {
+        const isLow = item.qty <= (item.minQty || 0);
+        return `
+          <div class="p-3 bg-slate-50 dark:bg-dark-bg border ${isLow ? 'border-amber-300 dark:border-amber-800 bg-amber-50/30' : 'border-slate-200 dark:border-dark-border'} rounded-2xl flex items-center justify-between gap-3">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-xs text-slate-900 dark:text-white truncate">${item.name}</span>
+                ${isLow ? '<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 uppercase">Estoque Baixo</span>' : ''}
+              </div>
+              <div class="text-[11px] text-slate-400 flex items-center gap-2 mt-0.5">
+                <span>Categoria: <strong>${item.category || 'Geral'}</strong></span>
+                <span>•</span>
+                <span>Mínimo: ${item.minQty || 0} ${item.unit}</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border flex items-center gap-2">
+                <button type="button" onclick="adjustInventoryQty('${item.id}', -1)" class="w-5 h-5 rounded hover:bg-slate-100 dark:hover:bg-dark-bg text-slate-600 dark:text-slate-300 font-bold flex items-center justify-center text-xs">-</button>
+                <span class="font-mono font-bold text-xs text-slate-900 dark:text-white min-w-10 text-center">${item.qty} ${item.unit}</span>
+                <button type="button" onclick="adjustInventoryQty('${item.id}', 1)" class="w-5 h-5 rounded hover:bg-slate-100 dark:hover:bg-dark-bg text-slate-600 dark:text-slate-300 font-bold flex items-center justify-center text-xs">+</button>
+              </div>
+              <button type="button" onclick="deleteInventoryItem('${item.id}')" class="w-7 h-7 rounded-xl hover:bg-rose-50 text-slate-400 hover:text-rose-600 transition flex items-center justify-center" title="Remover item">
+                <i class="fa-solid fa-trash-can text-xs"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleSaveInventoryItem(e) {
+      e.preventDefault();
+      const name = document.getElementById('inv-name').value.trim();
+      const category = document.getElementById('inv-category').value.trim() || 'Geral';
+      const qty = parseFloat(document.getElementById('inv-qty').value) || 0;
+      const unit = document.getElementById('inv-unit').value;
+      const minQty = parseFloat(document.getElementById('inv-min-qty').value) || 0;
+
+      const newItem = {
+        id: 'inv-' + Date.now(),
+        name,
+        category,
+        qty,
+        unit,
+        minQty
+      };
+
+      inventory.unshift(newItem);
+      saveInventory();
+      renderInventory();
+      toggleAddProductForm();
+      document.getElementById('inv-name').value = '';
+      document.getElementById('inv-category').value = '';
+      document.getElementById('inv-qty').value = '';
+      document.getElementById('inv-min-qty').value = '';
+    }
+
+    function adjustInventoryQty(id, delta) {
+      const item = inventory.find(i => i.id === id);
+      if (item) {
+        item.qty = Math.max(0, Math.round((item.qty + delta) * 100) / 100);
+        saveInventory();
+        renderInventory();
+      }
+    }
+
+    function deleteInventoryItem(id) {
+      if (confirm('Excluir este item do estoque?')) {
+        inventory = inventory.filter(i => i.id !== id);
+        saveInventory();
+        renderInventory();
+      }
+    }
+
+    // =========================================================================
+    // CALENDAR & ANTI-CONFLICT SYSTEM
+    // =========================================================================
+    function checkManualSlotConflict() {
+      const dateInput = document.getElementById('manual-date');
+      const timeInput = document.getElementById('manual-time');
+      const warning = document.getElementById('manual-conflict-warning');
+      const warningText = document.getElementById('manual-conflict-text');
+
+      if (!dateInput || !timeInput || !warning) return;
+
+      const selectedDate = dateInput.value;
+      const selectedDayFormatted = formatDateBR(selectedDate);
+      const selectedTime = timeInput.value;
+
+      const conflictLead = leads.find(l => {
+        const leadDateMatch = (l.date && l.date === selectedDate) || (l.day && (l.day === selectedDayFormatted || (selectedDayFormatted === '01/10/2026' && l.day === '01/10/2026')));
+        return leadDateMatch && l.time === selectedTime;
+      });
+
+      if (conflictLead) {
+        warning.classList.remove('hidden');
+        warning.classList.add('flex');
+        warningText.textContent = `Atenção: Horário das ${selectedTime} (${selectedDayFormatted}) já ocupado por ${conflictLead.name}!`;
+      } else {
+        warning.classList.add('hidden');
+        warning.classList.remove('flex');
+      }
+    }
+
+    function toggleCalendarAddForm() {
+      const box = document.getElementById('calendar-add-box');
+      if (box) {
+        box.classList.toggle('hidden');
+        updateCalAddAutoVal();
+      }
+    }
+
+    function filterCalendarDay(day) {
+      currentCalendarDayFilter = day;
+      document.querySelectorAll('.cal-filter-btn').forEach(btn => {
+        if (btn.textContent.trim().startsWith(day) || (day === 'Todos' && btn.textContent.trim() === 'Todos')) {
+          btn.className = 'cal-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900';
+        } else {
+          btn.className = 'cal-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-dark-bg text-slate-600 dark:text-slate-300';
+        }
+      });
+      renderCalendarModal(day);
+    }
+
+    function renderCalendarModal(dayFilter = 'Todos') {
+      const container = document.getElementById('calendar-appointments-list');
+      if (!container) return;
+
+      let filtered = leads;
+      if (dayFilter && dayFilter !== 'Todos') {
+        filtered = leads.filter(l => (l.day && l.day.includes(dayFilter)) || (l.date && l.date === dayFilter) || (dayFilter === '01/10/2026' && (l.day === '01/10/2026' || l.date === '2026-10-01')));
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-400 text-xs">
+            Nenhuma consulta agendada para o filtro selecionado (${dayFilter}).
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(lead => {
+        const time = lead.time || '10:00';
+        const day = lead.day || 'Hoje';
+        const reminderMsg = `Olá ${lead.name}! Lembrete: sua consulta na Lumina Dental está confirmada para ${day} às ${time} (${lead.proc}).`;
+        const waUrl = 'https://wa.me/5511998531124?text=' + encodeURIComponent(reminderMsg);
+
+        return `
+          <div class="p-3 bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-dark-border rounded-2xl flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-12 text-center py-1.5 px-2 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-xl">
+                <span class="block text-xs font-mono font-extrabold text-amber-700 dark:text-amber-400">${time}</span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400">${day.includes('/') ? day.substring(0, 5) : day}</span>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-xs text-slate-900 dark:text-white">${lead.name}</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 font-semibold">${lead.stage === 'new' ? 'Novo Lead' : lead.stage}</span>
+                </div>
+                <div class="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
+                  <i class="fa-solid fa-tooth text-[10px] text-brand-gold"></i>
+                  <span>${lead.proc}</span>
+                  <span>•</span>
+                  <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">${lead.val}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <a href="${waUrl}" target="_blank" class="px-2.5 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-200 dark:border-emerald-800 text-[11px] font-bold transition flex items-center gap-1">
+                <i class="fa-brands fa-whatsapp"></i> Avisar
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleCalendarDirectAdd(e) {
+      e.preventDefault();
+      const name = document.getElementById('cal-add-name').value.trim();
+      const phone = document.getElementById('cal-add-phone').value.trim();
+      const proc = document.getElementById('cal-add-proc').value;
+      const dateVal = document.getElementById('cal-add-date').value;
+      const timeVal = document.getElementById('cal-add-time').value;
+      const dayFormatted = formatDateBR(dateVal);
+      const val = getProcedurePrice(proc);
+
+      const newLead = {
+        id: 'lead-' + Date.now(),
+        name,
+        phone,
+        proc,
+        day: dayFormatted,
+        date: dateVal,
+        time: timeVal,
+        val,
+        stage: 'new',
+        origin: 'Agenda Calendário',
+        createdAt: 'Agora mesmo'
+      };
+
+      leads.unshift(newLead);
+      saveData();
+      renderBoard();
+      updateKPIs();
+      populateClientSelect();
+      renderCalendarModal(currentCalendarDayFilter);
+      toggleCalendarAddForm();
+      alert(`Consulta de ${name} agendada com sucesso para ${dayFormatted} às ${timeVal}!`);
+    }
+
+    // =========================================================================
+    // DATA INIT & PERSISTENCE
+    // =========================================================================
+    function initData() {
+      initProcedures();
+      initInventory();
+
+      const stored = localStorage.getItem('lumina_crm_leads');
+      if (stored) {
+        try {
+          leads = JSON.parse(stored);
+        } catch (e) {
+          leads = [...DEFAULT_LEADS];
+        }
+      } else {
+        leads = [...DEFAULT_LEADS];
+      }
+
+      // Guarantee "Nair" exists with the exact requested parameters:
+      // Nome: Nair | WhatsApp: 2023912313 | Procedimento: Lentes de Contato E-Max | Fase: new | Data: 01/10/2026 | Valor: R$ 16.000 (Automático)
+      const nairLead = {
+        id: 'lead-nair',
+        name: 'Nair',
+        phone: '2023912313',
+        proc: 'Lentes de Contato E-Max',
+        day: '01/10/2026',
+        date: '2026-10-01',
+        time: '10:00',
+        val: 'R$ 16.000',
+        stage: 'new',
+        origin: 'Cadastro Manual',
+        createdAt: '01/10/2026'
+      };
+
+      const existingNairIndex = leads.findIndex(l => (l.name || '').trim().toLowerCase() === 'nair');
+      if (existingNairIndex === -1) {
+        leads.unshift(nairLead);
+      } else {
+        leads[existingNairIndex] = { ...leads[existingNairIndex], ...nairLead };
+      }
+
+      saveData();
+      renderBoard();
+      updateKPIs();
+      populateClientSelect();
+      updateManualProcAutoDisplay();
+      updateCalAddAutoVal();
+    }
+
+    function saveData() {
+      localStorage.setItem('lumina_crm_leads', JSON.stringify(leads));
+    }
+
+    // Live Real-Time Search Handler
+    function handleSearch(term) {
+      currentFilter = (term || '').toLowerCase().trim();
+      const countBadge = document.getElementById('search-count');
+      
+      if (!currentFilter) {
+        countBadge.classList.add('hidden');
+      } else {
+        countBadge.classList.remove('hidden');
+      }
+      
+      renderBoard();
+    }
+
+    // Render Cards in Columns with Search Filtering
+    function renderBoard() {
+      const stages = ['new', 'eval', 'proposal', 'closed'];
+      const containers = {
+        new: document.getElementById('col-new'),
+        eval: document.getElementById('col-eval'),
+        proposal: document.getElementById('col-proposal'),
+        closed: document.getElementById('col-closed')
+      };
+
+      const counts = { new: 0, eval: 0, proposal: 0, closed: 0 };
+      let matchingCount = 0;
+
+      // Clear containers
+      stages.forEach(s => {
+        if (containers[s]) containers[s].innerHTML = '';
+      });
+
+      leads.forEach(lead => {
+        const matchesName = (lead.name || '').toLowerCase().includes(currentFilter);
+        const matchesPhone = (lead.phone || '').toLowerCase().includes(currentFilter);
+        const matchesProc = (lead.proc || '').toLowerCase().includes(currentFilter);
+
+        if (currentFilter && !matchesName && !matchesPhone && !matchesProc) {
+          return;
+        }
+
+        matchingCount++;
+        const stage = lead.stage || 'new';
+        if (counts[stage] !== undefined) counts[stage]++;
+
+        const card = createCardElement(lead);
+        if (containers[stage]) {
+          containers[stage].appendChild(card);
+        }
+      });
+
+      // Update Badges
+      if (document.getElementById('badge-count-new')) document.getElementById('badge-count-new').textContent = counts.new;
+      if (document.getElementById('badge-count-eval')) document.getElementById('badge-count-eval').textContent = counts.eval;
+      if (document.getElementById('badge-count-proposal')) document.getElementById('badge-count-proposal').textContent = counts.proposal;
+      if (document.getElementById('badge-count-closed')) document.getElementById('badge-count-closed').textContent = counts.closed;
+
+      if (currentFilter) {
+        document.getElementById('search-count').textContent = `${matchingCount} encontrados`;
+      }
+    }
+
+    function createCardElement(lead) {
+      const card = document.createElement('div');
+      card.className = 'bg-white dark:bg-dark-surface p-4 rounded-2xl border border-slate-200/90 dark:border-dark-border hover:border-slate-300 dark:hover:border-dark-borderLight shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-md transition-all group cursor-grab active:cursor-grabbing space-y-3';
+      card.draggable = true;
+      card.ondragstart = (e) => handleDragStart(e, lead.id);
+
+      const isClosed = lead.stage === 'closed';
+      const defaultTime = lead.time || '10:00';
+      const defaultDay = lead.day || 'Hoje';
+      const reminderMsg = `Olá ${lead.name}! Lembrete: sua consulta na Lumina Dental está confirmada para ${defaultDay} às ${defaultTime} (${lead.proc}). Contamos com sua presença!`;
+      const waUrl = 'https://wa.me/5511998531124?text=' + encodeURIComponent(reminderMsg);
+
+      card.innerHTML = `
+        <!-- Top: Name & Origin -->
+        <div class="flex items-start justify-between gap-2">
+          <div class="min-w-0 flex-1">
+            <span class="font-bold text-sm text-slate-900 dark:text-white block leading-snug mb-1">${lead.name}</span>
+            <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5 whitespace-nowrap">
+              <i class="fa-solid fa-phone text-[10px] text-emerald-600 dark:text-emerald-400"></i>
+              <span>${lead.phone || '(11) 99853-1124'}</span>
+            </div>
+          </div>
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap ${isClosed ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' : 'bg-slate-100 dark:bg-dark-bg text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border'}">
+            ${lead.origin || 'Site 24h'}
+          </span>
+        </div>
+
+        <!-- Middle: Procedure -->
+        <div class="text-xs text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2 bg-slate-50 dark:bg-dark-bg/60 p-2.5 rounded-xl border border-slate-150 dark:border-dark-border">
+          <i class="fa-solid fa-tooth text-xs text-brand-gold shrink-0"></i>
+          <span>${lead.proc}</span>
+        </div>
+
+        <!-- Appointment Time Pill (Calendar linked) -->
+        <div class="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 bg-amber-50/60 dark:bg-amber-950/20 px-3 py-1.5 rounded-xl border border-amber-200/60 dark:border-amber-900/40">
+          <span class="flex items-center gap-1.5">
+            <i class="fa-regular fa-calendar-check text-amber-600 dark:text-amber-400"></i>
+            <span>${defaultDay} às <strong class="text-slate-900 dark:text-white">${defaultTime}</strong></span>
+          </span>
+          <span class="text-[10px] font-bold text-amber-700 dark:text-amber-400">Agendado</span>
+        </div>
+
+        <!-- Bottom: Value and Action Buttons -->
+        <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-dark-border gap-2">
+          <div class="font-serif font-bold text-base whitespace-nowrap ${isClosed ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}">
+            ${lead.val || 'R$ 16.000'}
+          </div>
+
+          <div class="flex items-center gap-1.5 shrink-0">
+            <!-- Botão de Aviso Direto no WhatsApp -->
+            <a href="${waUrl}" target="_blank" class="px-2.5 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white border border-emerald-200 dark:border-emerald-800 hover:border-emerald-600 flex items-center gap-1.5 text-xs font-bold transition shadow-2xs" title="Enviar Lembrete das ${defaultTime}">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Avisar</span>
+            </a>
+
+            ${lead.stage !== 'closed' ? `
+              <button onclick="advanceLead('${lead.id}')" class="w-7 h-7 rounded-xl bg-slate-100 dark:bg-dark-bg hover:bg-brand-gold text-slate-600 dark:text-slate-300 hover:text-white border border-slate-200 dark:border-dark-border flex items-center justify-center text-xs transition" title="Avançar para a próxima fase">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            ` : ''}
+
+            <button onclick="deleteLead('${lead.id}')" class="w-7 h-7 rounded-xl bg-slate-50 dark:bg-dark-bg hover:bg-rose-50 dark:hover:bg-rose-950/50 text-slate-400 hover:text-rose-600 border border-slate-200 dark:border-dark-border flex items-center justify-center text-xs transition" title="Excluir">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      `;
+
+      return card;
+    }
+
+    // Advance Stage Button
+    function advanceLead(id) {
+      const stages = ['new', 'eval', 'proposal', 'closed'];
+      const lead = leads.find(l => l.id === id);
+      if (!lead) return;
+
+      const currentIndex = stages.indexOf(lead.stage || 'new');
+      if (currentIndex < stages.length - 1) {
+        lead.stage = stages[currentIndex + 1];
+        saveData();
+        renderBoard();
+        updateKPIs();
+      }
+    }
+
+    // Delete Lead
+    function deleteLead(id) {
+      if (confirm('Deseja remover este registro do pipeline?')) {
+        leads = leads.filter(l => l.id !== id);
+        saveData();
+        renderBoard();
+        updateKPIs();
+        populateClientSelect();
+      }
+    }
+
+    // Drag and drop handlers
+    let draggedId = null;
+
+    function handleDragStart(e, id) {
+      draggedId = id;
+      e.dataTransfer.setData('text/plain', id);
+    }
+
+    function allowDrop(e) {
+      e.preventDefault();
+      e.currentTarget.classList.add('drag-over');
+    }
+
+    function handleDrop(e, targetStage) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('drag-over');
+      const id = draggedId || e.dataTransfer.getData('text/plain');
+      const lead = leads.find(l => l.id === id);
+      if (lead) {
+        lead.stage = targetStage;
+        saveData();
+        renderBoard();
+        updateKPIs();
+      }
+      draggedId = null;
+    }
+
+    // KPIs calculation
+    function updateKPIs() {
+      let pipelineTotal = 0;
+      let closedTotal = 0;
+
+      leads.forEach(l => {
+        const numVal = parseInt((l.val || '0').replace(/[^0-9]/g, '')) || 0;
+        pipelineTotal += numVal;
+        if (l.stage === 'closed') {
+          closedTotal += numVal;
+        }
+      });
+
+      const kpiPipeline = document.getElementById('kpi-pipeline');
+      const kpiClosed = document.getElementById('kpi-closed');
+      const kpiCount = document.getElementById('kpi-count');
+
+      if (kpiPipeline) kpiPipeline.textContent = 'R$ ' + pipelineTotal.toLocaleString('pt-BR');
+      if (kpiClosed) kpiClosed.textContent = 'R$ ' + closedTotal.toLocaleString('pt-BR');
+      if (kpiCount) kpiCount.textContent = leads.length + ' Clientes';
+    }
+
+    // =========================================================================
+    // WHATSAPP NOTICE & REMINDER SYSTEM
+    // =========================================================================
+    function openWhatsAppModal(preselectedLeadId = null) {
+      populateClientSelect();
+      if (preselectedLeadId) {
+        document.getElementById('wa-client-select').value = preselectedLeadId;
+      }
+      selectTemplate('reminder_today');
+      openModal('whatsapp-modal');
+    }
+
+    function closeWhatsAppModal() {
+      closeModal('whatsapp-modal');
+    }
+
+    function populateClientSelect() {
+      const select = document.getElementById('wa-client-select');
+      if (!select) return;
+      select.innerHTML = '';
+
+      leads.forEach(l => {
+        const opt = document.createElement('option');
+        opt.value = l.id;
+        opt.textContent = `${l.name} - ${l.proc} (${l.phone || '(11) 99853-1124'})`;
+        select.appendChild(opt);
+      });
+    }
+
+    function selectTemplate(tpl) {
+      selectedTemplateType = tpl;
+      document.querySelectorAll('.tpl-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-emerald-600', 'bg-emerald-50/50', 'text-emerald-900', 'font-bold');
+        b.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-semibold');
+      });
+
+      const activeBtn = document.getElementById('tpl-' + tpl.replace('reminder_', '').replace('guide', 'arrival').replace('followup', 'followup'));
+      if (activeBtn) {
+        activeBtn.classList.add('border-2', 'border-emerald-600', 'bg-emerald-50/50', 'text-emerald-900', 'font-bold');
+        activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+      }
+
+      updateMessagePreview();
+    }
+
+    function updateMessagePreview() {
+      const select = document.getElementById('wa-client-select');
+      const selectedId = select ? select.value : null;
+      const lead = leads.find(l => l.id === selectedId) || leads[0] || { name: 'Cliente', time: '12:00', proc: 'Consulta', day: 'Hoje' };
+
+      const time = lead.time || '12:00';
+      const name = lead.name || 'Cliente';
+      const proc = lead.proc || 'Avaliação Odontológica';
+      const day = lead.day || 'Hoje';
+
+      let msg = '';
+      if (selectedTemplateType === 'reminder_today') {
+        msg = `Olá ${name}! Lembrete: sua consulta na Lumina Dental está confirmada para ${day} às ${time} (${proc}). Endereço com valet cortesia no local. Contamos com sua presença!`;
+      } else if (selectedTemplateType === 'reminder_tomorrow') {
+        msg = `Olá ${name}! Passando para confirmar sua consulta de ${proc} amanhã às ${time}. Podemos confirmar seu horário?`;
+      } else if (selectedTemplateType === 'arrival_guide') {
+        msg = `Olá ${name}! Sua consulta é daqui a 2 horas (às ${time}). Segue o link de navegação Waze/Google Maps e instruções de entrada no estacionamento. Até logo!`;
+      } else {
+        msg = `Olá ${name}! Passando para saber se ficou alguma dúvida em relação ao seu orçamento de ${proc}. Nossas condições especiais continuam disponíveis esta semana!`;
+      }
+
+      const waMsgEl = document.getElementById('wa-message-text');
+      if (waMsgEl) waMsgEl.value = msg;
+    }
+
+    function dispatchWhatsAppMessage() {
+      const waMsgEl = document.getElementById('wa-message-text');
+      const msg = waMsgEl ? waMsgEl.value : '';
+      const waUrl = 'https://wa.me/5511998531124?text=' + encodeURIComponent(msg);
+      window.open(waUrl, '_blank');
+      closeModal('whatsapp-modal');
+    }
+
+    function triggerQuickNotice(hour = '12:00') {
+      openWhatsAppModal();
+      selectTemplate('reminder_today');
+    }
+
+    // Lead Registration
+    function openNewLeadModal() {
+      openModal('new-lead-modal');
+    }
+
+    function handleManualLead(e) {
+      e.preventDefault();
+      const name = document.getElementById('manual-name').value.trim();
+      const phone = document.getElementById('manual-phone').value.trim();
+      const proc = document.getElementById('manual-proc').value;
+      const dateVal = document.getElementById('manual-date').value;
+      const timeVal = document.getElementById('manual-time').value;
+      const stage = document.getElementById('manual-stage').value;
+      const dayFormatted = formatDateBR(dateVal);
+
+      // Automatic Price derived from procedure settings! (No manual typing required)
+      const val = getProcedurePrice(proc);
+
+      const newLead = {
+        id: 'lead-' + Date.now(),
+        name: name,
+        phone: phone,
+        proc: proc,
+        day: dayFormatted,
+        date: dateVal,
+        time: timeVal,
+        val: val,
+        stage: stage,
+        origin: 'Cadastro Manual',
+        createdAt: 'Agora mesmo'
+      };
+
+      leads.unshift(newLead);
+      saveData();
+      renderBoard();
+      updateKPIs();
+      populateClientSelect();
+      closeModal('new-lead-modal');
+      alert(`Cliente ${name} cadastrado com sucesso no funil para ${dayFormatted} às ${timeVal}!`);
+    }
+
+    function simulateSiteBooking() {
+      const sampleNames = ['Juliana Paes', 'Marcelo Rezende', 'Patricia Abravanel', 'Thiago Ventura', 'Larissa Manoela'];
+      const sampleProcs = ['Lentes de Contato E-Max', 'Alinhadores Invisíveis', 'Clareamento Dental Laser Office', 'Avaliação Geral & Profilaxia'];
+      const randomName = sampleNames[Math.floor(Math.random() * sampleNames.length)];
+      const randomProc = sampleProcs[Math.floor(Math.random() * sampleProcs.length)];
+      const ticket = getProcedurePrice(randomProc);
+
+      const simLead = {
+        id: 'lead-' + Date.now(),
+        name: randomName,
+        phone: '(11) 9' + Math.floor(10000000 + Math.random() * 90000000),
+        proc: randomProc,
+        day: 'Hoje',
+        date: '2026-09-28',
+        time: '12:00',
+        val: ticket,
+        stage: 'new',
+        origin: 'Site Lumina 24h',
+        createdAt: 'Agora mesmo'
+      };
+
+      leads.unshift(simLead);
+      saveData();
+      renderBoard();
+      updateKPIs();
+      populateClientSelect();
+    }
+
+    // Security Gate Unlock/Lock
+    function unlockDashboard() {
+      const pin = document.getElementById('pin-input').value;
+      if (pin) {
+        document.getElementById('auth-modal').classList.add('hidden');
+        sessionStorage.setItem('lumina_admin_auth', 'true');
+      } else {
+        alert('Por favor digite o código de acesso da clínica.');
+      }
+    }
+
+    function lockDashboard() {
+      sessionStorage.removeItem('lumina_admin_auth');
+      document.getElementById('auth-modal').classList.remove('hidden');
+      const dd = document.getElementById('profile-dropdown');
+      if (dd) dd.classList.add('hidden');
+    }
+
+    // Global Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.fixed.z-50').forEach(m => {
+          if (m.id !== 'auth-modal') m.classList.add('hidden');
+        });
+        const dd = document.getElementById('profile-dropdown');
+        if (dd) dd.classList.add('hidden');
+      }
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      const dd = document.getElementById('profile-dropdown');
+      if (dd && !dd.classList.contains('hidden') && !e.target.closest('#profile-dropdown') && !e.target.closest('button[onclick="toggleProfileDropdown()"]')) {
+        dd.classList.add('hidden');
+      }
+    });
+
+    // On Load
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      if (sessionStorage.getItem('lumina_admin_auth') === 'true') {
+        document.getElementById('auth-modal').classList.add('hidden');
+      }
+      initData();
+    });
+  </script>
+</body>
+</html>

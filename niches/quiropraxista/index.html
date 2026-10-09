@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuiroLife | Quiropraxia Clínica & Cuidado da Coluna em São Paulo</title>
+  <meta name="description" content="Entenda sua dor e recupere sua mobilidade com avaliação quiroprática clínica individualizada. Cuidado biomecânico seguro na Av. Paulista, São Paulo." />
+
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            quiro: {
+              dark: '#07111E',
+              card: '#0E1E33',
+              cardHover: '#132845',
+              border: '#1B3557',
+              blue: '#008DDA',
+              cyan: '#41C9E2',
+              ice: '#ACE2E1',
+              muted: '#94A3B8'
+            }
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+            'pulse-slow': 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Spine Stylesheet -->
+  <link rel="stylesheet" href="assets/css/spine-styles.css" />
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Chiropractic",
+  "name": "Coluna Viva • Quiropraxia Clínica",
+  "description": "Clínica de quiropraxia especializada no tratamento de hérnia de disco, dor ciática, postura e alívio de tensões.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/quiropraxista/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-quiro-dark text-slate-100 font-sans antialiased selection:bg-quiro-cyan selection:text-quiro-dark relative">
+
+  <!-- Desktop Custom Cursor Elements (Active only on non-touch screens) -->
+  <div class="custom-cursor hidden md:block" id="app-cursor"></div>
+  <div class="custom-cursor-dot hidden md:block" id="app-cursor-dot"></div>
+
+  <!-- Top Strip -->
+  <aside class="bg-quiro-card/90 border-b border-quiro-border/60 py-2.5 px-4 text-xs font-semibold backdrop-blur-sm z-50 relative">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5 text-quiro-ice text-[11px] sm:text-xs">
+        <span class="w-2 h-2 rounded-full bg-quiro-cyan animate-pulse"></span>
+        <span>Avaliação Clínica Postural e Palpação Articular Inclusa na 1ª Consulta</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <span class="text-slate-400 hidden lg:inline"><i class="fa-solid fa-location-dot text-rose-400 mr-1"></i> Av. Paulista, 1000 - SP</span>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20avalia%C3%A7%C3%A3o%20quiropr%C3%A1tica." target="_blank" class="text-white hover:text-quiro-cyan transition flex items-center gap-1.5 font-bold" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-emerald-400"></i> (32) 99929-2311
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header id="main-header" class="sticky top-0 z-40 bg-quiro-dark/85 backdrop-blur-md border-b border-quiro-border/40 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-quiro-blue to-quiro-cyan flex items-center justify-center text-white text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-bone"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-2xl text-white tracking-tight flex items-center gap-1.5">
+            QUIROLIFE
+            <span class="w-1.5 h-1.5 rounded-full bg-quiro-cyan"></span>
+          </span>
+          <span class="block text-[9px] font-mono tracking-widest uppercase text-quiro-cyan font-bold -mt-1">Quiropraxia Clínica & Biomecânica</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-300">
+        <a href="#entenda" class="hover:text-quiro-cyan transition">Entenda a Coluna</a>
+        <a href="#mapa-dor" class="hover:text-quiro-cyan transition flex items-center gap-1.5">
+          <i class="fa-solid fa-crosshairs text-quiro-cyan text-xs"></i>
+          <span>Onde Dói?</span>
+        </a>
+        <a href="#como-funciona" class="hover:text-quiro-cyan transition">Como Funciona</a>
+        <a href="#equipamentos" class="hover:text-quiro-cyan transition">Recursos</a>
+        <a href="#planos" class="hover:text-quiro-cyan transition">Planos</a>
+        <a href="#localizacao" class="hover:text-quiro-cyan transition">Localização</a>
+      </nav>
+
+      <!-- Desktop CTA & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20da%20minha%20coluna%20na%20QuiroLife." target="_blank" class="shimmer-btn magnetic-btn hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-quiro-blue to-quiro-cyan hover:opacity-95 text-quiro-dark font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/25 transition transform hover:scale-105" rel="noopener noreferrer">
+          <i class="fa-solid fa-calendar-check text-sm"></i>
+          <span>Agendar Avaliação</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" aria-label="Abrir Menu" class="lg:hidden w-10 h-10 rounded-xl bg-quiro-card border border-quiro-border flex items-center justify-center text-slate-200 hover:text-quiro-cyan">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="lg:hidden hidden bg-quiro-dark/95 border-b border-quiro-border px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-sm font-bold uppercase tracking-wider text-slate-300">
+        <a href="#entenda" class="mobile-nav-link hover:text-quiro-cyan py-1">Entenda a Coluna</a>
+        <a href="#mapa-dor" class="mobile-nav-link hover:text-quiro-cyan py-1 flex items-center gap-2">
+          <i class="fa-solid fa-crosshairs text-quiro-cyan"></i> Onde Dói? (Mapa Interativo)
+        </a>
+        <a href="#postura-comparador" class="mobile-nav-link hover:text-quiro-cyan py-1">Postura & Mobilidade</a>
+        <a href="#como-funciona" class="mobile-nav-link hover:text-quiro-cyan py-1">Como Funciona</a>
+        <a href="#equipamentos" class="mobile-nav-link hover:text-quiro-cyan py-1">Recursos & Maca Drop</a>
+        <a href="#planos" class="mobile-nav-link hover:text-quiro-cyan py-1">Planos & Valores</a>
+        <a href="#localizacao" class="mobile-nav-link hover:text-quiro-cyan py-1">Localização na Paulista</a>
+        <div class="pt-4 border-t border-quiro-border/60">
+          <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20da%20minha%20coluna%20na%20QuiroLife." target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-quiro-blue to-quiro-cyan text-quiro-dark font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+            <i class="fa-brands fa-whatsapp text-base"></i> Agendar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION WITH INTERACTIVE 3D SPINE                                     -->
+  <!-- ========================================================================= -->
+  <section class="relative min-h-[90vh] flex items-center py-12 lg:py-20 overflow-hidden border-b border-quiro-border/60 bg-grid-pattern radial-glow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left Column: Copy & Actions (7 cols on lg) -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-quiro-blue/15 border border-quiro-cyan/30 text-quiro-cyan text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
+            <i class="fa-solid fa-dna text-xs"></i>
+            <span>Quiropraxia Clínica • Avaliação Personalizada</span>
+          </div>
+
+          <h1 class="font-outfit font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.08]">
+            Entenda sua dor. <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-quiro-cyan via-quiro-ice to-white">
+              Recupere sua mobilidade.
+            </span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Uma avaliação cuidadosa para entender suas queixas, postura e mobilidade — e definir o cuidado adequado para você, com precisão biomecânica e sem cirurgia.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20da%20minha%20coluna%20na%20QuiroLife." target="_blank" class="shimmer-btn magnetic-btn px-8 py-4 rounded-xl bg-gradient-to-r from-quiro-blue via-quiro-cyan to-cyan-300 hover:opacity-95 text-quiro-dark font-black text-xs uppercase tracking-wider shadow-xl shadow-cyan-500/25 flex items-center justify-center gap-2.5 transition transform hover:scale-[1.02]" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Agendar Avaliação</span>
+            </a>
+            <a href="#entenda" class="px-7 py-4 rounded-xl bg-quiro-card/80 hover:bg-quiro-cardHover text-white font-bold text-xs uppercase tracking-wider border border-quiro-border/90 flex items-center justify-center gap-2 transition backdrop-blur-sm">
+              <i class="fa-solid fa-arrows-to-eye text-quiro-cyan"></i>
+              <span>Explorar a Coluna</span>
+            </a>
+          </div>
+
+          <!-- Credibility / Transparency Indicators -->
+          <div class="pt-6 border-t border-quiro-border/60 grid grid-cols-3 gap-3 text-center max-w-lg mx-auto lg:mx-0">
+            <div class="p-2.5 rounded-xl bg-quiro-card/40 border border-quiro-border/40">
+              <div class="font-outfit font-black text-lg sm:text-xl text-quiro-cyan">ABQ</div>
+              <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">Membro Titular</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-quiro-card/40 border border-quiro-border/40">
+              <div class="font-outfit font-black text-lg sm:text-xl text-white">+5.000</div>
+              <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">Atendimentos</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-quiro-card/40 border border-quiro-border/40">
+              <div class="font-outfit font-black text-lg sm:text-xl text-emerald-400">100%</div>
+              <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">Individualizado</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: 3D Spine Viewport & Hotspots (6 cols on lg) -->
+        <div class="lg:col-span-6 relative">
+          
+          <!-- Outer Card Enclosure for 3D Viewport -->
+          <div class="relative rounded-3xl bg-gradient-to-b from-quiro-card/90 to-quiro-dark/95 border border-quiro-cyan/30 p-2 sm:p-4 shadow-2xl shadow-cyan-950/50 backdrop-blur-md overflow-hidden">
+            
+            <!-- Microcopy Interaction Hint (Disappears after 1st interaction) -->
+            <div id="spine-microcopy" class="absolute top-4 left-4 right-4 z-20 pointer-events-none flex items-center justify-between transition-opacity duration-500">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-quiro-dark/90 border border-quiro-cyan/40 text-[11px] font-mono font-semibold text-quiro-ice shadow">
+                <span class="w-2 h-2 rounded-full bg-quiro-cyan animate-ping"></span>
+                <span class="hidden sm:inline">Passe o cursor ou arraste a coluna 3D</span>
+                <span class="sm:hidden">Toque na coluna para explorar</span>
+              </span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest bg-quiro-dark/80 px-2 py-1 rounded border border-white/5">
+                Modo Interativo
+              </span>
+            </div>
+
+            <!-- Quick Region Selector Badges Overlay -->
+            <div class="absolute bottom-4 left-3 right-3 sm:left-4 sm:right-4 z-20 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pointer-events-auto">
+              <button onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('cervical')" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-quiro-dark/90 hover:bg-quiro-blue/30 border border-quiro-border hover:border-quiro-cyan text-white text-[10px] sm:text-xs font-bold transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-quiro-cyan"></span> Cervical
+              </button>
+              <button onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('toracica')" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-quiro-dark/90 hover:bg-quiro-blue/30 border border-quiro-border hover:border-quiro-cyan text-white text-[10px] sm:text-xs font-bold transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-quiro-blue"></span> Torácica
+              </button>
+              <button onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('lombar')" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-quiro-dark/90 hover:bg-quiro-blue/30 border border-quiro-border hover:border-quiro-cyan text-white text-[10px] sm:text-xs font-bold transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-quiro-ice"></span> Lombar
+              </button>
+              <button onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('sacral')" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-quiro-dark/90 hover:bg-quiro-blue/30 border border-quiro-border hover:border-quiro-cyan text-white text-[10px] sm:text-xs font-bold transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-indigo-400"></span> Sacral
+              </button>
+              <button onclick="window.heroSpineViewer && window.heroSpineViewer.resetView()" class="px-2 sm:px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 text-[10px] sm:text-xs font-semibold transition" title="Restaurar Visão Geral">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+            </div>
+
+            <!-- Three.js Canvas Container -->
+            <div id="spine-canvas-container" class="w-full h-[440px] sm:h-[500px] lg:h-[560px] relative flex items-center justify-center">
+              <!-- Loading spinner while WebGL builds -->
+              <div id="spine-loader" class="text-center text-xs text-slate-400 flex flex-col items-center gap-2">
+                <i class="fa-solid fa-circle-notch fa-spin text-2xl text-quiro-cyan"></i>
+                <span>Carregando anatomia 3D...</span>
+              </div>
+            </div>
+
+            <!-- WebGL Fallback (Clean SVG Vector Spine if WebGL unavailable) -->
+            <div id="spine-fallback" class="hidden absolute inset-0 bg-quiro-card/95 flex flex-col items-center justify-center p-6 text-center z-10">
+              <div class="w-16 h-16 rounded-2xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center text-2xl mb-3">
+                <i class="fa-solid fa-bone"></i>
+              </div>
+              <h3 class="font-outfit font-bold text-lg text-white mb-1">Coluna Vertebral Interativa</h3>
+              <p class="text-xs text-slate-400 max-w-xs mb-4">
+                Selecione as regiões para explorar a biomecânica da coluna:
+              </p>
+              <div class="grid grid-cols-2 gap-2 w-full max-w-xs">
+                <button onclick="painUI.select('cervical')" class="p-2.5 rounded-xl bg-quiro-dark border border-quiro-border text-xs font-bold text-white hover:border-quiro-cyan transition">Cervical (C1-C7)</button>
+                <button onclick="painUI.select('toracica')" class="p-2.5 rounded-xl bg-quiro-dark border border-quiro-border text-xs font-bold text-white hover:border-quiro-cyan transition">Torácica (T1-T12)</button>
+                <button onclick="painUI.select('lombar')" class="p-2.5 rounded-xl bg-quiro-dark border border-quiro-border text-xs font-bold text-white hover:border-quiro-cyan transition">Lombar (L1-L5)</button>
+                <button onclick="painUI.select('sacral')" class="p-2.5 rounded-xl bg-quiro-dark border border-quiro-border text-xs font-bold text-white hover:border-quiro-cyan transition">Sacro & Cóccix</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Ticker: Responsible Biomechanical Terms -->
+  <div class="py-4 bg-quiro-card/70 border-b border-quiro-border/60 overflow-hidden backdrop-blur-sm">
+    <div class="flex gap-10 whitespace-nowrap animate-marquee">
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-bone text-quiro-cyan"></i> Biomecânica Articular de Precisão</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-shield-heart text-quiro-ice"></i> Descompressão Discal sem Cirurgia</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-user-doctor text-emerald-400"></i> Membro da Associação Brasileira de Quiropraxia</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-person-walking text-quiro-cyan"></i> Recuperação de Mobilidade & Amplitude</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-spa text-quiro-ice"></i> Cuidado Neuromuscular sem Medicamentos</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: "ENTENDA SUA COLUNA" (3D SCROLL STORYTELLING)                    -->
+  <!-- ========================================================================= -->
+  <section id="entenda" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 relative">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-quiro-blue/15 border border-quiro-cyan/30 text-quiro-cyan text-xs font-mono font-bold uppercase tracking-wider mb-3">
+        <i class="fa-solid fa-layer-group"></i> Como Entender o Problema
+      </div>
+      <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+        A Jornada Biomecânica: <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-quiro-cyan to-quiro-blue">
+          Do Desconforto ao Movimento Livre
+        </span>
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+        Não tratamos apenas o sintoma isolado. Ensinamos você a compreender como cada região da sua coluna atua em harmonia para suportar seu corpo.
+      </p>
+    </div>
+
+    <!-- 4 Interactive Storytelling Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- ETAPA 01: OBSERVE -->
+      <div class="scroll-step active p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border transition-all duration-300 hover:border-quiro-cyan flex flex-col justify-between" onclick="window.heroSpineViewer && window.heroSpineViewer.resetView()">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="step-number w-8 h-8 rounded-xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center font-outfit font-black text-xs">
+              01
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Anatomia</span>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">OBSERVE</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            A coluna completa possui curvas naturais (lordose e cifose) que funcionam como molas amortecedoras contra o impacto diário da gravidade.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-quiro-border/40 text-[11px] text-quiro-cyan font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-eye text-xs"></i> <span>Eixos estruturais neutros</span>
+        </div>
+      </div>
+
+      <!-- ETAPA 02: IDENTIFIQUE -->
+      <div class="scroll-step p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border transition-all duration-300 hover:border-quiro-cyan flex flex-col justify-between" onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('lombar')">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="step-number w-8 h-8 rounded-xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center font-outfit font-black text-xs">
+              02
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Sobrecarga</span>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">IDENTIFIQUE</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Horas sentado, estresse e movimentos repetitivos acumulam restrições articulares. Uma vértebra com menor mobilidade sobrecarrega os discos vizinhos.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-quiro-border/40 text-[11px] text-quiro-ice font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-triangle-exclamation text-xs text-amber-400"></i> <span>Áreas de pressão mecânica</span>
+        </div>
+      </div>
+
+      <!-- ETAPA 03: AVALIE -->
+      <div class="scroll-step p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border transition-all duration-300 hover:border-quiro-cyan flex flex-col justify-between" onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('cervical')">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="step-number w-8 h-8 rounded-xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center font-outfit font-black text-xs">
+              03
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Diagnóstico Clínico</span>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">AVALIE</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Realizamos testes ortopédicos específicos, palpação articular dinâmica e análise postural para mapear exatamente onde a mecânica precisa de ajuste.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-quiro-border/40 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-stethoscope text-xs"></i> <span>Exame físico detalhado</span>
+        </div>
+      </div>
+
+      <!-- ETAPA 04: CUIDE -->
+      <div class="scroll-step p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border transition-all duration-300 hover:border-quiro-cyan flex flex-col justify-between" onclick="window.heroSpineViewer && window.heroSpineViewer.focusRegion('toracica')">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="step-number w-8 h-8 rounded-xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center font-outfit font-black text-xs">
+              04
+            </span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Intervenção</span>
+          </div>
+          <h3 class="font-outfit font-bold text-lg text-white mb-2">CUIDE</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Com manobras articulares indolores e mesa de descompressão, reabrimos os eixos articulares, aliviamos a tensão nos nervos e devolvemos a liberdade de movimento.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-quiro-border/40 text-[11px] text-cyan-300 font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-sparkles text-xs"></i> <span>Ajuste preciso & descompressão</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: POSTURE & MOBILITY COMPARISON (ANTES & DEPOIS EDUCATIVO)         -->
+  <!-- ========================================================================= -->
+  <section id="postura-comparador" class="py-20 bg-gradient-to-b from-quiro-dark via-[#081322] to-quiro-dark border-y border-quiro-border/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+          Educação Biomecânica
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Postura Diária vs. Alinhamento Funcional
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Arraste o cursor para comparar como a sobrecarga postural afeta os eixos da sua coluna:
+        </p>
+      </div>
+
+      <!-- Comparison Widget Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Interactive Visual Slider (7 cols) -->
+        <div class="lg:col-span-7">
+          <div id="posture-comparison-widget" class="posture-slider-container w-full aspect-[16/10] rounded-3xl border-2 border-quiro-border/80 bg-quiro-card relative shadow-2xl overflow-hidden cursor-ew-resize">
+            
+            <!-- Layer B: Aligned Functional State (Right side revealed) -->
+            <div class="layer-aligned absolute inset-0 bg-[#0A1A2E] flex flex-col justify-between p-6 sm:p-8 select-none">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold text-xs uppercase tracking-wider">
+                  Postura Trabalhada & Equilibrada
+                </span>
+                <span class="text-emerald-400 font-mono text-xs"><i class="fa-solid fa-check"></i> Eixo Neutro</span>
+              </div>
+              <div class="text-center my-auto space-y-2">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 flex items-center justify-center text-3xl mx-auto">
+                  <i class="fa-solid fa-person"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-200 font-semibold">Orelhas alinhadas sobre os ombros e bacia</p>
+                <p class="text-[11px] text-emerald-300/80">Pressão homogênea sobre os discos vertebrais</p>
+              </div>
+              <div class="text-[11px] text-slate-400 text-right">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Arraste para a esquerda
+              </div>
+            </div>
+
+            <!-- Layer A: Habitual Overload State (Left side revealed via clipPath) -->
+            <div class="layer-observed absolute inset-0 bg-[#160E18] flex flex-col justify-between p-6 sm:p-8 select-none">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 font-bold text-xs uppercase tracking-wider">
+                  Postura Habitual no Dia a Dia
+                </span>
+                <span class="text-rose-400 font-mono text-xs"><i class="fa-solid fa-triangle-exclamation"></i> Sobrecarga</span>
+              </div>
+              <div class="text-center my-auto space-y-2">
+                <div class="w-16 h-16 rounded-full bg-rose-500/15 border border-rose-400/40 text-rose-300 flex items-center justify-center text-3xl mx-auto">
+                  <i class="fa-solid fa-person-falling"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-rose-200 font-semibold">Cabeça anteriorizada pelo uso de telas (Têxtil Neck)</p>
+                <p class="text-[11px] text-rose-300/80">Tensão contínua nos trapézios e compressão lombar</p>
+              </div>
+              <div class="text-[11px] text-slate-400 text-left">
+                Arraste para a direita <i class="fa-solid fa-arrow-right ml-1"></i>
+              </div>
+            </div>
+
+            <!-- Draggable Divider Line & Handle -->
+            <div class="slider-handle">
+              <div class="slider-handle-button">
+                <i class="fa-solid fa-arrows-left-right text-xs"></i>
+              </div>
+            </div>
+
+            <!-- Hidden Accessibility Range Input for Keyboard Nav -->
+            <input type="range" min="0" max="100" value="50" class="slider-input sr-only" aria-label="Controle de comparação de postura" />
+          </div>
+
+          <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400 px-2">
+            <span><i class="fa-solid fa-circle text-rose-400 text-[8px] mr-1"></i> Sobrecarga Postural</span>
+            <span id="posture-status-label" class="font-semibold text-quiro-ice">Arraste para comparar os eixos</span>
+            <span><i class="fa-solid fa-circle text-emerald-400 text-[8px] mr-1"></i> Eixo Otimizado</span>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Metric Indicators (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="p-5 rounded-2xl bg-quiro-card border border-quiro-border">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-1">Impacto na Região Cervical:</span>
+            <div class="text-sm font-bold text-white" id="posture-metric-head">
+              <span class="text-amber-400 font-black">~12 kg</span> <span class="text-slate-400 text-xs">(inclinação média)</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">A inclinação da cabeça a 45° multiplica por quatro o peso sentido pelos músculos do pescoço.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-quiro-card border border-quiro-border">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-1">Caixa Torácica & Ombros:</span>
+            <div class="text-sm font-bold text-white" id="posture-metric-curve">
+              <span class="text-amber-400 font-bold">Transição de apoio postural</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">Ombros fechados reduzem a capacidade de expansão pulmonar e tensionam as escápulas.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-quiro-card border border-quiro-border">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-1">Discos da Região Lombar:</span>
+            <div class="text-sm font-bold text-white" id="posture-metric-discs">
+              <span class="text-amber-400 font-bold">Recrutamento postural consciente</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">O ajuste quiroprático restabelece a mobilidade para que os músculos estabilizadores sustentem a carga de forma equilibrada.</p>
+          </div>
+
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20postural%20completa%20na%20QuiroLife." target="_blank" class="w-full py-3.5 rounded-xl bg-quiro-blue/20 hover:bg-quiro-blue/30 border border-quiro-cyan/40 text-quiro-cyan font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-ruler-combined"></i>
+              <span>Agendar Minha Avaliação Postural</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: INTERACTIVE PAIN MAP CONNECTED TO 3D                             -->
+  <!-- ========================================================================= -->
+  <section id="mapa-dor" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="bg-gradient-to-b from-quiro-card to-[#091524] p-6 sm:p-12 rounded-3xl border-2 border-quiro-blue/40 shadow-2xl relative overflow-hidden">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+          Mapeamento Biomecânico
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Onde Você Sente Desconforto Hoje?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Selecione a área para entender possíveis causas mecânicas e como nossa avaliação clínica aborda o seu caso:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Column: Region Selectors (6 cols) -->
+        <div class="lg:col-span-6 space-y-3" id="pain-buttons-list">
+          
+          <!-- Lombar -->
+          <button data-pain-key="lombar" class="w-full p-4 rounded-2xl bg-quiro-dark border-2 border-quiro-cyan text-left flex items-center justify-between transition group shadow-md">
+            <div class="flex items-center gap-3.5">
+              <span class="pain-btn-indicator w-3.5 h-3.5 rounded-full bg-quiro-cyan transition-all"></span>
+              <div>
+                <h4 class="font-bold text-sm text-white group-hover:text-quiro-cyan transition">Lombar & Nervo Ciático</h4>
+                <p class="text-xs text-slate-400">Desconforto na base da coluna ou peso que irradia para glúteo e pernas</p>
+              </div>
+            </div>
+            <i class="pain-btn-arrow fa-solid fa-chevron-right text-quiro-cyan transition-transform"></i>
+          </button>
+
+          <!-- Cervical -->
+          <button data-pain-key="cervical" class="w-full p-4 rounded-2xl bg-quiro-dark/50 border border-quiro-border text-left flex items-center justify-between hover:border-quiro-cyan transition group">
+            <div class="flex items-center gap-3.5">
+              <span class="pain-btn-indicator w-3.5 h-3.5 rounded-full bg-slate-500 transition-all"></span>
+              <div>
+                <h4 class="font-bold text-sm text-white group-hover:text-quiro-cyan transition">Cervical & Tensão nos Ombros</h4>
+                <p class="text-xs text-slate-400">Pescoço rígido, pontadas entre os trapézios e cefaleia tensional</p>
+              </div>
+            </div>
+            <i class="pain-btn-arrow fa-solid fa-chevron-right text-slate-500 transition-transform"></i>
+          </button>
+
+          <!-- Torácica -->
+          <button data-pain-key="toracica" class="w-full p-4 rounded-2xl bg-quiro-dark/50 border border-quiro-border text-left flex items-center justify-between hover:border-quiro-cyan transition group">
+            <div class="flex items-center gap-3.5">
+              <span class="pain-btn-indicator w-3.5 h-3.5 rounded-full bg-slate-500 transition-all"></span>
+              <div>
+                <h4 class="font-bold text-sm text-white group-hover:text-quiro-cyan transition">Torácica & Entre as Escápulas</h4>
+                <p class="text-xs text-slate-400">Sensação de travamento no meio das costas e cansaço postural</p>
+              </div>
+            </div>
+            <i class="pain-btn-arrow fa-solid fa-chevron-right text-slate-500 transition-transform"></i>
+          </button>
+
+          <!-- Sacral -->
+          <button data-pain-key="sacral" class="w-full p-4 rounded-2xl bg-quiro-dark/50 border border-quiro-border text-left flex items-center justify-between hover:border-quiro-cyan transition group">
+            <div class="flex items-center gap-3.5">
+              <span class="pain-btn-indicator w-3.5 h-3.5 rounded-full bg-slate-500 transition-all"></span>
+              <div>
+                <h4 class="font-bold text-sm text-white group-hover:text-quiro-cyan transition">Região Sacroilíaca & Pélvis</h4>
+                <p class="text-xs text-slate-400">Desconforto assimétrico no quadril ao caminhar ou levantar da cadeira</p>
+              </div>
+            </div>
+            <i class="pain-btn-arrow fa-solid fa-chevron-right text-slate-500 transition-transform"></i>
+          </button>
+
+          <!-- Hérnia / Protrusão -->
+          <button data-pain-key="hernia" class="w-full p-4 rounded-2xl bg-quiro-dark/50 border border-quiro-border text-left flex items-center justify-between hover:border-quiro-cyan transition group">
+            <div class="flex items-center gap-3.5">
+              <span class="pain-btn-indicator w-3.5 h-3.5 rounded-full bg-slate-500 transition-all"></span>
+              <div>
+                <h4 class="font-bold text-sm text-white group-hover:text-quiro-cyan transition">Sobrecarga Discal & Hérnias</h4>
+                <p class="text-xs text-slate-400">Sensibilidade mecânica, formigamento ou rigidez discal comprovada</p>
+              </div>
+            </div>
+            <i class="pain-btn-arrow fa-solid fa-chevron-right text-slate-500 transition-transform"></i>
+          </button>
+
+          <!-- Postura -->
+          <button data-pain-key="postura" class="w-full p-4 rounded-2xl bg-quiro-dark/50 border border-quiro-border text-left flex items-center justify-between hover:border-quiro-cyan transition group">
+            <div class="flex items-center gap-3.5">
+              <span class="pain-btn-indicator w-3.5 h-3.5 rounded-full bg-slate-500 transition-all"></span>
+              <div>
+                <h4 class="font-bold text-sm text-white group-hover:text-quiro-cyan transition">Postura & Rotina Sedentária</h4>
+                <p class="text-xs text-slate-400">Cansaço crônico ao final do expediente de escritório / home office</p>
+              </div>
+            </div>
+            <i class="pain-btn-arrow fa-solid fa-chevron-right text-slate-500 transition-transform"></i>
+          </button>
+
+        </div>
+
+        <!-- Right Column: Contextual Dynamic Info Display Card (6 cols) -->
+        <div class="lg:col-span-6 p-6 sm:p-8 rounded-3xl bg-quiro-dark/95 border border-quiro-border flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span id="pain-tag" class="text-[10px] font-mono uppercase font-bold px-3 py-1 rounded bg-quiro-blue/20 text-quiro-cyan border border-quiro-cyan/30">
+                Região Inferior da Coluna (L1 a L5)
+              </span>
+              <span class="text-[11px] text-slate-400 font-mono">Análise Clínica</span>
+            </div>
+
+            <h3 id="pain-title" class="font-outfit font-black text-2xl sm:text-3xl text-white mb-3">
+              Lombar & Região Ciática
+            </h3>
+
+            <p id="pain-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+              Desconfortos no final das costas ou sensação de pressão que desce para o quadril podem ter diferentes causas biomecânicas — desde restrições articulares até sobrecarga por longas horas sentadas. A avaliação quiroprática presencial ajuda a entender a origem real das queixas.
+            </p>
+
+            <div class="space-y-3 py-4 border-y border-quiro-border/60 text-xs text-slate-300">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-hand-holding-medical text-quiro-cyan text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Abordagem Terapêutica:</strong>
+                  <span id="pain-method">Avaliação funcional da bacia + Descompressão manual precisa e liberação miofascial</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-clipboard-check text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Diretriz Responsável:</strong>
+                  <span id="pain-sessions">Plano personalizado definido após os testes ortopédicos na 1ª consulta</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Medical Note -->
+            <div class="mt-4 p-3 rounded-xl bg-quiro-blue/10 border border-quiro-cyan/20 text-[11px] text-quiro-ice flex items-center gap-2">
+              <i class="fa-solid fa-circle-info text-quiro-cyan shrink-0"></i>
+              <span>Sem diagnóstico automático pela internet: a conduta correta é estabelecida em consulta individual.</span>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <a id="btn-pain-whatsapp" href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Sinto%20desconforto%20na%20regi%C3%A3o%20lombar%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-gradient-to-r from-quiro-blue to-quiro-cyan hover:opacity-95 text-quiro-dark font-black text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2.5 transition transform hover:scale-[1.01]" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span class="btn-cta-label">Entender a Região Lombar na Consulta</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: COMO FUNCIONA A AVALIAÇÃO ("PRIMEIRO ENTENDEMOS. DEPOIS CUIDAMOS.")-->
+  <!-- ========================================================================= -->
+  <section id="como-funciona" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+        Protocolo Clínico QuiroLife
+      </span>
+      <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-3">
+        Primeiro entendemos. <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-quiro-cyan to-white">
+          Depois cuidamos.
+        </span>
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+        Uma metodologia ética e transparente dividida em quatro etapas bem estruturadas para garantir segurança e resultados duradouros.
+      </p>
+    </div>
+
+    <!-- 4 Clear Stages -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Etapa 01 -->
+      <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border hover:border-quiro-cyan/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center font-outfit font-black text-lg mb-5 border border-quiro-cyan/30">
+            01
+          </div>
+          <span class="text-[10px] font-mono uppercase text-quiro-cyan tracking-widest font-bold block mb-1">Passo Inicial</span>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">Conversa & Anamnese</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Ouvimos com atenção o seu histórico, a intensidade das dores, suas rotinas de trabalho e sono, cirurgias prévias e exames trazidos.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-quiro-border/40 text-[11px] text-slate-400">
+          <i class="fa-solid fa-comments text-quiro-cyan mr-1.5"></i> Escuta ativa e individual
+        </div>
+      </div>
+
+      <!-- Etapa 02 -->
+      <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border hover:border-quiro-cyan/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-quiro-cyan/20 text-quiro-cyan flex items-center justify-center font-outfit font-black text-lg mb-5 border border-quiro-cyan/30">
+            02
+          </div>
+          <span class="text-[10px] font-mono uppercase text-quiro-cyan tracking-widest font-bold block mb-1">Exame Físico</span>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">Avaliação Articular</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Testamos a amplitude de movimento articular, os reflexos neurológicos e realizamos palpação estática e dinâmica vértebra por vértebra.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-quiro-border/40 text-[11px] text-slate-400">
+          <i class="fa-solid fa-stethoscope text-quiro-cyan mr-1.5"></i> Testes ortopédicos precisos
+        </div>
+      </div>
+
+      <!-- Etapa 03 -->
+      <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border hover:border-quiro-cyan/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-outfit font-black text-lg mb-5 border border-indigo-400/30">
+            03
+          </div>
+          <span class="text-[10px] font-mono uppercase text-indigo-300 tracking-widest font-bold block mb-1">Estratégia</span>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">Plano de Cuidado</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Explicamos visualmente as restrições encontradas e propomos a frequência de sessões e técnicas ideais para seu caso sem imposições.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-quiro-border/40 text-[11px] text-slate-400">
+          <i class="fa-solid fa-diagram-project text-indigo-400 mr-1.5"></i> Explicação didática clara
+        </div>
+      </div>
+
+      <!-- Etapa 04 -->
+      <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border hover:border-quiro-cyan/50 transition-all flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-outfit font-black text-lg mb-5 border border-emerald-400/30">
+            04
+          </div>
+          <span class="text-[10px] font-mono uppercase text-emerald-400 tracking-widest font-bold block mb-1">Evolução</span>
+          <h3 class="font-outfit font-bold text-xl text-white mb-2">Acompanhamento</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Acompanhamos sua resposta funcional ao longo das consultas e orientamos exercícios ergonômicos para proteger a sua coluna no dia a dia.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-quiro-border/40 text-[11px] text-slate-400">
+          <i class="fa-solid fa-person-walking-arrow-right text-emerald-400 mr-1.5"></i> Ganho contínuo de mobilidade
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: RECURSOS E EQUIPAMENTOS UTILIZADOS NO ATENDIMENTO                -->
+  <!-- ========================================================================= -->
+  <section id="equipamentos" class="py-20 bg-[#060D17] border-y border-quiro-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+          Infraestrutura Clínica
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Recursos Utilizados no Seu Atendimento
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Equipamentos ergonômicos e instrumentos certificados projetados para proporcionar máxima precisão com total conforto:
+        </p>
+      </div>
+
+      <!-- Feature Highlight: Real Clinical Drop Table Image & Specs -->
+      <div class="bg-quiro-card border border-quiro-border rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl mb-12">
+        <div class="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+          <img 
+            src="assets/quiro-clinica.jpg" 
+            alt="Maca Ergonômica Drop Table em uso na clínica de quiropraxia" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            loading="lazy" 
+            decoding="async"
+          />
+          <div class="absolute top-4 left-4 bg-quiro-dark/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-quiro-cyan/30 text-xs font-bold text-quiro-cyan">
+            <i class="fa-solid fa-hospital-user mr-1.5"></i> Consultório Real QuiroLife
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-cyan-200 text-black flex items-center justify-between text-xs">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-quiro-blue block">Precisão Mecânica Indolor</span>
+              <span class="font-bold text-sm text-slate-900">Maca Drop Table com Seções Articuladas</span>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-quiro-dark text-quiro-cyan font-bold text-xs">Ajuste Suave</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-hand-holding-medical"></i> Tecnologia Thompson Drop
+          </div>
+          <h3 class="font-outfit font-black text-2xl sm:text-3xl text-white tracking-tight leading-snug">
+            Maca de Alta Precisão (Drop Table)
+          </h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            As seções da maca sobem levemente e descem com rapidez controlada durante o ajuste. A inércia da queda absorve o impacto da manobra, permitindo um ajuste articular eficiente com o mínimo de força e sem torções desconfortáveis.
+          </p>
+
+          <ul class="space-y-2.5 text-xs text-slate-300">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-quiro-cyan"></i> Ideal para ajustes suaves de bacia, sacro e lombar</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-quiro-cyan"></i> Altamente segura para idosos ou pessoas com dor aguda</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-quiro-cyan"></i> Descompressão axial suave sem exigir força muscular do paciente</li>
+          </ul>
+
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20ajuste%20com%20a%20Maca%20Drop%20Table." target="_blank" class="shimmer-btn inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-quiro-blue to-quiro-cyan text-quiro-dark font-extrabold text-xs uppercase tracking-wider shadow-lg transition transform hover:scale-105">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Agendar Avaliação com Maca Drop</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auxiliary Real Equipment Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Ativador Neurológico -->
+        <div class="p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border hover:border-quiro-cyan/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center text-xl mb-4 border border-quiro-cyan/20">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-lg text-white mb-2">Instrumento Ativador (Activator)</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Dispositivo de impulso mecânico calibrado que envia um estímulo rápido e milimétrico antes que a musculatura contraia. Excelente para ajuste de vértebras cervicais delicadas.
+          </p>
+        </div>
+
+        <!-- Mesa de Descompressão & Flexo-Distração -->
+        <div class="p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border hover:border-quiro-cyan/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-xl mb-4 border border-cyan-400/20">
+            <i class="fa-solid fa-arrows-up-down"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-lg text-white mb-2">Mesa de Tração & Descompressão</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Movimento rítmico de tração e flexão que amplia o espaço intervertebral, diminuindo a pressão hidrostática sobre as raízes nervosas em casos de desconforto discal.
+          </p>
+        </div>
+
+        <!-- Modelo Anatômico & Biofeedback -->
+        <div class="p-6 rounded-3xl bg-quiro-card/70 border border-quiro-border hover:border-quiro-cyan/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4 border border-emerald-400/20">
+            <i class="fa-solid fa-bone"></i>
+          </div>
+          <h4 class="font-outfit font-bold text-lg text-white mb-2">Modelo Anatômico de Coluna</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Utilizado no início de cada consulta para mostrar exatamente ao paciente o funcionamento das facetas articulares e onde a mobilidade será restaurada.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: BENEFÍCIOS & OBJETIVOS DO CUIDADO (VISUAL FLOW)                  -->
+  <!-- ========================================================================= -->
+  <section id="beneficios" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+        Objetivos Terapêuticos
+      </span>
+      <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-3">
+        A Cadeia do Bem-Estar
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm mt-3">
+        Como o cuidado vertebral restabelece a harmonia em todas as dimensões da sua vida:
+      </p>
+    </div>
+
+    <!-- Visual Connecting Flow -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+      
+      <!-- Flow 1: MOBILIDADE -->
+      <div class="p-6 rounded-3xl bg-quiro-card border border-quiro-border/80 text-center relative group hover:border-quiro-cyan transition">
+        <div class="w-14 h-14 rounded-2xl bg-quiro-blue/20 text-quiro-cyan flex items-center justify-center text-2xl mx-auto mb-4 border border-quiro-cyan/30 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-arrows-spin"></i>
+        </div>
+        <span class="text-[10px] font-mono uppercase text-quiro-cyan font-bold tracking-widest block mb-1">Passo 1</span>
+        <h3 class="font-outfit font-bold text-xl text-white mb-2">MOBILIDADE</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Restauração do arco de movimento das vértebras travadas e liberação das cápsulas articulares.
+        </p>
+      </div>
+
+      <!-- Flow 2: CONFORTO -->
+      <div class="p-6 rounded-3xl bg-quiro-card border border-quiro-border/80 text-center relative group hover:border-quiro-cyan transition">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-2xl mx-auto mb-4 border border-cyan-400/30 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <span class="text-[10px] font-mono uppercase text-cyan-300 font-bold tracking-widest block mb-1">Passo 2</span>
+        <h3 class="font-outfit font-bold text-xl text-white mb-2">CONFORTO</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Redução gradual das tensões musculares reflexas e alívio do peso crônico sobre o pescoço e costas.
+        </p>
+      </div>
+
+      <!-- Flow 3: MOVIMENTO -->
+      <div class="p-6 rounded-3xl bg-quiro-card border border-quiro-border/80 text-center relative group hover:border-quiro-cyan transition">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-2xl mx-auto mb-4 border border-indigo-400/30 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-person-running"></i>
+        </div>
+        <span class="text-[10px] font-mono uppercase text-indigo-300 font-bold tracking-widest block mb-1">Passo 3</span>
+        <h3 class="font-outfit font-bold text-xl text-white mb-2">MOVIMENTO</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Retorno seguro às atividades físicas, esportes, lazer e rotina de trabalho sem receio de travar.
+        </p>
+      </div>
+
+      <!-- Flow 4: QUALIDADE DE VIDA -->
+      <div class="p-6 rounded-3xl bg-quiro-card border border-quiro-border/80 text-center relative group hover:border-emerald-400 transition">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mx-auto mb-4 border border-emerald-400/30 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+        <span class="text-[10px] font-mono uppercase text-emerald-400 font-bold tracking-widest block mb-1">Passo 4</span>
+        <h3 class="font-outfit font-bold text-xl text-white mb-2">QUALIDADE DE VIDA</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Sono reparador, maior disposição diária e menor dependência de analgésicos para enfrentar o dia.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: CREDIBILIDADE, DEPOIMENTOS E AVALIAÇÕES REAIS                    -->
+  <!-- ========================================================================= -->
+  <section class="py-20 bg-[#060D17] border-y border-quiro-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+          Experiência do Paciente
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Histórias de Quem Recuperou o Movimento
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Relatos reais com foco em mobilidade, acolhimento e clareza no plano de cuidado:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Testimonial 1 -->
+        <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
+              "Trabalho 9 horas por dia sentado no computador e chegava em casa com o pescoço em chamas. A avaliação me ensinou onde estava a sobrecarga. Em poucas semanas voltei a girar o pescoço sem dor."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-quiro-border/60 flex items-center justify-between text-xs">
+            <div>
+              <strong class="text-white block font-bold">Rodrigo M.</strong>
+              <span class="text-slate-400 text-[11px]">Desenvolvedor de Software • 34 anos</span>
+            </div>
+            <span class="text-[10px] font-mono text-quiro-cyan bg-quiro-blue/10 px-2 py-0.5 rounded border border-quiro-cyan/20">Cervical</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
+              "Tinha muito medo de ajustes por causa dos vídeos de internet. Mas o atendimento foi super técnico, o quiropraxista explicou cada detalhe antes de encostar na coluna. Foi tranquilo e extremamente aliviador."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-quiro-border/60 flex items-center justify-between text-xs">
+            <div>
+              <strong class="text-white block font-bold">Camila S.</strong>
+              <span class="text-slate-400 text-[11px]">Arquiteta • 42 anos</span>
+            </div>
+            <span class="text-[10px] font-mono text-quiro-ice bg-quiro-blue/10 px-2 py-0.5 rounded border border-quiro-cyan/20">Lombar</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="p-6 sm:p-7 rounded-3xl bg-quiro-card border border-quiro-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-4">
+              "Depois que iniciei as sessões preventivas da coluna, parei de travar ao brincar com meus filhos ou treinar na academia. O consultório na Paulista é impecável e muito pontual."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-quiro-border/60 flex items-center justify-between text-xs">
+            <div>
+              <strong class="text-white block font-bold">Eduardo T.</strong>
+              <span class="text-slate-400 text-[11px]">Empresário • 48 anos</span>
+            </div>
+            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-400/20">Prevenção</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: PLANOS DE CUIDADO & INVESTIMENTO                                 -->
+  <!-- ========================================================================= -->
+  <section id="planos" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+        Transparência & Acesso
+      </span>
+      <h2 class="font-outfit font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-3">
+        Planos de Cuidado & Alívio
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm mt-3">
+        Opções pensadas para desde o primeiro diagnóstico até o acompanhamento postural contínuo:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Sessão Inicial -->
+      <div class="bg-quiro-card p-8 rounded-3xl border border-quiro-border flex flex-col justify-between hover:border-quiro-cyan/40 transition">
+        <div>
+          <span class="text-xs font-bold uppercase text-slate-400">Primeira Visita</span>
+          <h3 class="font-outfit font-bold text-2xl text-white mt-1 mb-4">Avaliação + Ajuste</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-black text-white">R$ 180,00</span>
+            <span class="text-xs text-slate-400 block mt-1">consulta completa e primeiro alívio biomecânico</span>
+          </div>
+          <ul class="space-y-3 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Anamnese e histórico clínico detalhado</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Testes ortopédicos e palpação articular</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Ajuste quiroprático completo e descompressão</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Orientações posturais personalizadas</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20minha%20Primeira%20Visita%20(Avalia%C3%A7%C3%A3o%20%2B%20Ajuste)%20por%20R%24%20180." target="_blank" class="w-full py-4 rounded-xl bg-quiro-border/80 hover:bg-quiro-border text-white font-bold text-xs uppercase tracking-wider text-center transition" rel="noopener noreferrer">
+          Agendar Primeira Sessão
+        </a>
+      </div>
+
+      <!-- Pacote 5 Sessões (Destaque) -->
+      <div class="bg-quiro-card p-8 rounded-3xl border-2 border-quiro-cyan shadow-xl shadow-cyan-500/20 relative flex flex-col justify-between transform md:-translate-y-2">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-quiro-blue to-quiro-cyan text-quiro-dark text-[10px] font-black uppercase tracking-wider px-4 py-1 rounded-full shadow">
+          Plano Mais Recomendado
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase text-quiro-cyan">Fase Corretiva</span>
+          <h3 class="font-outfit font-bold text-2xl text-white mt-1 mb-4">Pacote 5 Sessões</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-black text-quiro-cyan">3x de R$ 240</span>
+            <span class="text-xs text-slate-400 block mt-1">ou R$ 680 à vista (economia de R$ 220)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> 5 sessões completas de ajustes e descompressão</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Liberação miofascial com pistola massageadora</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Reavaliação contínua da evolução articular</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Horários flexíveis e preferenciais na agenda</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20o%20Pacote%20de%205%20Sess%C3%B5es%20com%20desconto%20na%20QuiroLife." target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-gradient-to-r from-quiro-blue to-quiro-cyan hover:opacity-95 text-quiro-dark font-extrabold text-xs uppercase tracking-wider text-center shadow-lg shadow-cyan-500/25 transition" rel="noopener noreferrer">
+          Garantir Pacote com Desconto
+        </a>
+      </div>
+
+      <!-- Manutenção Mensal -->
+      <div class="bg-quiro-card p-8 rounded-3xl border border-quiro-border flex flex-col justify-between hover:border-quiro-cyan/40 transition">
+        <div>
+          <span class="text-xs font-bold uppercase text-slate-400">Prevenção Vitalícia</span>
+          <h3 class="font-outfit font-bold text-2xl text-white mt-1 mb-4">Clube Coluna Viva</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-black text-white">R$ 130,00</span>
+            <span class="text-xs text-slate-400 block mt-1">/mês (1 ajuste mensal de manutenção preventiva)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> 1 ajuste mensal para prevenir crises e bloqueios</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> 25% de desconto em sessões adicionais no mês</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Canal de suporte direto com a equipe clínica</li>
+            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-quiro-cyan"></i> Manutenção contínua da sua postura e saúde</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Tenho%20interesse%20em%20assinar%20o%20Clube%20Coluna%20Viva%20(R%24%20130%2Fm%C3%AAs)." target="_blank" class="w-full py-4 rounded-xl bg-quiro-border/80 hover:bg-quiro-border text-white font-bold text-xs uppercase tracking-wider text-center transition" rel="noopener noreferrer">
+          Assinar Clube Preventivo
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: GEO & AI SEARCH / ACCORDION FAQ                                  -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-20 bg-gradient-to-b from-quiro-dark via-[#081220] to-quiro-dark border-y border-quiro-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-quiro-cyan bg-quiro-blue/15 px-3.5 py-1.5 rounded-full border border-quiro-cyan/30">
+          Perguntas Frequentes
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Tire Suas Dúvidas Sobre o Atendimento
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Informações transparentes e baseadas em evidências para você se sentir 100% seguro:
+        </p>
+      </div>
+
+      <!-- Accordion List -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <details class="group bg-quiro-card rounded-2xl border border-quiro-border p-5 cursor-pointer transition">
+          <summary class="flex items-center justify-between font-outfit font-bold text-base text-white list-none">
+            <span>A quiropraxia dói ou os "estalos" são perigosos?</span>
+            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 transition-transform text-sm"></i>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-quiro-border/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Não dói. O som do "estalo" (cavitação articular) é simplesmente a liberação de pequenas bolhas de gás presentes no líquido sinovial que lubrifica as articulações quando a pressão interna diminui. O procedimento é altamente seguro quando realizado por profissionais graduados e associados à ABQ.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group bg-quiro-card rounded-2xl border border-quiro-border p-5 cursor-pointer transition">
+          <summary class="flex items-center justify-between font-outfit font-bold text-base text-white list-none">
+            <span>Como funciona a primeira consulta de avaliação?</span>
+            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 transition-transform text-sm"></i>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-quiro-border/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            A primeira consulta dura cerca de 45 a 60 minutos e compreende: anamnese completa do seu histórico de saúde, testes ortopédicos e neurológicos, palpação articular minuciosa e, havendo indicação clínica segura, o seu primeiro ajuste completo da coluna.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group bg-quiro-card rounded-2xl border border-quiro-border p-5 cursor-pointer transition">
+          <summary class="flex items-center justify-between font-outfit font-bold text-base text-white list-none">
+            <span>Preciso levar exames de raio-X ou ressonância magnética?</span>
+            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 transition-transform text-sm"></i>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-quiro-border/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Se você já possui exames recentes da coluna, recomendamos trazê-los na consulta. Contudo, não é obrigatório ter exames prévios para iniciar: nossa avaliação física detalhada identifica se há necessidade de solicitar exames complementares adicionais.
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group bg-quiro-card rounded-2xl border border-quiro-border p-5 cursor-pointer transition">
+          <summary class="flex items-center justify-between font-outfit font-bold text-base text-white list-none">
+            <span>Quantas sessões geralmente são necessárias?</span>
+            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 transition-transform text-sm"></i>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-quiro-border/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            O número varia de acordo com o tempo da queixa, estilo de vida e grau de rigidez articular. Casos agudos frequentemente experimentam grande alívio já nas primeiras consultas, enquanto desvios crônicos costumam se beneficiar de um plano de 4 a 6 sessões para estabilização duradoura.
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="group bg-quiro-card rounded-2xl border border-quiro-border p-5 cursor-pointer transition">
+          <summary class="flex items-center justify-between font-outfit font-bold text-base text-white list-none">
+            <span>Quem tem hérnia de disco pode fazer quiropraxia?</span>
+            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 transition-transform text-sm"></i>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-quiro-border/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sim, desde que com técnicas adaptadas. Pacientes com protrusão ou hérnia são tratados com protocolos suaves de tração, mesa de descompressão e mobilização articular sem rotações bruscas, promovendo alívio da pressão mecânica sobre as raízes nervosas.
+          </div>
+        </details>
+
+        <!-- FAQ 6 -->
+        <details class="group bg-quiro-card rounded-2xl border border-quiro-border p-5 cursor-pointer transition">
+          <summary class="flex items-center justify-between font-outfit font-bold text-base text-white list-none">
+            <span>A quiropraxia é indicada para idosos e crianças?</span>
+            <i class="faq-chevron fa-solid fa-chevron-down text-slate-400 transition-transform text-sm"></i>
+          </summary>
+          <div class="mt-4 pt-3 border-t border-quiro-border/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sim. As técnicas são totalmente adaptadas à densidade óssea e idade de cada paciente. Em idosos e gestantes, por exemplo, utilizamos o instrumento Activator e a maca Drop Table, que realizam ajustes extremamente suaves sem sobrecarga.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: LOCALIZAÇÃO & ACESSO (SÃO PAULO - CAPITAL)                       -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Tratamento Especializado da Coluna Vertebral</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Ajustes quiropráticos seguros com macas de drop e tração computadorizada para alívio imediato.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/quiro-hero.jpg" alt="Maca de Drop & Tecnologia Quiroprática" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Maca de Drop & Tecnologia Quiroprática</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Equipamentos modernos que proporcionam ajustes articulares precisos com máximo conforto.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/quiro-spine.jpg" alt="Descompressão da Coluna & Hérnia de Disco" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Descompressão da Coluna & Hérnia de Disco</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Alívio da pressão sobre os discos vertebrais e nervo ciático sem cirurgias invasivas.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/quiro-clinic.jpg" alt="Consultório Clínico Acolhedor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Consultório Clínico Acolhedor</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Ambiente calmo, higienizado e projetado para um atendimento relaxante e individual.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/quiro-wellness.jpg" alt="Recuperação Postural & Mobilidade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Recuperação Postural & Mobilidade</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Exercícios complementares de fortalecimento para manutenção da estabilidade da coluna.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que Tratar Sua Coluna na Coluna Viva?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Alívio real de dores na coluna, hérnia de disco e ciático com tecnologia e sem cirurgia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Tratamentos Paliativos / Remédios</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Uso contínuo de anti-inflamatórios que apenas mascaram a dor e agridem o estômago</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Encaminhamentos rápidos para cirurgias invasivas de alto risco</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Sessões de massagem superficiais que não corrigem o desalinhamento vertebral</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de exames complementares e avaliação biomecânica minuciosa</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Alívio da Causa
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">Coluna Viva Quiropraxia</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Ajustes quiropráticos seguros com macas de drop para alívio articular imediato</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Descompressão computadorizada de hérnia de disco sem dor e sem cirurgia</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Avaliação postural minuciosa com testes ortopédicos e análise de exames de imagem</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Orientações ergonômicas e exercícios personalizados de estabilização da coluna</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20na%20Coluna%20Viva%20Quiropraxia." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>O ajuste quiroprático dói?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Não! O ajuste é rápido e indolor. A grande maioria dos pacientes relata alívio imediato da pressão nas costas.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>O que é o barulho de estalo no ajuste?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            É apenas a liberação de bolhas de gás (cavitação) do líquido sinovial dentro da cápsula articular.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Quantas sessões são necessárias?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Varia de acordo com o caso, mas uma avaliação inicial define o protocolo exato para remissão dos sintomas.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Tatiane Fonseca</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Cheguei travada com crise no ciático e saí andando normalmente. Profissional espetacular!"</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Eduardo Prado</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Minhas dores de cabeça tensionais e rigidez no pescoço desapareceram após 3 semanas."</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-20 bg-quiro-dark border-t border-quiro-border/60 text-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-quiro-card border border-quiro-border text-quiro-cyan text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso no Coração de São Paulo</span>
+        </div>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight">
+          Onde Estamos Localizados
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+          Consultório especializado em alinhamento biomecânico, alívio de dor ciática e mobilidade articular na Av. Paulista:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card (5 cols) -->
+        <div class="lg:col-span-5 bg-quiro-card rounded-3xl p-6 sm:p-8 border border-quiro-border text-white shadow-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-quiro-blue to-quiro-cyan text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-bone"></i>
+              </div>
+              <div>
+                <span class="font-outfit font-bold text-lg text-white block">QuiroLife Paulista</span>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-quiro-cyan block">Quiropraxia Clínica & Biomecânica</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-quiro-cyan text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Atendimento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-quiro-border/60 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-quiro-blue/20 hover:bg-quiro-blue/30 border border-quiro-cyan/40 text-quiro-cyan text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(Av.%20Paulista%201000)." target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl bg-quiro-cardHover hover:bg-quiro-border text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-quiro-border">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Embed Container (7 cols) -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-quiro-border bg-quiro-card min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização QuiroLife na Av. Paulista em São Paulo - SP"
+            class="w-full h-full filter brightness-90 contrast-105"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION: CTA FINAL                                                        -->
+  <!-- ========================================================================= -->
+  <section class="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-t from-quiro-card via-quiro-dark to-quiro-dark border-t border-quiro-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-quiro-blue/15 border border-quiro-cyan/30 text-quiro-cyan text-xs font-mono font-bold uppercase tracking-wider mb-6">
+        <i class="fa-solid fa-sparkles"></i> Dê o Primeiro Passo
+      </div>
+
+      <h2 class="font-outfit font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight mb-6">
+        Seu próximo passo começa com uma avaliação.
+      </h2>
+
+      <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-xl mx-auto leading-relaxed mb-10">
+        Converse com nossa equipe e descubra como a quiropraxia clínica pode devolver a harmonia, a postura e a mobilidade ao seu corpo.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20da%20minha%20coluna%20na%20QuiroLife." target="_blank" class="shimmer-btn magnetic-btn px-9 py-4 rounded-xl bg-gradient-to-r from-quiro-blue via-quiro-cyan to-cyan-300 text-quiro-dark font-black text-xs uppercase tracking-wider shadow-xl shadow-cyan-500/25 flex items-center justify-center gap-2.5 transition transform hover:scale-105" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Agendar Avaliação no WhatsApp</span>
+        </a>
+
+        <button onclick="openVideoQvModal()" class="px-7 py-4 rounded-xl bg-quiro-card hover:bg-quiro-cardHover text-white font-bold text-xs uppercase tracking-wider border border-quiro-border flex items-center justify-center gap-2 transition">
+          <i class="fa-solid fa-circle-play text-quiro-cyan text-base"></i>
+          <span>Assistir Vídeo Explicativo</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-quiro-border/60 py-12 text-center text-xs text-slate-400 bg-quiro-dark">
+    <div class="max-w-7xl mx-auto px-4 space-y-3">
+      <div class="flex items-center justify-center gap-2 text-white font-outfit font-bold text-base">
+        <span>QuiroLife</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-quiro-cyan"></span>
+        <span class="text-slate-400 font-normal text-xs">Clínica Especializada em Quiropraxia & Saúde da Coluna</span>
+      </div>
+      <p class="text-slate-400">
+        Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP • Telefone/WhatsApp: (32) 99929-2311
+      </p>
+      <p class="text-[11px] text-slate-500">
+        © 2026 QuiroLife. Todos os direitos reservados. Informações de caráter exclusivamente educativo. Não substitui consulta profissional presencial.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO EXPLICATIVO & QUALIDADE DE VIDA                              -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-quiro-card text-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-quiro-border relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-quiro-dark hover:bg-quiro-cardHover text-slate-300 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-quiro-blue/20 text-quiro-cyan text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-outfit font-black text-white mb-2 leading-tight">
+        Vida Sem Dores na Coluna: Recupere sua Mobilidade e Vitalidade
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
+        Descubra como os ajustes articulares precisos e a descompressão manual aliviam as restrições biomecânicas e devolvem sua disposição diária sem remédios.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5 border border-quiro-border">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-quiro-cyan"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20da%20QuiroLife." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-gradient-to-r from-quiro-blue to-quiro-cyan text-quiro-dark flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-quiro-ice text-xs">Avaliação minuciosa, descompressão discal e ajustes manuais de precisão</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-quiro-border mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-quiro-dark">
+          <i class="fa-solid fa-clock-rotate-left text-quiro-cyan block text-base mb-1"></i>
+          <strong class="block text-white text-[11px] font-bold">Sem Espera</strong>
+          <span class="text-[10px] text-slate-400">Pontualidade rígida</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-quiro-dark">
+          <i class="fa-solid fa-shield-halved text-emerald-400 block text-base mb-1"></i>
+          <strong class="block text-white text-[11px] font-bold">Segurança Total</strong>
+          <span class="text-[10px] text-slate-400">Profissional ABQ</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-quiro-dark">
+          <i class="fa-solid fa-bolt text-quiro-ice block text-base mb-1"></i>
+          <strong class="block text-white text-[11px] font-bold">Agendamento Fácil</strong>
+          <span class="text-[10px] text-slate-400">Direto no WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20na%20QuiroLife%20com%20prioridade." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-gradient-to-r from-quiro-blue to-quiro-cyan text-quiro-dark font-black text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Conversar com Especialista no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (TRIGGERED AFTER HERO SCROLL)                    -->
+  <!-- ========================================================================= -->
+  <div id="mobile-sticky-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-quiro-dark/95 backdrop-blur-md border-t border-quiro-border p-2.5 px-4 flex items-center justify-between gap-3 sm:hidden shadow-2xl transition-transform duration-300 translate-y-full">
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20a%20avalia%C3%A7%C3%A3o%20quiropr%C3%A1tica." target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
+      <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+    </a>
+    <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20da%20minha%20coluna." target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-quiro-blue to-quiro-cyan text-quiro-dark font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
+      <i class="fa-regular fa-calendar-check text-sm"></i> Agendar
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SCRIPTS & INTERACTION ENGINE                                              -->
+  <!-- ========================================================================= -->
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- 3D Spine Viewer Engine -->
+  <script src="assets/js/spine-engine.js"></script>
+  <!-- Modular Pain Map -->
+  <script src="assets/js/pain-map.js"></script>
+  <!-- Posture Comparison Slider -->
+  <script src="assets/js/posture-slider.js"></script>
+
+  <!-- Page Integration Script -->
+  <script>
+    // Initialize 3D Spine in Hero
+    document.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('spine-loader');
+      
+      try {
+        window.heroSpineViewer = new SpineViewer('spine-canvas-container', {
+          fov: 38,
+          autoRotate: true,
+          fallbackId: 'spine-fallback',
+          onRegionSelect: (regionKey) => {
+            // Sincroniza com mapa da dor se compatível
+            if (window.painUI && painData[regionKey]) {
+              painUI.select(regionKey, false);
+            }
+          }
+        });
+
+        if (loader) loader.remove();
+      } catch (err) {
+        console.error('Failed to start SpineViewer:', err);
+        if (loader) loader.remove();
+      }
+
+      // Mobile Menu Drawer Toggle
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const drawer = document.getElementById('mobile-drawer');
+      if (menuBtn && drawer) {
+        menuBtn.addEventListener('click', () => {
+          drawer.classList.toggle('hidden');
+        });
+
+        // Close on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => drawer.classList.add('hidden'));
+        });
+      }
+
+      // Mobile Sticky Bottom Bar Scroll Trigger
+      const stickyBar = document.getElementById('mobile-sticky-bar');
+      if (stickyBar) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 450) {
+            stickyBar.classList.remove('translate-y-full');
+          } else {
+            stickyBar.classList.add('translate-y-full');
+          }
+        }, { passive: true });
+      }
+
+      // Custom Desktop Cursor Handling
+      const cursor = document.getElementById('app-cursor');
+      const cursorDot = document.getElementById('app-cursor-dot');
+      
+      if (cursor && cursorDot && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        let mouseX = -100, mouseY = -100;
+        let cursorX = -100, cursorY = -100;
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursorDot.style.left = `${mouseX}px`;
+          cursorDot.style.top = `${mouseY}px`;
+        });
+
+        function renderCursor() {
+          cursorX += (mouseX - cursorX) * 0.18;
+          cursorY += (mouseY - cursorY) * 0.18;
+          cursor.style.left = `${cursorX}px`;
+          cursor.style.top = `${cursorY}px`;
+          requestAnimationFrame(renderCursor);
+        }
+        renderCursor();
+
+        // 3D Canvas hover state
+        const canvasContainer = document.getElementById('spine-canvas-container');
+        if (canvasContainer) {
+          canvasContainer.addEventListener('mouseenter', () => cursor.classList.add('cursor-spine-hover'));
+          canvasContainer.addEventListener('mouseleave', () => cursor.classList.remove('cursor-spine-hover'));
+        }
+
+        // Magnetic Button Effect on Primary CTAs
+        const magneticButtons = document.querySelectorAll('.magnetic-btn');
+        magneticButtons.forEach(btn => {
+          btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+          });
+          btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+          });
+        });
+      }
+    });
+
+    // Modal Helpers
+    function openVideoQvModal() {
+      const modal = document.getElementById('video-qv-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const modal = document.getElementById('video-qv-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideoQvModal();
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">Coluna Viva Quiropraxia</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20na%20Coluna%20Viva%20Quiropraxia." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

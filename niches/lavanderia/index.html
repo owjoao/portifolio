@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LavaClean Express | Lavanderia Premium & Coleta Delivery</title>
+  <meta name="description" content="Sua roupa lavada, seca, passada e cheirosa sem você sair de casa. Simule seu orçamento online e agende a coleta grátis no seu endereço." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            laundry: {
+              dark: '#0A131F',
+              card: '#112236',
+              border: '#1E3A5F',
+              cyan: '#06B6D4',
+              blue: '#2563EB',
+              sky: '#38BDF8',
+              bubble: '#E0F2FE'
+            }
+          },
+          animation: {
+            'marquee': 'marquee 22s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "DryCleaningOrLaundry",
+  "name": "LavaClean Express • Lavanderia Sustentável",
+  "description": "Lavanderia moderna com higienização bactericida a vapor, planos mensais e delivery leva e traz.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/lavanderia/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000 - Bela Vista / Jardins",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$$"
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-laundry-dark text-slate-100 font-sans antialiased selection:bg-laundry-cyan selection:text-black">
+
+  <!-- Top Delivery Banner -->
+  <div class="bg-gradient-to-r from-laundry-card via-laundry-border to-laundry-card border-b border-laundry-border py-2 px-4 text-xs font-semibold">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 text-laundry-sky">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Delivery Leva & Traz Ativo • Coleta Grátis acima de R$ 70 na sua região</span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="text-white hover:text-laundry-cyan transition flex items-center gap-1.5 font-bold" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> (32) 99929-2311
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-laundry-dark/95 backdrop-blur-md border-b border-laundry-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-laundry-cyan to-laundry-blue flex items-center justify-center text-white shadow-lg shadow-cyan-500/20 text-xl">
+          <i class="fa-solid fa-soap"></i>
+        </div>
+        <div>
+          <span class="font-outfit font-black text-2xl text-white tracking-tight">LAVACLEAN</span>
+          <span class="block text-[9px] font-mono tracking-widest uppercase text-laundry-cyan font-bold -mt-1">Express & Delivery</span>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-300">
+        <a href="#calculadora" class="hover:text-laundry-cyan transition flex items-center gap-1.5">
+          <i class="fa-solid fa-calculator text-laundry-cyan"></i>
+          <span>Orçamento Online</span>
+        </a>
+        <a href="#como-funciona" class="hover:text-laundry-cyan transition">Como Funciona</a>
+        <a href="#servicos" class="hover:text-laundry-cyan transition">Serviços Especiais</a>
+        <a href="#planos" class="hover:text-laundry-cyan transition">Planos Mensais</a>
+      </nav>
+
+      <!-- CTA -->
+      <div>
+        <a href="#calculadora" class="shimmer-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-laundry-cyan to-laundry-blue hover:opacity-90 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/25 transition transform hover:scale-105">
+          Calcular Orçamento
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="reveal relative py-16 md:py-24 overflow-hidden border-b border-laundry-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left Copy -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-laundry-cyan/10 border border-laundry-cyan/30 text-laundry-cyan text-xs font-bold uppercase tracking-wider mb-6">
+            <i class="fa-solid fa-truck text-xs"></i>
+            Coletamos e Entregamos na Sua Porta
+          </div>
+
+          <h1 class="font-outfit font-black text-4xl sm:text-6xl text-white tracking-tight leading-[1.1] mb-6">
+            Roupas Impecáveis, Macias e Cheirosas. <span class="text-transparent bg-clip-text bg-gradient-to-r from-laundry-cyan via-laundry-sky to-laundry-blue">Sem Nenhum Trabalho.</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+            Economize mais de 8 horas da sua semana. Lavamos, higienizamos com ozônio, passamos a ferro e entregamos embaladas prontas para o guarda-roupa em 48h.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="#calculadora" class="shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-laundry-cyan to-laundry-blue hover:opacity-90 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/30 text-center flex items-center justify-center gap-2">
+              <i class="fa-solid fa-calculator text-sm"></i>
+              <span>Fazer Orçamento Online Agora</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="px-8 py-4 rounded-xl bg-laundry-card hover:bg-laundry-border text-white font-bold text-xs uppercase tracking-wider border border-laundry-border text-center flex items-center justify-center gap-2" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+              <span>Agendar Coleta Direta</span>
+            </a>
+          </div>
+
+          <!-- Quick Badges -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-laundry-border/60 text-center">
+            <div>
+              <div class="font-outfit font-black text-2xl text-laundry-cyan" class="counter-up" data-target="48 Horas">48 Horas</div>
+              <div class="text-[11px] text-slate-400">Prazo de Entrega</div>
+            </div>
+            <div>
+              <div class="font-outfit font-black text-2xl text-white">Ozônio 3D</div>
+              <div class="text-[11px] text-slate-400">Elimina 99.9% Bactérias</div>
+            </div>
+            <div>
+              <div class="font-outfit font-black text-2xl text-emerald-400" class="counter-up" data-target="+15.000">+15.000</div>
+              <div class="text-[11px] text-slate-400">Peças Entregues</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Quick Feature Card -->
+        <div class="relative">
+          <div class="card-lift bg-laundry-card p-6 sm:p-8 rounded-3xl border border-laundry-border/80 shadow-2xl relative overflow-hidden">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-300">
+                Padrão de Higienização LavaClean
+              </span>
+              <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                Garantia Total
+              </span>
+            </div>
+
+            <!-- Steps list -->
+            <div class="space-y-4">
+              <div class="p-4 rounded-2xl bg-laundry-dark/70 border border-laundry-border/60 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-laundry-cyan/10 text-laundry-cyan flex items-center justify-center font-bold text-lg">
+                  1
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Triagem & Separação por Tecido</h4>
+                  <p class="text-xs text-slate-400">Cores, delicados e algodão tratados separadamente.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-laundry-dark/70 border border-laundry-border/60 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-laundry-blue/10 text-laundry-blue flex items-center justify-center font-bold text-lg">
+                  2
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Lavagem com Sabão Biodegradável</h4>
+                  <p class="text-xs text-slate-400">Amaciante hipoalergênico e água tratada com ozônio.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-laundry-dark/70 border border-laundry-border/60 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                  3
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Passadoria a Vapor & Embalagem Selada</h4>
+                  <p class="text-xs text-slate-400">Entregue em cabides ou dobradas com proteção anti-poeira.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 rounded-xl bg-gradient-to-r from-laundry-cyan/10 to-laundry-blue/10 border border-laundry-cyan/30 text-center">
+              <p class="text-xs text-laundry-sky font-semibold">
+                <i class="fa-solid fa-sparkles text-laundry-cyan mr-1.5"></i> Suas roupas voltam com cheiro de lavanderia de hotel 5 estrelas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Bar -->
+  <div class="py-5 bg-laundry-card/80 border-b border-laundry-border/60 overflow-hidden">
+    <div class="flex gap-8 whitespace-nowrap animate-marquee">
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-shirt text-laundry-cyan"></i> Roupas do Dia a Dia</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-bed text-laundry-sky"></i> Edredons, Cobertores & Cortinas</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-vest text-laundry-cyan"></i> Ternos & Vestidos Finos a Seco</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-shoe-prints text-laundry-sky"></i> Higienização de Tênis</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"><i class="fa-solid fa-van-shuttle text-emerald-400"></i> Coleta e Devolução em 48h</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ONLINE QUOTE CALCULATOR (Mandatory User Requirement for Cleaning)          -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- MÁQUINAS MIELE INOX & ROUPAS DOBRADAS (FLOW PHOTOREALISTIC ASSET)         -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#080E17] border-b border-cyan-900/40 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="card-lift bg-[#0D1624] border border-cyan-500/30 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+        <div class="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/10 shadow-2xl group">
+          <img 
+            src="assets/lavanderia-moderna.jpg" 
+            alt="Lavanderia moderna com fileira de lavadoras industriais inox Miele e toalhas brancas dobradas em cestos de vime" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            loading="lazy" 
+            decoding="async"
+          />
+          <div class="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-cyan-300">
+            <i class="fa-solid fa-shirt mr-1.5"></i> Tecnologia Industrial Miele Inox
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-cyan-200 text-black flex items-center justify-between text-xs">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-cyan-700 block">Lavagem com Ozônio & Toalhas Macias</span>
+              <span class="font-bold text-sm text-slate-900">Roupas Lavadas, Secas & Passadas em 24h</span>
+            </div>
+            <span class="px-3 py-1 rounded-lg bg-cyan-950 text-cyan-300 font-bold text-xs">Delivery Grátis</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-water"></i> Economize 12 Horas por Semana
+          </div>
+          <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white tracking-tight leading-snug">
+            Suas Roupas Perfumadas, Macias e Prontas para o Armário
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Adeus varal na sala e montanhas de roupas para passar no domingo. Coletamos na sua casa, higienizamos com produtos ecológicos e entregamos tudo dobrado e perfumado.
+          </p>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-cyan-400 font-black text-2xl counter-up" data-target="24h">24h</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Entrega Rápida</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-emerald-400 font-black text-2xl counter-up" data-target="100%">100%</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Hipoalergênico</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10">
+              <div class="text-amber-400 font-black text-2xl">R$ 0</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">Taxa de Coleta</div>
+            </div>
+          </div>
+          <div class="pt-2">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%20Lavamax!%20Gostaria%20de%20agendar%20uma%20coleta%20de%20roupas." target="_blank" class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-cyan-950/40 transition transform hover:scale-105">
+              <i class="fa-solid fa-truck"></i>
+              <span>Solicitar Coleta no Meu Endereço</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculadora" class="py-20 max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="card-lift bg-laundry-card p-6 sm:p-12 rounded-3xl border-2 border-laundry-cyan/40 shadow-2xl relative overflow-hidden">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-laundry-cyan bg-laundry-cyan/10 px-3.5 py-1.5 rounded-full border border-laundry-cyan/30">
+          Simulador de Preço em Tempo Real
+        </span>
+        <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-3">
+          Calcule seu Orçamento Online
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">
+          Selecione a quantidade de peças ou cestos e veja o valor exato estimado instantaneamente.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Controls Column (2 cols) -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Item 1: Cesto Dia a Dia -->
+          <div class="p-4 rounded-2xl bg-laundry-dark/80 border border-laundry-border/80 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-sm text-white flex items-center gap-2">
+                <i class="fa-solid fa-basket-shopping text-laundry-cyan"></i>
+                <span>Cesto Dia a Dia (até 25 peças)</span>
+              </h4>
+              <span class="text-xs text-slate-400">Camisetas, bermudas, roupas íntimas (R$ 49,90 cada)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="changeQty('cesto', -1)" class="w-8 h-8 rounded-lg bg-laundry-card hover:bg-laundry-border border border-white/10 text-white font-bold flex items-center justify-center">-</button>
+              <span id="qty-cesto" class="font-outfit font-black text-lg text-white w-6 text-center">1</span>
+              <button onclick="changeQty('cesto', 1)" class="w-8 h-8 rounded-lg bg-laundry-cyan text-black font-bold flex items-center justify-center">+</button>
+            </div>
+          </div>
+
+          <!-- Item 2: Edredom Casal / Queen -->
+          <div class="p-4 rounded-2xl bg-laundry-dark/80 border border-laundry-border/80 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-sm text-white flex items-center gap-2">
+                <i class="fa-solid fa-bed text-laundry-sky"></i>
+                <span>Edredom Casal ou Queen</span>
+              </h4>
+              <span class="text-xs text-slate-400">Lavagem profunda e secagem anti-ácaros (R$ 38,00 cada)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="changeQty('edredom', -1)" class="w-8 h-8 rounded-lg bg-laundry-card hover:bg-laundry-border border border-white/10 text-white font-bold flex items-center justify-center">-</button>
+              <span id="qty-edredom" class="font-outfit font-black text-lg text-white w-6 text-center">0</span>
+              <button onclick="changeQty('edredom', 1)" class="w-8 h-8 rounded-lg bg-laundry-cyan text-black font-bold flex items-center justify-center">+</button>
+            </div>
+          </div>
+
+          <!-- Item 3: Terno Completo / Blazer -->
+          <div class="p-4 rounded-2xl bg-laundry-dark/80 border border-laundry-border/80 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-sm text-white flex items-center gap-2">
+                <i class="fa-solid fa-user-tie text-laundry-cyan"></i>
+                <span>Terno Completo (Paletó + Calça)</span>
+              </h4>
+              <span class="text-xs text-slate-400">Lavagem a seco e acabamento em cabide (R$ 45,00 cada)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="changeQty('terno', -1)" class="w-8 h-8 rounded-lg bg-laundry-card hover:bg-laundry-border border border-white/10 text-white font-bold flex items-center justify-center">-</button>
+              <span id="qty-terno" class="font-outfit font-black text-lg text-white w-6 text-center">0</span>
+              <button onclick="changeQty('terno', 1)" class="w-8 h-8 rounded-lg bg-laundry-cyan text-black font-bold flex items-center justify-center">+</button>
+            </div>
+          </div>
+
+          <!-- Item 4: Tênis / Calçados -->
+          <div class="p-4 rounded-2xl bg-laundry-dark/80 border border-laundry-border/80 flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-sm text-white flex items-center gap-2">
+                <i class="fa-solid fa-shoe-prints text-laundry-sky"></i>
+                <span>Par de Tênis Esportivo ou Casual</span>
+              </h4>
+              <span class="text-xs text-slate-400">Limpeza profunda da sola, cadarço e cabedal (R$ 35,00 par)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="changeQty('tenis', -1)" class="w-8 h-8 rounded-lg bg-laundry-card hover:bg-laundry-border border border-white/10 text-white font-bold flex items-center justify-center">-</button>
+              <span id="qty-tenis" class="font-outfit font-black text-lg text-white w-6 text-center">0</span>
+              <button onclick="changeQty('tenis', 1)" class="w-8 h-8 rounded-lg bg-laundry-cyan text-black font-bold flex items-center justify-center">+</button>
+            </div>
+          </div>
+
+          <!-- Optional Add-on: Passadoria a Ferro -->
+          <div class="p-4 rounded-2xl bg-laundry-dark/60 border border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="check-passar" onchange="calculateTotal()" class="w-5 h-5 rounded text-laundry-cyan focus:ring-0 cursor-pointer">
+              <label for="check-passar" class="cursor-pointer">
+                <span class="font-bold text-sm text-white block">Adicionar Passadoria a Ferro em Todas as Peças</span>
+                <span class="text-xs text-slate-400">+ R$ 20,00 no total do pedido</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Result / Summary Column (1 col) -->
+        <div class="p-6 rounded-2xl bg-laundry-dark border border-laundry-border flex flex-col justify-between text-center">
+          <div>
+            <span class="text-[11px] font-mono uppercase text-slate-400 tracking-wider">Resumo do Orçamento</span>
+            
+            <div class="my-6">
+              <span class="text-xs text-slate-400 block mb-1">Total Estimado:</span>
+              <div id="calc-total" class="font-outfit font-black text-4xl text-laundry-cyan">
+                R$ 49,90
+              </div>
+              <span id="calc-frete" class="text-[11px] text-emerald-400 font-bold block mt-2">
+                ✓ Coleta & Entrega no seu endereço
+              </span>
+            </div>
+
+            <div class="text-xs text-slate-400 text-left space-y-2 py-4 border-t border-laundry-border/60">
+              <div class="flex justify-between">
+                <span>Prazo:</span>
+                <span class="text-white font-bold" class="counter-up" data-target="48 horas">48 horas</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Pagamento:</span>
+                <span class="text-white font-bold">Pix, Cartão ou Dinheiro</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Higienização:</span>
+                <span class="text-white font-bold">Com Ozônio 3D</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <a id="btn-whatsapp-order" href="#" target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-gradient-to-r from-laundry-cyan to-laundry-blue hover:opacity-95 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/30 flex items-center justify-center gap-2 transition transform hover:scale-105" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Agendar Coleta com Esse Orçamento</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Plans Section -->
+  <section id="planos" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-laundry-sky bg-laundry-sky/10 px-3.5 py-1.5 rounded-full border border-laundry-sky/20">
+        Assinatura Mensal
+      </span>
+      <h2 class="font-outfit font-black text-3xl sm:text-4xl text-white mt-4">
+        Planos Recorrentes para Quem Não Quer Lavar Roupa
+      </h2>
+      <p class="text-slate-400 text-sm mt-2">Coletamos toda semana na sua casa sem você precisar se preocupar.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Plano Individual -->
+      <div class="bg-laundry-card p-8 rounded-3xl border border-laundry-border flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase text-slate-400">Solteiro / Prático</span>
+          <h3 class="font-outfit font-bold text-2xl text-white mt-1 mb-4">Plano Single</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-black text-white">R$ 149,90</span>
+            <span class="text-xs text-slate-400 block mt-1">/mês (4 cestos no mês)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> 1 Cesto de até 25 peças por semana</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Coleta e entrega semanal agendada</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Roupas lavadas, secas e dobradas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> 1 Edredom casal cortesia por mês</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="w-full py-3.5 rounded-xl bg-laundry-border hover:bg-laundry-border/80 text-white font-bold text-xs uppercase tracking-wider text-center transition" rel="noopener noreferrer">
+          Assinar Plano Single
+        </a>
+      </div>
+
+      <!-- Plano Casal (Destaque) -->
+      <div class="card-lift bg-laundry-card p-8 rounded-3xl border-2 border-laundry-cyan shadow-xl shadow-cyan-500/20 relative flex flex-col justify-between">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-laundry-cyan to-laundry-blue text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+          Mais Econômico
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase text-laundry-cyan">Para 2 Pessoas</span>
+          <h3 class="font-outfit font-bold text-2xl text-white mt-1 mb-4">Plano Casal VIP</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-black text-laundry-cyan">R$ 239,90</span>
+            <span class="text-xs text-slate-400 block mt-1">/mês (8 cestos no mês)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> 2 Cestos por semana (até 50 peças)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Coleta e entrega expressa em 36h</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> 2 Edredons ou cobertores inclusos/mês</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Desconto de 20% em ternos e vestidos</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="shimmer-btn w-full py-3.5 rounded-xl bg-gradient-to-r from-laundry-cyan to-laundry-blue hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center shadow-lg shadow-cyan-500/30 transition" rel="noopener noreferrer">
+          Assinar Casal VIP
+        </a>
+      </div>
+
+      <!-- Plano Família -->
+      <div class="bg-laundry-card p-8 rounded-3xl border border-laundry-border flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase text-slate-400">Para 3 a 5 Pessoas</span>
+          <h3 class="font-outfit font-bold text-2xl text-white mt-1 mb-4">Plano Família Total</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-black text-white">R$ 389,90</span>
+            <span class="text-xs text-slate-400 block mt-1">/mês (Volume Ilimitado)</span>
+          </div>
+          <ul class="space-y-3 text-xs text-slate-300 mb-8">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Até 4 Cestos por semana (100 peças)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Roupas de cama e banho ilimitadas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Passadoria a ferro inclusa nas camisas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-laundry-cyan"></i> Atendimento e motorista dedicado</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="w-full py-3.5 rounded-xl bg-laundry-border hover:bg-laundry-border/80 text-white font-bold text-xs uppercase tracking-wider text-center transition" rel="noopener noreferrer">
+          Assinar Família Total
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE GALERIA VISUAL & ESTRUTURA PREMIUM                               -->
+  <!-- ========================================================================= -->
+  <section id="galeria-nicho" class="py-20 bg-slate-950 text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-sparkles text-xs"></i> Excelência & Detalhes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Tecnologia em Cuidado Têxtil</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Lavagem ecológica que preserva as fibras, cores e remove até 99,9% dos ácaros e bactérias.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/laundry-hero.jpg" alt="Máquinas Industriais Inteligentes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Máquinas Industriais Inteligentes</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Ciclos dosados por computador com economia de 40% de água e sem agressão aos tecidos.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/laundry-machines.jpg" alt="Higienização a Vapor de Alta Temperatura" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Higienização a Vapor de Alta Temperatura</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Desinfecção profunda para edredons, cobertores, ternos e vestidos de festa.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/laundry-folded.jpg" alt="Passadoria Artesanal com Dobra Perfeita" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Passadoria Artesanal com Dobra Perfeita</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Roupas embaladas a vácuo ou cabides protetores prontas para ir direto ao closet.</p>
+          </div>
+        </div>
+        
+
+        <div class="card-lift bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <img src="assets/laundry-steam.jpg" alt="Tratamento Especial para Roupas Finas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+          <div class="p-5 space-y-2">
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Tratamento Especial para Roupas Finas</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Limpeza a seco especializada para sedas, lãs, couros e peças delicadas.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+    
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO DE AVALIAÇÕES & FAQ INTERATIVO                                      -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SKIPER UI: SLIDER INTERATIVO ANTES & DEPOIS (HIGIENIZAÇÃO A VAPOR)        -->
+  <!-- ========================================================================= -->
+  <section id="transformacao-visual" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-arrows-left-right"></i> Prova Visual Têxtil
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white">Restauração de Cores & Fibras a Vapor</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Arraste a linha para comparar tecidos amarelados e manchados com o resultado após a lavagem ecológica.</p>
+      </div>
+
+      <div class="ba-container relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl select-none cursor-ew-resize">
+        <!-- DEPOIS (Base) -->
+        <img src="assets/laundry-clean.jpg" alt="Tecido Limpo e Passado" class="absolute inset-0 w-full h-full object-cover" />
+        <span class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md text-cyan-300 border border-cyan-400/30 text-xs px-3.5 py-1.5 rounded-full font-bold">DEPOIS: Fibras Renovadas</span>
+
+        <!-- ANTES (Layer Cortada) -->
+        <div class="ba-after-layer absolute inset-0 w-1/2 overflow-hidden pointer-events-none border-r-2 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+          <img src="assets/laundry-machines.jpg" alt="Tecido com Manchas e Amarelado" class="absolute inset-0 w-full h-full object-cover max-w-none filter sepia contrast-125" />
+          <span class="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md text-white text-xs px-3.5 py-1.5 rounded-full font-bold">ANTES: Manchas & Ácaros</span>
+        </div>
+
+        <!-- Slider Handle -->
+        <div class="ba-slider-handle absolute top-0 bottom-0 left-1/2 w-1 bg-cyan-400 flex items-center justify-center -translate-x-1/2 pointer-events-none">
+          <div class="w-9 h-9 rounded-full bg-slate-950 border-2 border-cyan-400 text-cyan-300 shadow-xl flex items-center justify-center text-xs font-bold">
+            ⇄
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que a LavaClean Express é a Melhor Solução Têxtil?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Suas roupas limpas, passadas e cheirosas sem você perder horas do final de semana.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Lavar em Casa ou Lavanderias Tradicionais</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Horas perdidas lavando, secando e passando roupas no fim de semana</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Danos a tecidos finos por dosagem incorreta de sabão e alvejante</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Preços abusivos por peça avulsa e atrasos na entrega</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de higienização bactericida em edredons e peças pesadas</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Delivery & Cuidado
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">LavaClean Express</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Serviço Leva e Traz em domicílio: você agenda no WhatsApp e devolvemos em 48h</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Insumos ecológicos hipoalergênicos e dosagem computadorizada sem agredir fibras</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Planos mensais econômicos com desconto por quilo e peças passadas em cabides</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Higienização a vapor em alta temperatura que elimina 99,9% de ácaros e bactérias</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq-depoimentos" class="py-20 bg-[#090D18] text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Dúvidas Frequentes</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perguntas & Respostas Rápidas</h2>
+            <p class="text-xs text-slate-400 mt-1">Clique para ver os detalhes sobre prazos, agendamento e formas de pagamento.</p>
+          </div>
+          <div class="space-y-3">
+            
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Como funciona o serviço de Leva e Traz?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Agende pelo WhatsApp que nosso motorista retira as roupas na sua casa e devolve limpas e passadas em 48h.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Quais produtos vocês utilizam na lavagem?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Usamos insumos hipoalergênicos e biodegradáveis com pH neutro que não agridem a pele nem o meio ambiente.
+          </div>
+        </div>
+        
+
+        <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/60 transition">
+          <button type="button" onclick="toggleFaqItem(this)" class="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-amber-300 transition">
+            <span>Vocês lavam edredons e cortinas grandes?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-xs text-slate-400 transition-transform duration-300 ml-3 shrink-0"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-slate-400 border-t border-slate-800/60 pt-3 leading-relaxed">
+            Sim! Nossos tambores industriais comportam peças volumosas até King Size sem amarrotar.
+          </div>
+        </div>
+        
+          </div>
+        </div>
+
+        <!-- Right: Social Proof & WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Depoimentos Verificados</span>
+              <h3 class="text-xl font-bold text-white mt-1">O que nossos clientes dizem</h3>
+            </div>
+            <div class="space-y-4">
+              
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Juliana Vasques</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"O plano mensal salvou minha rotina. As camisas voltam impecavelmente passadas!"</p>
+        </div>
+        
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-white">Marcelo Ramos</span>
+            <span class="text-xs text-amber-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-xs text-slate-400 italic leading-relaxed">"Edredom king limpo e com cheirinho suave maravilhoso. Super recomendo o delivery."</p>
+        </div>
+        
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <a href="https://wa.me/5532999292311?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20priorit%C3%A1rio." target="_blank" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Agendar no WhatsApp com Prioridade</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Unidade moderna para lavagem a seco, higienização de ternos, vestidos de festa, edredons e sistema de coleta expressa.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-shirt"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">AquaClean Lavanderia</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Lavanderia Express & Higienização Técnica</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(AquaClean Lavanderia)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização AquaClean Lavanderia em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="border-t border-laundry-border/60 py-12 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="font-bold text-white text-sm mb-2">LavaClean Express • O seu tempo vale mais que lavar roupa</p>
+      <p>© 2026 LavaClean Lavanderia & Higienização Têxtil. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Online Calculator Script -->
+  <script>
+    const prices = {
+      cesto: 49.90,
+      edredom: 38.00,
+      terno: 45.00,
+      tenis: 35.00,
+      passar: 20.00
+    };
+
+    const quantities = {
+      cesto: 1,
+      edredom: 0,
+      terno: 0,
+      tenis: 0
+    };
+
+    function changeQty(item, delta) {
+      quantities[item] = Math.max(0, quantities[item] + delta);
+      document.getElementById('qty-' + item).textContent = quantities[item];
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      let total = 0;
+      total += quantities.cesto * prices.cesto;
+      total += quantities.edredom * prices.edredom;
+      total += quantities.terno * prices.terno;
+      total += quantities.tenis * prices.tenis;
+
+      const passarChecked = document.getElementById('check-passar').checked;
+      if (passarChecked && total > 0) {
+        total += prices.passar;
+      }
+
+      document.getElementById('calc-total').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+
+      // Update WhatsApp link with dynamic pre-filled text
+      let msg = 'Olá LavaClean! Fiz uma simulação de orçamento pelo site:\n';
+      if (quantities.cesto > 0) msg += `- ${quantities.cesto}x Cesto Dia a Dia\n`;
+      if (quantities.edredom > 0) msg += `- ${quantities.edredom}x Edredom\n`;
+      if (quantities.terno > 0) msg += `- ${quantities.terno}x Terno Completo\n`;
+      if (quantities.tenis > 0) msg += `- ${quantities.tenis}x Par de Tênis\n`;
+      if (passarChecked) msg += `- Com Passadoria a Ferro inclusa\n`;
+      msg += `Total Estimado: R$ ${total.toFixed(2).replace('.', ',')}\n`;
+      msg += 'Gostaria de agendar a coleta no meu endereço!';
+
+      const encodedMsg = encodeURIComponent(msg);
+      document.getElementById('btn-whatsapp-order').href = 'https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean.' + encodedMsg;
+    }
+
+    // Initialize
+    calculateTotal();
+  </script>
+
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Mais Tempo Livre para Você: Roupas Impecáveis Sem Trabalho
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo nosso processo sustentável de higienização com proteção de fibras, perfumes finos e passadoria a vapor suave.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(AquaClean Lavanderia)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Entrega pontual dobrada e plastificada com tecnologia de esterilização ultravioleta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(AquaClean Lavanderia)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('contato') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(AquaClean Lavanderia).";
+      }
+    }
+  </script>
+
+
+  <script>
+    // Skiper UI Before/After Slider Interaction (Mouse & Touch)
+    document.querySelectorAll('.ba-container').forEach(container => {
+      const afterLayer = container.querySelector('.ba-after-layer');
+      const handle = container.querySelector('.ba-slider-handle');
+      if (!afterLayer || !handle) return;
+      let isDown = false;
+
+      const move = (e) => {
+        if (!isDown) return;
+        const rect = container.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        let x = clientX - rect.left;
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+        const percent = (x / rect.width) * 100;
+        afterLayer.style.width = percent + '%';
+        handle.style.left = percent + '%';
+      };
+
+      container.addEventListener('mousedown', () => isDown = true);
+      window.addEventListener('mouseup', () => isDown = false);
+      container.addEventListener('mousemove', move);
+
+      container.addEventListener('touchstart', () => isDown = true);
+      window.addEventListener('touchend', () => isDown = false);
+      container.addEventListener('touchmove', move);
+    });
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">LavaClean Express</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20a%20coleta%20das%20minhas%20roupas%20na%20LavaClean." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

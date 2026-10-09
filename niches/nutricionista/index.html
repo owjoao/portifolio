@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOURA • Nutrição Funcional & Clínica | Dra. Camila Ramos</title>
+  <meta name="description" content="Nutrição clínica e funcional baseada em comida de verdade. Planos alimentares personalizados, sem dietas restritivas, com ingredientes puros e acompanhamento no app." />
+
+  <!-- Google Fonts: Playfair Display / Outfit / Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            noura: {
+              cream: '#FAF6F0',
+              ivory: '#F4ECE1',
+              card: '#FFFFFF',
+              navy: '#16233B',
+              terracotta: '#C86A4B',
+              terracottaDark: '#B1593B',
+              sage: '#879883',
+              sageLight: '#E8ECE6',
+              border: '#E8E1D5',
+              darkNavy: '#0D1524'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/motion-core.css">
+
+  <style>
+    /* Borda orgânica de papel rasgado tipo aquarela editorial */
+    .torn-divider-sage {
+      width: 100%;
+      height: 24px;
+      margin-bottom: -1px;
+      display: block;
+    }
+    .torn-divider-cream {
+      width: 100%;
+      height: 24px;
+      margin-top: -1px;
+      display: block;
+    }
+    .card-noura {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-noura:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(22, 35, 59, 0.08);
+    }
+  </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <!-- Schema.org SEO & GEO Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "NutriViva • Nutrição Clínica & Esportiva",
+  "description": "Consultoria nutricional individualizada com bioimpedância e planejamento alimentar sustentável.",
+  "telephone": "+55-32-99929-2311",
+  "url": "https://nexusflow.digital/nutricionista/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Paulista, 1000",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01310-100",
+    "addressCountry": "BR"
+  }
+}
+  </script>
+
+
+  <style>
+    /* Cult UI Shimmer Microinteraction */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 80%);
+      transform: rotate(25deg);
+      animation: shimmerSweep 4s infinite ease-in-out;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+  </style>
+
+</head>
+<body class="bg-noura-cream text-noura-navy font-sans antialiased selection:bg-noura-terracotta selection:text-white">
+
+  <!-- Top Announcement Strip -->
+  <aside class="bg-noura-ivory border-b border-noura-border/60 py-2.5 px-4 text-xs font-semibold text-noura-navy/80">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-noura-terracotta animate-pulse"></span>
+        <span class="tracking-wide text-[11px] sm:text-xs">Comida de Verdade • Dias Mais Leves • Atendimento em SP & Consultas Online</span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="hover:text-noura-terracotta transition flex items-center gap-1.5 font-bold text-[11px] sm:text-xs" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-noura-terracotta"></i> (32) 99929-2311
+      </a>
+    </div>
+  </aside>
+
+  <!-- Header / Navigation (Inspired by NOURA) -->
+  <header class="sticky top-0 z-50 bg-noura-cream/95 backdrop-blur-md border-b border-noura-border/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group flex-shrink-0">
+        <div class="w-9 h-9 rounded-full bg-noura-sageLight text-noura-sage flex items-center justify-center text-base border border-noura-sage/30 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div>
+          <span class="font-serif font-bold text-2xl tracking-wider text-noura-navy block leading-none">NOURA</span>
+          <span class="block text-[8px] uppercase tracking-[0.25em] text-noura-sage font-bold mt-0.5">Nutrição & Bem-Estar</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-[11px] font-bold uppercase tracking-wider text-noura-navy/75">
+        <a href="#metodo" class="hover:text-noura-terracotta transition">O Método</a>
+        <a href="#snacks" class="hover:text-noura-terracotta transition">Snacks & Nutrientes</a>
+        <a href="#ingredientes" class="hover:text-noura-terracotta transition">Ingredientes Puros</a>
+        <a href="#sucos" class="hover:text-noura-terracotta transition">Sucos Frescos</a>
+        <a href="#calculadora-imc" class="hover:text-noura-terracotta transition">Simulador IMC</a>
+        <a href="#planos" class="hover:text-noura-terracotta transition">Planos</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center flex-shrink-0">
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="shimmer-btn px-5 py-2.5 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider shadow-md shadow-noura-terracotta/20 transition-all transform hover:scale-105 flex items-center gap-1.5" rel="noopener noreferrer">
+          <span>Agendar Consulta</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION (Naturally Good Food)                                         -->
+  <!-- ========================================================================= -->
+  <section class="reveal relative py-12 md:py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Editorial Copy -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-noura-ivory border border-noura-border text-noura-terracotta text-xs font-bold tracking-widest uppercase">
+            <i class="fa-regular fa-sun text-xs"></i>
+            Comida de Verdade • Dias Mais Leves
+          </div>
+
+          <h1 class="font-serif font-bold text-4xl sm:text-6xl md:text-7xl text-noura-navy tracking-tight leading-[1.08]">
+            Alimentação Natural & Consciente.
+          </h1>
+
+          <p class="text-noura-navy/70 text-base sm:text-lg leading-relaxed max-w-lg">
+            Ingredientes simples e comida de verdade para momentos reais do seu dia a dia. Conquiste seu peso ideal, energia duradoura e saúde sem dietas restritivas ou culpa.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="shimmer-btn px-8 py-4 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-noura-terracotta/25 text-center flex items-center justify-center gap-2.5 transition transform hover:scale-105" rel="noopener noreferrer">
+              <span>Agendar Minha Consulta</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+            <a href="#calculadora-imc" class="px-7 py-4 rounded-full bg-white hover:bg-noura-ivory text-noura-navy font-bold text-xs uppercase tracking-wider border border-noura-border text-center flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-calculator text-noura-sage"></i>
+              <span>Calcular IMC & Metas</span>
+            </a>
+          </div>
+
+          <!-- Feature badges identical to NOURA Reference -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-noura-border/80 text-noura-navy/80">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-seedling text-noura-sage text-base"></i>
+              <div class="text-xs font-bold leading-tight">Ingredientes<br><span class="font-normal text-noura-navy/60">100% Naturais</span></div>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-regular fa-heart text-noura-terracotta text-base"></i>
+              <div class="text-xs font-bold leading-tight">Melhores<br><span class="font-normal text-noura-navy/60">Escolhas</span></div>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-spa text-noura-sage text-base"></i>
+              <div class="text-xs font-bold leading-tight">Você Mais<br><span class="font-normal text-noura-navy/60">Saudável</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual (Ceramic Superfood Bowl with Berries & Nuts) -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[16/11] sm:aspect-square max-w-lg mx-auto group">
+            <img 
+              src="assets/hero-superfood-bowl.jpg" 
+              alt="Tigela rústica de cerâmica com morangos, mirtilos, framboesas, castanhas e amêndoas sobre linho natural" 
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+              loading="eager"
+            />
+            <!-- Floating Badge 1 -->
+            <div class="absolute top-5 right-5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-lg border border-noura-border text-xs font-bold text-noura-navy flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span>+2.400 Vidas Transformadas</span>
+            </div>
+            <!-- Floating Badge 2 -->
+            <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-noura-border flex items-center justify-between text-xs text-noura-navy">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-noura-terracotta block tracking-wider">Acompanhamento Individual</span>
+                <span class="font-bold text-sm">Bioimpedância InBody + Cardápio no App</span>
+              </div>
+              <span class="px-3 py-1.5 rounded-full bg-noura-sageLight text-noura-sage font-bold text-[11px]">CRN Ativo</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Transition to Sage Green -->
+  <div class="w-full overflow-hidden leading-none text-[#879883] -mb-1">
+    <svg class="w-full h-8 sm:h-12" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+      <path d="M0,0 C150,90 350,-40 500,60 C650,140 900,10 1200,50 L1200,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 2: MADE FOR BETTER SNACKING (Sage Green Header & Product Cards)   -->
+  <!-- ========================================================================= -->
+  <section id="snacks" class="reveal py-16 bg-[#879883] text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Top Section Banner (Matching NOURA Reference with Snack Pouches) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-center justify-between mb-12 gap-8">
+        <div class="lg:col-span-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-100/90 block mb-2">Nutrição Inteligente</span>
+          <h2 class="font-serif font-bold text-3xl sm:text-5xl tracking-tight text-white leading-tight">
+            Lanches & Snacks Inteligentes
+          </h2>
+          <p class="text-emerald-50/80 text-sm sm:text-base mt-2 max-w-md">
+            Escolhas conscientes, preparadas com carinho para alimentar seu corpo entre as principais refeições.
+          </p>
+        </div>
+        <div class="lg:col-span-6 flex flex-col sm:flex-row items-center justify-end gap-5">
+          <div class="rounded-2xl overflow-hidden shadow-xl border-2 border-white/30 max-w-xs sm:max-w-sm group">
+            <img 
+              src="assets/snack-pouches.jpg" 
+              alt="Sachês ecológicos de Castanhas Nobres, Frutas Secas e Frutas Vermelhas" 
+              class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500" 
+              loading="lazy"
+            />
+          </div>
+          <div class="text-center sm:text-left">
+            <span class="font-serif italic text-2xl sm:text-3xl text-emerald-100/95 block leading-snug">Lanches Leves,<br class="hidden sm:inline"> Dias Saudáveis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Product Cards Trio (Berry Mix / Nut Crunch / Fruit Loaf) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-noura-navy">
+        
+        <!-- Card 1: Mix de Frutas Silvestres -->
+        <div class="card-noura bg-noura-cream rounded-3xl p-6 border border-noura-border flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="rounded-2xl overflow-hidden aspect-square mb-5 bg-white border border-noura-border/60">
+              <img 
+                src="assets/card-berry-mix.jpg" 
+                alt="Mix fresco de frutas vermelhas e secas" 
+                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="text-center px-2">
+              <h3 class="font-serif font-bold text-2xl text-noura-navy mb-1.5">Mix de Frutas Silvestres</h3>
+              <p class="text-xs text-noura-navy/70 leading-relaxed mb-4">
+                Uma deliciosa combinação de framboesas, mirtilos e damascos dourados ricos em polifenóis antioxidantes.
+              </p>
+            </div>
+          </div>
+          <div class="text-center pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white text-xs font-bold uppercase tracking-wider transition">
+              <span>Ver Opções</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Castanhas Crocantes -->
+        <div class="card-noura bg-noura-cream rounded-3xl p-6 border border-noura-border flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="rounded-2xl overflow-hidden aspect-square mb-5 bg-white border border-noura-border/60">
+              <img 
+                src="assets/card-nut-crunch.jpg" 
+                alt="Seleção de castanhas e nozes crocantes sobre folha verde" 
+                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="text-center px-2">
+              <h3 class="font-serif font-bold text-2xl text-noura-navy mb-1.5">Castanhas Crocantes</h3>
+              <p class="text-xs text-noura-navy/70 leading-relaxed mb-4">
+                Castanhas nobres selecionadas para fornecer energia estável, saciedade duradoura e gorduras monoinsaturadas boas.
+              </p>
+            </div>
+          </div>
+          <div class="text-center pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white text-xs font-bold uppercase tracking-wider transition">
+              <span>Ver Opções</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Pão Artesanal Funcional -->
+        <div class="card-noura bg-noura-cream rounded-3xl p-6 border border-noura-border flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="rounded-2xl overflow-hidden aspect-square mb-5 bg-white border border-noura-border/60">
+              <img 
+                src="assets/card-fruit-loaf.jpg" 
+                alt="Fatias de pão artesanal integral com nozes e sementes" 
+                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="text-center px-2">
+              <h3 class="font-serif font-bold text-2xl text-noura-navy mb-1.5">Pão Artesanal Funcional</h3>
+              <p class="text-xs text-noura-navy/70 leading-relaxed mb-4">
+                Pão artesanal integral funcional, fermentado naturalmente com nozes, cranberries e sementes para seu café matinal.
+              </p>
+            </div>
+          </div>
+          <div class="text-center pt-2">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white text-xs font-bold uppercase tracking-wider transition">
+              <span>Ver Opções</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Transition back to Cream -->
+  <div class="w-full overflow-hidden leading-none text-[#879883] -mt-1 bg-noura-cream">
+    <svg class="w-full h-8 sm:h-12 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+      <path d="M0,0 C150,90 350,-40 500,60 C650,140 900,10 1200,50 L1200,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 3: PURE INGREDIENTS (Simple. Fresh. Honest.)                       -->
+  <!-- ========================================================================= -->
+  <section id="ingredientes" class="reveal py-20 bg-noura-cream relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-3xl border border-noura-border p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Ceramic Bowl Image -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl overflow-hidden aspect-[4/3] border border-noura-border/80 shadow-md">
+            <img 
+              src="assets/hero-bowl.jpg" 
+              alt="Tigela de castanhas e nozes frescas" 
+              class="w-full h-full object-cover" 
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Right: Pure Ingredients Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-noura-sage block mb-1">Filosofia Alimentar</span>
+            <h2 class="font-serif font-bold text-3xl sm:text-4xl text-noura-navy tracking-tight">
+              Ingredientes Puros
+            </h2>
+            <p class="font-serif italic text-lg text-noura-terracotta mt-1">
+              Simples. Frescos. Genuínos.
+            </p>
+          </div>
+
+          <p class="text-noura-navy/70 text-sm sm:text-base leading-relaxed">
+            Acreditamos que a verdadeira saúde não vem de pílulas mágicas ou dietas extremas, mas da pureza e da densidade nutritiva dos alimentos que colocamos no prato. Cada cardápio é desenhado respeitando sua rotina e bioquímica individual.
+          </p>
+
+          <!-- 3 Circular Badges (identical to NOURA reference) -->
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-noura-border">
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-noura-sageLight text-noura-sage flex items-center justify-center mx-auto mb-2 text-lg">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <span class="font-bold text-xs text-noura-navy block leading-tight">Sem Aditivos<br><span class="font-normal text-noura-navy/60">Artificiais</span></span>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-noura-ivory text-noura-terracotta flex items-center justify-center mx-auto mb-2 text-lg">
+                <i class="fa-solid fa-wheat-awn"></i>
+              </div>
+              <span class="font-bold text-xs text-noura-navy block leading-tight">Rico em<br><span class="font-normal text-noura-navy/60">Nutrientes</span></span>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-2 text-lg">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <span class="font-bold text-xs text-noura-navy block leading-tight">Sabor<br><span class="font-normal text-noura-navy/60">Genuíno</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 4: SIP SOMETHING FRESH & EDITORIAL CARD                            -->
+  <!-- ========================================================================= -->
+  <section id="sucos" class="reveal py-12 bg-noura-ivory/50 border-y border-noura-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Editorial Card: NOURA Good Food Brighter Living -->
+        <div class="lg:col-span-4 bg-noura-cream rounded-3xl p-8 border border-noura-border flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="w-12 h-12 rounded-full bg-noura-sageLight text-noura-sage flex items-center justify-center text-xl mb-6">
+              <i class="fa-solid fa-spa"></i>
+            </div>
+            <span class="font-serif font-bold text-2xl text-noura-navy block">NOURA</span>
+            <span class="text-xs uppercase tracking-widest text-noura-sage font-bold block mb-4">Clínica & Consultoria</span>
+            <h3 class="font-serif text-2xl sm:text-3xl text-noura-navy leading-snug mb-3">
+              Comida Boa,<br>Vida Mais Plena
+            </h3>
+            <p class="text-xs text-noura-navy/70 leading-relaxed">
+              Consultas humanizadas que unem rigor científico, acolhimento e prazer em comer bem. Sem terrorismo nutricional.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-noura-terracotta hover:underline">
+              <span>Saiba Mais Sobre Nós</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Card: Sip Something Fresh (Photorealistic Juices Banner) -->
+        <div class="lg:col-span-8 bg-white rounded-3xl p-8 border border-noura-border shadow-lg flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+          <div class="md:w-1/2 space-y-4">
+            <div class="text-xs font-bold uppercase tracking-widest text-noura-terracotta">
+              Sabores Frescos • Pureza Natural
+            </div>
+            <h3 class="font-serif font-bold text-3xl sm:text-4xl text-noura-navy tracking-tight leading-tight">
+              Beba Algo Fresco & Revigorante
+            </h3>
+            <p class="text-xs sm:text-sm text-noura-navy/70 leading-relaxed">
+              Sucos funcionais prensados a frio que mantêm 100% dos fitonutrientes vivos:
+            </p>
+            <ul class="space-y-2 text-xs text-noura-navy/80">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> <strong>Laranja & Cenoura:</strong> Betacaroteno, viço e imunidade</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-500"></i> <strong>Manga & Maracujá:</strong> Calma, hidratação e digestão</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> <strong>Detox Verde:</strong> Desintoxicação hepática e vitalidade</li>
+            </ul>
+            <div class="pt-2">
+              <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white text-xs font-bold uppercase tracking-wider transition shadow-md">
+                <span>Receber Guia de Sucos</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 w-full">
+            <div class="rounded-2xl overflow-hidden aspect-[16/10] border border-noura-border/80 shadow-md">
+              <img 
+                src="assets/fresh-juices.jpg" 
+                alt="Trio de garrafas de sucos prensados a frio: laranja com cenoura, manga com maracujá e detox verde" 
+                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+                loading="lazy" 
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 5: O QUE ESTÁ DENTRO (Transparência de Ingredientes & Foto Detalhada) -->
+  <!-- ========================================================================= -->
+  <section class="reveal py-16 bg-noura-cream border-b border-noura-border/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-noura-sage">Densidade Nutritiva & Transparência</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-noura-navy mt-1">O Que Está Dentro</h2>
+        <p class="text-xs sm:text-sm text-noura-navy/70 mt-1">Ingredientes vivos, puros e selecionados para o seu equilíbrio hormonal, imunidade e energia diária.</p>
+      </div>
+
+      <!-- Featured Nutrient Breakdown Photography -->
+      <div class="max-w-4xl mx-auto mb-10">
+        <div class="rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[16/9] group bg-white">
+          <img 
+            src="assets/whats-inside-breakdown.jpg" 
+            alt="Decomposição dos ingredientes: Amêndoas cruas, Damascos secos turcos, Mirtilos frescos e Sementes de abóbora" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            loading="lazy" 
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white p-5 rounded-2xl border border-noura-border text-center shadow-sm card-noura">
+          <div class="w-12 h-12 rounded-full bg-amber-50 text-amber-700 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-cookie"></i>
+          </div>
+          <h4 class="font-bold text-sm text-noura-navy">Amêndoas Nobres</h4>
+          <p class="text-[11px] text-noura-navy/60 mt-0.5">Vitamina E • Proteína vegetal • Gorduras boas</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-noura-border text-center shadow-sm card-noura">
+          <div class="w-12 h-12 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-lemon"></i>
+          </div>
+          <h4 class="font-bold text-sm text-noura-navy">Damascos Turcos</h4>
+          <p class="text-[11px] text-noura-navy/60 mt-0.5">Fibras ativas • Vitamina A • Potássio</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-noura-border text-center shadow-sm card-noura">
+          <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-apple-whole"></i>
+          </div>
+          <h4 class="font-bold text-sm text-noura-navy">Mirtilos Frescos</h4>
+          <p class="text-[11px] text-noura-navy/60 mt-0.5">Antioxidantes nobres • Vitamina C • Manganês</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-noura-border text-center shadow-sm card-noura">
+          <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 text-lg">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h4 class="font-bold text-sm text-noura-navy">Sementes de Abóbora</h4>
+          <p class="text-[11px] text-noura-navy/60 mt-0.5">Magnésio • Zinco • Ômega-3 vegetal</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 6: CALCULADORA IMC INTERATIVA (Nutri-Simulador)                   -->
+  <!-- ========================================================================= -->
+  <section id="calculadora-imc" class="reveal py-20 bg-noura-ivory/60 border-b border-noura-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-white p-6 sm:p-12 rounded-3xl border border-noura-border shadow-2xl relative overflow-hidden">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-noura-sage bg-noura-sageLight px-3.5 py-1.5 rounded-full border border-noura-sage/20">
+            Simulador Metabólico Online
+          </span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-noura-navy mt-3">
+            Calcule seu Índice de Massa Corporal (IMC)
+          </h2>
+          <p class="text-noura-navy/70 text-xs sm:text-sm mt-2">
+            Insira seu peso e altura para ver sua faixa atual e receber uma orientação preliminar personalizada:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Inputs -->
+          <div class="space-y-5">
+            <div>
+              <label class="block text-xs font-bold text-noura-navy uppercase tracking-wider mb-2">
+                Seu Peso Atual (kg):
+              </label>
+              <input type="number" id="input-peso" value="72" min="30" max="250" oninput="calcularIMC()" class="w-full p-4 rounded-xl bg-noura-cream border border-noura-border text-noura-navy text-base focus:border-noura-terracotta outline-none font-bold">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-noura-navy uppercase tracking-wider mb-2">
+                Sua Altura (cm):
+              </label>
+              <input type="number" id="input-altura" value="170" min="100" max="230" oninput="calcularIMC()" class="w-full p-4 rounded-xl bg-noura-cream border border-noura-border text-noura-navy text-base focus:border-noura-terracotta outline-none font-bold">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-noura-navy uppercase tracking-wider mb-2">
+                Seu Objetivo Principal:
+              </label>
+              <select id="sel-objetivo" onchange="calcularIMC()" class="w-full p-4 rounded-xl bg-noura-cream border border-noura-border text-noura-navy text-sm focus:border-noura-terracotta outline-none cursor-pointer font-medium">
+                <option value="Emagrecimento com definição">Emagrecimento Saudável & Definição</option>
+                <option value="Hipertrofia muscular">Ganho de Massa Muscular Magra (Hipertrofia)</option>
+                <option value="Reeducação alimentar">Saúde, Energia & Reeducação Alimentar</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Resultado -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-noura-cream border border-noura-border text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[11px] uppercase text-noura-navy/60 font-bold tracking-wider">Resultado da sua Análise</span>
+              
+              <div class="my-5">
+                <span class="text-xs text-noura-navy/70 block mb-1">Seu IMC Estimado:</span>
+                <div id="res-imc" class="font-serif font-bold text-5xl text-noura-terracotta">
+                  24.9
+                </div>
+                <span id="res-status" class="text-xs font-bold block mt-2 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 w-fit mx-auto">
+                  Peso Saudável & Equilibrado
+                </span>
+              </div>
+
+              <p id="res-dica" class="text-xs text-noura-navy/70 leading-relaxed py-3 border-t border-noura-border">
+                Com ajuste nos macronutrientes e sem cortar o que você gosta, seu plano ideal foca em tonificação e disposição.
+              </p>
+            </div>
+
+            <div class="pt-5">
+              <a id="btn-imc-whatsapp" href="#" target="_blank" class="shimmer-btn w-full py-4 rounded-xl bg-noura-terracotta hover:bg-noura-terracottaDark text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-noura-terracotta/25 flex items-center justify-center gap-2 transition transform hover:scale-105" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Enviar Resultado & Agendar</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 7: PLANOS DE ACOMPANHAMENTO                                       -->
+  <!-- ========================================================================= -->
+  <section id="planos" class="reveal py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-widest text-noura-sage bg-noura-sageLight px-3.5 py-1.5 rounded-full border border-noura-sage/20">
+        Investimento em Saúde
+      </span>
+      <h2 class="font-serif font-bold text-3xl sm:text-4xl text-noura-navy mt-4">
+        Planos Feitos Para a Sua Vida Real
+      </h2>
+      <p class="text-noura-navy/70 text-xs sm:text-sm mt-2">Escolha o nível de acompanhamento ideal para transformar seus hábitos com sustentabilidade.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Plano Avulso -->
+      <div class="card-noura bg-white p-8 rounded-3xl border border-noura-border flex flex-col justify-between shadow-md">
+        <div>
+          <span class="text-xs font-bold uppercase text-noura-navy/50">Consulta Inicial</span>
+          <h3 class="font-serif font-bold text-2xl text-noura-navy mt-1 mb-4">Consulta Avulsa</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-noura-navy">R$ 280,00</span>
+            <span class="text-xs text-noura-navy/60 block mt-1">presencial ou online</span>
+          </div>
+          <ul class="space-y-3 text-xs text-noura-navy/80 mb-8">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> 1 Consulta completa (1h de duração)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> Bioimpedância médica InBody (presencial)</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> Cardápio personalizado liberado no App</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> 1 Retorno em até 30 dias incluso</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="w-full py-3.5 rounded-full bg-noura-cream hover:bg-noura-ivory text-noura-navy font-bold text-xs uppercase tracking-wider text-center border border-noura-border transition" rel="noopener noreferrer">
+          Agendar Consulta Avulsa
+        </a>
+      </div>
+
+      <!-- Plano Trimestral (Destaque Terracota) -->
+      <div class="card-noura bg-white p-8 rounded-3xl border-2 border-noura-terracotta shadow-xl shadow-noura-terracotta/15 relative flex flex-col justify-between">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-noura-terracotta text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow">
+          Mais Escolhido
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase text-noura-terracotta">Transformação 90 Dias</span>
+          <h3 class="font-serif font-bold text-2xl text-noura-navy mt-1 mb-4">Plano Trimestral VIP</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-noura-terracotta">3x de R$ 220</span>
+            <span class="text-xs text-noura-navy/60 block mt-1">ou R$ 599 à vista</span>
+          </div>
+          <ul class="space-y-3 text-xs text-noura-navy/80 mb-8">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-terracotta"></i> 3 Consultas completas de reavaliação</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-terracotta"></i> Bioimpedância mensal comparativa</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-terracotta"></i> Ajustes quinzenais no cardápio do App</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-terracotta"></i> WhatsApp liberado para dúvidas diárias</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-terracotta"></i> Guia exclusivo de suplementos limpos</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="shimmer-btn w-full py-3.5 rounded-full bg-noura-terracotta hover:bg-noura-terracottaDark text-white font-bold text-xs uppercase tracking-wider text-center shadow-lg shadow-noura-terracotta/30 transition" rel="noopener noreferrer">
+          Iniciar Acompanhamento VIP
+        </a>
+      </div>
+
+      <!-- Plano Semestral Atleta -->
+      <div class="card-noura bg-white p-8 rounded-3xl border border-noura-border flex flex-col justify-between shadow-md">
+        <div>
+          <span class="text-xs font-bold uppercase text-noura-navy/50">Performance & Definição</span>
+          <h3 class="font-serif font-bold text-2xl text-noura-navy mt-1 mb-4">Plano Esportivo 6 Meses</h3>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-noura-navy">6x de R$ 175</span>
+            <span class="text-xs text-noura-navy/60 block mt-1">ou R$ 950 à vista</span>
+          </div>
+          <ul class="space-y-3 text-xs text-noura-navy/80 mb-8">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> 6 Consultas e periodização nutricional</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> Estratégia pré/pós treino e provas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> Suplementação ergogênica de alta pureza</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-noura-sage"></i> Acesso total ao WhatsApp da Dra.</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="w-full py-3.5 rounded-full bg-noura-cream hover:bg-noura-ivory text-noura-navy font-bold text-xs uppercase tracking-wider text-center border border-noura-border transition" rel="noopener noreferrer">
+          Escolher Plano Esportivo
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Transition to Navy -->
+  <div class="w-full overflow-hidden leading-none text-noura-navy -mb-1">
+    <svg class="w-full h-8 sm:h-12" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+      <path d="M0,0 C150,80 400,-30 600,50 C800,120 1000,20 1200,60 L1200,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER (Deep Navy Blue with Torn Paper Transition)                        -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- LOCALIZAÇÃO / MAPA DA CAPITAL DE SÃO PAULO                                -->
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- SEÇÃO COMPARATIVA: ORIGINKIT MATRIX (POR QUE NOS ESCOLHER)                -->
+  <!-- ========================================================================= -->
+  <section id="comparativo-originkit" class="py-20 bg-[#060913] text-white border-t border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-shield-check"></i> Transparência & Rigor Técnico
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          Por Que o Acompanhamento NutriViva Garante Resultados?
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+          Nutrição sustentável sem dietas malucas, sem passar fome e adaptada à sua rotina.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Opções Comuns do Mercado -->
+        <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg">
+                ✕
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-300">Dietas da Moda da Internet</h3>
+                <span class="text-[11px] text-slate-500 font-medium">Práticas comuns que geram dor de cabeça</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Restrições extremas que geram efeito sanfona e compulsão alimentar</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Cardápios genéricos impressos sem análise de exames de sangue</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Falta de suporte entre as consultas para tirar dúvidas do dia a dia</span></li>
+            <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">✕</span> <span>Promessas irreais de perda rápida com suplementos caros e inúteis</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Risco de prejuízos e retrabalho para o cliente.
+          </div>
+        </div>
+
+        <!-- Nosso Padrão de Excelência -->
+        <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-[#0D1527] to-slate-900 border-2 border-emerald-500/60 shadow-2xl relative flex flex-col justify-between ring-4 ring-emerald-500/10">
+          <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-lg">
+            Nutrição Científica
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-bold text-lg shadow-sm">
+                ✓
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white">NutriViva Clínica Nutricional</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Compromisso formal com o seu resultado</span>
+              </div>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Planejamento alimentar individualizado com os alimentos que você gosta</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Exame de bioimpedância tetrapolar para medição exata de gordura e músculo</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Canal direto no WhatsApp para tirar dúvidas de supermercado e restaurantes</span></li>
+            <li class="flex items-start gap-3 text-emerald-400 font-medium"><span class="font-black text-emerald-400">✓</span> <span>Foco em saúde duradoura, regulação metabólica e energia para o dia todo</span></li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Garantia Contratual
+            </span>
+            <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="text-white hover:text-emerald-400 font-bold transition flex items-center gap-1">
+              <span>Saber Mais</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="localizacao" class="py-16 sm:py-20 bg-white border-t border-slate-100 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
+          <i class="fa-solid fa-location-dot text-rose-500"></i>
+          <span>Fácil Acesso na Capital de São Paulo</span>
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
+          Onde estamos localizados
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          Consultório de nutrição com foco em emagrecimento definitivo, performance esportiva e exames de bioimpedância computadorizada.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Info Card -->
+        <div class="lg:col-span-5 bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center text-lg shadow border border-white/10">
+                <i class="fa-solid fa-apple-whole"></i>
+              </div>
+              <div>
+                <span class="font-bold text-lg text-white block">NutriVita Clínica</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-300 block">Nutrição Clínica & Longevidade</span>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-2 text-xs">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-map-pin text-rose-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Endereço Principal:</strong>
+                  <span class="text-slate-300">Av. Paulista, 1000 - Bela Vista / Jardins, São Paulo - SP, CEP 01310-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train-subway text-emerald-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acesso por Metrô:</strong>
+                  <span class="text-slate-300">Apenas 250 metros da Estação Trianon-Masp (Linha 2 - Verde).</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-square-parking text-blue-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Estacionamento Conveniado:</strong>
+                  <span class="text-slate-300">Vaga coberta e manobrista no próprio edifício com comodidade.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-wheelchair text-amber-400 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Acessibilidade Total:</strong>
+                  <span class="text-slate-300">Rampas e elevadores modernos adaptados para idosos e mobilidade reduzida.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-slate-300 text-sm mt-0.5 shrink-0"></i>
+                <div>
+                  <strong class="text-white block font-bold">Horário de Funcionamento:</strong>
+                  <span class="text-slate-300">Segunda a Sexta: 08h às 19h | Sábados: 08h às 14h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow">
+              <i class="fa-solid fa-route"></i>
+              <span>Como Chegar</span>
+            </a>
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20localiza%C3%A7%C3%A3o%20em%20S%C3%A3o%20Paulo%20(NutriVita Clínica)." target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white text-center font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition border border-white/15">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Iframe -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 min-h-[380px] lg:min-h-[440px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098485293405!2d-46.6549887237894!3d-23.564903378796857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 420px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização NutriVita Clínica em São Paulo - SP"
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION (ORIGINKIT & RESPOSTA ÀS PRINCIPAIS DÚVIDAS DO NICHO)        -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 md:py-20 bg-stone-50 border-t border-stone-200/80 text-stone-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-1">Dúvidas Frequentes</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Tire suas dúvidas antes de agendar</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-2">Respostas transparentes sobre atendimento, prazos e garantia.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Como funciona o primeiro contato e orçamento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Você pode nos chamar diretamente no WhatsApp. Nossa equipe especializada tira suas dúvidas na hora, apresenta as opções ideais e envia uma estimativa personalizada sem nenhum compromisso.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Aceitamos Pix com condições especiais, cartões de crédito em até 12x e faturamento facilitado para empresas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+          <h3 class="font-bold text-sm sm:text-base text-stone-900 flex items-center justify-between cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <span>O serviço possui garantia e suporte pós-atendimento?</span>
+            <span class="text-amber-600 text-lg font-bold">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2.5 pt-2 border-t border-stone-100 leading-relaxed">
+            Sim! Todos os nossos atendimentos e entregas contam com acompanhamento rigoroso e suporte direto via WhatsApp para garantir sua total satisfação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="bg-noura-navy text-white py-16 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      
+      <!-- Script Quote identical to NOURA Reference -->
+      <div class="mb-8">
+        <p class="font-serif italic text-3xl sm:text-4xl text-noura-ivory/90 tracking-wide">
+          Comida de verdade, feita de forma simples.
+        </p>
+        <div class="w-8 h-8 rounded-full bg-white/10 text-noura-sage flex items-center justify-center mx-auto mt-4 text-xs">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+      </div>
+
+      <div class="max-w-md mx-auto border-t border-white/10 pt-6">
+        <p class="font-serif font-bold text-lg text-white">NOURA • Dra. Camila Ramos</p>
+        <p class="text-xs text-white/60 mt-1">CRN-3 48.910 • Nutrição Clínica Funcional & Esportiva</p>
+        <p class="text-xs text-white/40 mt-4">© 2026 NOURA Nutrição. Todos os direitos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- IMC Calculator Logic -->
+  <script>
+    function calcularIMC() {
+      const peso = parseFloat(document.getElementById('input-peso').value);
+      const alturaCm = parseFloat(document.getElementById('input-altura').value);
+      const objetivo = document.getElementById('sel-objetivo').value;
+
+      if (!peso || !alturaCm || alturaCm <= 0) return;
+
+      const alturaM = alturaCm / 100;
+      const imc = peso / (alturaM * alturaM);
+      const imcFixed = imc.toFixed(1);
+
+      document.getElementById('res-imc').textContent = imcFixed;
+
+      const statusEl = document.getElementById('res-status');
+      const dicaEl = document.getElementById('res-dica');
+
+      let status = '';
+      let corClass = '';
+
+      if (imc < 18.5) {
+        status = 'Abaixo do Peso Ideal';
+        corClass = 'bg-blue-100 text-blue-800 border-blue-300';
+        dicaEl.textContent = 'Foco em ganho de massa muscular magra e densidade calórica limpa sem sobrecarregar o estômago.';
+      } else if (imc < 24.9) {
+        status = 'Peso Saudável & Equilibrado';
+        corClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
+        dicaEl.textContent = 'Excelente! O foco será aprimorar a composição corporal, tônus muscular e energia diária.';
+      } else if (imc < 29.9) {
+        status = 'Sobrepeso Leve';
+        corClass = 'bg-amber-100 text-amber-800 border-amber-300';
+        dicaEl.textContent = 'Com reeducação estratégica de porções e snacks corretos, eliminamos gordura mantendo seu bem-estar.';
+      } else {
+        status = 'Atenção Metabólica';
+        corClass = 'bg-rose-100 text-rose-800 border-rose-300';
+        dicaEl.textContent = 'Prioridade total no controle da insulina, saciedade prolongada e perda de peso sem restrição severa.';
+      }
+
+      statusEl.textContent = status;
+      statusEl.className = 'text-xs font-bold block mt-2 px-3.5 py-1 rounded-full border w-fit mx-auto ' + corClass;
+
+      let msg = `Olá Dra. Camila! Fiz o teste no site NOURA:\n`;
+      msg += `- Peso: ${peso}kg | Altura: ${alturaCm}cm\n`;
+      msg += `- Meu IMC deu: ${imcFixed} (${status})\n`;
+      msg += `- Objetivo: ${objetivo}\n`;
+      msg += `Gostaria de agendar uma consulta para montar meu plano alimentar!`;
+
+      document.getElementById('btn-imc-whatsapp').href = 'https://wa.me/5532999292311?text=' + encodeURIComponent('gostei desse site, qual o valor?');
+    }
+
+    calcularIMC();
+  </script>
+
+  <!-- Core Motion & Interactive Engine -->
+  <script src="../assets/js/motion-core.js"></script>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: VÍDEO & QUALIDADE DE VIDA                                          -->
+  <!-- ========================================================================= -->
+  <div id="video-qv-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <button onclick="closeVideoQvModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition shadow-sm z-10" title="Fechar">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-heart-pulse"></i> Qualidade de Vida & Bem-Estar
+        </span>
+        <span class="text-xs text-slate-400">• Vídeo Exclusivo</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
+        Alimentação Saudável e Energia de Sobra para sua Rotina Diária
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+        Veja no vídeo como um plano nutricional realista sem restrições severas rejuvenesce o metabolismo e aumenta sua disposição diária.
+      </p>
+      
+      <!-- Video Player Preview -->
+      <div class="aspect-video w-full rounded-2xl overflow-hidden relative bg-slate-950 shadow-inner group mb-5">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-between p-5 z-10">
+          <div class="self-end px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-mono font-semibold">
+            <i class="fa-solid fa-clock mr-1 text-emerald-400"></i> 01:45 min • Full HD
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20assisti%20ao%20v%C3%ADdeo%20sobre%20qualidade%20de%20vida%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20(NutriVita Clínica)." target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all shrink-0">
+              <i class="fa-solid fa-play ml-1"></i>
+            </a>
+            <div>
+              <p class="text-white font-bold text-sm sm:text-base leading-snug">Metodologia Focada no seu Bem-Estar</p>
+              <p class="text-emerald-300 text-xs">Bioimpedância de precisão e planejamento alimentar personalizado para sua rotina</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pilares de Qualidade de Vida -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 py-3 border-y border-slate-100 mb-5 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-clock-rotate-left text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Sem Fila e Sem Espera</strong>
+          <span class="text-[10px] text-slate-500">Respeito ao seu tempo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-shield-halved text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Segurança & Conforto</strong>
+          <span class="text-[10px] text-slate-500">Ambiente acolhedor</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50">
+          <i class="fa-solid fa-bolt text-emerald-600 block text-base mb-1"></i>
+          <strong class="block text-slate-800 text-[11px] font-bold">Fechamento em 1 Clique</strong>
+          <span class="text-[10px] text-slate-500">Sem burocracia</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5532999292311?text=Ol%C3%A1%2C%20quero%20fechar%20meu%20atendimento%20com%20prioridade%20e%20foco%20em%20qualidade%20de%20vida%20(NutriVita Clínica)." target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> Fechar no WhatsApp com Prioridade
+        </a>
+        <button onclick="closeVideoQvModal(); scrollToFormFast();" class="py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider text-center transition">
+          Preencher Formulário Online
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM STICKY BAR (CONVERSÃO EM 1 CLIQUE)                          -->
+  <!-- ========================================================================= -->
+  
+
+
+  <!-- JS HELPERS: VÍDEO QUALIDADE DE VIDA & 1-CLICK CONVERSION -->
+  <script>
+    function openVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.remove('hidden');
+    }
+
+    function closeVideoQvModal() {
+      const m = document.getElementById('video-qv-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function scrollToFormFast(serviceName) {
+      let target = document.getElementById('agendamento') || document.getElementById('agendamento') || document.getElementById('contato') || document.getElementById('simulador') || document.querySelector('form');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        target.classList.add('ring-4', 'ring-emerald-400/50');
+        setTimeout(() => target.classList.remove('ring-4', 'ring-emerald-400/50'), 1500);
+
+        setTimeout(() => {
+          const input = target.querySelector('input:not([type="hidden"])') || document.querySelector('input[type="text"], input[type="tel"]');
+          if (input) input.focus();
+        }, 600);
+      } else {
+        window.location.href = "https://wa.me/5532999292311?text=Ol%C3%A1%2C%20gostaria%20de%20fechar%20com%20poucos%20cliques%20(NutriVita Clínica).";
+      }
+    }
+  </script>
+
+
+  <!-- ========================================================================= -->
+  <!-- ADR-002: MOBILE CONVERSION DOCK (1-TOQUE NO WHATSAPP)                     -->
+  <!-- ========================================================================= -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070A12]/95 backdrop-blur-md border-t border-slate-800 p-2.5 px-4 shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+      <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400 leading-tight tracking-wider">NutriViva Nutrição</span>
+        <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Online agora</span>
+        </span>
+      </div>
+      <a href="https://wa.me/5532999292311?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional%20na%20NutriViva." target="_blank" class="shimmer-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-transform active:scale-95" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Atendimento</span>
+      </a>
+    </div>
+  </aside>
+
+</body>
+</html>

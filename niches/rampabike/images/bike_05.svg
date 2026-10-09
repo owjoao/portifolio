@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <!-- Shaders & Gradients -->
+    <linearGradient id="carbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#262626" />
+      <stop offset="50%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#080808" />
+    </linearGradient>
+    <linearGradient id="orangeLivery" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <linearGradient id="orangeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A50" />
+      <stop offset="100%" stop-color="#DD3800" />
+    </linearGradient>
+    <linearGradient id="titaniumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5E7EB" />
+      <stop offset="50%" stop-color="#9CA3AF" />
+      <stop offset="100%" stop-color="#4B5563" />
+    </linearGradient>
+    <linearGradient id="metalHubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D1D5DB" />
+      <stop offset="100%" stop-color="#374151" />
+    </linearGradient>
+    <linearGradient id="carbonDiscGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E1E" />
+      <stop offset="50%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="goldSuspension" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="50%" stop-color="#EAB308" />
+      <stop offset="100%" stop-color="#CA8A04" />
+    </linearGradient>
+    
+  </defs>
+
+  
+    <!-- Tire -->
+    <circle cx="340" cy="480" r="190" fill="none" stroke="#1E1E1E" stroke-width="36" />
+    <circle cx="340" cy="480" r="200.8" fill="none" stroke="#2D2D2D" stroke-width="2" stroke-dasharray="6,4" />
+    <circle cx="340" cy="480" r="177.4" fill="none" stroke="#151515" stroke-width="2" />
+    
+
+        <circle cx="340" cy="480" r="172" fill="url(#carbonDiscGrad)" stroke="#222" stroke-width="2" />
+        <circle cx="340" cy="480" r="132" fill="none" stroke="#FF5722" stroke-width="4" stroke-dasharray="140, 40" />
+        <text x="340" y="430" fill="white" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="22" letter-spacing="4" text-anchor="middle" opacity="0.85">RAMPA DISC</text>
+        
+
+    <!-- Brake Rotor -->
+    <circle cx="340" cy="480" r="48" fill="none" stroke="#A0A0A0" stroke-width="10" stroke-dasharray="14, 4" />
+    <circle cx="340" cy="480" r="48" fill="none" stroke="#555" stroke-width="1" />
+    <!-- Hub -->
+    <circle cx="340" cy="480" r="26" fill="url(#metalHubGrad)" stroke="#111" stroke-width="3" />
+    <circle cx="340" cy="480" r="8" fill="#FF5722" />
+    
+
+    <!-- Tire -->
+    <circle cx="860" cy="480" r="190" fill="none" stroke="#1E1E1E" stroke-width="36" />
+    <circle cx="860" cy="480" r="200.8" fill="none" stroke="#2D2D2D" stroke-width="2" stroke-dasharray="6,4" />
+    <circle cx="860" cy="480" r="177.4" fill="none" stroke="#151515" stroke-width="2" />
+    
+
+        <!-- Rim -->
+        <circle cx="860" cy="480" r="172" fill="none" stroke="#111111" stroke-width="70" />
+        <circle cx="860" cy="480" r="167" fill="none" stroke="#FF5722" stroke-width="3" stroke-dasharray="80, 40" />
+        <!-- 3 Carbon Blades -->
+        <g stroke="url(#carbonGrad)" stroke-width="34" stroke-linecap="round">
+            <line x1="860" y1="480" x2="860" y2="323" />
+            <line x1="860" y1="480" x2="721.048" y2="561.0" />
+            <line x1="860" y1="480" x2="998.952" y2="561.0" />
+        </g>
+        
+
+    <!-- Brake Rotor -->
+    <circle cx="860" cy="480" r="48" fill="none" stroke="#A0A0A0" stroke-width="10" stroke-dasharray="14, 4" />
+    <circle cx="860" cy="480" r="48" fill="none" stroke="#555" stroke-width="1" />
+    <!-- Hub -->
+    <circle cx="860" cy="480" r="26" fill="url(#metalHubGrad)" stroke="#111" stroke-width="3" />
+    <circle cx="860" cy="480" r="8" fill="#FF5722" />
+    
+
+    <!-- Chain and Drivetrain -->
+    <!-- Chain Lower Run -->
+    <line x1="340" y1="494" x2="580" y2="524" stroke="#777" stroke-width="4.5" stroke-dasharray="5,2" />
+    <!-- Chain Upper Run -->
+    <line x1="340" y1="466" x2="580" y2="436" stroke="#999" stroke-width="4.5" stroke-dasharray="5,2" />
+    <!-- Rear Cassette -->
+    <circle cx="340" cy="480" r="32" fill="#666" stroke="#444" stroke-width="2" />
+    <circle cx="340" cy="480" r="22" fill="#888" stroke="#333" stroke-width="2" />
+    <circle cx="340" cy="480" r="12" fill="#BBB" />
+    <!-- Rear Derailleur -->
+    <path d="M 335 490 L 332 518 L 352 524" fill="none" stroke="#222" stroke-width="6" stroke-linecap="round" />
+    <circle cx="332" cy="518" r="8" fill="#111" stroke="#FF5722" stroke-width="2" />
+    <circle cx="352" cy="524" r="8" fill="#111" stroke="#FF5722" stroke-width="2" />
+    <!-- Chainring / Spider -->
+    <circle cx="580" cy="480" r="48" fill="url(#carbonGrad)" stroke="#222" stroke-width="4" />
+    <circle cx="580" cy="480" r="42" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="8,4" />
+    <!-- Crank Arm -->
+    <line x1="580" y1="480" x2="618" y2="525" stroke="#D1D5DB" stroke-width="11" stroke-linecap="round" />
+    <!-- Pedal -->
+    <rect x="612" y="525" width="20" height="8" rx="3" fill="#1F2937" stroke="#FF5722" stroke-width="1.5" />
+    <!-- Bottom Bracket Hub -->
+    <circle cx="580" cy="480" r="16" fill="#111" stroke="#444" stroke-width="3" />
+    <circle cx="580" cy="480" r="6" fill="#FF5722" />
+    
+
+    <!-- Extreme Triathlon Aero TT Frame -->
+    <path d="M 340 480 L 580 480" stroke="url(#carbonGrad)" stroke-width="24" stroke-linecap="round" />
+    <path d="M 340 480 L 515 250" stroke="url(#carbonGrad)" stroke-width="22" stroke-linecap="round" />
+    <!-- Forward-Aero Seattube Wheelcutout -->
+    <path d="M 580 480 C 550 400, 540 320, 515 230" fill="none" stroke="url(#carbonGrad)" stroke-width="36" stroke-linecap="round" />
+    <path d="M 570 440 C 545 380, 535 320, 515 240" fill="none" stroke="url(#orangeLivery)" stroke-width="10" />
+
+    <!-- Forward TT Saddle -->
+    <line x1="515" y1="230" x2="510" y2="170" stroke="#111" stroke-width="22" stroke-linecap="round" />
+    <path d="M 460 162 C 490 156, 545 156, 565 165 C 540 174, 480 174, 460 162 Z" fill="#1F2937" stroke="url(#orangeLivery)" stroke-width="2.5" />
+
+    <!-- Monocoque Aero Downtube -->
+    <path d="M 580 480 L 785 240" stroke="url(#carbonGrad)" stroke-width="42" stroke-linecap="round" />
+    <path d="M 605 450 L 770 260" stroke="url(#orangeLivery)" stroke-width="12" />
+    <text x="695" y="340" fill="white" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="16" letter-spacing="4" transform="rotate(-38 695 340)" text-anchor="middle">BOLIDE TT</text>
+
+    <!-- Toptube -->
+    <path d="M 515 250 L 785 240" stroke="url(#carbonGrad)" stroke-width="26" stroke-linecap="round" />
+    <path d="M 530 250 L 770 242" stroke="#FFFFFF" stroke-width="4" opacity="0.9" />
+
+    <!-- Integrated TT Fork -->
+    <path d="M 785 240 L 860 480" stroke="url(#carbonGrad)" stroke-width="26" stroke-linecap="round" />
+    <path d="M 795 270 L 850 450" stroke="url(#orangeLivery)" stroke-width="7" />
+
+    <!-- TT Aerobars with Elbow Armrests & Extensions -->
+    <path d="M 785 240 L 800 215 L 860 215" stroke="#111" stroke-width="16" stroke-linecap="round" />
+    <!-- Elbow Pads -->
+    <ellipse cx="830" cy="205" rx="14" ry="5" fill="#374151" stroke="url(#orangeLivery)" stroke-width="2" />
+    <!-- Ski-bend Extensions -->
+    <path d="M 830 215 L 905 210 L 915 190" fill="none" stroke="url(#orangeLivery)" stroke-width="6" stroke-linecap="round" />
+    
+</svg>

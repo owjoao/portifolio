@@ -1,0 +1,262 @@
+[
+  {
+    "id": "task-001",
+    "title": "Auditar arquitetura e stack técnica [Bloco 1] ⚡ [jvna14]",
+    "description": "Inspecionar estrutura local, configs e stack técnica para fundamentar: \"Crie uma landing page premium para uma clínica de oftalmologia. Quero algo moderno, responsivo, com sistema 3D, animações, SEO e melhor conversão.\"",
+    "agent": "project-analyst",
+    "status": "FAILED",
+    "priority": "high",
+    "dependencies": [],
+    "files": [
+      "package.json",
+      "tsconfig.json"
+    ],
+    "accountEmail": "jvna14@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex",
+    "createdAt": "2026-10-03T20:08:22.476Z",
+    "startedAt": "2026-10-03T20:08:24.885Z",
+    "checkpointId": "checkpoint-task-001-1791058104886",
+    "result": "",
+    "error": "Timeout: Tarefa demorou mais de 90s para concluir"
+  },
+  {
+    "id": "task-002",
+    "title": "Analisar UX, jornada e conversão (CRO) [Bloco 2] ⚡ [clipeitudo2022]",
+    "description": "Estruturar proposta de valor, hierarquia visual, quebra de objeções e posicionamento estratégico de CTAs.",
+    "agent": "ux-designer",
+    "status": "FAILED",
+    "priority": "high",
+    "dependencies": [],
+    "files": [
+      "src/App.tsx"
+    ],
+    "accountEmail": "clipeitudo2022@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.476Z",
+    "startedAt": "2026-10-03T20:08:24.886Z",
+    "checkpointId": "checkpoint-task-002-1791058104895",
+    "result": "",
+    "error": "Timeout: Tarefa demorou mais de 90s para concluir"
+  },
+  {
+    "id": "task-003",
+    "title": "Auditar padrões e qualidade de código [Bloco 3] ⚡ [jvgatinho33]",
+    "description": "Analisar integridade de tipos TypeScript, segurança, modularidade e potenciais gargalos técnicos.",
+    "agent": "code-reviewer",
+    "status": "FAILED",
+    "priority": "high",
+    "dependencies": [],
+    "files": [],
+    "accountEmail": "jvgatinho33@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.476Z",
+    "startedAt": "2026-10-03T20:08:24.896Z",
+    "checkpointId": "checkpoint-task-003-1791058104905",
+    "result": "I am checking the files in the repository to locate the components and codebase related to \"Bloco 3\". Standing by for the directory scan results.\nI am waiting for the file search to complete to get the full list of files in the project.\n",
+    "error": "Timeout: Tarefa demorou mais de 90s para concluir"
+  },
+  {
+    "id": "task-004",
+    "title": "Consolidar Síntese Multicontas & Master Blueprint [Reduce] ⚡ [jvna14]",
+    "description": "Fundir os insights dos blocos paralelos (Arquitetura, UX e Código) para gerar o plano mestre unificado de execução.",
+    "agent": "orchestrator",
+    "status": "PENDING",
+    "priority": "critical",
+    "dependencies": [
+      "task-001",
+      "task-002",
+      "task-003"
+    ],
+    "files": [],
+    "accountEmail": "jvna14@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-005",
+    "title": "Criar novo Design System e tokens visuais ⚡ [clipeitudo2022]",
+    "description": "Elaborar paleta de cores dark mode premium, tipografia refinada e componentes de interface a partir da síntese mestre.",
+    "agent": "ui-designer",
+    "status": "PENDING",
+    "priority": "high",
+    "dependencies": [
+      "task-004"
+    ],
+    "files": [
+      "src/styles/globals.css",
+      "tailwind.config.js"
+    ],
+    "accountEmail": "clipeitudo2022@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-006",
+    "title": "Gerar asset visual premium #1 ⚡ [jvna14]",
+    "description": "Gerar prompt visual de alta fidelidade e asset gráfico #1 correspondente a: \"Crie uma landing page premium para uma clínica de oftalmologia. Quero algo moderno, responsivo, com sistema 3D, animações, SEO e melhor conversão.\" (Variação 1/2)",
+    "agent": "image-specialist",
+    "status": "PENDING",
+    "priority": "medium",
+    "dependencies": [
+      "task-005"
+    ],
+    "files": [
+      "public/assets/generated/hero-asset-v1.svg"
+    ],
+    "accountEmail": "jvna14@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-007",
+    "title": "Gerar asset visual premium #2 ⚡ [clipeitudo2022]",
+    "description": "Gerar prompt visual de alta fidelidade e asset gráfico #2 correspondente a: \"Crie uma landing page premium para uma clínica de oftalmologia. Quero algo moderno, responsivo, com sistema 3D, animações, SEO e melhor conversão.\" (Variação 2/2)",
+    "agent": "image-specialist",
+    "status": "PENDING",
+    "priority": "medium",
+    "dependencies": [
+      "task-005"
+    ],
+    "files": [
+      "public/assets/generated/hero-asset-v2.svg"
+    ],
+    "accountEmail": "clipeitudo2022@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-008",
+    "title": "Criar componente interativo 3D / WebGL ⚡ [clipeitudo2022]",
+    "description": "Desenvolver cena WebGL interativa com alta taxa de quadros (60fps) e baixa sobrecarga.",
+    "agent": "3d-specialist",
+    "status": "PENDING",
+    "priority": "medium",
+    "dependencies": [
+      "task-005"
+    ],
+    "files": [
+      "src/components/3d/EyeScene.tsx"
+    ],
+    "accountEmail": "clipeitudo2022@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-009",
+    "title": "Implementar Hero section e componentes principais ⚡ [jvna14]",
+    "description": "Construir a seção Hero modular, responsiva e com integração direta aos novos assets gráficos e 3D.",
+    "agent": "frontend-engineer",
+    "status": "PENDING",
+    "priority": "critical",
+    "dependencies": [
+      "task-005",
+      "task-006",
+      "task-007",
+      "task-008"
+    ],
+    "files": [
+      "src/components/Hero.tsx",
+      "src/App.tsx"
+    ],
+    "accountEmail": "jvna14@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-010",
+    "title": "Implementar animações e microinterações ⚡ [clipeitudo2022]",
+    "description": "Adicionar transições fluidas, revelações graduais ao rolar a página e feedback interativo nos CTAs.",
+    "agent": "motion-designer",
+    "status": "PENDING",
+    "priority": "medium",
+    "dependencies": [
+      "task-009"
+    ],
+    "files": [
+      "src/components/Hero.tsx"
+    ],
+    "accountEmail": "clipeitudo2022@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.477Z"
+  },
+  {
+    "id": "task-011",
+    "title": "Implementar SEO técnico, tags OpenGraph e Schema.org ⚡ [jvgatinho33]",
+    "description": "Configurar meta tags completas, Twitter Card, e script JSON-LD de dados estruturados para máxima visibilidade e GEO.",
+    "agent": "seo-specialist",
+    "status": "PENDING",
+    "priority": "medium",
+    "dependencies": [
+      "task-009"
+    ],
+    "files": [
+      "index.html"
+    ],
+    "accountEmail": "jvgatinho33@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.478Z"
+  },
+  {
+    "id": "task-012",
+    "title": "Executar testes, lint e validação de build ⚡ [jvna14]",
+    "description": "Verificar ausência de erros de compilação TypeScript, testar empacotamento Vite e checar responsividade.",
+    "agent": "qa-agent",
+    "status": "PENDING",
+    "priority": "high",
+    "dependencies": [
+      "task-009",
+      "task-010",
+      "task-011"
+    ],
+    "files": [],
+    "accountEmail": "jvna14@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex",
+    "createdAt": "2026-10-03T20:08:22.478Z"
+  },
+  {
+    "id": "task-013",
+    "title": "Revisar código e boas práticas de arquitetura ⚡ [clipeitudo2022]",
+    "description": "Auditar tipagens estritas, separação de responsabilidades e segurança do código implementado.",
+    "agent": "code-reviewer",
+    "status": "PENDING",
+    "priority": "high",
+    "dependencies": [
+      "task-012"
+    ],
+    "files": [],
+    "accountEmail": "clipeitudo2022@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.478Z"
+  },
+  {
+    "id": "task-014",
+    "title": "Revisão visual e polimento de acabamento ⚡ [jvgatinho33]",
+    "description": "Validar contrastes WCAG, harmonia das margens, alinhamentos e sensação premium global.",
+    "agent": "visual-reviewer",
+    "status": "PENDING",
+    "priority": "medium",
+    "dependencies": [
+      "task-012"
+    ],
+    "files": [],
+    "accountEmail": "jvgatinho33@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex (Completo)",
+    "createdAt": "2026-10-03T20:08:22.478Z"
+  },
+  {
+    "id": "task-015",
+    "title": "Corrigir eventuais apontamentos da revisão ⚡ [jvna14]",
+    "description": "Aplicar ajustes finos ou correções reportadas pelos revisores técnicos e visuais.",
+    "agent": "fix-agent",
+    "status": "PENDING",
+    "priority": "high",
+    "dependencies": [
+      "task-013",
+      "task-014"
+    ],
+    "files": [],
+    "accountEmail": "jvna14@gmail.com",
+    "workerTier": "Google Pro + ChatGPT Codex",
+    "createdAt": "2026-10-03T20:08:22.478Z"
+  }
+]
